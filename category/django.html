@@ -311,6 +311,25 @@ tags: <a href="/tag/django.html">Django</a> </div>
 	</div>
 </div>	
 <div class='article'>
+	<h2>Django查询语句</h2>
+	<div class="well small">Permalink: <a class="more" href="/Django查询语句.html">2019-08-08 18:44:00+02:00</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/django.html">Django</a>
+tags: <a href="/tag/django.html">Django</a> </div>
+	<div class="summary"><h1>查询语句</h1>
+<div class="highlight"><pre><span></span>    #查询全部数据 翻译为 <span class="nv">select</span> <span class="o">*</span> <span class="nv">from</span> <span class="nv">user</span><span class="c1">; all()返回值是list</span>
+    <span class="nv">res</span> <span class="o">=</span> <span class="nv">User</span>.<span class="nv">objects</span>.<span class="nv">all</span><span class="ss">()</span>
+    #<span class="nv">print</span><span class="ss">(</span><span class="nv">res</span><span class="ss">)</span>
+    #分页 <span class="mi">0</span>开始位置,<span class="mi">2</span>结束位置，注意<span class="mi">2</span>不是取几条
+    <span class="nv">res</span> <span class="o">=</span> <span class="nv">User</span>.<span class="nv">objects</span>.<span class="nv">all</span><span class="ss">()</span>[<span class="mi">0</span>,<span class="mi">2</span>]
+    #<span class="nv">print</span><span class="ss">(</span><span class="nv">res</span><span class="ss">)</span>
+
+    #查询限定条件的数据 翻译为 <span class="nv">select</span> <span class="o">*</span> <span class="nv">from</span> <span class="nv">user</span> <span class="nv">where</span> <span class="nv">username</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="s">新用户123</span><span class="s1">&#39;</span> <span class="nv">and</span>逻辑使用多个参数传递
+    <span class="nv">res</span> <span class="o">=</span> <span class="nv">User</span>.<span class="nv">objects</span>.<span class="nv">filter</span><span class="ss">(</span><span class="nv">username</span><span class="o">=</span><span class="s1">&#39;</span><span class="s">新用户</span><span class="s1">&#39;</span>,<span class="nv">password</span><span class="o">=</span><span class="s1">&#39;</span><span class="s">你好</span><span class="s1">&#39;</span><span class="ss">)</span>
+    #<span class="nv">print</span><span class="ss">(</span><span class="nv">res …</span></pre></div> <a class="btn primary xsmall" href="/Django查询语句.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
 	<h2>Django跨域与VUE跨域</h2>
 	<div class="well small">Permalink: <a class="more" href="/Django跨域与VUE跨域.html">2019-08-08 18:44:00+02:00</a>
 by <a class="url fn" href="/author/shang-wei.html">商伟 </a>

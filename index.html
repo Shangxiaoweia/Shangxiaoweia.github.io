@@ -393,54 +393,22 @@ tags: <a href="/tag/django.html">Django</a> </div>
 	</div>
 </div>	
 <div class='article'>
-	<h2>Django跨域与VUE跨域</h2>
-	<div class="well small">Permalink: <a class="more" href="/Django跨域与VUE跨域.html">2019-08-08 18:44:00+02:00</a>
+	<h2>Django查询语句</h2>
+	<div class="well small">Permalink: <a class="more" href="/Django查询语句.html">2019-08-08 18:44:00+02:00</a>
 by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
  in <a href="/category/django.html">Django</a>
 tags: <a href="/tag/django.html">Django</a> </div>
-	<div class="summary"><h2>Django 解决跨域</h2>
-<ul>
-<li>安装 django-cors-headers</li>
-</ul>
-<div class="highlight"><pre><span></span>  pip install django-cors-headers
-</pre></div>
+	<div class="summary"><h1>查询语句</h1>
+<div class="highlight"><pre><span></span>    #查询全部数据 翻译为 <span class="nv">select</span> <span class="o">*</span> <span class="nv">from</span> <span class="nv">user</span><span class="c1">; all()返回值是list</span>
+    <span class="nv">res</span> <span class="o">=</span> <span class="nv">User</span>.<span class="nv">objects</span>.<span class="nv">all</span><span class="ss">()</span>
+    #<span class="nv">print</span><span class="ss">(</span><span class="nv">res</span><span class="ss">)</span>
+    #分页 <span class="mi">0</span>开始位置,<span class="mi">2</span>结束位置，注意<span class="mi">2</span>不是取几条
+    <span class="nv">res</span> <span class="o">=</span> <span class="nv">User</span>.<span class="nv">objects</span>.<span class="nv">all</span><span class="ss">()</span>[<span class="mi">0</span>,<span class="mi">2</span>]
+    #<span class="nv">print</span><span class="ss">(</span><span class="nv">res</span><span class="ss">)</span>
 
-
-<ul>
-<li>在 settings.py 的 install_apps 中注册</li>
-</ul>
-<div class="highlight"><pre><span></span>  <span class="nv">INSTALLED_APPS</span> <span class="o">=</span> <span class="o">[</span>
-      <span class="s1">&#39;corsheaders&#39;</span>
-  <span class="o">]</span>
-</pre></div>
-
-
-<ul>
-<li>在settings.py 的 middleware 中注册</li>
-</ul>
-<div class="highlight"><pre><span></span>  <span class="nv">MIDDLEWARE</span> <span class="o">=</span> <span class="o">[</span>
-      <span class="s1">&#39;corsheaders.middleware.CorsMiddleware&#39;</span>, <span class="c1"># 一定要在commonmiddleware之上</span>
-    <span class="s1">&#39;django.middleware.common.CommonMiddleware&#39;</span>,
-  <span class="o">]</span>
-</pre></div>
-
-
-<ul>
-<li>在 settings.py 的任意位置 添加</li>
-</ul>
-<div class="highlight"><pre><span></span>  <span class="nv">CORS_ORIGIN_ALLOW_ALL</span> <span class="o">=</span> True
-</pre></div>
-
-
-<ul>
-<li>完成django 跨域</li>
-</ul>
-<h2>VUE 解决跨域</h2>
-<ul>
-<li>打开config/index.js,在proxyTable中添写如下代码</li>
-</ul>
-<div class="highlight"><pre><span></span>proxyTable: <span class="o">{</span> 
-  <span class="s1">&#39;/api&#39;</span>: <span class="o">{</span>  //使用<span class="s2">&quot;/api&quot;</span>来代替<span class="s2">&quot;http …</span></pre></div> <a class="btn primary xsmall" href="/Django跨域与VUE跨域.html">more…</a>
+    #查询限定条件的数据 翻译为 <span class="nv">select</span> <span class="o">*</span> <span class="nv">from</span> <span class="nv">user</span> <span class="nv">where</span> <span class="nv">username</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="s">新用户123</span><span class="s1">&#39;</span> <span class="nv">and</span>逻辑使用多个参数传递
+    <span class="nv">res</span> <span class="o">=</span> <span class="nv">User</span>.<span class="nv">objects</span>.<span class="nv">filter</span><span class="ss">(</span><span class="nv">username</span><span class="o">=</span><span class="s1">&#39;</span><span class="s">新用户</span><span class="s1">&#39;</span>,<span class="nv">password</span><span class="o">=</span><span class="s1">&#39;</span><span class="s">你好</span><span class="s1">&#39;</span><span class="ss">)</span>
+    #<span class="nv">print</span><span class="ss">(</span><span class="nv">res …</span></pre></div> <a class="btn primary xsmall" href="/Django查询语句.html">more…</a>
 	</div>
 </div>	
 
@@ -450,6 +418,7 @@ tags: <a href="/tag/django.html">Django</a> </div>
 		<li class="active"><a href="/index.html">1</a></li>
 		<li class=""><a href="/index2.html">2</a></li>
 		<li class=""><a href="/index3.html">3</a></li>
+		<li class=""><a href="/index4.html">4</a></li>
 		<li class="next"><a href="/index2.html">Next &rarr;</a></li>
 </ul>
 </div>
