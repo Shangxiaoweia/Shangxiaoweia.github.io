@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>商伟的技术博客</title>
+	<meta name="description" content="">
+	<meta name="author" content="商伟">
+
+	<!-- HTML5 shim, for IE6-8 support of HTML elements -->
+	<!--[if lt IE 9]>
+		<script src="/theme/html5.js"></script>
+	<![endif]-->
+
+	<!-- Styles -->
+	<link href="/theme/bootstrap.min.css" rel="stylesheet">
+	<link href="/theme/local.css" rel="stylesheet">
+	<link href="/theme/pygments.css" rel="stylesheet">
+
+	<!-- Feeds -->
+
+
+
+
+</head>
+<body>
+	<div class="topbar">
+	  <div class="topbar-inner">
+		<div class="container-fluid">
+		  <a class="brand" href="/">商伟的技术博客</a>
+			<ul class="nav">
+					<li ><a href="/category/django.html">Django</a></li>
+					<li ><a href="/category/git.html">GIT</a></li>
+					<li ><a href="/category/mysql.html">MySQL</a></li>
+					<li class="active"><a href="/category/pa-chong.html">爬虫</a></li>
+					<li ><a href="/category/python.html">Python</a></li>
+					<li ><a href="/category/rabbitmq.html">RabbitMQ</a></li>
+					<li ><a href="/category/redis.html">redis</a></li>
+					<li ><a href="/category/supervisor.html">Supervisor</a></li>
+					<li ><a href="/category/vue.html">VUE</a></li>
+					<li ><a href="/category/wang-luo.html">网络</a></li>
+					<li ><a href="/category/xu-ni-huan-jing.html">虚拟环境</a></li>
+			</ul>
+			<p class="pull-right"><a href="/archives.html">[archives]</a> <a href="/tags.html">[tags]</a></p>
+		</div>
+	  </div>
+	</div>
+
+	<div class="container-fluid">
+	  <div class="sidebar">
+		<div class="well">
+			<h3>Blogroll</h3>
+			<ul>
+				<li><a href="http://getpelican.com/">Pelican</a></li>
+				<li><a href="http://python.org/">Python.org</a></li>
+				<li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+				<li><a href="#">You can modify those links in your config file</a></li>
+			</ul>
+			<div class="social">
+			<h3>Social</h3>
+			<ul>
+				<li><a href="#">You can add links in your config file</a></li>
+				<li><a href="#">Another social link</a></li>
+			</ul>
+			</div>
+		</div>
+	  </div>
+	  <div class="content">
+	<div class='article'>
+		<div class="page-header"><h1>爬虫第一个请求</h1></div>
+		<div class="well small">Permalink: <a class="more" href="/爬虫第一个请求.html">2019-08-08 18:44:00+02:00</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/pa-chong.html">爬虫</a>
+tags: <a href="/tag/pa-chong.html">爬虫</a> </div>
+		<div><hr>
+<h2>1.请求过程与网页基础</h2>
+<h4>1.1  URL介绍</h4>
+<div class="highlight"><pre><span></span>- 确定URL
+</pre></div>
+
+
+<h4>1.2  HTTP请求过程</h4>
+<div class="highlight"><pre><span></span># 请求过程:
+
+​    客户端, 通常指web浏览器或APP向服务器发起请求, 服务器接收到请求进行处理, 并向客户端发起响应.
+</pre></div>
+
+
+<h4>1.3  请求</h4>
+<div class="highlight"><pre><span></span><span class="c1"># 请求: 有客户端向服务器发出的, 可以分为四部分内容: 请求方法(Request Method), 请求网址(Request URL), 请求头(Request Headers), 请求体(Request Body)</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="c1"># 请求方法:常见有8种</span>
+
+<span class="o">-</span> <span class="n">GET</span><span class="p">:</span> <span class="err">请求页面</span><span class="p">,</span> <span class="err">并返回页面内容</span>  <span class="c1"># 重点</span>
+
+<span class="o">-</span> <span class="n">POST</span><span class="p">:</span> <span class="err">用于提交表单数据或上传文件</span><span class="p">,</span> <span class="err">数据包含在请求体中</span>  <span class="c1"># 重点</span>
+
+<span class="o">-</span> <span class="n">PUT</span><span class="p">:</span> <span class="err">从客户端向服务器传送的数据取代指定文档中的内容</span>
+
+<span class="o">-</span> <span class="n">DELETE</span><span class="p">:</span> <span class="err">请求服务器删除指定的页面</span>
+
+<span class="o">-</span> <span class="n">HEAD</span><span class="p">:</span> <span class="err">类似于</span><span class="n">GET请求</span><span class="err">，只不过返回的响应中没有具体的内容，用于获取报头</span>
+
+<span class="o">-</span> <span class="n">CONNECT</span><span class="p">:</span> <span class="err">把服务器当作跳板，让服务器代替客户端访问其他网页</span>
+
+<span class="o">-</span> <span class="n">OPTIONS</span><span class="p">:</span> <span class="err">允许客户端查看服务器的性能</span>
+
+<span class="o">-</span> <span class="n">TRACE</span><span class="p">:</span> <span class="err">回显服务器收到的请求，主要用于测试或诊断</span>
+
+<span class="err">​</span>    
+
+<span class="c1"># 中点掌握GET &amp; POST: GET与POST的区别(重点)  --&gt;  (面试出镜率较高)</span>
+
+<span class="err">​</span>    <span class="mf">1.</span><span class="n">GET请求中的参数包含在URL里面</span><span class="p">,</span> <span class="err">数据可以在</span><span class="n">URL中看到</span><span class="p">,</span> <span class="err">而</span><span class="n">POST请求的URL不会包含这些数据</span><span class="p">,</span> <span class="n">POST的数据都是通过表单形式传输的</span><span class="p">,</span> <span class="err">会包含在请求体中</span>
+
+<span class="err">​</span>    <span class="mf">2.</span><span class="n">GET请求提交的数据最多只有1024字节</span><span class="p">,</span> <span class="err">而</span><span class="n">POST方式没有限制</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span># 请求网址:
+
+请求的网址，即统一资源定位符URL，它可以唯一确定我们想请求的资源
+</pre></div>
+
+
+<div class="highlight"><pre><span></span># 请求头:
+
+请求头，用来说明服务器要使用的附加信息. 重点掌握: Accept, Cookie, Referer, User-Agent
+
+1.Accept：请求报头域，用于指定客户端可接受哪些类型的信息。  # 重点(*/*)
+
+2.Cookie：也常用复数形式 Cookies，这是网站为了辨别用户进行会话跟踪而存储在用户本地的数据。它的主要功能是维持当前访问会话。例如，我们输入用户名和密码成功登录某个网站后，服务器会用会话保存登录状态信息，后面我们每次刷新或请求该站点的其他页面时，会发现都是登录状态，这就是Cookies的功劳。Cookies里有信息标识了我们所对应的服务器的会话，每次浏览器在请求该站点的页面时，都会在请求头中加上Cookies并将其发送给服务器，服务器通过Cookies识别出是我们自己，并且查出当前状态是登录状态，所以返回结果就是登录之后才能看到的网页内容。  # 重点
+
+3.Referer：此内容用来标识这个请求是从哪个页面发过来的，服务器可以拿到这一信息并做相应的处理，如作来源统计、防盗链处理等。  # 重点
+
+4.User-Agent：简称UA，它是一个特殊的字符串头，可以使服务器识别客户使用的操作系统及版本、浏览器及版本等信息。在做爬虫时加上此信息，可以伪装为浏览器；如果不加，很可能会被识别出为爬虫  # 重点
+
+5.x-requested-with :XMLHttpRequest   # 代表ajax请求
+
+5.Accept-Language：指定客户端可接受的语言类型。
+
+6.Accept-Encoding：指定客户端可接受的内容编码
+
+7.Content-Type：也叫互联网媒体类型（Internet Media Type）或者MIME类型，在HTTP协议消息头中，它用来表示具体请求中的媒体类型信息。例如，text/html代表HTML格式，image/gif代表GIF图片，application/json代表JSON类型
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="c1"># 请求体:(古诗文网登陆实例)</span>
+
+<span class="err">请求体一般承载的内容是</span><span class="n">POST请求中的表单数据</span><span class="err">，而对于</span><span class="n">GET请求</span><span class="err">，请求体则为空。</span>
+</pre></div>
+
+
+<h4>1.4 响应</h4>
+<div class="highlight"><pre><span></span><span class="c1"># 响应, 是由服务端返回给客户端的, 可以分为三部分: 响应状态码(response status code), 响应头(response headers), 响应体(response body)</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span># 响应状态码: 用于判断请求后的相应状态, 如200代表请求成功, 404代表页面页面找不到, 500代表服务器错误
+
+# 常见的状态码:
+
+200系列:
+
+​    200   成功         服务器已成功处理了请求  # 重点
+
+300系列:
+
+​    301    永久移动     请求的网页已永久移动到新位置，即永久重定向  # 重点
+
+​    302    临时移动     请求的网页暂时跳转到其他页面，即暂时重定向  # 重点
+
+400系列:
+
+​    400    错误请求     服务器无法解析该请求  # 重点
+
+​    401    未授权       请求没有进行身份验证或验证未通过
+
+​    403    禁止访问     服务器拒绝此请求  # 重点
+
+​    404    未找到       服务器找不到请求的网页
+
+500系列
+
+​    500    服务器内部错误   服务器遇到错误，无法完成请求  # 重点
+
+​    501    未实现       服务器不具备完成请求的功能
+
+​    502    错误网关     服务器作为网关或代理，从上游服务器收到无效响应
+
+​    504    网关超时     服务器作为网关或代理，但是没有及时从上游服务器收到请求
+
+​    505    HTTP版本不支持   服务器不支持请求中所用的HTTP协议版本
+</pre></div>
+
+
+<p>(注意: 状态码不能完全代表响应状态, 部分网站的状态码是自定义的, 一切以响应的数据为准)</p>
+<div class="highlight"><pre><span></span># 响应头:
+
+响应头包含了服务器对请求的应答信息
+
+Date：标识响应产生的时间。
+
+Content-Encoding：指定响应内容的编码。
+
+Server：包含服务器的信息，比如名称、版本号等。
+
+Content-Type：文档类型，指定返回的数据类型是什么，如text/html代表返回HTML文档，application/x-javascript则代表返回JavaScript文件，image/jpeg则代表返回图片。
+
+Set-Cookie：设置Cookies。响应头中的Set-Cookie告诉浏览器需要将此内容放在Cookies中，下次请求携带Cookies请求。
+
+Expires：指定响应的过期时间，可以使代理服务器或浏览器将加载的内容更新到缓存中。如果再次访问时，就可以直接从缓存中加载，降低服务器负载，缩短加载时间。
+</pre></div>
+
+
+<div class="highlight"><pre><span></span># 响应体:
+
+最重要的当属响应体的内容了。响应的正文数据都在响应体中，比如请求网页时，它的响应体就是网页的HTML代码；请求一张图片时，它的响应体就是图片的二进制数据。我们做爬虫请求网页后，要解析的内容就是响应体.
+</pre></div>
+
+
+<h4>1.4  网页基础</h4>
+<div class="highlight"><pre><span></span><span class="c1"># 网页的组成:</span>
+
+<span class="err">网页可以分为三部分</span><span class="p">,</span> <span class="n">HTML</span><span class="p">,</span> <span class="n">CSS</span><span class="p">,</span> <span class="n">JavaScript</span>
+
+<span class="mf">1.</span><span class="n">HTML</span><span class="p">:</span> <span class="err">其全称叫作</span><span class="n">Hyper</span> <span class="n">Text</span> <span class="n">Markup</span> <span class="n">Language</span><span class="err">，即超文本标记语言。</span>
+
+<span class="err">​</span>        <span class="err">定义了网页的骨架</span>
+
+<span class="err">​</span>        
+
+<span class="mf">2.</span><span class="n">CSS</span><span class="p">:</span> <span class="err">全称叫作</span><span class="n">Cascading</span> <span class="n">Style</span> <span class="n">Sheets</span><span class="err">，即层叠样式表。</span>
+
+<span class="err">​</span>       <span class="err">定义了网页的样式</span>
+
+<span class="err">​</span>        
+
+<span class="mf">3.</span><span class="n">JavaScript</span><span class="p">:</span> <span class="err">简称</span><span class="n">JS</span><span class="err">，是一种脚本语言</span>
+
+<span class="err">​</span>              <span class="err">定义了网页与用户的交互行为</span><span class="p">,</span> <span class="err">如下载进度条</span><span class="p">,</span> <span class="err">提示框</span><span class="p">,</span> <span class="err">轮播图</span> 
+</pre></div>
+
+
+<hr>
+<h2>2.第一个请求</h2>
+<h4>2.1  爬虫工作流(复习)</h4>
+<div class="highlight"><pre><span></span>1.确定url, 向服务器发送请求并获得响应: requests, urllib, aiohttp
+
+2.在响应中提取目标数据, 即数据解析: xpath, bs4, 正则, PyQuery
+
+3.数据持久化: 文件, 关系型数据库, 非关系型数据库
+</pre></div>
+
+
+<h4>2.2 第一个爬虫</h4>
+<div class="highlight"><pre><span></span># 需求: 爬取百度首页, 并写入文件中, 最后用浏览器打开文件查看效果
+
+import requests
+
+# 1.确定url, 向服务器发送请求
+
+url = &#39;https://www.baidu.com&#39;
+
+res = resquests.get(url=url)
+
+# 2.操作响应数据, 获取目标数据
+
+res.encoding = &#39;utf-8&#39;
+
+# 3.将目标数据持久化到本地: 写入文件
+
+with open(&#39;baidu.html&#39;, &#39;w&#39;, encoding=&#39;utf-8&#39;) as f:
+
+​    f.write(res.text)
+</pre></div>
+
+
+<hr>
+<h2>3.requests模块基本使用</h2>
+<div class="highlight"><pre><span></span># requests库的安装
+
+pip install requests
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>1.get请求:
+
+​    不携带参数的get请求
+
+​    不携带参数的get请求 + headers
+
+​    携带参数的get请求 + headers
+
+​    
+
+2.post请求: 构建参数的post请求
+
+​    
+
+3.响应数据的获取与属性
+
+​    (1).响应数据的获取:
+
+​            res.text: 文本数据
+
+​            res.json(): json数据
+
+​            res.content: 流
+
+​    (2).向应的其他属性:
+
+​            res.status_code: 获取响应状态码
+
+​            res.headers: 响应头
+
+​            res.cookie: cookie信息
+</pre></div>
+
+
+<h4>3.1  requests模块的get请求</h4>
+<div class="highlight"><pre><span></span># 不携带参数的get请求: 爬取搜狗主页
+
+import requests
+
+url = &#39;https://www.sogou.com/&#39;
+
+res = requests.get(url=url)
+
+print(res)
+
+print(res.text)
+
+with open(&#39;sougou.html&#39;, &#39;w&#39;, encoding=&#39;utf-8&#39;) as f:
+
+​    f.write(res.text)
+</pre></div>
+
+
+<div class="highlight"><pre><span></span># 不携带参数的get请求  +  headers: 爬取知乎的发现页
+
+import requests
+
+headers = {
+
+​    &#39;User-Agent&#39;: &#39;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36&#39;
+
+}
+
+url = &#39;https://www.zhihu.com/explore&#39;
+
+res = requests.get(url=url, headers=headers)
+
+with open(&#39;zhihu.html&#39;, &#39;w&#39;, encoding=&#39;utf-8&#39;) as f:
+
+​    f.write(res.text)
+</pre></div>
+
+
+<div class="highlight"><pre><span></span># 携带参数的get请求  +  headers: 知乎的发现栏中搜索Python
+
+import requests
+
+headers = {
+
+​    &#39;User-Agent&#39;:&#39;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36&#39;
+
+}
+
+url= &#39;https://www.zhihu.com/search?&#39;
+
+params = {
+
+​    &#39;type&#39;:&#39;content&#39;,
+
+​    &#39;q&#39;:&#39;python&#39;
+
+}
+
+res = requests.get(url=url, headers=headers, params=params)
+
+print(res)
+
+print(res.text)
+
+with open(&#39;python.html&#39;, &#39;w&#39;, encoding=&#39;utf-8&#39;) as f:
+
+​    f.write(res.text)
+</pre></div>
+
+
+<h4>3.2  requests模块的post请求</h4>
+<div class="highlight"><pre><span></span># requests的post请求: 以post方式请求httpbin.org/post时会返回提交的请求信息
+
+import requests
+
+headers = {
+
+​     &#39;User-Agent&#39;:&#39;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36&#39;
+
+}
+
+url = &#39;http://httpbin.org/post&#39;
+
+data = {
+
+​    &#39;name&#39;: &#39;spiderman&#39;,
+
+​    &#39;age&#39;: 8
+
+}
+
+res = requests.post(url=url, headers=headers, data=data)
+
+print(res.text)
+</pre></div>
+
+
+<h4>3.3  json形式与流形式的响应数据示例</h4>
+<div class="highlight"><pre><span></span># json形式响应数据示例: bilibili的Python视频教程, 目录列表
+
+import requests
+
+headers = {
+
+​     &#39;User-Agent&#39;:&#39;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36&#39;
+
+}
+
+url = &#39;https://api.bilibili.com/x/web-interface/view?aid=14184325&amp;cid=23153678&#39;
+
+res = requests.get(url=url, headers=headers)
+
+print(res)
+
+print(res.status_code)
+
+print(res.headers)
+
+print(&#39;-----------------------------------------------------------------------------&#39;)
+
+print(res.json())
+</pre></div>
+
+
+<div class="highlight"><pre><span></span># 流形式响应数据示例: 站长素材的简历模板
+
+import requests
+
+headers = {
+
+​     &#39;User-Agent&#39;:&#39;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36&#39;
+
+}
+
+url = &#39;http://fjdx.sc.chinaz.net/Files/DownLoad/jianli/201907/jianli10810.rar&#39;
+
+res = requests.get(url=url, headers=headers)
+
+print(res.content)
+
+with open(&#39;janli.rar&#39;, &#39;wb&#39;) as f:
+
+​    f.write(res.content)
+</pre></div></div>
+	</div>
+		<footer>
+		  <p>Powered by <a href="http://getpelican.com/">Pelican</a>. Theme based on <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a>.</p>
+		  <p>&copy; 商伟</p>
+		</footer>
+	  </div>
+
+	</div>
+</body>
+</html>

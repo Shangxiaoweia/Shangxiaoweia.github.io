@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>商伟的技术博客</title>
+	<meta name="description" content="">
+	<meta name="author" content="商伟">
+
+	<!-- HTML5 shim, for IE6-8 support of HTML elements -->
+	<!--[if lt IE 9]>
+		<script src="/theme/html5.js"></script>
+	<![endif]-->
+
+	<!-- Styles -->
+	<link href="/theme/bootstrap.min.css" rel="stylesheet">
+	<link href="/theme/local.css" rel="stylesheet">
+	<link href="/theme/pygments.css" rel="stylesheet">
+
+	<!-- Feeds -->
+
+
+
+
+</head>
+<body>
+	<div class="topbar">
+	  <div class="topbar-inner">
+		<div class="container-fluid">
+		  <a class="brand" href="/">商伟的技术博客</a>
+			<ul class="nav">
+					<li class="active"><a href="/category/django.html">Django</a></li>
+					<li ><a href="/category/git.html">GIT</a></li>
+					<li ><a href="/category/mysql.html">MySQL</a></li>
+					<li ><a href="/category/pa-chong.html">爬虫</a></li>
+					<li ><a href="/category/python.html">Python</a></li>
+					<li ><a href="/category/rabbitmq.html">RabbitMQ</a></li>
+					<li ><a href="/category/redis.html">redis</a></li>
+					<li ><a href="/category/supervisor.html">Supervisor</a></li>
+					<li ><a href="/category/vue.html">VUE</a></li>
+					<li ><a href="/category/wang-luo.html">网络</a></li>
+					<li ><a href="/category/xu-ni-huan-jing.html">虚拟环境</a></li>
+			</ul>
+			<p class="pull-right"><a href="/archives.html">[archives]</a> <a href="/tags.html">[tags]</a></p>
+		</div>
+	  </div>
+	</div>
+
+	<div class="container-fluid">
+	  <div class="sidebar">
+		<div class="well">
+			<h3>Blogroll</h3>
+			<ul>
+				<li><a href="http://getpelican.com/">Pelican</a></li>
+				<li><a href="http://python.org/">Python.org</a></li>
+				<li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+				<li><a href="#">You can modify those links in your config file</a></li>
+			</ul>
+			<div class="social">
+			<h3>Social</h3>
+			<ul>
+				<li><a href="#">You can add links in your config file</a></li>
+				<li><a href="#">Another social link</a></li>
+			</ul>
+			</div>
+		</div>
+	  </div>
+	  <div class="content">
+	<div class='article'>
+		<div class="page-header"><h1>Django一对多系列化与反序列化</h1></div>
+		<div class="well small">Permalink: <a class="more" href="/Django一对多系列化与反序列化.html">2019-08-08 18:44:00+02:00</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/django.html">Django</a>
+tags: <a href="/tag/django.html">Django</a> </div>
+		<div><h2>DRF一对多序列化和反序列化</h2>
+<ul>
+<li><code>models.py</code></li>
+</ul>
+<div class="highlight"><pre><span></span>  <span class="c1"># 商品分类</span>
+  class Category<span class="o">(</span>models.Model<span class="o">)</span>:
+      <span class="nv">name</span> <span class="o">=</span> models.CharField<span class="o">(</span><span class="nv">max_length</span><span class="o">=</span><span class="m">32</span><span class="o">)</span>
+
+  <span class="c1"># 商品</span>
+  class Goods<span class="o">(</span>models.Model<span class="o">)</span>:
+      <span class="nv">name</span> <span class="o">=</span> models.CharField<span class="o">(</span><span class="nv">max_length</span><span class="o">=</span><span class="m">32</span><span class="o">)</span>
+      <span class="nv">price</span> <span class="o">=</span> models.DecimalField<span class="o">(</span><span class="nv">max_digits</span><span class="o">=</span><span class="m">9</span>,decimal_places<span class="o">=</span><span class="m">2</span><span class="o">)</span>
+      <span class="nv">cate</span> <span class="o">=</span> models.ForeignKey<span class="o">(</span><span class="nv">to</span><span class="o">=</span><span class="s1">&#39;Category&#39;</span>,on_delete<span class="o">=</span>models.CASCADE<span class="o">)</span>
+</pre></div>
+
+
+<ul>
+<li><code>urls.py</code></li>
+</ul>
+<div class="highlight"><pre><span></span>  from django.urls import path,include
+  from . import views
+  <span class="nv">urlpatterns</span> <span class="o">=</span> <span class="o">[</span>
+      path<span class="o">(</span><span class="s1">&#39;goods/&#39;</span>,views.GoodsView.as_view<span class="o">())</span>,
+  <span class="o">]</span>
+</pre></div>
+
+
+<ul>
+<li><code>seralizers.py</code></li>
+</ul>
+<div class="highlight"><pre><span></span>  <span class="c1"># 序列化</span>
+  class GoodsSerializer<span class="o">(</span>serializers.ModelSerializer<span class="o">)</span>:
+      <span class="c1"># 如果想查出分类名称 CharField(source=&#39;&lt;本model中的外键&gt;.&lt;外键指向的model的相应属性&gt;&#39;)</span>
+      <span class="nv">cate_name</span> <span class="o">=</span> serializers.CharField<span class="o">(</span><span class="nv">source</span><span class="o">=</span><span class="s1">&#39;cate.name&#39;</span><span class="o">)</span>
+      class Meta:
+          <span class="nv">model</span><span class="o">=</span>Goods
+          <span class="nv">fields</span> <span class="o">=</span> <span class="o">(</span><span class="s1">&#39;cate_name&#39;</span>,<span class="s1">&#39;name&#39;</span>,<span class="s1">&#39;price&#39;</span><span class="o">)</span>
+
+  <span class="c1"># 反序列化</span>
+  class GoodsUnSerializer<span class="o">(</span>serializers.Serializer<span class="o">)</span>:
+      <span class="nv">name</span> <span class="o">=</span> serializers.CharField<span class="o">(</span><span class="nv">max_length</span><span class="o">=</span><span class="m">32</span><span class="o">)</span>
+      <span class="nv">price</span> <span class="o">=</span> serializers.DecimalField<span class="o">(</span><span class="nv">max_digits</span><span class="o">=</span><span class="m">9</span>,decimal_places<span class="o">=</span><span class="m">2</span><span class="o">)</span>
+      <span class="nv">cate</span> <span class="o">=</span> serializers.IntegerField<span class="o">()</span>
+
+      <span class="c1"># 添加</span>
+      def create<span class="o">(</span>self, data<span class="o">)</span>:
+          <span class="k">return</span> Goods.objects.create<span class="o">(</span>
+              <span class="nv">cate_id</span> <span class="o">=</span> data.pop<span class="o">(</span><span class="s1">&#39;cate&#39;</span><span class="o">)</span>,
+              **data
+          <span class="o">)</span>
+      <span class="c1"># 编辑</span>
+      def update<span class="o">(</span>self,instance,data<span class="o">)</span>:
+          <span class="k">return</span> instance.update<span class="o">(</span>
+            <span class="nv">cate_id</span> <span class="o">=</span> data.pop<span class="o">(</span><span class="s1">&#39;cate&#39;</span><span class="o">)</span>,
+              **data
+          <span class="o">)</span>
+</pre></div>
+
+
+<ul>
+<li><code>views.py</code></li>
+</ul>
+<div class="highlight"><pre><span></span>  class GoodsView<span class="o">(</span>APIView<span class="o">)</span>:
+    <span class="c1"># 查询</span>
+      def get<span class="o">(</span>self,request<span class="o">)</span>:
+          <span class="nv">goods</span> <span class="o">=</span> models.Goods.objects.all<span class="o">()</span>
+          <span class="nv">gs</span> <span class="o">=</span> GoodsSerializer<span class="o">(</span>goods,many<span class="o">=</span>True<span class="o">)</span>
+          <span class="k">return</span> Response<span class="o">(</span>gs.data<span class="o">)</span>
+
+    <span class="c1"># 添加</span>
+      def post<span class="o">(</span>self,request<span class="o">)</span>:
+          <span class="nv">dic</span> <span class="o">=</span> <span class="o">{</span><span class="s2">&quot;name&quot;</span>:<span class="s2">&quot;商伟&quot;</span>,<span class="s2">&quot;price&quot;</span>:132,<span class="s1">&#39;cate&#39;</span>:3<span class="o">}</span>
+          <span class="nv">gs</span> <span class="o">=</span> GoodsUnSerializer<span class="o">(</span><span class="nv">data</span><span class="o">=</span>dic<span class="o">)</span>
+          <span class="k">if</span> gs.is_valid<span class="o">()</span>:
+              gs.save<span class="o">()</span>
+              <span class="k">return</span> HttpResponse<span class="o">(</span><span class="s1">&#39;ok&#39;</span><span class="o">)</span>
+          <span class="k">return</span> HttpResponse<span class="o">(</span><span class="s1">&#39;error&#39;</span><span class="o">)</span>
+
+      <span class="c1"># 更新</span>
+      def put<span class="o">(</span>self,request<span class="o">)</span>:
+          <span class="nv">obj</span> <span class="o">=</span> models.Goods.objects.filter<span class="o">(</span><span class="nv">id</span><span class="o">=</span><span class="m">1</span><span class="o">)</span>
+          <span class="nv">dic</span> <span class="o">=</span> <span class="o">{</span><span class="s2">&quot;name&quot;</span>:<span class="s2">&quot;韩敏&quot;</span>,<span class="s2">&quot;price&quot;</span>:234,<span class="s1">&#39;cate&#39;</span>:2<span class="o">}</span>
+          <span class="nv">gs</span> <span class="o">=</span> GoodsUnSerializer<span class="o">(</span>obj,data<span class="o">=</span>dic<span class="o">)</span>
+          <span class="k">if</span> gs.is_valid<span class="o">()</span>:
+              gs.save<span class="o">()</span>
+              <span class="k">return</span> HttpResponse<span class="o">(</span><span class="s1">&#39;put-ok&#39;</span><span class="o">)</span>
+          <span class="k">return</span> HttpResponse<span class="o">(</span><span class="s1">&#39;put-error&#39;</span><span class="o">)</span>
+</pre></div></div>
+	</div>
+		<footer>
+		  <p>Powered by <a href="http://getpelican.com/">Pelican</a>. Theme based on <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a>.</p>
+		  <p>&copy; 商伟</p>
+		</footer>
+	  </div>
+
+	</div>
+</body>
+</html>

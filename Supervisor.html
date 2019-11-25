@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>商伟的技术博客</title>
+	<meta name="description" content="">
+	<meta name="author" content="商伟">
+
+	<!-- HTML5 shim, for IE6-8 support of HTML elements -->
+	<!--[if lt IE 9]>
+		<script src="/theme/html5.js"></script>
+	<![endif]-->
+
+	<!-- Styles -->
+	<link href="/theme/bootstrap.min.css" rel="stylesheet">
+	<link href="/theme/local.css" rel="stylesheet">
+	<link href="/theme/pygments.css" rel="stylesheet">
+
+	<!-- Feeds -->
+
+
+
+
+</head>
+<body>
+	<div class="topbar">
+	  <div class="topbar-inner">
+		<div class="container-fluid">
+		  <a class="brand" href="/">商伟的技术博客</a>
+			<ul class="nav">
+					<li ><a href="/category/django.html">Django</a></li>
+					<li ><a href="/category/git.html">GIT</a></li>
+					<li ><a href="/category/mysql.html">MySQL</a></li>
+					<li ><a href="/category/pa-chong.html">爬虫</a></li>
+					<li ><a href="/category/python.html">Python</a></li>
+					<li ><a href="/category/rabbitmq.html">RabbitMQ</a></li>
+					<li ><a href="/category/redis.html">redis</a></li>
+					<li class="active"><a href="/category/supervisor.html">Supervisor</a></li>
+					<li ><a href="/category/vue.html">VUE</a></li>
+					<li ><a href="/category/wang-luo.html">网络</a></li>
+					<li ><a href="/category/xu-ni-huan-jing.html">虚拟环境</a></li>
+			</ul>
+			<p class="pull-right"><a href="/archives.html">[archives]</a> <a href="/tags.html">[tags]</a></p>
+		</div>
+	  </div>
+	</div>
+
+	<div class="container-fluid">
+	  <div class="sidebar">
+		<div class="well">
+			<h3>Blogroll</h3>
+			<ul>
+				<li><a href="http://getpelican.com/">Pelican</a></li>
+				<li><a href="http://python.org/">Python.org</a></li>
+				<li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+				<li><a href="#">You can modify those links in your config file</a></li>
+			</ul>
+			<div class="social">
+			<h3>Social</h3>
+			<ul>
+				<li><a href="#">You can add links in your config file</a></li>
+				<li><a href="#">Another social link</a></li>
+			</ul>
+			</div>
+		</div>
+	  </div>
+	  <div class="content">
+	<div class='article'>
+		<div class="page-header"><h1>Supervisor</h1></div>
+		<div class="well small">Permalink: <a class="more" href="/Supervisor.html">2019-08-09 18:44:00+02:00</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/supervisor.html">Supervisor</a>
+tags: <a href="/tag/supervisor.html">Supervisor</a> </div>
+		<div><h2>介绍</h2>
+<p>Supervisor就是一个超级管理员，监管员。Supervisor是一个进程管理工具，当进程中断的时候Supervisor能自动重新启动它。</p>
+<h2>Supervisor安装与配置</h2>
+<h3>1、安装Python包管理工具(<a href="https://pypi.org/project/setuptools/">easy_install</a>)</h3>
+<div class="highlight"><pre><span></span>yum install python-setuptools
+</pre></div>
+
+
+<h3>2、安装Supervisor</h3>
+<div class="highlight"><pre><span></span>easy_install supervisor
+</pre></div>
+
+
+<h3>3、配置Supervisor应用守护</h3>
+<p>a) 通过运行echo_supervisord_conf程序生成supervisor的初始化配置文件，如下所示：</p>
+<div class="highlight"><pre><span></span>mkdir /etc/supervisor
+echo_supervisord_conf &gt; /etc/supervisor/supervisord.conf
+</pre></div>
+
+
+<p>然后查看路径下的supervisord.conf。在文件尾部添加如下配置。</p>
+<div class="highlight"><pre><span></span>...
+
+<span class="p">;</span><span class="o">[</span>include<span class="o">]</span>
+<span class="p">;</span><span class="nv">files</span> <span class="o">=</span> relative/directory/*.ini
+
+<span class="p">;</span>conf.d 为配置表目录的文件夹，需要手动创建
+<span class="o">[</span>include<span class="o">]</span>
+<span class="nv">files</span> <span class="o">=</span> conf.d/*.conf
+</pre></div>
+
+
+<p>b) 为你的程序创建一个.conf文件，放在目录"/etc/supervisor/conf.d/"下。</p>
+<div class="highlight"><pre><span></span><span class="o">[</span>program:MGToastServer<span class="o">]</span> <span class="p">;</span>程序名称，终端控制时需要的标识
+<span class="nv">command</span><span class="o">=</span>dotnet MGToastServer.dll <span class="p">;</span> 运行程序的命令
+<span class="nv">directory</span><span class="o">=</span>/root/文档/toastServer/ <span class="p">;</span> 命令执行的目录
+<span class="nv">autorestart</span><span class="o">=</span><span class="nb">true</span> <span class="p">;</span> 程序意外退出是否自动重启
+<span class="nv">stderr_logfile</span><span class="o">=</span>/var/log/MGToastServer.err.log <span class="p">;</span> 错误日志文件
+<span class="nv">stdout_logfile</span><span class="o">=</span>/var/log/MGToastServer.out.log <span class="p">;</span> 输出日志文件
+<span class="nv">environment</span><span class="o">=</span><span class="nv">ASPNETCORE_ENVIRONMENT</span><span class="o">=</span>Production <span class="p">;</span> 进程环境变量
+<span class="nv">user</span><span class="o">=</span>root <span class="p">;</span> 进程执行的用户身份
+<span class="nv">stopsignal</span><span class="o">=</span>INT
+</pre></div>
+
+
+<p>c) 运行supervisord，查看是否生效</p>
+<div class="highlight"><pre><span></span>supervisord -c /etc/supervisor/supervisord.conf
+ps -ef <span class="p">|</span> grep MGToastServer
+</pre></div>
+
+
+<p>成功后的效果：</p>
+<p><img alt="img" src="https:////upload-images.jianshu.io/upload_images/9709727-587293319af36520.png?imageMogr2/auto-orient/strip|imageView2/2/w/708/format/webp"></p>
+<blockquote>
+<p>ps 如果服务已启动，修改配置文件可用“supervisorctl reload”命令来使其生效</p>
+</blockquote>
+<h3>4、配置Supervisor开机启动</h3>
+<p>a) 新建一个“supervisord.service”文件</p>
+<div class="highlight"><pre><span></span><span class="c1"># dservice for systemd (CentOS 7.0+)</span>
+<span class="c1"># by ET-CS (https://github.com/ET-CS)</span>
+<span class="o">[</span>Unit<span class="o">]</span>
+<span class="nv">Description</span><span class="o">=</span>Supervisor daemon
+
+<span class="o">[</span>Service<span class="o">]</span>
+<span class="nv">Type</span><span class="o">=</span>forking
+<span class="nv">ExecStart</span><span class="o">=</span>/usr/bin/supervisord -c /etc/supervisor/supervisord.conf
+<span class="nv">ExecStop</span><span class="o">=</span>/usr/bin/supervisorctl shutdown
+<span class="nv">ExecReload</span><span class="o">=</span>/usr/bin/supervisorctl reload
+<span class="nv">KillMode</span><span class="o">=</span>process
+<span class="nv">Restart</span><span class="o">=</span>on-failure
+<span class="nv">RestartSec</span><span class="o">=</span>42s
+
+<span class="o">[</span>Install<span class="o">]</span>
+<span class="nv">WantedBy</span><span class="o">=</span>multi-user.target
+</pre></div>
+
+
+<p>b) 将文件拷贝至"/usr/lib/systemd/system/supervisord.service"</p>
+<p>c) 执行命令</p>
+<div class="highlight"><pre><span></span>systemctl <span class="nb">enable</span> supervisord
+</pre></div>
+
+
+<p>d) 执行命令来验证是否为开机启动</p>
+<div class="highlight"><pre><span></span>systemctl is-enabled supervisord
+</pre></div>
+
+
+<h3>配置完成啦.</h3>
+<h2>常用的相关管理命令</h2>
+<div class="highlight"><pre><span></span>supervisorctl restart &lt;application name&gt; <span class="p">;</span>重启指定应用
+supervisorctl stop &lt;application name&gt; <span class="p">;</span>停止指定应用
+supervisorctl start &lt;application name&gt; <span class="p">;</span>启动指定应用
+supervisorctl restart all <span class="p">;</span>重启所有应用
+supervisorctl stop all <span class="p">;</span>停止所有应用
+supervisorctl start all <span class="p">;</span>启动所有应用
+</pre></div></div>
+	</div>
+		<footer>
+		  <p>Powered by <a href="http://getpelican.com/">Pelican</a>. Theme based on <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a>.</p>
+		  <p>&copy; 商伟</p>
+		</footer>
+	  </div>
+
+	</div>
+</body>
+</html>
