@@ -30,7 +30,7 @@
 			<ul class="nav">
 					<li class="active"><a href="/category/django.html">Django</a></li>
 					<li ><a href="/category/git.html">GIT</a></li>
-					<li ><a href="/category/rabbitmq.html">rabbitmq</a></li>
+					<li ><a href="/category/rabbitmq.html">RabbitMQ</a></li>
 					<li ><a href="/category/redis.html">redis</a></li>
 					<li ><a href="/category/supervisor.html">Supervisor</a></li>
 					<li ><a href="/category/vue.html">VUE</a></li>
@@ -96,18 +96,18 @@ tags: <a href="/tag/django.html">Django</a> </div>
 <ul>
 <li>views.py</li>
 </ul>
-<p><code>`shell
-  from django.core.mail import send_email
+<div class="highlight"><pre><span></span>  from django.core.mail import send_email
   from django.conf import settings
-  def sendMsg():
-    res = send_mail('关于中秋节放假通知',
-                    '中秋节放三天假',
+  def sendMsg<span class="o">()</span>:
+    <span class="nv">res</span> <span class="o">=</span> send_mail<span class="o">(</span><span class="s1">&#39;关于中秋节放假通知&#39;</span>,
+                    <span class="s1">&#39;中秋节放三天假&#39;</span>,
                     settings.DEFAULT_FROM_EMAIL,
-                    ['imock@sina.com'])
-    if res == 1:
-      return HttpResponse('邮件发送成功')
-    else:
-      return HttpResponse('邮件发送失败')</code></p></div>
+                    <span class="o">[</span><span class="s1">&#39;imock@sina.com&#39;</span><span class="o">])</span>
+    <span class="k">if</span> <span class="nv">res</span> <span class="o">==</span> <span class="m">1</span>:
+      <span class="k">return</span> HttpResponse<span class="o">(</span><span class="s1">&#39;邮件发送成功&#39;</span><span class="o">)</span>
+    <span class="k">else</span>:
+      <span class="k">return</span> HttpResponse<span class="o">(</span><span class="s1">&#39;邮件发送失败&#39;</span><span class="o">)</span>
+</pre></div></div>
 	</div>
 		<footer>
 		  <p>Powered by <a href="http://getpelican.com/">Pelican</a>. Theme based on <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a>.</p>

@@ -30,7 +30,7 @@
 			<ul class="nav">
 					<li ><a href="/category/django.html">Django</a></li>
 					<li ><a href="/category/git.html">GIT</a></li>
-					<li ><a href="/category/rabbitmq.html">rabbitmq</a></li>
+					<li ><a href="/category/rabbitmq.html">RabbitMQ</a></li>
 					<li ><a href="/category/redis.html">redis</a></li>
 					<li ><a href="/category/supervisor.html">Supervisor</a></li>
 					<li ><a href="/category/vue.html">VUE</a></li>
@@ -61,6 +61,49 @@
 	  </div>
 	  <div class="content">
 <div class="page-header"><h1> 商伟的技术博客 </h1></div>
+<div class='article'>
+	<h2>VUE拦截器</h2>
+	<div class="well small">Permalink: <a class="more" href="/VUE拦截器.html">2019-08-08 18:44:00+02:00</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/vue.html">VUE</a>
+tags: <a href="/tag/vue.html">VUE</a> </div>
+	<div class="summary"><h2>vue 拦截器</h2>
+<ul>
+<li>
+<p>路由拦截器</p>
+</li>
+<li>
+<p>已路由为导向</p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span>  router.beforeEach<span class="o">((</span>to,from,next<span class="o">)=</span>&gt;<span class="o">{</span>
+      <span class="k">if</span><span class="o">(</span>to.path<span class="o">==</span><span class="s1">&#39;/login&#39;</span> <span class="o">||</span> to.path<span class="o">==</span><span class="s1">&#39;reg&#39;</span> <span class="o">||</span> localStorage.getItem<span class="o">(</span><span class="s1">&#39;token&#39;</span><span class="o">)){</span>
+        next<span class="o">()</span><span class="p">;</span>
+      <span class="o">}</span><span class="k">else</span><span class="o">{</span>
+        alert<span class="o">(</span><span class="s1">&#39;请重新登录&#39;</span><span class="o">)</span><span class="p">;</span>
+        next<span class="o">(</span><span class="s1">&#39;/login&#39;</span><span class="o">)</span><span class="p">;</span>
+      <span class="o">}</span>
+  <span class="o">})</span>
+</pre></div>
+
+
+<ul>
+<li>
+<p>请求拦截器</p>
+</li>
+<li>
+<p>当发送请求时才会触发此功能</p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span>  axios.interceptors.request.use<span class="o">(</span><span class="k">function</span> <span class="o">(</span>config<span class="o">)</span> <span class="o">{</span>
+    <span class="nb">let</span> <span class="nv">token</span> <span class="o">=</span> window.localStorage.getItem<span class="o">(</span><span class="s2">&quot;token&quot;</span><span class="o">)</span><span class="p">;</span>
+        <span class="k">if</span> <span class="o">(</span>token<span class="o">)</span> <span class="o">{</span>
+            config.headers.token <span class="o">=</span> token<span class="p">;</span>    //将token放到请求头发送给服务器
+        <span class="o">}</span>
+       <span class="k">return</span> config<span class="p">;</span> // 最终需要返回config
+      <span class="o">}</span>, <span class="k">function …</span></pre></div> <a class="btn primary xsmall" href="/VUE拦截器.html">more…</a>
+	</div>
+</div>	
 <div class='article'>
 	<h2>django分页组件（paginator）</h2>
 	<div class="well small">Permalink: <a class="more" href="/django分页组件（paginator）.html">2019-08-08 18:44:00+02:00</a>
