@@ -31,7 +31,7 @@
 					<li ><a href="/category/django.html">Django</a></li>
 					<li ><a href="/category/git.html">GIT</a></li>
 					<li ><a href="/category/rabbitmq.html">rabbitmq</a></li>
-					<li ><a href="/category/redis.html">redis</a></li>
+					<li class="active"><a href="/category/redis.html">redis</a></li>
 					<li ><a href="/category/supervisor.html">Supervisor</a></li>
 					<li ><a href="/category/vue.html">VUE</a></li>
 			</ul>
@@ -60,47 +60,13 @@
 		</div>
 	  </div>
 	  <div class="content">
-<div class="page-header"><h1>商伟的技术博客 <small>商伟</small></h1></div>
-<div class='article'>
-	<h2>django分页组件（paginator）</h2>
-	<div class="well small">Permalink: <a class="more" href="/django分页组件（paginator）.html">2019-08-08 18:44:00+02:00</a>
-by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/django.html">Django</a>
-tags: <a href="/tag/django.html">Django</a> </div>
-	<div class="summary"><h1>Django分页组件(paginator)</h1>
-<blockquote>
-<p><code>shell
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger</code></p>
-</blockquote>
-<div class="highlight"><pre><span></span>  Paginator
-</pre></div>
-
-
-<p>：创建分页对象</p>
-<p>### 分页对象内置属性</p>
-<div class="highlight"><pre><span></span><span class="nv">all_</span> <span class="o">=</span> models.objects.all<span class="o">()</span>
-<span class="nv">p</span> <span class="o">=</span> Paginator<span class="o">(</span>all_, <span class="m">10</span><span class="o">)</span>
-<span class="c1"># 分页all_数据，每页显示10条数据</span>
-p.count <span class="c1"># 总数据量</span>
-p.num_pages<span class="o">()</span> <span class="c1"># 分页数</span>
-p.page_range<span class="o">()</span> <span class="c1"># 列表形式返回当前可有的页数 [1,2,3]</span>
-<span class="nv">page_1</span> <span class="o">=</span> p.page<span class="o">(</span><span class="m">1</span><span class="o">)</span> <span class="c1"># 选择第一页，返回第一页数据对象</span>
-</pre></div>
-
-
-<h3>某一页内置属性</h3>
-<div class="highlight"><pre><span></span>page_1.number <span class="c1"># 当前页的页码</span>
-page_1.has_next<span class="o">()</span> <span class="c1"># 是否有下一页</span>
-page_1 …</pre></div> <a class="btn primary xsmall" href="/django分页组件（paginator）.html">more…</a>
-	</div>
-</div>	
-<div class='article'>
-	<h2>redis哨兵模式</h2>
-	<div class="well small">Permalink: <a class="more" href="/redis哨兵模式.html">2019-08-08 18:44:00+02:00</a>
+	<div class='article'>
+		<div class="page-header"><h1>redis哨兵模式</h1></div>
+		<div class="well small">Permalink: <a class="more" href="/redis哨兵模式.html">2019-08-08 18:44:00+02:00</a>
 by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
  in <a href="/category/redis.html">redis</a>
 tags: <a href="/tag/redis.html">redis</a> </div>
-	<div class="summary"><h1>Redis哨兵(Sentinel)模式</h1>
+		<div><h1>Redis哨兵(Sentinel)模式</h1>
 <h2>一、概述</h2>
 <p>哨兵通过发送命令。等待Redis服务器响应，从而监控运行的多个Redis实例</p>
 <p><img alt="1574609729003" src="http://c.biancheng.net/uploads/allimg/190725/5-1ZH51400314I.png"></p>
@@ -125,19 +91,27 @@ tags: <a href="/tag/redis.html">redis</a> </div>
 
 
 <ol>
-<li>配置3个哨兵，每个哨兵的配置都是一样的 …</li></ol> <a class="btn primary xsmall" href="/redis哨兵模式.html">more…</a>
+<li>配置3个哨兵，每个哨兵的配置都是一样的。在Redis安装目录下有一个sentinel.conf文件，copy一份进行修改</li>
+</ol>
+<div class="highlight"><pre><span></span>   <span class="c1"># 禁止保护模式</span>
+   <span class="n">protected</span><span class="o">-</span><span class="n">mode</span> <span class="n">no</span>
+   <span class="c1"># 配置监听的主服务器</span>
+   <span class="c1"># 监控          服务器的名称  监控的主服务器  端口 </span>
+   <span class="n">sentinel</span> <span class="n">monitor</span> <span class="n">mymaster</span> <span class="mf">192.168</span><span class="o">.</span><span class="mf">11.128</span> <span class="mi">6379</span> <span class="mi">2</span> <span class="c1"># &#39;2&#39; 只有两个或两个以上的哨兵认为主服务器不可用的时候，才会进行failover操作</span>
+   <span class="c1"># 定义服务器密码</span>
+   <span class="n">sentinel</span> <span class="n">auth</span><span class="o">-</span><span class="k">pass</span> <span class="n">mymaster</span> <span class="mi">123</span>
+</pre></div>
+
+
+<ol>
+<li>启动服务器和哨兵(进入redis下的src)</li>
+</ol>
+<div class="highlight"><pre><span></span>   <span class="c1"># 启动redis服务器进程</span>
+   <span class="o">./</span><span class="n">redis</span><span class="o">-</span><span class="n">server</span> <span class="o">../</span><span class="n">redis</span><span class="o">.</span><span class="n">conf</span>
+   <span class="c1"># 启动哨兵进程</span>
+   <span class="o">./</span><span class="n">redis</span><span class="o">-</span><span class="n">sentinel</span> <span class="o">../</span><span class="n">sentinel</span><span class="o">.</span><span class="n">conf</span>
+</pre></div></div>
 	</div>
-</div>	
-
-<div class="pagination">
-<ul>
-		<li class="prev"><a href="/author/shang-wei.html">&larr; Previous</a></li>
-		<li class=""><a href="/author/shang-wei.html">1</a></li>
-		<li class="active"><a href="/author/shang-wei2.html">2</a></li>
-		<li class="next disabled"><a href="#">&rarr; Next</a></li>
-</ul>
-</div>
-
 		<footer>
 		  <p>Powered by <a href="http://getpelican.com/">Pelican</a>. Theme based on <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a>.</p>
 		  <p>&copy; 商伟</p>

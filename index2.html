@@ -1,399 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title>商伟的技术博客</title>
-        <meta charset="utf-8" />
-        <link rel="stylesheet" href="/theme/css/main.css" type="text/css" />
-        <link href="/" type="application/atom+xml" rel="alternate" title="商伟的技术博客 ATOM Feed" />
+	<meta charset="utf-8">
+	<title>商伟的技术博客</title>
+	<meta name="description" content="">
+	<meta name="author" content="商伟">
+
+	<!-- HTML5 shim, for IE6-8 support of HTML elements -->
+	<!--[if lt IE 9]>
+		<script src="/theme/html5.js"></script>
+	<![endif]-->
+
+	<!-- Styles -->
+	<link href="/theme/bootstrap.min.css" rel="stylesheet">
+	<link href="/theme/local.css" rel="stylesheet">
+	<link href="/theme/pygments.css" rel="stylesheet">
+
+	<!-- Feeds -->
 
 
-        <!--[if IE]>
-                <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 
-        <!--[if lte IE 7]>
-                <link rel="stylesheet" type="text/css" media="all" href="/css/ie.css"/>
-                <script src="/js/IE8.js" type="text/javascript"></script><![endif]-->
-
-        <!--[if lt IE 7]>
-                <link rel="stylesheet" type="text/css" media="all" href="/css/ie6.css"/><![endif]-->
 
 </head>
+<body>
+	<div class="topbar">
+	  <div class="topbar-inner">
+		<div class="container-fluid">
+		  <a class="brand" href="/">商伟的技术博客</a>
+			<ul class="nav">
+					<li ><a href="/category/django.html">Django</a></li>
+					<li ><a href="/category/git.html">GIT</a></li>
+					<li ><a href="/category/rabbitmq.html">rabbitmq</a></li>
+					<li ><a href="/category/redis.html">redis</a></li>
+					<li ><a href="/category/supervisor.html">Supervisor</a></li>
+					<li ><a href="/category/vue.html">VUE</a></li>
+			</ul>
+			<p class="pull-right"><a href="/archives.html">[archives]</a> <a href="/tags.html">[tags]</a></p>
+		</div>
+	  </div>
+	</div>
 
-<body id="index" class="home">
-        <header id="banner" class="body">
-                <h1><a href="">商伟的技术博客 </a></h1>
-                <nav><ul>
-                    <li ><a href="/category/my-shang.html">my-shang</a></li>
-                </ul></nav>
-        </header><!-- /#banner -->
-        
-        
-        <aside id="featured" class="body"><article>
-                <h1 class="entry-title"><a href="/my-Supervisor.html">Supervisor</a></h1> 
-<footer class="post-info">
-        <abbr class="published" title="2019-08-09T18:44:00+02:00">
-                周五 09 八月 2019
-        </abbr>
-
-        <address class="vcard author">
-                By <a class="url fn" href="/author/shang-wei.html">商伟</a>
-        </address>
-<p>In <a href="/category/my-shang.html">my-shang</a>. </p>
-<p>tags: <a href="/tag/shang.html">shang</a></p></p>
-</footer><!-- /.post-info -->                <h2>介绍</h2>
-<p>Supervisor就是一个超级管理员，监管员。Supervisor是一个进程管理工具，当进程中断的时候Supervisor能自动重新启动它。</p>
-<h2>Supervisor安装与配置</h2>
-<h3>1、安装Python包管理工具(<a href="https://pypi.org/project/setuptools/">easy_install</a>)</h3>
-<div class="highlight"><pre><span></span>yum install python-setuptools
-</pre></div>
-
-
-<h3>2、安装Supervisor</h3>
-<div class="highlight"><pre><span></span>easy_install supervisor
-</pre></div>
-
-
-<h3>3、配置Supervisor应用守护</h3>
-<p>a) 通过运行echo_supervisord_conf程序生成supervisor的初始化配置文件，如下所示：</p>
-<div class="highlight"><pre><span></span>mkdir /etc/supervisor
-echo_supervisord_conf &gt; /etc/supervisor/supervisord.conf
-</pre></div>
-
-
-<p>然后查看路径下的supervisord.conf。在文件尾部添加如下配置。</p>
-<div class="highlight"><pre><span></span>...
-
-<span class="p">;</span><span class="o">[</span>include<span class="o">]</span>
-<span class="p">;</span><span class="nv">files</span> <span class="o">=</span> relative/directory/*.ini
-
-<span class="p">;</span>conf.d 为配置表目录的文件夹，需要手动创建
-<span class="o">[</span>include<span class="o">]</span>
-<span class="nv">files</span> <span class="o">=</span> conf.d/*.conf
-</pre></div>
-
-
-<p>b) 为你的程序创建一个.conf文件，放在目录"/etc/supervisor/conf.d/"下。</p>
-<div class="highlight"><pre><span></span><span class="o">[</span>program:MGToastServer<span class="o">]</span> <span class="p">;</span>程序名称，终端控制时需要的标识
-<span class="nv">command</span><span class="o">=</span>dotnet MGToastServer.dll <span class="p">;</span> 运行程序的命令
-<span class="nv">directory</span><span class="o">=</span>/root/文档/toastServer/ <span class="p">;</span> 命令执行的目录
-<span class="nv">autorestart</span><span class="o">=</span><span class="nb">true</span> <span class="p">;</span> 程序意外退出是否自动重启
-<span class="nv">stderr_logfile</span><span class="o">=</span>/var/log/MGToastServer.err.log <span class="p">;</span> 错误日志文件
-<span class="nv">stdout_logfile</span><span class="o">=</span>/var/log/MGToastServer.out.log <span class="p">;</span> 输出日志文件
-<span class="nv">environment</span><span class="o">=</span><span class="nv">ASPNETCORE_ENVIRONMENT</span><span class="o">=</span>Production <span class="p">;</span> 进程环境变量
-<span class="nv">user</span><span class="o">=</span>root <span class="p">;</span> 进程执行的用户身份
-<span class="nv">stopsignal</span><span class="o">=</span>INT
-</pre></div>
-
-
-<p>c) 运行supervisord，查看是否生效</p>
-<div class="highlight"><pre><span></span>supervisord -c /etc/supervisor/supervisord.conf
-ps -ef <span class="p">|</span> grep MGToastServer
-</pre></div>
-
-
-<p>成功后的效果：</p>
-<p><img alt="img" src="https:////upload-images.jianshu.io/upload_images/9709727-587293319af36520.png?imageMogr2/auto-orient/strip|imageView2/2/w/708/format/webp"></p>
-<blockquote>
-<p>ps 如果服务已启动，修改配置文件可用“supervisorctl reload”命令来使其生效</p>
-</blockquote>
-<h3>4、配置Supervisor开机启动</h3>
-<p>a) 新建一个“supervisord.service”文件</p>
-<div class="highlight"><pre><span></span><span class="c1"># dservice for systemd (CentOS 7.0+)</span>
-<span class="c1"># by ET-CS (https://github.com/ET-CS)</span>
-<span class="o">[</span>Unit<span class="o">]</span>
-<span class="nv">Description</span><span class="o">=</span>Supervisor daemon
-
-<span class="o">[</span>Service<span class="o">]</span>
-<span class="nv">Type</span><span class="o">=</span>forking
-<span class="nv">ExecStart</span><span class="o">=</span>/usr/bin/supervisord -c /etc/supervisor/supervisord.conf
-<span class="nv">ExecStop</span><span class="o">=</span>/usr/bin/supervisorctl shutdown
-<span class="nv">ExecReload</span><span class="o">=</span>/usr/bin/supervisorctl reload
-<span class="nv">KillMode</span><span class="o">=</span>process
-<span class="nv">Restart</span><span class="o">=</span>on-failure
-<span class="nv">RestartSec</span><span class="o">=</span>42s
-
-<span class="o">[</span>Install<span class="o">]</span>
-<span class="nv">WantedBy</span><span class="o">=</span>multi-user.target
-</pre></div>
-
-
-<p>b) 将文件拷贝至"/usr/lib/systemd/system/supervisord.service"</p>
-<p>c) 执行命令</p>
-<div class="highlight"><pre><span></span>systemctl <span class="nb">enable</span> supervisord
-</pre></div>
-
-
-<p>d) 执行命令来验证是否为开机启动</p>
-<div class="highlight"><pre><span></span>systemctl is-enabled supervisord
-</pre></div>
-
-
-<h3>配置完成啦.</h3>
-<h2>常用的相关管理命令</h2>
-<div class="highlight"><pre><span></span>supervisorctl restart &lt;application name&gt; <span class="p">;</span>重启指定应用
-supervisorctl stop &lt;application name&gt; <span class="p">;</span>停止指定应用
-supervisorctl start &lt;application name&gt; <span class="p">;</span>启动指定应用
-supervisorctl restart all <span class="p">;</span>重启所有应用
-supervisorctl stop all <span class="p">;</span>停止所有应用
-supervisorctl start all <span class="p">;</span>启动所有应用
-</pre></div>
-                </article>
-                </aside><!-- /#featured -->
-            <section id="content" class="body">
-                <h1>Other articles</h1>
-                <hr />
-                    <ol id="posts-list" class="hfeed">
-        
- 
-        <li><article class="hentry">    
-                <header>
-                        <h1><a href="/my-rabbitmq.html" rel="bookmark" title="Permalink to rabbitmq">rabbitmq</a></h1>
-                </header>
-                
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2019-08-09T18:44:00+02:00">
-                周五 09 八月 2019
-        </abbr>
-
-        <address class="vcard author">
-                By <a class="url fn" href="/author/shang-wei.html">商伟</a>
-        </address>
-<p>In <a href="/category/my-shang.html">my-shang</a>. </p>
-<p>tags: <a href="/tag/shang.html">shang</a></p></p>
-</footer><!-- /.post-info -->                <p>1.下载relang</p>
-<div class="highlight"><pre><span></span>yum install erlang
-</pre></div>
-
-
-<p>2.下载rpm包</p>
-<div class="highlight"><pre><span></span> wget http://www.rabbitmq.com/releases/rabbitmq-server/v3.6.15/rabbitmq-server-3.6.15-1.el7.noarch.rpm
-</pre></div>
-
-
-<p>3.下载完成后安装</p>
-<div class="highlight"><pre><span></span>yum install rabbitmq-server-3.6.15-1.el7.noarch.rpm
-</pre></div>
-
-
-<p>4.安装完后重启服务</p>
-<div class="highlight"><pre><span></span>service rabbitmq-server start
-</pre></div>
-
-
-<p>5.查看服务状态</p>
-<div class="highlight"><pre><span></span>service rabbitmq-server status
-</pre></div>
-
-
-<ol>
-<li>安装插件</li>
-</ol>
-<div class="highlight"><pre><span></span>/sbin/rabbitmq-plugins <span class="nb">enable</span> rabbitmq_management 
-</pre></div>
-
-
-<p>7.重启服务 …</p>
-                <a class="readmore" href="/my-rabbitmq.html">read more</a>
-                </div><!-- /.entry-content -->
-        </article></li>
-        
- 
-        <li><article class="hentry">    
-                <header>
-                        <h1><a href="/my-126.html" rel="bookmark" title="Permalink to Django126发送邮件">Django126发送邮件</a></h1>
-                </header>
-                
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2019-08-08T18:44:00+02:00">
-                周四 08 八月 2019
-        </abbr>
-
-        <address class="vcard author">
-                By <a class="url fn" href="/author/shang-wei.html">商伟</a>
-        </address>
-<p>In <a href="/category/my-shang.html">my-shang</a>. </p>
-<p>tags: <a href="/tag/shang.html">shang</a></p></p>
-</footer><!-- /.post-info -->                <ul>
-<li>首先取得网易授权</li>
-</ul>
-<div class="highlight"><pre><span></span>  <span class="m">1</span>. 设置
-  <span class="m">2</span>.左侧客户端授权码
-  <span class="m">3</span>.自定义授权码 也就是你配置文件中的密码
-</pre></div>
-
-
-<ul>
-<li>配置文件</li>
-</ul>
-<div class="highlight"><pre><span></span>  邮件
-  <span class="nv">EMAIL_HOST</span> <span class="o">=</span> <span class="s1">&#39;smtp.126.com&#39;</span>
-  设置端口号，为数字
-  <span class="nv">EMAIL_PORT</span> <span class="o">=</span> <span class="m">25</span>
-  设置发件人邮箱
-  <span class="nv">EMAIL_HOST_USER</span> <span class="o">=</span> <span class="s1">&#39;fuchongjun@126.com&#39;</span>
-  设置发件人 授权码
-  <span class="nv">EMAIL_HOST_PASSWORD</span> <span class="o">=</span> <span class="s1">&#39;ice115816&#39;</span>
-  设置是否启用安全链接
-  <span class="nv">EMAIL_USER_TLS</span> <span class="o">=</span> True
-  <span class="nv">EMAIL_USER_TLS</span> <span class="o">=</span> False
-  <span class="nv">DEFAULT_FROM_EMAIL</span> <span class="o">=</span> EMAIL_HOST_USER
-</pre></div>
-
-
-<ul>
-<li>views.py</li>
-</ul>
-<p><code>`shell
-  from django.core.mail import send_email
-  from django.conf import settings
-  def sendMsg …</code></p>
-                <a class="readmore" href="/my-126.html">read more</a>
-                </div><!-- /.entry-content -->
-        </article></li>
-        
- 
-        <li><article class="hentry">    
-                <header>
-                        <h1><a href="/my-Git.html" rel="bookmark" title="Permalink to GIT">GIT</a></h1>
-                </header>
-                
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2019-08-08T18:44:00+02:00">
-                周四 08 八月 2019
-        </abbr>
-
-        <address class="vcard author">
-                By <a class="url fn" href="/author/shang-wei.html">商伟</a>
-        </address>
-<p>In <a href="/category/my-shang.html">my-shang</a>. </p>
-<p>tags: <a href="/tag/shang.html">shang</a></p></p>
-</footer><!-- /.post-info -->                <h1>Git</h1>
-<h2>创建账号</h2>
-<ul>
-<li>useradd  名字</li>
-</ul>
-<div class="highlight"><pre><span></span><span class="n">ls</span> <span class="o">/</span> <span class="err">根目录</span>
-<span class="n">ls</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span>
-<span class="n">cat</span> <span class="o">~/.</span><span class="n">ssh</span><span class="o">/</span><span class="n">config</span>   <span class="c1"># cat查看文件</span>
-<span class="n">ssh</span> <span class="err">名字</span><span class="nd">@主机</span><span class="p">(</span><span class="n">ip</span><span class="p">)</span>
-<span class="c1"># 切换用户</span>
-<span class="n">su</span> <span class="o">-</span> <span class="err">名称</span>
-</pre></div>
-
-
-<ul>
-<li>passwd 密码</li>
-</ul>
-<div class="highlight"><pre><span></span><span class="n">vi</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">ssh</span><span class="o">/</span>
-<span class="c1"># 修改</span>
-<span class="n">vi</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">ssh</span><span class="o">/</span><span class="n">sshd_config</span>
-<span class="n">RSAAuthentication</span>  <span class="n">yes</span>
-<span class="n">PubkeyAuthentication</span>  <span class="n">yes</span>
-<span class="n">PasswordAuthentication</span>  <span class="n">yes</span>
-<span class="c1"># 需要重启</span>
-<span class="n">systemctl</span> <span class="n">restart</span> <span class="n">sshd</span><span class="o">.</span><span class="n">service</span>
-</pre></div>
-
-
-<ul>
-<li>生成公钥私钥</li>
-</ul>
-<div class="highlight"><pre><span></span><span class="n">ssh</span><span class="o">-</span><span class="n">keygen</span>
-<span class="p">(</span><span class="err">默认是</span><span class="n">id_rsa</span><span class="p">)</span><span class="o">./</span><span class="err">密码名称</span> 
-<span class="n">mkdir</span> <span class="o">.</span><span class="n">ssh</span>   <span class="c1">#创建</span>
-<span class="n">ls …</span></pre></div>
-                <a class="readmore" href="/my-Git.html">read more</a>
-                </div><!-- /.entry-content -->
-        </article></li>
-        
- 
-        <li><article class="hentry">    
-                <header>
-                        <h1><a href="/my-shang.html" rel="bookmark" title="Permalink to 商伟的技术博客">商伟的技术博客</a></h1>
-                </header>
-                
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2019-08-08T18:44:00+02:00">
-                周四 08 八月 2019
-        </abbr>
-
-        <address class="vcard author">
-                By <a class="url fn" href="/author/shang-wei.html">商伟</a>
-        </address>
-<p>In <a href="/category/my-shang.html">my-shang</a>. </p>
-<p>tags: <a href="/tag/shang.html">shang</a></p></p>
-</footer><!-- /.post-info -->                <p>这是我的第一篇博客！！！</p>
-                <a class="readmore" href="/my-shang.html">read more</a>
-                </div><!-- /.entry-content -->
-        </article></li>
-        
- 
-        <li><article class="hentry">    
-                <header>
-                        <h1><a href="/my-一对多.html" rel="bookmark" title="Permalink to django跨域与VUE跨域">django跨域与VUE跨域</a></h1>
-                </header>
-                
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2019-08-08T18:44:00+02:00">
-                周四 08 八月 2019
-        </abbr>
-
-        <address class="vcard author">
-                By <a class="url fn" href="/author/shang-wei.html">商伟</a>
-        </address>
-<p>In <a href="/category/my-shang.html">my-shang</a>. </p>
-<p>tags: <a href="/tag/shang.html">shang</a></p></p>
-</footer><!-- /.post-info -->                <h2>Django一对多查询</h2>
-<ul>
-<li><code>models.py</code></li>
-</ul>
-<div class="highlight"><pre><span></span>  <span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
-
-  <span class="c1"># 创建用户</span>
-  <span class="k">class</span> <span class="nc">User</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
-      <span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">32</span><span class="p">)</span>
-  <span class="c1"># 创建书籍  </span>
-  <span class="k">class</span> <span class="nc">Book</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
-      <span class="n">title</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">32</span><span class="p">)</span>
-      <span class="n">us</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Foreign</span><span class="p">(</span><span class="s1">&#39;User&#39;</span><span class="p">,</span><span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">CASCADE</span><span class="p">)</span>
-</pre></div>
-
-
-<ul>
-<li><code>views.py</code></li>
-</ul>
-<div class="highlight"><pre><span></span>  <span class="kn">from</span> <span class="nn">django.shortcus</span> <span class="kn">import</span> <span class="n">render</span><span class="p">,</span><span class="n">HttpResponse</span>
-  <span class="kn">import</span> <span class="nn">models</span>
-  <span class="c1"># 通过人查询书</span>
-  <span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
-      <span class="n">user …</span></pre></div>
-                <a class="readmore" href="/my-一对多.html">read more</a>
-                </div><!-- /.entry-content -->
-        </article></li>
-        
- 
-        <li><article class="hentry">    
-                <header>
-                        <h1><a href="/my-分页.html" rel="bookmark" title="Permalink to django分页组件（paginator）">django分页组件（paginator）</a></h1>
-                </header>
-                
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2019-08-08T18:44:00+02:00">
-                周四 08 八月 2019
-        </abbr>
-
-        <address class="vcard author">
-                By <a class="url fn" href="/author/shang-wei.html">商伟</a>
-        </address>
-<p>In <a href="/category/my-shang.html">my-shang</a>. </p>
-<p>tags: <a href="/tag/shang.html">shang</a></p></p>
-</footer><!-- /.post-info -->                <h1>Django分页组件(paginator)</h1>
+	<div class="container-fluid">
+	  <div class="sidebar">
+		<div class="well">
+			<h3>Blogroll</h3>
+			<ul>
+				<li><a href="http://getpelican.com/">Pelican</a></li>
+				<li><a href="http://python.org/">Python.org</a></li>
+				<li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+				<li><a href="#">You can modify those links in your config file</a></li>
+			</ul>
+			<div class="social">
+			<h3>Social</h3>
+			<ul>
+				<li><a href="#">You can add links in your config file</a></li>
+				<li><a href="#">Another social link</a></li>
+			</ul>
+			</div>
+		</div>
+	  </div>
+	  <div class="content">
+<div class="page-header"><h1> 商伟的技术博客 </h1></div>
+<div class='article'>
+	<h2>django分页组件（paginator）</h2>
+	<div class="well small">Permalink: <a class="more" href="/django分页组件（paginator）.html">2019-08-08 18:44:00+02:00</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/django.html">Django</a>
+tags: <a href="/tag/django.html">Django</a> </div>
+	<div class="summary"><h1>Django分页组件(paginator)</h1>
 <blockquote>
 <p><code>shell
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger</code></p>
@@ -417,29 +91,16 @@ p.page_range<span class="o">()</span> <span class="c1"># 列表形式返回当�
 <h3>某一页内置属性</h3>
 <div class="highlight"><pre><span></span>page_1.number <span class="c1"># 当前页的页码</span>
 page_1.has_next<span class="o">()</span> <span class="c1"># 是否有下一页</span>
-page_1 …</pre></div>
-                <a class="readmore" href="/my-分页.html">read more</a>
-                </div><!-- /.entry-content -->
-        </article></li>
-        
- 
-        <li><article class="hentry">    
-                <header>
-                        <h1><a href="/my-哨兵.html" rel="bookmark" title="Permalink to redis哨兵模式">redis哨兵模式</a></h1>
-                </header>
-                
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2019-08-08T18:44:00+02:00">
-                周四 08 八月 2019
-        </abbr>
-
-        <address class="vcard author">
-                By <a class="url fn" href="/author/shang-wei.html">商伟</a>
-        </address>
-<p>In <a href="/category/my-shang.html">my-shang</a>. </p>
-<p>tags: <a href="/tag/shang.html">shang</a></p></p>
-</footer><!-- /.post-info -->                <h1>Redis哨兵(Sentinel)模式</h1>
+page_1 …</pre></div> <a class="btn primary xsmall" href="/django分页组件（paginator）.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>redis哨兵模式</h2>
+	<div class="well small">Permalink: <a class="more" href="/redis哨兵模式.html">2019-08-08 18:44:00+02:00</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/redis.html">redis</a>
+tags: <a href="/tag/redis.html">redis</a> </div>
+	<div class="summary"><h1>Redis哨兵(Sentinel)模式</h1>
 <h2>一、概述</h2>
 <p>哨兵通过发送命令。等待Redis服务器响应，从而监控运行的多个Redis实例</p>
 <p><img alt="1574609729003" src="http://c.biancheng.net/uploads/allimg/190725/5-1ZH51400314I.png"></p>
@@ -464,306 +125,25 @@ page_1 …</pre></div>
 
 
 <ol>
-<li>配置3个哨兵，每个哨兵的配置都是一样的 …</li></ol>
-                <a class="readmore" href="/my-哨兵.html">read more</a>
-                </div><!-- /.entry-content -->
-        </article></li>
-        
- 
-        <li><article class="hentry">    
-                <header>
-                        <h1><a href="/my-多对多.html" rel="bookmark" title="Permalink to django多对多操作">django多对多操作</a></h1>
-                </header>
-                
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2019-08-08T18:44:00+02:00">
-                周四 08 八月 2019
-        </abbr>
+<li>配置3个哨兵，每个哨兵的配置都是一样的 …</li></ol> <a class="btn primary xsmall" href="/redis哨兵模式.html">more…</a>
+	</div>
+</div>	
 
-        <address class="vcard author">
-                By <a class="url fn" href="/author/shang-wei.html">商伟</a>
-        </address>
-<p>In <a href="/category/my-shang.html">my-shang</a>. </p>
-<p>tags: <a href="/tag/shang.html">shang</a></p></p>
-</footer><!-- /.post-info -->                <h2>django 多对多操作</h2>
+<div class="pagination">
 <ul>
-<li>模型</li>
+		<li class="prev"><a href="/index.html">&larr; Previous</a></li>
+		<li class=""><a href="/index.html">1</a></li>
+		<li class="active"><a href="/index2.html">2</a></li>
+		<li class="next disabled"><a href="#">&rarr; Next</a></li>
 </ul>
-<div class="highlight"><pre><span></span>  from django.db import models
+</div>
 
-  <span class="c1"># 老师</span>
-  class Teacher<span class="o">(</span>models.Model<span class="o">)</span>:
-      <span class="nv">name</span> <span class="o">=</span> models.CharField<span class="o">(</span><span class="nv">max_length</span><span class="o">=</span><span class="m">32</span><span class="o">)</span>
+		<footer>
+		  <p>Powered by <a href="http://getpelican.com/">Pelican</a>. Theme based on <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a>.</p>
+		  <p>&copy; 商伟</p>
+		</footer>
+	  </div>
 
-  <span class="c1"># 学生</span>
-  class Student<span class="o">(</span>models.Model<span class="o">)</span>:
-      <span class="nv">name</span> <span class="o">=</span> models.CharField<span class="o">(</span><span class="nv">max_length</span><span class="o">=</span><span class="m">32</span><span class="o">)</span>
-      <span class="nv">teachers</span> <span class="o">=</span> models.ManyToManyField<span class="o">(</span><span class="nv">to</span><span class="o">=</span><span class="s1">&#39;Teacher&#39;</span>,on_delete<span class="o">=</span>models.CASCADE<span class="o">)</span>
-</pre></div>
-
-
-<ul>
-<li>查询</li>
-</ul>
-<div class="highlight"><pre><span></span>  <span class="c1"># 通过老师查学生</span>
-  <span class="nv">teacher</span> <span class="o">=</span> Teacher.objects.filter<span class="o">(</span><span class="nv">id</span><span class="o">=</span><span class="m">1</span><span class="o">)</span>.first<span class="o">()</span>
-  <span class="nv">students</span> <span class="o">=</span> teacher.student_set.all<span class="o">()</span> <span class="c1"># 获取所有学生信息 …</span></pre></div>
-                <a class="readmore" href="/my-多对多.html">read more</a>
-                </div><!-- /.entry-content -->
-        </article></li>
-        
- 
-        <li><article class="hentry">    
-                <header>
-                        <h1><a href="/my-序列化-反序列化.html" rel="bookmark" title="Permalink to 一对多系列化与反序列化">一对多系列化与反序列化</a></h1>
-                </header>
-                
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2019-08-08T18:44:00+02:00">
-                周四 08 八月 2019
-        </abbr>
-
-        <address class="vcard author">
-                By <a class="url fn" href="/author/shang-wei.html">商伟</a>
-        </address>
-<p>In <a href="/category/my-shang.html">my-shang</a>. </p>
-<p>tags: <a href="/tag/shang.html">shang</a></p></p>
-</footer><!-- /.post-info -->                <h2>DRF一对多序列化和反序列化</h2>
-<ul>
-<li><code>models.py</code></li>
-</ul>
-<div class="highlight"><pre><span></span>  <span class="c1"># 商品分类</span>
-  class Category<span class="o">(</span>models.Model<span class="o">)</span>:
-      <span class="nv">name</span> <span class="o">=</span> models.CharField<span class="o">(</span><span class="nv">max_length</span><span class="o">=</span><span class="m">32</span><span class="o">)</span>
-
-  <span class="c1"># 商品</span>
-  class Goods<span class="o">(</span>models.Model<span class="o">)</span>:
-      <span class="nv">name</span> <span class="o">=</span> models.CharField<span class="o">(</span><span class="nv">max_length</span><span class="o">=</span><span class="m">32</span><span class="o">)</span>
-      <span class="nv">price</span> <span class="o">=</span> models.DecimalField<span class="o">(</span><span class="nv">max_digits</span><span class="o">=</span><span class="m">9</span>,decimal_places<span class="o">=</span><span class="m">2</span><span class="o">)</span>
-      <span class="nv">cate</span> <span class="o">=</span> models.ForeignKey<span class="o">(</span><span class="nv">to</span><span class="o">=</span><span class="s1">&#39;Category&#39;</span>,on_delete<span class="o">=</span>models.CASCADE<span class="o">)</span>
-</pre></div>
-
-
-<ul>
-<li><code>urls.py</code></li>
-</ul>
-<div class="highlight"><pre><span></span>  from django.urls import path,include
-  from . import views
-  <span class="nv">urlpatterns …</span></pre></div>
-                <a class="readmore" href="/my-序列化-反序列化.html">read more</a>
-                </div><!-- /.entry-content -->
-        </article></li>
-        
- 
-        <li><article class="hentry">    
-                <header>
-                        <h1><a href="/my-拦截器.html" rel="bookmark" title="Permalink to VUE拦截器">VUE拦截器</a></h1>
-                </header>
-                
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2019-08-08T18:44:00+02:00">
-                周四 08 八月 2019
-        </abbr>
-
-        <address class="vcard author">
-                By <a class="url fn" href="/author/shang-wei.html">商伟</a>
-        </address>
-<p>In <a href="/category/my-shang.html">my-shang</a>. </p>
-<p>tags: <a href="/tag/shang.html">shang</a></p></p>
-</footer><!-- /.post-info -->                <h2>vue 拦截器</h2>
-<ul>
-<li>
-<p>路由拦截器</p>
-</li>
-<li>
-<p>已路由为导向</p>
-</li>
-</ul>
-<div class="highlight"><pre><span></span>  router.beforeEach<span class="o">((</span>to,from,next<span class="o">)=</span>&gt;<span class="o">{</span>
-      <span class="k">if</span><span class="o">(</span>to.path<span class="o">==</span><span class="s1">&#39;/login&#39;</span> <span class="o">||</span> to.path<span class="o">==</span><span class="s1">&#39;reg&#39;</span> <span class="o">||</span> localStorage.getItem<span class="o">(</span><span class="s1">&#39;token&#39;</span><span class="o">)){</span>
-        next<span class="o">()</span><span class="p">;</span>
-      <span class="o">}</span><span class="k">else</span><span class="o">{</span>
-        alert<span class="o">(</span><span class="s1">&#39;请重新登录&#39;</span><span class="o">)</span><span class="p">;</span>
-        next<span class="o">(</span><span class="s1">&#39;/login&#39;</span><span class="o">)</span><span class="p">;</span>
-      <span class="o">}</span>
-  <span class="o">})</span>
-</pre></div>
-
-
-<ul>
-<li>
-<p>请求拦截器</p>
-</li>
-<li>
-<p>当发送请求时才会触发此功能</p>
-</li>
-</ul>
-<div class="highlight"><pre><span></span>  axios.interceptors.request.use<span class="o">(</span><span class="k">function</span> <span class="o">(</span>config<span class="o">)</span> <span class="o">{</span>
-    <span class="nb">let</span> <span class="nv">token</span> <span class="o">=</span> window.localStorage.getItem<span class="o">(</span><span class="s2">&quot;token&quot;</span><span class="o">)</span><span class="p">;</span>
-        <span class="k">if</span> <span class="o">(</span>token<span class="o">)</span> <span class="o">{</span>
-            config.headers.token <span class="o">=</span> token<span class="p">;</span>    //将token放到请求头发送给服务器
-        <span class="o">}</span>
-       <span class="k">return</span> config<span class="p">;</span> // 最终需要返回config
-      <span class="o">}</span>, <span class="k">function …</span></pre></div>
-                <a class="readmore" href="/my-拦截器.html">read more</a>
-                </div><!-- /.entry-content -->
-        </article></li>
-        
- 
-        <li><article class="hentry">    
-                <header>
-                        <h1><a href="/my-支付宝沙箱.html" rel="bookmark" title="Permalink to 支付宝沙箱模式">支付宝沙箱模式</a></h1>
-                </header>
-                
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2019-08-08T18:44:00+02:00">
-                周四 08 八月 2019
-        </abbr>
-
-        <address class="vcard author">
-                By <a class="url fn" href="/author/shang-wei.html">商伟</a>
-        </address>
-<p>In <a href="/category/my-shang.html">my-shang</a>. </p>
-<p>tags: <a href="/tag/shang.html">shang</a></p></p>
-</footer><!-- /.post-info -->                <h3>支付宝支付</h3>
-<ul>
-<li>安装模块</li>
-</ul>
-<div class="highlight"><pre><span></span>  pip install Crypto 
-  pip install pycryptodome
-  pip install python-alipay-sdk
-</pre></div>
-
-
-<ul>
-<li>
-<p>下载RSA工具
-  <img alt="img" src="https://img2018.cnblogs.com/blog/1354307/201911/1354307-20191107134351045-2102495901.png"></p>
-</li>
-<li>
-<p>将生成的公钥上传到支付宝沙箱的RSA2(SHA256)密钥(推荐）处</p>
-</li>
-</ul>
-<p><img alt="img" src="https://img2018.cnblogs.com/blog/1354307/201911/1354307-20191107134403625-1800493074.jpg"></p>
-<ul>
-<li>设置公钥后会生成一个支付宝公钥，将其复制</li>
-</ul>
-<p><img alt="img" src="https://img2018.cnblogs.com/blog/1354307/201911/1354307-20191107134416436-1047655704.png"></p>
-<ul>
-<li>然后将其写入一个文件 <code>alipay_pulic_key.pem</code></li>
-</ul>
-<div class="highlight"><pre><span></span>  -----BEGIN PUBLIC KEY-----
-  MIGfMA0GCSqGSIb3DQEBAQUAA4GNIgHnOn7LLILlKETd6BFRJ0GqgS2Y3mn1wMQmyh9zEyWlz5p1zrahRahbXAfCfSqshSNfqOmAQzSHRVjCqjsAw1jyqrXaPdKBmr90DIpIxmIyKXv4GGAkPyJ/6FTFY99uhpiq0qadD/uSzQsefWo0aTvP/65zi3eof7TcZ32oWpwIDAQAB
-  -----END PUBLIC KEY-----
-</pre></div>
-
-
-<ul>
-<li>把之前生成的私钥也写入另外一个文件 <code>app_private_key.pem</code></li>
-</ul>
-<div class="highlight"><pre><span></span>  -----BEGIN RSA PRIVATE KEY-----
-  MIIEowIBAAKCAQEAgxk5N/XQkRatTn56TxGo8nVGk4YKb7VheSDtcLezj7sDdibVamrWz/77VG1GY17Q2jOnCoHpngWDsJybZ/5icblvk3I76H5GT+zjYMBbHXfAlnRB7BG6+Vo7YWe442S0E+A8z8N+R3MArSb3+Coht+8JgvGNdsVE9u2upmxq4GHMKDu/TY3Q7lPIXW3iL6Kxn …</pre></div>
-                <a class="readmore" href="/my-支付宝沙箱.html">read more</a>
-                </div><!-- /.entry-content -->
-        </article></li>
-        
- 
-        <li><article class="hentry">    
-                <header>
-                        <h1><a href="/my-跨域.html" rel="bookmark" title="Permalink to django跨域与VUE跨域">django跨域与VUE跨域</a></h1>
-                </header>
-                
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2019-08-08T18:44:00+02:00">
-                周四 08 八月 2019
-        </abbr>
-
-        <address class="vcard author">
-                By <a class="url fn" href="/author/shang-wei.html">商伟</a>
-        </address>
-<p>In <a href="/category/my-shang.html">my-shang</a>. </p>
-<p>tags: <a href="/tag/shang.html">shang</a></p></p>
-</footer><!-- /.post-info -->                <h2>Django 解决跨域</h2>
-<ul>
-<li>安装 django-cors-headers</li>
-</ul>
-<div class="highlight"><pre><span></span>  pip install django-cors-headers
-</pre></div>
-
-
-<ul>
-<li>在 settings.py 的 install_apps 中注册</li>
-</ul>
-<div class="highlight"><pre><span></span>  <span class="nv">INSTALLED_APPS</span> <span class="o">=</span> <span class="o">[</span>
-      <span class="s1">&#39;corsheaders&#39;</span>
-  <span class="o">]</span>
-</pre></div>
-
-
-<ul>
-<li>在settings.py 的 middleware 中注册</li>
-</ul>
-<div class="highlight"><pre><span></span>  <span class="nv">MIDDLEWARE</span> <span class="o">=</span> <span class="o">[</span>
-      <span class="s1">&#39;corsheaders.middleware.CorsMiddleware&#39;</span>, <span class="c1"># 一定要在commonmiddleware之上</span>
-    <span class="s1">&#39;django.middleware.common.CommonMiddleware&#39;</span>,
-  <span class="o">]</span>
-</pre></div>
-
-
-<ul>
-<li>在 settings.py 的任意位置 添加</li>
-</ul>
-<div class="highlight"><pre><span></span>  <span class="nv">CORS_ORIGIN_ALLOW_ALL</span> <span class="o">=</span> True
-</pre></div>
-
-
-<ul>
-<li>完成django 跨域</li>
-</ul>
-<h2>VUE 解决跨域</h2>
-<ul>
-<li>打开config/index.js,在proxyTable中添写如下代码</li>
-</ul>
-<div class="highlight"><pre><span></span>proxyTable: <span class="o">{</span> 
-  <span class="s1">&#39;/api&#39;</span>: <span class="o">{</span>  //使用<span class="s2">&quot;/api&quot;</span>来代替<span class="s2">&quot;http …</span></pre></div>
-                <a class="readmore" href="/my-跨域.html">read more</a>
-                </div><!-- /.entry-content -->
-        </article></li>
-</ol><!-- /#posts-list -->
-</section><!-- /#content -->
-        <section id="extras" class="body">
-                <div class="blogroll">
-                        <h2>blogroll</h2>
-                        <ul>
-                            <li><a href="http://getpelican.com/">Pelican</a></li>
-                            <li><a href="http://python.org/">Python.org</a></li>
-                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
-                            <li><a href="#">You can modify those links in your config file</a></li>
-                        </ul>
-                </div><!-- /.blogroll -->
-                <div class="social">
-                        <h2>social</h2>
-                        <ul>
-                            <li><a href="/" rel="alternate">atom feed</a></li>
-
-                            <li><a href="#">You can add links in your config file</a></li>
-                            <li><a href="#">Another social link</a></li>
-                        </ul>
-                </div><!-- /.social -->
-        </section><!-- /#extras -->
-
-        <footer id="contentinfo" class="body">
-                <address id="about" class="vcard body">
-                Proudly powered by <a href="http://alexis.notmyidea.org/pelican/">pelican</a>, which takes great advantages of <a href="http://python.org">python</a>.
-                </address><!-- /#about -->
-
-                <p>The theme is by <a href="http://smashingmagazine.com">Smashing Magazine</a>, thanks!</p>
-        </footer><!-- /#contentinfo -->
-
+	</div>
 </body>
 </html>

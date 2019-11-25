@@ -60,14 +60,43 @@
 		</div>
 	  </div>
 	  <div class="content">
-<div class="page-header"><h1>商伟的技术博客 <small>[tags]</small></h1></div><ul>
-	<li><a href="/tag/supervisor.html">Supervisor</a></li>
-	<li><a href="/tag/rabbitmq.html">rabbitmq</a></li>
-	<li><a href="/tag/django.html">Django</a></li>
-	<li><a href="/tag/git.html">GIT</a></li>
-	<li><a href="/tag/vue.html">VUE</a></li>
-	<li><a href="/tag/redis.html">redis</a></li>
+<div class="page-header"><h1>商伟的技术博客 <small>redis</small></h1></div>
+<div class='article'>
+	<h2>redis哨兵模式</h2>
+	<div class="well small">Permalink: <a class="more" href="/redis哨兵模式.html">2019-08-08 18:44:00+02:00</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/redis.html">redis</a>
+tags: <a href="/tag/redis.html">redis</a> </div>
+	<div class="summary"><h1>Redis哨兵(Sentinel)模式</h1>
+<h2>一、概述</h2>
+<p>哨兵通过发送命令。等待Redis服务器响应，从而监控运行的多个Redis实例</p>
+<p><img alt="1574609729003" src="http://c.biancheng.net/uploads/allimg/190725/5-1ZH51400314I.png"></p>
+<h3>哨兵作用</h3>
+<ul>
+<li>通过发送命令，让Redis服务器返回 监控其运行状态，包括主服务器和从服务器</li>
+<li>当哨兵监测到master宕机，会自动将slave(从)切换成master(主)，然后通过‘发布订阅模式’ 通知其他从服务器，修改配置文件，让他们切换主机</li>
 </ul>
+<h2>二、配置redis主从服务器</h2>
+<ol>
+<li>修改redis.conf</li>
+</ol>
+<div class="highlight"><pre><span></span>   <span class="c1"># redis服务器可以跨网络访问</span>
+   <span class="n">bind</span> <span class="mf">0.0</span><span class="o">.</span><span class="mf">0.0</span>
+   <span class="c1"># 设置密码</span>
+   <span class="n">requirepass</span> <span class="s1">&#39;123&#39;</span>
+   <span class="c1"># 指定主服务器(只配置从服务器，主服务器不需要配置)</span>
+   <span class="n">slaveof</span> <span class="mf">192.168</span><span class="o">.</span><span class="mf">11.128</span> <span class="mi">6379</span>
+   <span class="c1"># 主服务器密码</span>
+   <span class="n">masterauth</span> <span class="mi">123</span>
+</pre></div>
+
+
+<ol>
+<li>配置3个哨兵，每个哨兵的配置都是一样的 …</li></ol> <a class="btn primary xsmall" href="/redis哨兵模式.html">more…</a>
+	</div>
+</div>	
+
+
 		<footer>
 		  <p>Powered by <a href="http://getpelican.com/">Pelican</a>. Theme based on <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a>.</p>
 		  <p>&copy; 商伟</p>

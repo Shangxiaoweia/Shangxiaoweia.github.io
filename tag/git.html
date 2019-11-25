@@ -28,7 +28,12 @@
 		<div class="container-fluid">
 		  <a class="brand" href="/">商伟的技术博客</a>
 			<ul class="nav">
-					<li class="active"><a href="/category/my-shang.html">my-shang</a></li>
+					<li ><a href="/category/django.html">Django</a></li>
+					<li ><a href="/category/git.html">GIT</a></li>
+					<li ><a href="/category/rabbitmq.html">rabbitmq</a></li>
+					<li ><a href="/category/redis.html">redis</a></li>
+					<li ><a href="/category/supervisor.html">Supervisor</a></li>
+					<li ><a href="/category/vue.html">VUE</a></li>
 			</ul>
 			<p class="pull-right"><a href="/archives.html">[archives]</a> <a href="/tags.html">[tags]</a></p>
 		</div>
@@ -55,13 +60,14 @@
 		</div>
 	  </div>
 	  <div class="content">
-	<div class='article'>
-		<div class="page-header"><h1>GIT</h1></div>
-		<div class="well small">Permalink: <a class="more" href="/my-Git.html">2019-08-08 18:44:00+02:00</a>
+<div class="page-header"><h1>商伟的技术博客 <small>GIT</small></h1></div>
+<div class='article'>
+	<h2>GIT</h2>
+	<div class="well small">Permalink: <a class="more" href="/GIT.html">2019-08-08 18:44:00+02:00</a>
 by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/my-shang.html">my-shang</a>
-tags: <a href="/tag/shang.html">shang</a> </div>
-		<div><h1>Git</h1>
+ in <a href="/category/git.html">GIT</a>
+tags: <a href="/tag/git.html">GIT</a> </div>
+	<div class="summary"><h1>Git</h1>
 <h2>创建账号</h2>
 <ul>
 <li>useradd  名字</li>
@@ -95,54 +101,11 @@ tags: <a href="/tag/shang.html">shang</a> </div>
 <div class="highlight"><pre><span></span><span class="n">ssh</span><span class="o">-</span><span class="n">keygen</span>
 <span class="p">(</span><span class="err">默认是</span><span class="n">id_rsa</span><span class="p">)</span><span class="o">./</span><span class="err">密码名称</span> 
 <span class="n">mkdir</span> <span class="o">.</span><span class="n">ssh</span>   <span class="c1">#创建</span>
-<span class="n">ls</span> <span class="o">-</span><span class="n">a</span>  <span class="c1"># 打印隐藏文件</span>
-<span class="c1"># 创建管理公钥文件</span>
-<span class="n">touch</span> <span class="o">.</span><span class="n">ssh</span><span class="o">/</span><span class="n">authorized_keys</span>  
-<span class="c1"># 设置目录权限</span>
-<span class="n">chmod</span> <span class="mi">700</span> <span class="o">.</span><span class="n">ssh</span>
-<span class="c1"># 设置文件权限</span>
-<span class="n">chmod</span> <span class="mi">600</span> <span class="o">.</span><span class="n">ssh</span><span class="o">/</span><span class="n">authorized_keys</span>
-<span class="c1"># 打开</span>
-<span class="n">vi</span> <span class="o">.</span><span class="n">ssh</span><span class="o">/</span><span class="n">authorized_keys</span>
-<span class="c1"># 转到本地 </span>
-<span class="n">cat</span> <span class="err">名称</span><span class="o">.</span><span class="n">pub</span>  <span class="c1"># 查看公钥</span>
-</pre></div>
-
-
-<ul>
-<li>登录</li>
-</ul>
-<div class="highlight"><pre><span></span><span class="n">ssh</span> <span class="err">名字</span><span class="nd">@ip地址</span> <span class="o">-</span><span class="n">i</span> <span class="o">./</span><span class="err">密钥</span>
-<span class="c1"># 使用证书登录   </span>
-<span class="n">ssh</span> <span class="n">test_user</span><span class="nd">@62.234.92.111</span> <span class="o">-</span><span class="n">i</span> <span class="err">证书路径</span>
-</pre></div>
-
-
-<h2>搭建git服务</h2>
-<ol>
-<li>创建git用户    useradd git</li>
-<li>设置git用户ssh权限目录和文件</li>
-<li>创建一个裸版本库</li>
-</ol>
-<div class="highlight"><pre><span></span>su - git                            <span class="c1"># 登录git用户</span>
-git init --bare project.git         <span class="c1"># 创建一个裸仓库</span>
-</pre></div>
-
-
-<h2>创建一个文件并提交</h2>
-<div class="highlight"><pre><span></span>touch readme.txt                        <span class="c1"># 创建readme.txt 文件</span>
-git add readme.txt                         <span class="c1"># 添加到暂存区中 </span>
-git commit -m <span class="s2">&quot;添加readme文件&quot;</span>              <span class="c1"># 提交到本地版本库里</span>
-git push origin                            <span class="c1"># 推送到远程仓库</span>
-git pull origin                           <span class="c1"># 拉取文件</span>
-</pre></div>
-
-
-<h2>git 常用命令</h2>
-<div class="highlight"><pre><span></span>git status
-git 
-</pre></div></div>
+<span class="n">ls …</span></pre></div> <a class="btn primary xsmall" href="/GIT.html">more…</a>
 	</div>
+</div>	
+
+
 		<footer>
 		  <p>Powered by <a href="http://getpelican.com/">Pelican</a>. Theme based on <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a>.</p>
 		  <p>&copy; 商伟</p>
