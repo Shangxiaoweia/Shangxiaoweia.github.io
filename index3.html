@@ -35,6 +35,7 @@
 					<li ><a href="/category/python.html">Python</a></li>
 					<li ><a href="/category/rabbitmq.html">RabbitMQ</a></li>
 					<li ><a href="/category/redis.html">redis</a></li>
+					<li ><a href="/category/sui-shou-bi-ji.html">随手笔记</a></li>
 					<li ><a href="/category/supervisor.html">Supervisor</a></li>
 					<li ><a href="/category/vue.html">VUE</a></li>
 					<li ><a href="/category/wang-luo.html">网络</a></li>
@@ -72,7 +73,8 @@
 by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
  in <a href="/category/vue.html">VUE</a>
 tags: <a href="/tag/vue.html">VUE</a> </div>
-	<div class="summary"><h1>不多说直接上代码</h1>
+	<div class="summary"><h1>VUE添加图片</h1>
+<h3>不多说直接上代码</h3>
 <div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">template</span><span class="o">&gt;</span>
   <span class="o">&lt;</span><span class="n">div</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;Daa_img&quot;</span><span class="o">&gt;</span>
     <span class="o">&lt;</span><span class="nb">input</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;file&quot;</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;img&quot;</span><span class="o">&gt;</span>
@@ -94,7 +96,51 @@ tags: <a href="/tag/vue.html">VUE</a> </div>
         <span class="n">let</span> <span class="n">datafrom</span> <span class="o">=</span> <span class="n">new</span> <span class="n">FormData</span><span class="p">();</span>
         <span class="n">datafrom</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;img&#39;</span><span class="p">,</span><span class="n">document</span><span class="o">.</span><span class="n">getElementById</span><span class="p">(</span><span class="s1">&#39;img&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">files</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
         <span class="n">axios</span><span class="p">({</span>
-          <span class="n">url</span><span class="p">:</span><span class="s1">&#39;http://127.0 …</span></pre></div> <a class="btn primary xsmall" href="/VUE添加图片.html">more…</a>
+          <span class="n">url</span><span class="p">:</span><span class="s1">&#39;http://127 …</span></pre></div> <a class="btn primary xsmall" href="/VUE添加图片.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>VUE父子件传参+分页</h2>
+	<div class="well small">Permalink: <a class="more" href="/VUE父子件传参+分页.html">2019-08-08 18:44:00+02:00</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/vue.html">VUE</a>
+tags: <a href="/tag/vue.html">VUE</a> </div>
+	<div class="summary"><h2>直接上代码、然后解释：</h2>
+<h3>父组件代码</h3>
+<div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">template</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">div</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;fu&quot;</span><span class="o">&gt;</span>
+    <span class="err">这是父组件</span>
+    <span class="o">&lt;</span><span class="n">zi</span> <span class="p">:</span><span class="n">name1</span><span class="o">=</span><span class="n">data</span> <span class="nd">@da</span><span class="o">=</span><span class="s2">&quot;add&quot;</span><span class="o">&gt;&lt;/</span><span class="n">zi</span><span class="o">&gt;</span>
+  <span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">template</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">script</span><span class="o">&gt;</span>
+  <span class="kn">import</span> <span class="nn">zi</span> <span class="nn">from</span> <span class="s1">&#39;../components/zi&#39;</span>
+
+  <span class="n">export</span> <span class="n">default</span> <span class="p">{</span>
+    <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;fu&quot;</span><span class="p">,</span>
+    <span class="n">data</span><span class="p">()</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="p">{</span>
+        <span class="n">data</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+      <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="n">components</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s1">&#39;zi&#39;</span><span class="p">:</span> <span class="n">zi</span>
+    <span class="p">},</span>
+    <span class="n">methods</span><span class="p">:</span> <span class="p">{</span>
+      <span class="n">add</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">alert</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="o">&lt;/</span><span class="n">script</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">style</span> <span class="n">scoped</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">style</span><span class="o">&gt;</span>
+</pre></div>
+
+
+<h3>子组件代码</h3>
+<div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="nv">template</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="nv">div</span> <span class="nv">id</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">zi …</span></pre></div> <a class="btn primary xsmall" href="/VUE父子件传参+分页.html">more…</a>
 	</div>
 </div>	
 <div class='article'>
@@ -116,10 +162,10 @@ by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
  in <a href="/category/django.html">Django</a>
 tags: <a href="/tag/django.html">Django</a> </div>
 	<div class="summary"><h1>Django分页组件(paginator)</h1>
-<blockquote>
-<p><code>shell
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger</code></p>
-</blockquote>
+<div class="highlight"><pre><span></span>from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+</pre></div>
+
+
 <div class="highlight"><pre><span></span>  Paginator
 </pre></div>
 
@@ -139,7 +185,7 @@ p.page_range<span class="o">()</span> <span class="c1"># 列表形式返回当�
 <h3>某一页内置属性</h3>
 <div class="highlight"><pre><span></span>page_1.number <span class="c1"># 当前页的页码</span>
 page_1.has_next<span class="o">()</span> <span class="c1"># 是否有下一页</span>
-page_1 …</pre></div> <a class="btn primary xsmall" href="/django分页组件（paginator）.html">more…</a>
+page_1.has_previous …</pre></div> <a class="btn primary xsmall" href="/django分页组件（paginator）.html">more…</a>
 	</div>
 </div>	
 <div class='article'>
@@ -358,44 +404,6 @@ tags: <a href="/tag/mysql.html">MySQL</a> </div>
 <h4>3.SQL的优点:</h4>
 <div class="highlight"><pre><span></span>　　　　(1).不是某个特定数据库供应商专有的语言, 几乎所有DBMS都支持SQL
 　　　　(2).简单易学 …</pre></div> <a class="btn primary xsmall" href="/初识MySQL.html">more…</a>
-	</div>
-</div>	
-<div class='article'>
-	<h2>爬虫第一个请求</h2>
-	<div class="well small">Permalink: <a class="more" href="/爬虫第一个请求.html">2019-08-08 18:44:00+02:00</a>
-by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/pa-chong.html">爬虫</a>
-tags: <a href="/tag/pa-chong.html">爬虫</a> </div>
-	<div class="summary"><hr>
-<h2>1.请求过程与网页基础</h2>
-<h4>1.1  URL介绍</h4>
-<div class="highlight"><pre><span></span>- 确定URL
-</pre></div>
-
-
-<h4>1.2  HTTP请求过程</h4>
-<div class="highlight"><pre><span></span># 请求过程:
-
-​    客户端, 通常指web浏览器或APP向服务器发起请求, 服务器接收到请求进行处理, 并向客户端发起响应.
-</pre></div>
-
-
-<h4>1.3  请求</h4>
-<div class="highlight"><pre><span></span><span class="c1"># 请求: 有客户端向服务器发出的, 可以分为四部分内容: 请求方法(Request Method), 请求网址(Request URL), 请求头(Request Headers), 请求体(Request Body)</span>
-</pre></div>
-
-
-<div class="highlight"><pre><span></span><span class="c1"># 请求方法:常见有8种</span>
-
-<span class="o">-</span> <span class="n">GET</span><span class="p">:</span> <span class="err">请求页面</span><span class="p">,</span> <span class="err">并返回页面内容</span>  <span class="c1"># 重点</span>
-
-<span class="o">-</span> <span class="n">POST</span><span class="p">:</span> <span class="err">用于提交表单数据或上传文件</span><span class="p">,</span> <span class="err">数据包含在请求体中</span>  <span class="c1"># 重点</span>
-
-<span class="o">-</span> <span class="n">PUT</span><span class="p">:</span> <span class="err">从客户端向服务器传送的数据取代指定文档中的内容</span>
-
-<span class="o">-</span> <span class="n">DELETE</span><span class="p">:</span> <span class="err">请求服务器删除指定的页面</span>
-
-<span class="o">-</span> <span class="n">HEAD</span><span class="p">:</span> <span class="err">类似于</span><span class="n">GET请求</span><span class="err">，只不过返回的响应中没有具体的内容 …</span></pre></div> <a class="btn primary xsmall" href="/爬虫第一个请求.html">more…</a>
 	</div>
 </div>	
 

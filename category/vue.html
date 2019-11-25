@@ -35,6 +35,7 @@
 					<li ><a href="/category/python.html">Python</a></li>
 					<li ><a href="/category/rabbitmq.html">RabbitMQ</a></li>
 					<li ><a href="/category/redis.html">redis</a></li>
+					<li ><a href="/category/sui-shou-bi-ji.html">随手笔记</a></li>
 					<li ><a href="/category/supervisor.html">Supervisor</a></li>
 					<li class="active"><a href="/category/vue.html">VUE</a></li>
 					<li ><a href="/category/wang-luo.html">网络</a></li>
@@ -115,7 +116,8 @@ tags: <a href="/tag/vue.html">VUE</a> </div>
 by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
  in <a href="/category/vue.html">VUE</a>
 tags: <a href="/tag/vue.html">VUE</a> </div>
-	<div class="summary"><h1>不多说直接上代码</h1>
+	<div class="summary"><h1>VUE添加图片</h1>
+<h3>不多说直接上代码</h3>
 <div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">template</span><span class="o">&gt;</span>
   <span class="o">&lt;</span><span class="n">div</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;Daa_img&quot;</span><span class="o">&gt;</span>
     <span class="o">&lt;</span><span class="nb">input</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;file&quot;</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;img&quot;</span><span class="o">&gt;</span>
@@ -137,7 +139,51 @@ tags: <a href="/tag/vue.html">VUE</a> </div>
         <span class="n">let</span> <span class="n">datafrom</span> <span class="o">=</span> <span class="n">new</span> <span class="n">FormData</span><span class="p">();</span>
         <span class="n">datafrom</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;img&#39;</span><span class="p">,</span><span class="n">document</span><span class="o">.</span><span class="n">getElementById</span><span class="p">(</span><span class="s1">&#39;img&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">files</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
         <span class="n">axios</span><span class="p">({</span>
-          <span class="n">url</span><span class="p">:</span><span class="s1">&#39;http://127.0 …</span></pre></div> <a class="btn primary xsmall" href="/VUE添加图片.html">more…</a>
+          <span class="n">url</span><span class="p">:</span><span class="s1">&#39;http://127 …</span></pre></div> <a class="btn primary xsmall" href="/VUE添加图片.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>VUE父子件传参+分页</h2>
+	<div class="well small">Permalink: <a class="more" href="/VUE父子件传参+分页.html">2019-08-08 18:44:00+02:00</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/vue.html">VUE</a>
+tags: <a href="/tag/vue.html">VUE</a> </div>
+	<div class="summary"><h2>直接上代码、然后解释：</h2>
+<h3>父组件代码</h3>
+<div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">template</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">div</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;fu&quot;</span><span class="o">&gt;</span>
+    <span class="err">这是父组件</span>
+    <span class="o">&lt;</span><span class="n">zi</span> <span class="p">:</span><span class="n">name1</span><span class="o">=</span><span class="n">data</span> <span class="nd">@da</span><span class="o">=</span><span class="s2">&quot;add&quot;</span><span class="o">&gt;&lt;/</span><span class="n">zi</span><span class="o">&gt;</span>
+  <span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">template</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">script</span><span class="o">&gt;</span>
+  <span class="kn">import</span> <span class="nn">zi</span> <span class="nn">from</span> <span class="s1">&#39;../components/zi&#39;</span>
+
+  <span class="n">export</span> <span class="n">default</span> <span class="p">{</span>
+    <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;fu&quot;</span><span class="p">,</span>
+    <span class="n">data</span><span class="p">()</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="p">{</span>
+        <span class="n">data</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+      <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="n">components</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s1">&#39;zi&#39;</span><span class="p">:</span> <span class="n">zi</span>
+    <span class="p">},</span>
+    <span class="n">methods</span><span class="p">:</span> <span class="p">{</span>
+      <span class="n">add</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">alert</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="o">&lt;/</span><span class="n">script</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">style</span> <span class="n">scoped</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">style</span><span class="o">&gt;</span>
+</pre></div>
+
+
+<h3>子组件代码</h3>
+<div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="nv">template</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="nv">div</span> <span class="nv">id</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">zi …</span></pre></div> <a class="btn primary xsmall" href="/VUE父子件传参+分页.html">more…</a>
 	</div>
 </div>	
 

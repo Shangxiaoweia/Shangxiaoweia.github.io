@@ -35,8 +35,8 @@
 					<li ><a href="/category/python.html">Python</a></li>
 					<li ><a href="/category/rabbitmq.html">RabbitMQ</a></li>
 					<li ><a href="/category/redis.html">redis</a></li>
-					<li ><a href="/category/sui-shou-bi-ji.html">随手笔记</a></li>
-					<li class="active"><a href="/category/supervisor.html">Supervisor</a></li>
+					<li class="active"><a href="/category/sui-shou-bi-ji.html">随手笔记</a></li>
+					<li ><a href="/category/supervisor.html">Supervisor</a></li>
 					<li ><a href="/category/vue.html">VUE</a></li>
 					<li ><a href="/category/wang-luo.html">网络</a></li>
 					<li ><a href="/category/xu-ni-huan-jing.html">虚拟环境</a></li>
@@ -66,50 +66,15 @@
 		</div>
 	  </div>
 	  <div class="content">
-<div class="page-header"><h1>商伟的技术博客 <small>Supervisor</small></h1></div>
-<div class='article'>
-	<h2>Supervisor</h2>
-	<div class="well small">Permalink: <a class="more" href="/Supervisor.html">2019-08-09 18:44:00+02:00</a>
+	<div class='article'>
+		<div class="page-header"><h1>随手笔记</h1></div>
+		<div class="well small">Permalink: <a class="more" href="/随手笔记.html">2019-08-08 18:44:00+02:00</a>
 by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/supervisor.html">Supervisor</a>
-tags: <a href="/tag/supervisor.html">Supervisor</a> </div>
-	<div class="summary"><h2>介绍</h2>
-<p>Supervisor就是一个超级管理员，监管员。Supervisor是一个进程管理工具，当进程中断的时候Supervisor能自动重新启动它。</p>
-<h2>Supervisor安装与配置</h2>
-<h3>1、安装Python包管理工具(<a href="https://pypi.org/project/setuptools/">easy_install</a>)</h3>
-<div class="highlight"><pre><span></span>yum install python-setuptools
-</pre></div>
-
-
-<h3>2、安装Supervisor</h3>
-<div class="highlight"><pre><span></span>easy_install supervisor
-</pre></div>
-
-
-<h3>3、配置Supervisor应用守护</h3>
-<p>a) 通过运行echo_supervisord_conf程序生成supervisor的初始化配置文件，如下所示：</p>
-<div class="highlight"><pre><span></span>mkdir /etc/supervisor
-echo_supervisord_conf &gt; /etc/supervisor/supervisord.conf
-</pre></div>
-
-
-<p>然后查看路径下的supervisord.conf。在文件尾部添加如下配置。</p>
-<div class="highlight"><pre><span></span>...
-
-<span class="p">;</span><span class="o">[</span>include<span class="o">]</span>
-<span class="p">;</span><span class="nv">files</span> <span class="o">=</span> relative/directory/*.ini
-
-<span class="p">;</span>conf.d 为配置表目录的文件夹，需要手动创建
-<span class="o">[</span>include<span class="o">]</span>
-<span class="nv">files</span> <span class="o">=</span> conf.d/*.conf
-</pre></div>
-
-
-<p>b) 为你的程序创建一个.conf文件，放在目录 …</p> <a class="btn primary xsmall" href="/Supervisor.html">more…</a>
+ in <a href="/category/sui-shou-bi-ji.html">随手笔记</a>
+tags: <a href="/tag/sui-shou-bi-ji.html">随手笔记</a> </div>
+		<div><p>pelican content</p>
+<p>pelican --listen</p></div>
 	</div>
-</div>	
-
-
 		<footer>
 		  <p>Powered by <a href="http://getpelican.com/">Pelican</a>. Theme based on <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a>.</p>
 		  <p>&copy; 商伟</p>
