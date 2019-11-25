@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>商伟的技术博客</title>
+	<meta name="description" content="">
+	<meta name="author" content="商伟">
+
+	<!-- HTML5 shim, for IE6-8 support of HTML elements -->
+	<!--[if lt IE 9]>
+		<script src="/theme/html5.js"></script>
+	<![endif]-->
+
+	<!-- Styles -->
+	<link href="/theme/bootstrap.min.css" rel="stylesheet">
+	<link href="/theme/local.css" rel="stylesheet">
+	<link href="/theme/pygments.css" rel="stylesheet">
+
+	<!-- Feeds -->
+
+
+
+
+</head>
+<body>
+	<div class="topbar">
+	  <div class="topbar-inner">
+		<div class="container-fluid">
+		  <a class="brand" href="/">商伟的技术博客</a>
+			<ul class="nav">
+					<li ><a href="/category/django.html">Django</a></li>
+					<li ><a href="/category/git.html">GIT</a></li>
+					<li ><a href="/category/pa-chong.html">爬虫</a></li>
+					<li class="active"><a href="/category/python.html">Python</a></li>
+					<li ><a href="/category/rabbitmq.html">RabbitMQ</a></li>
+					<li ><a href="/category/redis.html">redis</a></li>
+					<li ><a href="/category/supervisor.html">Supervisor</a></li>
+					<li ><a href="/category/vue.html">VUE</a></li>
+			</ul>
+			<p class="pull-right"><a href="/archives.html">[archives]</a> <a href="/tags.html">[tags]</a></p>
+		</div>
+	  </div>
+	</div>
+
+	<div class="container-fluid">
+	  <div class="sidebar">
+		<div class="well">
+			<h3>Blogroll</h3>
+			<ul>
+				<li><a href="http://getpelican.com/">Pelican</a></li>
+				<li><a href="http://python.org/">Python.org</a></li>
+				<li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+				<li><a href="#">You can modify those links in your config file</a></li>
+			</ul>
+			<div class="social">
+			<h3>Social</h3>
+			<ul>
+				<li><a href="#">You can add links in your config file</a></li>
+				<li><a href="#">Another social link</a></li>
+			</ul>
+			</div>
+		</div>
+	  </div>
+	  <div class="content">
+	<div class='article'>
+		<div class="page-header"><h1>Python输入与输出</h1></div>
+		<div class="well small">Permalink: <a class="more" href="/Python输入与输出.html">2019-08-08 18:44:00+02:00</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/python.html">Python</a>
+tags: <a href="/tag/python.html">Python</a> </div>
+		<div><h1>Python输出</h1>
+<div class="highlight"><pre><span></span><span class="c1"># 打印提示</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;hello world&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;萨瓦迪卡---泰语，你好的意思&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<h2>2. 格式化输出</h2>
+<h3>&lt;1&gt;格式化操作的目的</h3>
+<p>比如有以下代码:</p>
+<div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;我今年10岁&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;我今年11岁&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;我今年12岁&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<ul>
+<li>想一想:</li>
+</ul>
+<blockquote>
+<p>在输出年龄的时候，用了多次"我今年xx岁"，能否简化一下程序呢？？？</p>
+</blockquote>
+<ul>
+<li>答:</li>
+</ul>
+<blockquote>
+<p>字符串格式化</p>
+</blockquote>
+<h3>&lt;2&gt;什么是格式化</h3>
+<p>看如下代码:</p>
+<div class="highlight"><pre><span></span><span class="n">age</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;我今年</span><span class="si">%d</span><span class="s2">岁&quot;</span> <span class="o">%</span> <span class="n">age</span><span class="p">)</span>
+
+<span class="n">age</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;我今年</span><span class="si">%d</span><span class="s2">岁&quot;</span> <span class="o">%</span> <span class="n">age</span><span class="p">)</span>
+
+<span class="n">age</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;我今年</span><span class="si">%d</span><span class="s2">岁&quot;</span> <span class="o">%</span> <span class="n">age</span><span class="p">)</span>
+
+<span class="o">...</span>
+</pre></div>
+
+
+<p>在程序中，看到了<code>%</code>这样的操作符，这就是Python中格式化输出。</p>
+<div class="highlight"><pre><span></span><span class="n">age</span> <span class="o">=</span> <span class="mi">18</span>
+<span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;shang&quot;</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;我的姓名是</span><span class="si">%s</span><span class="s2">, 年龄是</span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">))</span>
+</pre></div>
+
+
+<h3>&lt;3&gt;常用的格式符号</h3>
+<p>下面是完整的，它可以与％符号使用列表:</p>
+<table>
+<thead>
+<tr>
+<th align="center">格式符号</th>
+<th align="center">转换</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">%c</td>
+<td align="center">字符</td>
+</tr>
+<tr>
+<td align="center">%s</td>
+<td align="center">字符串</td>
+</tr>
+<tr>
+<td align="center">%d</td>
+<td align="center">有符号十进制整数</td>
+</tr>
+<tr>
+<td align="center">%u</td>
+<td align="center">无符号十进制整数</td>
+</tr>
+<tr>
+<td align="center">%o</td>
+<td align="center">八进制整数</td>
+</tr>
+<tr>
+<td align="center">%x</td>
+<td align="center">十六进制整数（小写字母0x）</td>
+</tr>
+<tr>
+<td align="center">%X</td>
+<td align="center">十六进制整数（大写字母0X）</td>
+</tr>
+<tr>
+<td align="center">%f</td>
+<td align="center">浮点数</td>
+</tr>
+<tr>
+<td align="center">%e</td>
+<td align="center">科学计数法（小写'e'）</td>
+</tr>
+<tr>
+<td align="center">%E</td>
+<td align="center">科学计数法（大写“E”）</td>
+</tr>
+<tr>
+<td align="center">%g</td>
+<td align="center">％f和％e 的简写</td>
+</tr>
+<tr>
+<td align="center">%G</td>
+<td align="center">％f和％E的简写</td>
+</tr>
+</tbody>
+</table>
+<h2>3. 换行输出</h2>
+<p>在输出的时候，如果有<code>\n</code>那么，此时<code>\n</code>后的内容会在另外一行显示</p>
+<div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;1234567890----&quot;</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="c1"># 取消换行</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;1234567890-------&quot;</span><span class="p">)</span> <span class="c1"># 会在一行显示</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;1234567890</span><span class="se">\n</span><span class="s2">-------&quot;</span><span class="p">)</span> <span class="c1"># 一行显示1234567890，另外一行显示-------</span>
+</pre></div>
+
+
+<h1>Python输入</h1>
+<h3>1.1 raw_input()</h3>
+<p>在Python中，获取键盘输入的数据的方法是采用 raw_input 函数（至于什么是函数，咱们以后的章节中讲解），那么这个 raw_input 怎么用呢?</p>
+<p>看如下示例:</p>
+<div class="highlight"><pre><span></span><span class="n">password</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s2">&quot;请输入密码:&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;您刚刚输入的密码是:</span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">password</span><span class="p">)</span>
+</pre></div>
+
+
+<p>运行结果:</p>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="mi">111</span>
+<span class="mi">111</span>
+</pre></div>
+
+
+<p><strong>注意</strong>:</p>
+<ul>
+<li>raw_input()的小括号中放入的是，提示信息，用来在获取数据之前给用户的一个简单提示</li>
+<li>raw_input()在从键盘获取了数据以后，会存放到等号右边的变量中</li>
+<li>raw_input()会把用户输入的任何值都作为字符串来对待</li>
+</ul>
+<h3>1.2 input()</h3>
+<p>input()函数与raw_input()类似，但其接受的输入必须是表达式。</p>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span> 
+<span class="mi">123</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span>
+<span class="mi">123</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="nb">type</span> <span class="s1">&#39;int&#39;</span><span class="o">&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+<span class="n">abc</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s2">&quot;&lt;stdin&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+  <span class="n">File</span> <span class="s2">&quot;&lt;string&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">NameError</span><span class="p">:</span> <span class="n">name</span> <span class="s1">&#39;abc&#39;</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">defined</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+<span class="s2">&quot;abc&quot;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span>
+<span class="s1">&#39;abc&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="nb">type</span> <span class="s1">&#39;str&#39;</span><span class="o">&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+<span class="mi">1</span><span class="o">+</span><span class="mi">3</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span>
+<span class="mi">4</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+<span class="s2">&quot;abc&quot;</span><span class="o">+</span><span class="s2">&quot;def&quot;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span>
+<span class="s1">&#39;abcdef&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+<span class="n">value</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span>
+<span class="mi">100</span>
+</pre></div>
+
+
+<p><strong>input()接受表达式输入，并把表达式的结果赋值给等号左边的变量</strong></p>
+<h2>2. python3版本中</h2>
+<p>没有raw_input()函数，只有input()</p>
+<p>并且 python3中的input与python2中的raw_input()功能一样</p></div>
+	</div>
+		<footer>
+		  <p>Powered by <a href="http://getpelican.com/">Pelican</a>. Theme based on <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a>.</p>
+		  <p>&copy; 商伟</p>
+		</footer>
+	  </div>
+
+	</div>
+</body>
+</html>
