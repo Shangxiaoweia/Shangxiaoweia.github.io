@@ -28,7 +28,7 @@
 		<div class="container-fluid">
 		  <a class="brand" href="/">商伟的技术博客</a>
 			<ul class="nav">
-					<li ><a href="/category/django.html">Django</a></li>
+					<li class="active"><a href="/category/django.html">Django</a></li>
 					<li ><a href="/category/git.html">GIT</a></li>
 					<li ><a href="/category/mysql.html">MySQL</a></li>
 					<li ><a href="/category/pa-chong.html">爬虫</a></li>
@@ -65,10 +65,71 @@
 		</div>
 	  </div>
 	  <div class="content">
-<div class="page-header"><h1>商伟的技术博客 - Authors</h1></div>    <h1>Authors on 商伟的技术博客</h1>
-    <ul>
-        <li><a href="/author/shang-wei.html">商伟</a> (30)</li>
-    </ul>
+	<div class='article'>
+		<div class="page-header"><h1>Django上传图片</h1></div>
+		<div class="well small">Permalink: <a class="more" href="/Django上传图片.html">2019-08-08 18:44:00+02:00</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/django.html">Django</a>
+tags: <a href="/tag/django.html">Django</a> </div>
+		<div><h1>最简单的保存图片与展示</h1>
+<ul>
+<li>
+<p>在Django里面</p>
+</li>
+<li>
+<p>根目录创建 static 文件夹</p>
+</li>
+<li>
+<p>settings</p>
+</li>
+<li>
+<p>```
+    STATIC_URL = '/static/'</p>
+<p>STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+```</p>
+</li>
+<li>
+<p>views</p>
+</li>
+<li>
+<p><code>from datetime import datetime
+    class Addimg(APIView):
+        def post(self, request):
+           data = request.data
+            img = data.get('img')
+            now = datetime.strftime(datetime.now(), '%Y%m%d%H%M%S%f')
+            with open('static/imgs/' + now + img.name, 'wb') as f:
+            f.write(img.read())
+            return Response({'code': 200, 'message': '成功'})</code></p>
+</li>
+<li>
+<p>看图片 或者在网页显示</p>
+</li>
+<li>
+<p>直接访问链接就可以 </p>
+</li>
+<li>
+<p><a href="http://127.0.0.1:8000/static/图片名">http://127.0.0.1:8000/static/图片名</a></p>
+</li>
+<li>
+<p>VUE 页面</p>
+</li>
+<li>
+<p>```
+        <img :src="img+da.img" width="100px" height="100px"></p>
+<p>data() {
+      return {
+        data: '',
+        img:'http://127.0.0.1:8000/static/imgs/'
+      }
+    },
+```</p>
+</li>
+<li></li>
+</ul></div>
+	</div>
 		<footer>
 		  <p>Powered by <a href="http://getpelican.com/">Pelican</a>. Theme based on <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a>.</p>
 		  <p>&copy; 商伟</p>

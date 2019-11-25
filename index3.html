@@ -67,6 +67,102 @@
 	  <div class="content">
 <div class="page-header"><h1> 商伟的技术博客 </h1></div>
 <div class='article'>
+	<h2>Windows安装redis</h2>
+	<div class="well small">Permalink: <a class="more" href="/Windows安装redis.html">2019-08-08 18:44:00+02:00</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/redis.html">redis</a>
+tags: <a href="/tag/redis.html">redis</a> </div>
+	<div class="summary"><div class="highlight"><pre><span></span><span class="mi">1</span><span class="p">.</span><span class="err">将安装包解压到一个文件夹下</span><span class="p">:</span> <span class="err">如</span> <span class="n">D</span><span class="p">:</span><span class="err">\</span><span class="n">redis</span><span class="p">,</span> <span class="err">会在该文件夹下看到所有</span><span class="n">redis的文件</span>
+<span class="mi">2</span><span class="p">.</span><span class="err">将该文件夹添加至系统环境变量中</span>
+<span class="mi">3</span><span class="p">.</span><span class="err">在解压的文件目录的地址栏上输入</span><span class="n">cmd</span><span class="p">,</span> <span class="err">在</span><span class="n">cmd窗口中输入redis</span><span class="o">-</span><span class="n">server</span> <span class="p">.</span><span class="o">/</span><span class="n">redis</span><span class="p">.</span><span class="n">windows</span><span class="p">.</span><span class="n">conf</span> <span class="p">,</span> <span class="err">然后回车</span><span class="p">,</span> <span class="n">redis安装成功了</span>
+</pre></div> <a class="btn primary xsmall" href="/Windows安装redis.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>django分页组件（paginator）</h2>
+	<div class="well small">Permalink: <a class="more" href="/django分页组件（paginator）.html">2019-08-08 18:44:00+02:00</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/django.html">Django</a>
+tags: <a href="/tag/django.html">Django</a> </div>
+	<div class="summary"><h1>Django分页组件(paginator)</h1>
+<blockquote>
+<p><code>shell
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger</code></p>
+</blockquote>
+<div class="highlight"><pre><span></span>  Paginator
+</pre></div>
+
+
+<p>：创建分页对象</p>
+<p>### 分页对象内置属性</p>
+<div class="highlight"><pre><span></span><span class="nv">all_</span> <span class="o">=</span> models.objects.all<span class="o">()</span>
+<span class="nv">p</span> <span class="o">=</span> Paginator<span class="o">(</span>all_, <span class="m">10</span><span class="o">)</span>
+<span class="c1"># 分页all_数据，每页显示10条数据</span>
+p.count <span class="c1"># 总数据量</span>
+p.num_pages<span class="o">()</span> <span class="c1"># 分页数</span>
+p.page_range<span class="o">()</span> <span class="c1"># 列表形式返回当前可有的页数 [1,2,3]</span>
+<span class="nv">page_1</span> <span class="o">=</span> p.page<span class="o">(</span><span class="m">1</span><span class="o">)</span> <span class="c1"># 选择第一页，返回第一页数据对象</span>
+</pre></div>
+
+
+<h3>某一页内置属性</h3>
+<div class="highlight"><pre><span></span>page_1.number <span class="c1"># 当前页的页码</span>
+page_1.has_next<span class="o">()</span> <span class="c1"># 是否有下一页</span>
+page_1 …</pre></div> <a class="btn primary xsmall" href="/django分页组件（paginator）.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>if语句</h2>
+	<div class="well small">Permalink: <a class="more" href="/if语句.html">2019-08-08 18:44:00+02:00</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/python.html">Python</a>
+tags: <a href="/tag/python.html">Python</a> </div>
+	<div class="summary"><h1>if介绍</h1>
+<ul>
+<li>如果某些条件满足，才能做某件事情；条件不满足时，则不能做，这就是所谓的判断。</li>
+<li>不仅生活中有，在软件开发中"判断"功能也经常会用到</li>
+</ul>
+<h1>一、if判断语句</h1>
+<h2>&lt;1&gt;if判断语句介绍</h2>
+<ul>
+<li>if语句是用来进行判断的，其使用格式如下：</li>
+</ul>
+<div class="highlight"><pre><span></span>    <span class="k">if</span> <span class="err">要判断的条件</span><span class="p">:</span>
+        <span class="err">条件成立时，要做的事情</span>
+</pre></div>
+
+
+<ul>
+<li>demo1:（demo的中文意思：演示、案例）</li>
+</ul>
+<div class="highlight"><pre><span></span>    <span class="n">age</span> <span class="o">=</span> <span class="mi">30</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;------if判断开始------&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;我已经成年了&quot;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;------if判断结束------&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<ul>
+<li>运行结果:</li>
+</ul>
+<div class="highlight"><pre><span></span>    <span class="o">------</span><span class="n">if判断开始</span><span class="o">------</span>
+    <span class="err">我已经成年了</span>
+    <span class="o">------</span><span class="n">if判断结束</span><span class="o">------</span>
+</pre></div>
+
+
+<ul>
+<li>demo2:</li>
+</ul>
+<div class="highlight"><pre><span></span>    <span class="n">age</span> <span class="o">=</span> <span class="mi">16</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;------if判断开始------&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;我已经成年了&quot;</span><span class="p">)</span>
+    <span class="k">print …</span></pre></div> <a class="btn primary xsmall" href="/if语句.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
 	<h2>redis哨兵模式</h2>
 	<div class="well small">Permalink: <a class="more" href="/redis哨兵模式.html">2019-08-08 18:44:00+02:00</a>
 by <a class="url fn" href="/author/shang-wei.html">商伟 </a>

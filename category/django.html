@@ -171,6 +171,44 @@ tags: <a href="/tag/django.html">Django</a> </div>
 	</div>
 </div>	
 <div class='article'>
+	<h2>Django上传图片</h2>
+	<div class="well small">Permalink: <a class="more" href="/Django上传图片.html">2019-08-08 18:44:00+02:00</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/django.html">Django</a>
+tags: <a href="/tag/django.html">Django</a> </div>
+	<div class="summary"><h1>最简单的保存图片与展示</h1>
+<ul>
+<li>
+<p>在Django里面</p>
+</li>
+<li>
+<p>根目录创建 static 文件夹</p>
+</li>
+<li>
+<p>settings</p>
+</li>
+<li>
+<p>```
+    STATIC_URL = '/static/'</p>
+<p>STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+```</p>
+</li>
+<li>
+<p>views</p>
+</li>
+<li>
+<p><code>from datetime import datetime
+    class Addimg(APIView):
+        def post(self, request):
+           data = request.data
+            img = data.get('img')
+            now = datetime.strftime(datetime.now(), '%Y%m%d%H%M%S%f')
+            with open('static/imgs/' + now …</code></p></li></ul> <a class="btn primary xsmall" href="/Django上传图片.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
 	<h2>Django多对多操作</h2>
 	<div class="well small">Permalink: <a class="more" href="/Django多对多操作.html">2019-08-08 18:44:00+02:00</a>
 by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
@@ -199,6 +237,31 @@ tags: <a href="/tag/django.html">Django</a> </div>
 <div class="highlight"><pre><span></span>  <span class="c1"># 通过老师查学生</span>
   <span class="nv">teacher</span> <span class="o">=</span> Teacher.objects.filter<span class="o">(</span><span class="nv">id</span><span class="o">=</span><span class="m">1</span><span class="o">)</span>.first<span class="o">()</span>
   <span class="nv">students</span> <span class="o">=</span> teacher.student_set.all<span class="o">()</span> <span class="c1"># 获取所有学生信息 …</span></pre></div> <a class="btn primary xsmall" href="/Django多对多操作.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>Django抽象类</h2>
+	<div class="well small">Permalink: <a class="more" href="/Django抽象类.html">2019-08-08 18:44:00+02:00</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/django.html">Django</a>
+tags: <a href="/tag/django.html">Django</a> </div>
+	<div class="summary"><h1>abstract</h1>
+<p>这个属性是定义当前的模型类是不是一个抽象类。所谓抽象类是不会对应数据库表的。一般我们用它来归纳一些公共属性字段，然后继承它的子类可以继承这些字段。比如下面的代码中Base是一个抽象类，Usermodel是一个继承了Base的子类，那么在运行生成命令时，不会生成Base表，但是会生成一个Usermodel表，它包含了Base中继承来的字段，以后如果再添加一个Kecheng模型类，它可以同样继承Base的公共属性：</p>
+<div class="highlight"><pre><span></span><span class="c1"># 抽象类</span>
+<span class="k">class</span> <span class="n">Base</span>(<span class="n">models</span>.<span class="n">Model</span>):
+    <span class="n">create_date</span> = <span class="n">models</span>.<span class="n">DateTimeField</span>(<span class="n">auto_now</span>=<span class="nb">True</span>)
+    <span class="n">update_date</span> = <span class="n">models</span>.<span class="n">DateTimeField</span>(<span class="n">auto_now_add</span>=<span class="nb">True</span>)
+
+    <span class="k">class</span> <span class="n">Meta:</span>
+        <span class="n">abstract</span> = <span class="nb">True</span>
+
+<span class="c1"># 用户表</span>
+<span class="k">class</span> <span class="n">Usermodel</span>(<span class="n">Base</span>):
+    <span class="nb">name</span> = <span class="n">models</span>.<span class="n">CharField</span>(<span class="n">max_length</span>=<span class="mi">32</span>)
+    <span class="n">pwd</span> = <span class="n">models</span>.<span class="n">CharField</span>(<span class="n">max_length</span>=<span class="mi">255</span>)
+
+<span class="c1"># 课程表</span>
+<span class="k">class</span> <span class="n">Kecheng</span>(<span class="n">Base …</span></pre></div> <a class="btn primary xsmall" href="/Django抽象类.html">more…</a>
 	</div>
 </div>	
 <div class='article'>
