@@ -82,51 +82,57 @@ tags: <a href="/tag/django.html">Django</a> </div>
 <li>
 <p>settings</p>
 </li>
-<li>
-<p>```
-    STATIC_URL = '/static/'</p>
-<p>STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
+</ul>
+<div class="highlight"><pre><span></span>STATIC_URL = &#39;/static/&#39;
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, &#39;static&#39;),
 )
-```</p>
-</li>
-<li>
-<p>views</p>
-</li>
-<li>
-<p><code>from datetime import datetime
-    class Addimg(APIView):
-        def post(self, request):
-           data = request.data
-            img = data.get('img')
-            now = datetime.strftime(datetime.now(), '%Y%m%d%H%M%S%f')
-            with open('static/imgs/' + now + img.name, 'wb') as f:
-            f.write(img.read())
-            return Response({'code': 200, 'message': '成功'})</code></p>
-</li>
+</pre></div>
+
+
+<ul>
+<li>views</li>
+</ul>
+<div class="highlight"><pre><span></span>from datetime import datetime
+class Addimg(APIView):
+    def post(self, request):
+       data = request.data
+        img = data.get(&#39;img&#39;)
+        now = datetime.strftime(datetime.now(), &#39;%Y%m%d%H%M%S%f&#39;)
+        with open(&#39;static/imgs/&#39; + now + img.name, &#39;wb&#39;) as f:
+        f.write(img.read())
+        return Response({&#39;code&#39;: 200, &#39;message&#39;: &#39;成功&#39;})
+</pre></div>
+
+
+<ul>
 <li>
 <p>看图片 或者在网页显示</p>
 </li>
 <li>
 <p>直接访问链接就可以 </p>
 </li>
-<li>
-<p><a href="http://127.0.0.1:8000/static/图片名">http://127.0.0.1:8000/static/图片名</a></p>
-</li>
-<li>
-<p>VUE 页面</p>
-</li>
-<li>
-<p>```
-        <img :src="img+da.img" width="100px" height="100px"></p>
-<p>data() {
-      return {
-        data: '',
-        img:'http://127.0.0.1:8000/static/imgs/'
-      }
-    },
-```</p>
-</li>
+</ul>
+<div class="highlight"><pre><span></span>http://127.0.0.1:8000/static/图片名
+</pre></div>
+
+
+<ul>
+<li>VUE 页面</li>
+</ul>
+<div class="highlight"><pre><span></span>&lt;img :src=&quot;img+da.img&quot; width=&quot;100px&quot; height=&quot;100px&quot;&gt;
+
+data() {
+   return {
+     data: &#39;&#39;,
+     img:&#39;http://127.0.0.1:8000/static/imgs/&#39;
+   }
+ },
+</pre></div>
+
+
+<ul>
 <li></li>
 </ul></div>
 	</div>

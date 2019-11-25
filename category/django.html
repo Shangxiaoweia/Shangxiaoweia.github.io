@@ -187,25 +187,25 @@ tags: <a href="/tag/django.html">Django</a> </div>
 <li>
 <p>settings</p>
 </li>
-<li>
-<p>```
-    STATIC_URL = '/static/'</p>
-<p>STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
+</ul>
+<div class="highlight"><pre><span></span>STATIC_URL = &#39;/static/&#39;
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, &#39;static&#39;),
 )
-```</p>
-</li>
-<li>
-<p>views</p>
-</li>
-<li>
-<p><code>from datetime import datetime
-    class Addimg(APIView):
-        def post(self, request):
-           data = request.data
-            img = data.get('img')
-            now = datetime.strftime(datetime.now(), '%Y%m%d%H%M%S%f')
-            with open('static/imgs/' + now …</code></p></li></ul> <a class="btn primary xsmall" href="/Django上传图片.html">more…</a>
+</pre></div>
+
+
+<ul>
+<li>views</li>
+</ul>
+<div class="highlight"><pre><span></span>from datetime import datetime
+class Addimg(APIView):
+    def post(self, request):
+       data = request.data
+        img = data.get(&#39;img&#39;)
+        now = datetime.strftime(datetime.now(), &#39;%Y%m%d%H%M%S%f&#39;)
+        with open(&#39;static/imgs/&#39; + now …</pre></div> <a class="btn primary xsmall" href="/Django上传图片.html">more…</a>
 	</div>
 </div>	
 <div class='article'>
