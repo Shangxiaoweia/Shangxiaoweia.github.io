@@ -67,6 +67,101 @@
 	  <div class="content">
 <div class="page-header"><h1>商伟的技术博客 <small>Python</small></h1></div>
 <div class='article'>
+	<h2>Python-字符串</h2>
+	<div class="well small">Permalink: <a class="more" href="/Python-字符串.html">2019-08-08 18:44:00+02:00</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/python.html">Python</a>
+tags: <a href="/tag/python.html">Python</a> </div>
+	<div class="summary"> <a class="btn primary xsmall" href="/Python-字符串.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>Python循环-for</h2>
+	<div class="well small">Permalink: <a class="more" href="/Python循环-for.html">2019-08-08 18:44:00+02:00</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/python.html">Python</a>
+tags: <a href="/tag/python.html">Python</a> </div>
+	<div class="summary"><h1>for循环</h1>
+<p>像while循环一样，for可以完成循环的功能。</p>
+<p>在Python中 for循环可以遍历任何序列的项目，如一个列表或者一个字符串等。</p>
+<h2>for循环的格式</h2>
+<div class="highlight"><pre><span></span><span class="k">for</span> <span class="err">临时变量</span> <span class="ow">in</span> <span class="err">列表或者字符串等可迭代对象</span><span class="p">:</span>
+    <span class="err">循环满足条件时执行的代码</span>
+</pre></div>
+
+
+<h3>demo1</h3>
+<div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+
+
+<p>结果</p>
+<div class="highlight"><pre><span></span><span class="mi">0</span>
+<span class="mi">1</span>
+<span class="mi">2</span>
+</pre></div>
+
+
+<h2>demo2</h2>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="s1">&#39;hello&#39;</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="s1">&#39;l&#39;</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Hello world!&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>运行结果如下:</p>
+<div class="highlight"><pre><span></span><span class="n">h</span>
+<span class="n">e</span>
+<span class="n">l</span>
+<span class="n">Hello</span> <span class="n">world</span><span class="err">!</span>
+<span class="n">l</span>
+<span class="n">Hello</span> <span class="n">world</span><span class="err">!</span>
+<span class="n">o</span>
+</pre></div>
+
+
+<h1>耍一个乘法口诀表</h1>
+<div class="highlight"><pre><span></span><span class="k">for</span> <span class="nv">i …</span></pre></div> <a class="btn primary xsmall" href="/Python循环-for.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>Python循环-while</h2>
+	<div class="well small">Permalink: <a class="more" href="/Python循环-while.html">2019-08-08 18:44:00+02:00</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/python.html">Python</a>
+tags: <a href="/tag/python.html">Python</a> </div>
+	<div class="summary"><h1>循环语句介绍</h1>
+<h2>&lt;1&gt;软件开发中循环的使用场景</h2>
+<p>跟媳妇承认错误，说一万遍"媳妇儿，我错了"</p>
+<div class="highlight"><pre><span></span>    print(&quot;媳妇儿，我错了&quot;)
+    print(&quot;媳妇儿，我错了&quot;)
+    print(&quot;媳妇儿，我错了&quot;)
+    ...(还有99997遍)...
+</pre></div>
+
+
+<p>使用循环语句一句话搞定</p>
+<div class="highlight"><pre><span></span>    i = 0
+    while i &lt; 10000:
+        print(&quot;媳妇儿，我错了&quot;)
+        i += 1
+</pre></div>
+
+
+<h2>&lt;2&gt;总结</h2>
+<ul>
+<li>while和if的用法基本类似，区别在于：if 条件成立，则执行一次； while 条件成立，则重复执行，直到条件不成立为止。</li>
+<li>一般情况下，需要多次重复执行的代码，都可以用循环的方式来完成</li>
+<li>循环不是必须要使用的，但是为了提高代码的重复使用率，所以有经验的开发者都会采用循环</li>
+</ul>
+<h1>while循环</h1>
+<h2>&lt;1&gt;while循环的格式</h2>
+<div class="highlight"><pre><span></span>    while 条件 …</pre></div> <a class="btn primary xsmall" href="/Python循环-while.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
 	<h2>Python数据类型转换</h2>
 	<div class="well small">Permalink: <a class="more" href="/Python数据类型转换.html">2019-08-08 18:44:00+02:00</a>
 by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
@@ -223,6 +318,57 @@ tags: <a href="/tag/python.html">Python</a> </div>
 <td align="left">%</td>
 <td align="center">取余</td>
 <td>返回除法的余数 b …</td></tr></tbody></table> <a class="btn primary xsmall" href="/Python运算符.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>if语句</h2>
+	<div class="well small">Permalink: <a class="more" href="/if语句.html">2019-08-08 18:44:00+02:00</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/python.html">Python</a>
+tags: <a href="/tag/python.html">Python</a> </div>
+	<div class="summary"><h1>if介绍</h1>
+<ul>
+<li>如果某些条件满足，才能做某件事情；条件不满足时，则不能做，这就是所谓的判断。</li>
+<li>不仅生活中有，在软件开发中"判断"功能也经常会用到</li>
+</ul>
+<h1>一、if判断语句</h1>
+<h2>&lt;1&gt;if判断语句介绍</h2>
+<ul>
+<li>if语句是用来进行判断的，其使用格式如下：</li>
+</ul>
+<div class="highlight"><pre><span></span>    <span class="k">if</span> <span class="err">要判断的条件</span><span class="p">:</span>
+        <span class="err">条件成立时，要做的事情</span>
+</pre></div>
+
+
+<ul>
+<li>demo1:（demo的中文意思：演示、案例）</li>
+</ul>
+<div class="highlight"><pre><span></span>    <span class="n">age</span> <span class="o">=</span> <span class="mi">30</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;------if判断开始------&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;我已经成年了&quot;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;------if判断结束------&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<ul>
+<li>运行结果:</li>
+</ul>
+<div class="highlight"><pre><span></span>    <span class="o">------</span><span class="n">if判断开始</span><span class="o">------</span>
+    <span class="err">我已经成年了</span>
+    <span class="o">------</span><span class="n">if判断结束</span><span class="o">------</span>
+</pre></div>
+
+
+<ul>
+<li>demo2:</li>
+</ul>
+<div class="highlight"><pre><span></span>    <span class="n">age</span> <span class="o">=</span> <span class="mi">16</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;------if判断开始------&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;我已经成年了&quot;</span><span class="p">)</span>
+    <span class="k">print …</span></pre></div> <a class="btn primary xsmall" href="/if语句.html">more…</a>
 	</div>
 </div>	
 
