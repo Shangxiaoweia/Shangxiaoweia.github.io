@@ -30,6 +30,7 @@
 			<ul class="nav">
 					<li ><a href="/category/django.html">Django</a></li>
 					<li ><a href="/category/git.html">GIT</a></li>
+					<li ><a href="/category/pa-chong.html">爬虫</a></li>
 					<li ><a href="/category/rabbitmq.html">RabbitMQ</a></li>
 					<li class="active"><a href="/category/redis.html">redis</a></li>
 					<li ><a href="/category/supervisor.html">Supervisor</a></li>
@@ -61,6 +62,66 @@
 	  </div>
 	  <div class="content">
 <div class="page-header"><h1>商伟的技术博客 <small>redis</small></h1></div>
+<div class='article'>
+	<h2>Linux安装redis</h2>
+	<div class="well small">Permalink: <a class="more" href="/Linux安装redis.html">2019-08-08 18:44:00+02:00</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/redis.html">redis</a>
+tags: <a href="/tag/redis.html">redis</a> </div>
+	<div class="summary"><ul>
+<li>下载redis安装包,在root目录下执行</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="n">wget</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">download</span><span class="p">.</span><span class="n">redis</span><span class="p">.</span><span class="n">io</span><span class="o">/</span><span class="n">releases</span><span class="o">/</span><span class="n">redis</span><span class="o">-</span><span class="mi">5</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">4</span><span class="p">.</span><span class="n">tar</span><span class="p">.</span><span class="n">gz</span>
+</pre></div>
+
+
+<ul>
+<li>解压redis安装包</li>
+</ul>
+<div class="highlight"><pre><span></span>   <span class="n">tar</span> <span class="n">xvf</span> <span class="n">redis</span><span class="o">-</span><span class="mi">5</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">4</span><span class="p">.</span><span class="n">tar</span><span class="p">.</span><span class="n">gz</span>
+</pre></div>
+
+
+<ul>
+<li>进入redis目录</li>
+</ul>
+<div class="highlight"><pre><span></span> <span class="n">cd</span> <span class="n">redis</span><span class="o">-</span><span class="mi">5</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">4</span>
+</pre></div>
+
+
+<ul>
+<li>make(编译)</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="err">注释掉</span> <span class="n">bind</span> <span class="mi">127</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span>
+<span class="n">requirepass</span> <span class="s1">&#39;abc&#39;</span>
+</pre></div>
+
+
+<ul>
+<li>运行redis：</li>
+</ul>
+<div class="highlight"><pre><span></span> <span class="p">.</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">redis</span><span class="o">-</span><span class="n">server</span><span class="o">/</span><span class="n">redis</span><span class="p">.</span><span class="n">conf</span>
+</pre></div>
+
+
+<ul>
+<li>查看是否启动成功：</li>
+</ul>
+<div class="highlight"><pre><span></span> <span class="n">ps</span> <span class="n">aux</span> <span class="o">|</span> <span class="n">grep</span> <span class="n">redis …</span></pre></div> <a class="btn primary xsmall" href="/Linux安装redis.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>Windows安装redis</h2>
+	<div class="well small">Permalink: <a class="more" href="/Windows安装redis.html">2019-08-08 18:44:00+02:00</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/redis.html">redis</a>
+tags: <a href="/tag/redis.html">redis</a> </div>
+	<div class="summary"><div class="highlight"><pre><span></span><span class="mi">1</span><span class="p">.</span><span class="err">将安装包解压到一个文件夹下</span><span class="p">:</span> <span class="err">如</span> <span class="n">D</span><span class="p">:</span><span class="err">\</span><span class="n">redis</span><span class="p">,</span> <span class="err">会在该文件夹下看到所有</span><span class="n">redis的文件</span>
+<span class="mi">2</span><span class="p">.</span><span class="err">将该文件夹添加至系统环境变量中</span>
+<span class="mi">3</span><span class="p">.</span><span class="err">在解压的文件目录的地址栏上输入</span><span class="n">cmd</span><span class="p">,</span> <span class="err">在</span><span class="n">cmd窗口中输入redis</span><span class="o">-</span><span class="n">server</span> <span class="p">.</span><span class="o">/</span><span class="n">redis</span><span class="p">.</span><span class="n">windows</span><span class="p">.</span><span class="n">conf</span> <span class="p">,</span> <span class="err">然后回车</span><span class="p">,</span> <span class="n">redis安装成功了</span>
+</pre></div> <a class="btn primary xsmall" href="/Windows安装redis.html">more…</a>
+	</div>
+</div>	
 <div class='article'>
 	<h2>redis哨兵模式</h2>
 	<div class="well small">Permalink: <a class="more" href="/redis哨兵模式.html">2019-08-08 18:44:00+02:00</a>

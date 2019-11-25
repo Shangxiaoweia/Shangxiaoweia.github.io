@@ -30,6 +30,7 @@
 			<ul class="nav">
 					<li ><a href="/category/django.html">Django</a></li>
 					<li ><a href="/category/git.html">GIT</a></li>
+					<li ><a href="/category/pa-chong.html">爬虫</a></li>
 					<li ><a href="/category/rabbitmq.html">RabbitMQ</a></li>
 					<li ><a href="/category/redis.html">redis</a></li>
 					<li ><a href="/category/supervisor.html">Supervisor</a></li>
@@ -61,6 +62,61 @@
 	  </div>
 	  <div class="content">
 <div class="page-header"><h1>商伟的技术博客 <small>商伟</small></h1></div>
+<div class='article'>
+	<h2>VUE拦截器</h2>
+	<div class="well small">Permalink: <a class="more" href="/VUE拦截器.html">2019-08-08 18:44:00+02:00</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/vue.html">VUE</a>
+tags: <a href="/tag/vue.html">VUE</a> </div>
+	<div class="summary"><h2>vue 拦截器</h2>
+<ul>
+<li>
+<p>路由拦截器</p>
+</li>
+<li>
+<p>已路由为导向</p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span>  router.beforeEach<span class="o">((</span>to,from,next<span class="o">)=</span>&gt;<span class="o">{</span>
+      <span class="k">if</span><span class="o">(</span>to.path<span class="o">==</span><span class="s1">&#39;/login&#39;</span> <span class="o">||</span> to.path<span class="o">==</span><span class="s1">&#39;reg&#39;</span> <span class="o">||</span> localStorage.getItem<span class="o">(</span><span class="s1">&#39;token&#39;</span><span class="o">)){</span>
+        next<span class="o">()</span><span class="p">;</span>
+      <span class="o">}</span><span class="k">else</span><span class="o">{</span>
+        alert<span class="o">(</span><span class="s1">&#39;请重新登录&#39;</span><span class="o">)</span><span class="p">;</span>
+        next<span class="o">(</span><span class="s1">&#39;/login&#39;</span><span class="o">)</span><span class="p">;</span>
+      <span class="o">}</span>
+  <span class="o">})</span>
+</pre></div>
+
+
+<ul>
+<li>
+<p>请求拦截器</p>
+</li>
+<li>
+<p>当发送请求时才会触发此功能</p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span>  axios.interceptors.request.use<span class="o">(</span><span class="k">function</span> <span class="o">(</span>config<span class="o">)</span> <span class="o">{</span>
+    <span class="nb">let</span> <span class="nv">token</span> <span class="o">=</span> window.localStorage.getItem<span class="o">(</span><span class="s2">&quot;token&quot;</span><span class="o">)</span><span class="p">;</span>
+        <span class="k">if</span> <span class="o">(</span>token<span class="o">)</span> <span class="o">{</span>
+            config.headers.token <span class="o">=</span> token<span class="p">;</span>    //将token放到请求头发送给服务器
+        <span class="o">}</span>
+       <span class="k">return</span> config<span class="p">;</span> // 最终需要返回config
+      <span class="o">}</span>, <span class="k">function …</span></pre></div> <a class="btn primary xsmall" href="/VUE拦截器.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>Windows安装redis</h2>
+	<div class="well small">Permalink: <a class="more" href="/Windows安装redis.html">2019-08-08 18:44:00+02:00</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/redis.html">redis</a>
+tags: <a href="/tag/redis.html">redis</a> </div>
+	<div class="summary"><div class="highlight"><pre><span></span><span class="mi">1</span><span class="p">.</span><span class="err">将安装包解压到一个文件夹下</span><span class="p">:</span> <span class="err">如</span> <span class="n">D</span><span class="p">:</span><span class="err">\</span><span class="n">redis</span><span class="p">,</span> <span class="err">会在该文件夹下看到所有</span><span class="n">redis的文件</span>
+<span class="mi">2</span><span class="p">.</span><span class="err">将该文件夹添加至系统环境变量中</span>
+<span class="mi">3</span><span class="p">.</span><span class="err">在解压的文件目录的地址栏上输入</span><span class="n">cmd</span><span class="p">,</span> <span class="err">在</span><span class="n">cmd窗口中输入redis</span><span class="o">-</span><span class="n">server</span> <span class="p">.</span><span class="o">/</span><span class="n">redis</span><span class="p">.</span><span class="n">windows</span><span class="p">.</span><span class="n">conf</span> <span class="p">,</span> <span class="err">然后回车</span><span class="p">,</span> <span class="n">redis安装成功了</span>
+</pre></div> <a class="btn primary xsmall" href="/Windows安装redis.html">more…</a>
+	</div>
+</div>	
 <div class='article'>
 	<h2>django分页组件（paginator）</h2>
 	<div class="well small">Permalink: <a class="more" href="/django分页组件（paginator）.html">2019-08-08 18:44:00+02:00</a>
@@ -169,6 +225,39 @@ tags: <a href="/tag/git.html">GIT</a> </div>
 <span class="p">(</span><span class="err">默认是</span><span class="n">id_rsa</span><span class="p">)</span><span class="o">./</span><span class="err">密码名称</span> 
 <span class="n">mkdir</span> <span class="o">.</span><span class="n">ssh</span>   <span class="c1">#创建</span>
 <span class="n">ls …</span></pre></div> <a class="btn primary xsmall" href="/云服务部署Git.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>介绍爬虫</h2>
+	<div class="well small">Permalink: <a class="more" href="/介绍爬虫.html">2019-08-08 18:44:00+02:00</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/pa-chong.html">爬虫</a>
+tags: <a href="/tag/pa-chong.html">爬虫</a> </div>
+	<div class="summary"><hr>
+<h2>1. 爬虫概述</h2>
+<h4>1.1  爬虫概念</h4>
+<div class="highlight"><pre><span></span><span class="err">爬虫</span><span class="p">,</span> <span class="err">又称网页蜘蛛或网络机器人</span><span class="o">.</span>
+
+<span class="err">爬虫是</span> <span class="err">模拟人操作客户端</span><span class="p">(</span><span class="err">浏览器</span><span class="p">,</span> <span class="n">APP</span><span class="p">)</span>   <span class="err">向服务器发起网络请求</span>    <span class="err">抓取数据的自动化程序或脚本</span><span class="o">.</span>
+
+<span class="c1"># 说明:</span>
+
+<span class="err">​</span>    <span class="mf">1.</span><span class="err">模拟</span><span class="p">:</span> <span class="err">用爬虫程序伪装出人的行为</span><span class="p">,</span> <span class="err">避免被服务识别为爬虫程序</span>
+
+<span class="err">​</span>    <span class="mf">2.</span><span class="err">客户端</span><span class="p">:</span> <span class="err">浏览器</span><span class="p">,</span> <span class="n">APP都可以实现人与服务器之间的交互行为</span><span class="p">,</span> <span class="err">应用客户端从服务器获取数据</span>
+
+<span class="err">​</span>    <span class="mf">3.</span><span class="err">自动化</span><span class="p">:</span> <span class="err">数据量较小时可以人工获取数据</span><span class="p">,</span> <span class="err">但往往在公司中爬取的数据量在百万条</span><span class="p">,</span> <span class="err">千万条级别的</span><span class="p">,</span> <span class="err">所以要程序自动化获取数据</span><span class="o">.</span>
+</pre></div>
+
+
+<h4>1.2  爬虫语言</h4>
+<div class="highlight"><pre><span></span><span class="c1"># 爬虫语言:PHP, C/C++, Java, Python</span>
+
+<span class="c1"># 对比:</span>
+
+<span class="err">​</span>    <span class="n">PHP</span><span class="p">:</span> <span class="err">并发能力差</span><span class="p">,</span> <span class="err">对多进程和多线程支持不好</span><span class="p">,</span> <span class="err">数据量较大时爬虫效率较低</span>
+
+<span class="err">​</span>    <span class="n">C</span><span class="o">/</span><span class="n">C</span><span class="o">++</span><span class="p">:</span> <span class="err">语言效率高</span><span class="p">,</span> <span class="err">但学习成本高</span><span class="p">,</span> <span class="err">对程序员的技术能力要求较高</span><span class="p">,</span>  <span class="err">所以目前还停留在研究层面</span><span class="p">,</span> <span class="err">市场需求量很小 …</span></pre></div> <a class="btn primary xsmall" href="/介绍爬虫.html">more…</a>
 	</div>
 </div>	
 
