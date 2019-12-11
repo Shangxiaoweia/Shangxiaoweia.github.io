@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>商伟的技术博客</title>
+	<meta name="description" content="">
+	<meta name="author" content="商伟">
+
+	<!-- HTML5 shim, for IE6-8 support of HTML elements -->
+	<!--[if lt IE 9]>
+		<script src="/theme/html5.js"></script>
+	<![endif]-->
+
+	<!-- Styles -->
+	<link href="/theme/bootstrap.min.css" rel="stylesheet">
+	<link href="/theme/local.css" rel="stylesheet">
+	<link href="/theme/pygments.css" rel="stylesheet">
+
+	<!-- Feeds -->
+
+
+
+
+</head>
+<body>
+	<div class="topbar">
+	  <div class="topbar-inner">
+		<div class="container-fluid">
+		  <a class="brand" href="/">商伟的技术博客</a>
+			<ul class="nav">
+					<li class="active"><a href="/category/django.html">Django</a></li>
+					<li ><a href="/category/git.html">GIT</a></li>
+					<li ><a href="/category/javascript.html">JavaScript</a></li>
+					<li ><a href="/category/mysql.html">MySQL</a></li>
+					<li ><a href="/category/pa-chong.html">爬虫</a></li>
+					<li ><a href="/category/python.html">Python</a></li>
+					<li ><a href="/category/rabbitmq.html">RabbitMQ</a></li>
+					<li ><a href="/category/redis.html">redis</a></li>
+					<li ><a href="/category/sui-shou-bi-ji.html">随手笔记</a></li>
+					<li ><a href="/category/supervisor.html">Supervisor</a></li>
+					<li ><a href="/category/vue.html">VUE</a></li>
+					<li ><a href="/category/wang-luo.html">网络</a></li>
+					<li ><a href="/category/xiao-cheng-xu.html">小程序</a></li>
+					<li ><a href="/category/xu-ni-huan-jing.html">虚拟环境</a></li>
+			</ul>
+			<p class="pull-right"><a href="/archives.html">[archives]</a> <a href="/tags.html">[tags]</a></p>
+		</div>
+	  </div>
+	</div>
+
+	<div class="container-fluid">
+	  <div class="sidebar">
+		<div class="well">
+			<h3>Blogroll</h3>
+			<ul>
+				<li><a href="http://getpelican.com/">Pelican</a></li>
+				<li><a href="http://python.org/">Python.org</a></li>
+				<li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+			</ul>
+			<div class="social">
+			<h3>Social</h3>
+			<ul>
+				<li><a href="http://han520min.github.io">hanmin</a></li>
+			</ul>
+			</div>
+		</div>
+	  </div>
+	  <div class="content">
+	<div class='article'>
+		<div class="page-header"><h1>django分页组件（paginator）</h1></div>
+		<div class="well small">Permalink: <a class="more" href="/django分页组件（paginator）.html">2019-08-08 18:44:00+02:00</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/django.html">Django</a>
+tags: <a href="/tag/django.html">Django</a> </div>
+		<div><h1>Django分页组件(paginator)</h1>
+<div class="highlight"><pre><span></span>from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>  Paginator
+</pre></div>
+
+
+<p>：创建分页对象</p>
+<p>### 分页对象内置属性</p>
+<div class="highlight"><pre><span></span><span class="nv">all_</span> <span class="o">=</span> models.objects.all<span class="o">()</span>
+<span class="nv">p</span> <span class="o">=</span> Paginator<span class="o">(</span>all_, <span class="m">10</span><span class="o">)</span>
+<span class="c1"># 分页all_数据，每页显示10条数据</span>
+p.count <span class="c1"># 总数据量</span>
+p.num_pages<span class="o">()</span> <span class="c1"># 分页数</span>
+p.page_range<span class="o">()</span> <span class="c1"># 列表形式返回当前可有的页数 [1,2,3]</span>
+<span class="nv">page_1</span> <span class="o">=</span> p.page<span class="o">(</span><span class="m">1</span><span class="o">)</span> <span class="c1"># 选择第一页，返回第一页数据对象</span>
+</pre></div>
+
+
+<h3>某一页内置属性</h3>
+<div class="highlight"><pre><span></span>page_1.number <span class="c1"># 当前页的页码</span>
+page_1.has_next<span class="o">()</span> <span class="c1"># 是否有下一页</span>
+page_1.has_previous<span class="o">()</span> <span class="c1"># 是否有上一页</span>
+page_1.has_other_pages<span class="o">()</span> <span class="c1"># 是否含有其他页</span>
+page_1.next_page_number<span class="o">()</span> <span class="c1"># 下一页的页码</span>
+page_1.previous_page_number<span class="o">()</span> <span class="c1"># 上一页的页码</span>
+page_1.start_index<span class="o">()</span> <span class="c1"># 该页第一个数据的索引</span>
+page_1.end_index<span class="o">()</span> <span class="c1"># 该页最后一个数据的索引</span>
+</pre></div>
+
+
+<ul>
+<li><code>获取页数</code>：取不到页面数据，抛出该异常</li>
+</ul>
+<div class="highlight"><pre><span></span>  <span class="nv">all_</span> <span class="o">=</span> models.objects.all<span class="o">()</span>
+  <span class="nv">p</span> <span class="o">=</span> Paginator<span class="o">(</span>all_, <span class="m">10</span><span class="o">)</span>
+  try:
+      <span class="nv">list_</span> <span class="o">=</span> paginator.page<span class="o">(</span>int<span class="o">(</span>p.page<span class="o">(</span>page_num<span class="o">))</span>）
+  except:
+    <span class="c1">#没有第page_num页</span>
+      <span class="nv">list_</span> <span class="o">=</span> paginator.page<span class="o">(</span><span class="m">1</span><span class="o">)</span> <span class="c1"># 取不到该也数据，直接返回第一页数据</span>
+</pre></div>
+
+
+<ul>
+<li><code>PageNotAnInteger</code>：当页数是一个非整数类型时，抛出该异常</li>
+</ul>
+<h3>模板页面基本使用方式</h3>
+<div class="highlight"><pre><span></span><span class="o">{</span>% <span class="k">if</span> topic_list.has_previous %<span class="o">}</span>
+    &lt;!-- 当前页是否含有上一页 --&gt;
+    &lt;a <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;?page={{ list_.previous_page_number }}&quot;</span>&gt;上一页&lt;/a&gt;
+<span class="o">{</span>% endif %<span class="o">}</span>
+
+<span class="o">{</span>% <span class="k">if</span> topic_list.has_next %<span class="o">}</span>
+    &lt;!-- 当前页是否含有下一页 --&gt;
+    &lt;a <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;?page={{ list_.next_page_number }}&quot;</span>&gt;下一页&lt;/a&gt;
+<span class="o">{</span>% endif %<span class="o">}</span>
+</pre></div>
+
+
+<h2>vue页面基本使用方式</h2>
+<div class="highlight"><pre><span></span>class Index<span class="o">(</span>APIView<span class="o">)</span>:
+    def post<span class="o">(</span>self, request<span class="o">)</span>:
+        <span class="nv">data</span> <span class="o">=</span> request.data
+        <span class="nv">userall</span> <span class="o">=</span> models.User.objects.all<span class="o">()</span>
+        <span class="nv">page</span> <span class="o">=</span> paginator.Paginator<span class="o">(</span>userall, <span class="m">3</span><span class="o">)</span>
+        try:
+            <span class="nv">p</span> <span class="o">=</span> int<span class="o">(</span>data.get<span class="o">(</span><span class="s1">&#39;p&#39;</span><span class="o">))</span>
+        except:
+            <span class="nv">p</span> <span class="o">=</span> <span class="m">1</span>
+        <span class="nv">userall</span> <span class="o">=</span> page.page<span class="o">(</span>p<span class="o">)</span>
+        <span class="nv">page_range</span> <span class="o">=</span> list<span class="o">(</span>page.page_range<span class="o">)</span>
+        <span class="nv">userall</span> <span class="o">=</span> serializer.all_serializers<span class="o">(</span>userall, <span class="nv">many</span><span class="o">=</span>True<span class="o">)</span>
+        <span class="k">return</span> Response<span class="o">({</span>
+            <span class="s1">&#39;code&#39;</span>: <span class="m">200</span>,
+            <span class="s1">&#39;message&#39;</span>: <span class="s1">&#39;成功&#39;</span>,
+            <span class="s1">&#39;data&#39;</span>: userall.data,
+            <span class="s1">&#39;range&#39;</span>: page_range
+        <span class="o">})</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>    &lt;button v-for<span class="o">=</span><span class="s2">&quot;p in range&quot;</span> @click<span class="o">=</span><span class="s2">&quot;pp(p)&quot;</span>&gt;<span class="o">{{</span>p<span class="o">}}</span>页&lt;/button&gt;
+
+     pp<span class="o">(</span>p<span class="o">)</span> <span class="o">{</span>
+        axios<span class="o">({</span>
+          url: <span class="s1">&#39;http://127.0.0.1:8000/app1/index/&#39;</span>,
+          method: <span class="s1">&#39;post&#39;</span>,
+          data: <span class="o">{</span>
+            p: p
+          <span class="o">}</span>
+        <span class="o">})</span>.then<span class="o">(</span><span class="nv">res</span> <span class="o">=</span>&gt; <span class="o">{</span>
+          this.data <span class="o">=</span> res.data.data<span class="p">;</span>
+          this.range <span class="o">=</span> res.data.range
+        <span class="o">})</span>
+      <span class="o">}</span>
+</pre></div></div>
+	</div>
+		<footer>
+		  <p>Powered by <a href="http://getpelican.com/">Pelican</a>. Theme based on <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a>.</p>
+		  <p>&copy; 商伟</p>
+		</footer>
+	  </div>
+
+	</div>
+</body>
+</html>

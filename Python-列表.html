@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>商伟的技术博客</title>
+	<meta name="description" content="">
+	<meta name="author" content="商伟">
+
+	<!-- HTML5 shim, for IE6-8 support of HTML elements -->
+	<!--[if lt IE 9]>
+		<script src="/theme/html5.js"></script>
+	<![endif]-->
+
+	<!-- Styles -->
+	<link href="/theme/bootstrap.min.css" rel="stylesheet">
+	<link href="/theme/local.css" rel="stylesheet">
+	<link href="/theme/pygments.css" rel="stylesheet">
+
+	<!-- Feeds -->
+
+
+
+
+</head>
+<body>
+	<div class="topbar">
+	  <div class="topbar-inner">
+		<div class="container-fluid">
+		  <a class="brand" href="/">商伟的技术博客</a>
+			<ul class="nav">
+					<li ><a href="/category/django.html">Django</a></li>
+					<li ><a href="/category/git.html">GIT</a></li>
+					<li ><a href="/category/javascript.html">JavaScript</a></li>
+					<li ><a href="/category/mysql.html">MySQL</a></li>
+					<li ><a href="/category/pa-chong.html">爬虫</a></li>
+					<li class="active"><a href="/category/python.html">Python</a></li>
+					<li ><a href="/category/rabbitmq.html">RabbitMQ</a></li>
+					<li ><a href="/category/redis.html">redis</a></li>
+					<li ><a href="/category/sui-shou-bi-ji.html">随手笔记</a></li>
+					<li ><a href="/category/supervisor.html">Supervisor</a></li>
+					<li ><a href="/category/vue.html">VUE</a></li>
+					<li ><a href="/category/wang-luo.html">网络</a></li>
+					<li ><a href="/category/xiao-cheng-xu.html">小程序</a></li>
+					<li ><a href="/category/xu-ni-huan-jing.html">虚拟环境</a></li>
+			</ul>
+			<p class="pull-right"><a href="/archives.html">[archives]</a> <a href="/tags.html">[tags]</a></p>
+		</div>
+	  </div>
+	</div>
+
+	<div class="container-fluid">
+	  <div class="sidebar">
+		<div class="well">
+			<h3>Blogroll</h3>
+			<ul>
+				<li><a href="http://getpelican.com/">Pelican</a></li>
+				<li><a href="http://python.org/">Python.org</a></li>
+				<li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+			</ul>
+			<div class="social">
+			<h3>Social</h3>
+			<ul>
+				<li><a href="http://han520min.github.io">hanmin</a></li>
+			</ul>
+			</div>
+		</div>
+	  </div>
+	  <div class="content">
+	<div class='article'>
+		<div class="page-header"><h1>Python-列表</h1></div>
+		<div class="well small">Permalink: <a class="more" href="/Python-列表.html">1000-01-08 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/python.html">Python</a>
+tags: <a href="/tag/python.html">Python</a> </div>
+		<div><h4>列表的介绍</h4>
+<ul>
+<li>列表(list)</li>
+</ul>
+<p>变量nameListt的类型为列表</p>
+<div class="highlight"><pre><span></span>    <span class="n">namesList</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;xiaoWang&#39;</span><span class="p">,</span><span class="s1">&#39;xiaoZhang&#39;</span><span class="p">,</span><span class="s1">&#39;xiaoHua&#39;</span><span class="p">]</span>
+</pre></div>
+
+
+<p>比C语言的数组强大的地方在于列表中的元素可以是不同类型的</p>
+<div class="highlight"><pre><span></span>    <span class="n">testList</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">]</span>
+</pre></div>
+
+
+<h4>列表的循环遍历</h4>
+<h5>1. 使用for循环</h5>
+<p>为了更有效率的输出列表的每个数据，可以使用循环来完成</p>
+<p>demo:</p>
+<div class="highlight"><pre><span></span>    <span class="n">namesList</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;xiaoWang&#39;</span><span class="p">,</span><span class="s1">&#39;xiaoZhang&#39;</span><span class="p">,</span><span class="s1">&#39;xiaoHua&#39;</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">namesList</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+</pre></div>
+
+
+<p>结果:</p>
+<div class="highlight"><pre><span></span>    <span class="n">xiaoWang</span>
+    <span class="n">xiaoZhang</span>
+    <span class="n">xiaoHua</span>
+</pre></div>
+
+
+<h5>2. 使用while循环</h5>
+<p>为了更有效率的输出列表的每个数据，可以使用循环来完成</p>
+<p>demo:</p>
+<div class="highlight"><pre><span></span>    <span class="n">namesList</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;xiaoWang&#39;</span><span class="p">,</span><span class="s1">&#39;xiaoZhang&#39;</span><span class="p">,</span><span class="s1">&#39;xiaoHua&#39;</span><span class="p">]</span>
+
+    <span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">namesList</span><span class="p">)</span>
+
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">while</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">length</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">namesList</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="n">i</span><span class="o">+=</span><span class="mi">1</span>
+</pre></div>
+
+
+<p>结果:</p>
+<div class="highlight"><pre><span></span>    <span class="n">xiaoWang</span>
+    <span class="n">xiaoZhang</span>
+    <span class="n">xiaoHua</span>
+</pre></div>
+
+
+<h4>列表的相关操作</h4>
+<h5>列表的添加操作</h5>
+<ul>
+<li>append</li>
+<li>通过append可以向列表添加元素</li>
+<li>extend</li>
+<li>通过extend可以将另一个集合中的元素逐一添加到列表中</li>
+<li>insert</li>
+<li>insert(index, object) 在指定位置index前插入元素object</li>
+</ul>
+<h5>列表的删除操作</h5>
+<ul>
+<li>del：根据下标进行删除</li>
+<li>pop：删除最后一个元素</li>
+<li>remove：根据元素的值进行删除</li>
+</ul>
+<h5>列表的修改操作</h5>
+<p>修改元素的时候，要通过下标来确定要修改的是哪个元素，然后才能进行修改</p>
+<div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;shangnwei&#39;</span><span class="p">,</span><span class="s1">&#39;shangxiaowei&#39;</span><span class="p">,</span><span class="s1">&#39;weia&#39;</span><span class="p">]</span>
+<span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;han&#39;</span>    
+</pre></div>
+
+
+<h5>列表的查找操作</h5>
+<ul>
+<li>in（存在）,如果存在那么结果为true，否则为false</li>
+<li>not in（不存在），如果不存在那么结果为true，否则false</li>
+</ul>
+<blockquote>
+<p>in的方法只要会用了，那么not in也是同样的用法，只不过not in判断的是不存在</p>
+</blockquote>
+<ul>
+<li>index</li>
+<li>a = ['a', 'b', 'c', 'a', 'b']</li>
+<li>a.index('a', 1, 3) # 注意是左闭右开区间</li>
+<li>count</li>
+<li>查找列表内出现的次数</li>
+</ul>
+<h5>排序(sort, reverse)</h5>
+<ul>
+<li>
+<p>sort方法是将list按特定顺序重新排列，默认为由小到大，参数reverse=True可改为倒序，由大到小。</p>
+</li>
+<li>
+<p>reverse方法是将list逆置。</p>
+</li>
+</ul>
+<h5>查看列表的长度</h5>
+<ul>
+<li>len()</li>
+</ul>
+<h4>列表的嵌套</h4>
+<h5>列表的嵌套</h5>
+<ul>
+<li>
+<p>类似while循环的嵌套，列表也是支持嵌套的</p>
+</li>
+<li>
+<p>一个列表中的元素又是一个列表，那么这就是列表的嵌套</p>
+</li>
+</ul></div>
+	</div>
+		<footer>
+		  <p>Powered by <a href="http://getpelican.com/">Pelican</a>. Theme based on <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a>.</p>
+		  <p>&copy; 商伟</p>
+		</footer>
+	  </div>
+
+	</div>
+</body>
+</html>

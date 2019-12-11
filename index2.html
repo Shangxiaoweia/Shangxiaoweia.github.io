@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>商伟的技术博客</title>
+	<meta name="description" content="">
+	<meta name="author" content="商伟">
+
+	<!-- HTML5 shim, for IE6-8 support of HTML elements -->
+	<!--[if lt IE 9]>
+		<script src="/theme/html5.js"></script>
+	<![endif]-->
+
+	<!-- Styles -->
+	<link href="/theme/bootstrap.min.css" rel="stylesheet">
+	<link href="/theme/local.css" rel="stylesheet">
+	<link href="/theme/pygments.css" rel="stylesheet">
+
+	<!-- Feeds -->
+
+
+
+
+</head>
+<body>
+	<div class="topbar">
+	  <div class="topbar-inner">
+		<div class="container-fluid">
+		  <a class="brand" href="/">商伟的技术博客</a>
+			<ul class="nav">
+					<li ><a href="/category/django.html">Django</a></li>
+					<li ><a href="/category/git.html">GIT</a></li>
+					<li ><a href="/category/javascript.html">JavaScript</a></li>
+					<li ><a href="/category/mysql.html">MySQL</a></li>
+					<li ><a href="/category/pa-chong.html">爬虫</a></li>
+					<li ><a href="/category/python.html">Python</a></li>
+					<li ><a href="/category/rabbitmq.html">RabbitMQ</a></li>
+					<li ><a href="/category/redis.html">redis</a></li>
+					<li ><a href="/category/sui-shou-bi-ji.html">随手笔记</a></li>
+					<li ><a href="/category/supervisor.html">Supervisor</a></li>
+					<li ><a href="/category/vue.html">VUE</a></li>
+					<li ><a href="/category/wang-luo.html">网络</a></li>
+					<li ><a href="/category/xiao-cheng-xu.html">小程序</a></li>
+					<li ><a href="/category/xu-ni-huan-jing.html">虚拟环境</a></li>
+			</ul>
+			<p class="pull-right"><a href="/archives.html">[archives]</a> <a href="/tags.html">[tags]</a></p>
+		</div>
+	  </div>
+	</div>
+
+	<div class="container-fluid">
+	  <div class="sidebar">
+		<div class="well">
+			<h3>Blogroll</h3>
+			<ul>
+				<li><a href="http://getpelican.com/">Pelican</a></li>
+				<li><a href="http://python.org/">Python.org</a></li>
+				<li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+			</ul>
+			<div class="social">
+			<h3>Social</h3>
+			<ul>
+				<li><a href="http://han520min.github.io">hanmin</a></li>
+			</ul>
+			</div>
+		</div>
+	  </div>
+	  <div class="content">
+<div class="page-header"><h1> 商伟的技术博客 </h1></div>
+<div class='article'>
+	<h2>django分页组件（paginator）</h2>
+	<div class="well small">Permalink: <a class="more" href="/django分页组件（paginator）.html">2019-08-08 18:44:00+02:00</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/django.html">Django</a>
+tags: <a href="/tag/django.html">Django</a> </div>
+	<div class="summary"><h1>Django分页组件(paginator)</h1>
+<div class="highlight"><pre><span></span>from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>  Paginator
+</pre></div>
+
+
+<p>：创建分页对象</p>
+<p>### 分页对象内置属性</p>
+<div class="highlight"><pre><span></span><span class="nv">all_</span> <span class="o">=</span> models.objects.all<span class="o">()</span>
+<span class="nv">p</span> <span class="o">=</span> Paginator<span class="o">(</span>all_, <span class="m">10</span><span class="o">)</span>
+<span class="c1"># 分页all_数据，每页显示10条数据</span>
+p.count <span class="c1"># 总数据量</span>
+p.num_pages<span class="o">()</span> <span class="c1"># 分页数</span>
+p.page_range<span class="o">()</span> <span class="c1"># 列表形式返回当前可有的页数 [1,2,3]</span>
+<span class="nv">page_1</span> <span class="o">=</span> p.page<span class="o">(</span><span class="m">1</span><span class="o">)</span> <span class="c1"># 选择第一页，返回第一页数据对象</span>
+</pre></div>
+
+
+<h3>某一页内置属性</h3>
+<div class="highlight"><pre><span></span>page_1.number <span class="c1"># 当前页的页码</span>
+page_1.has_next<span class="o">()</span> <span class="c1"># 是否有下一页</span>
+page_1.has_previous …</pre></div> <a class="btn primary xsmall" href="/django分页组件（paginator）.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>三分钟创建一个静态网页</h2>
+	<div class="well small">Permalink: <a class="more" href="/三分钟创建一个静态网页.html">2019-08-08 18:44:00+02:00</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/django.html">Django</a>
+tags: <a href="/tag/django.html">Django</a> </div>
+	<div class="summary"><h3>这个静态网页可以用来做你自己的博客，pelican是以为法国开发者研发的，非常好用，它的每一篇文章会事先渲染成HTML静态文件，访问速度非常快。</h3>
+<p>1)安装pelcan和markdown</p>
+<div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">pelican</span>  <span class="n">markdown</span> <span class="c1">--upgrade</span>
+</pre></div>
+
+
+<p>2)创建一个文件夹用来作为博客的目录</p>
+<div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="err">博客目录</span>
+</pre></div>
+
+
+<p>3)cd到该目录下运行命令生成博客的框架</p>
+<div class="highlight"><pre><span></span><span class="n">cd</span> <span class="err">博客目录</span>
+<span class="n">pelican</span><span class="o">-</span><span class="n">quickstart</span>
+</pre></div>
+
+
+<p>4)安装过程中会有很多的配置，不知道的可以直接n，后期都是可以进行修改的</p>
+<div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nv">Where</span> <span class="k">do</span> <span class="nv">you</span> <span class="nv">want</span> <span class="nv">to</span> <span class="nv">create</span> <span class="nv">your</span> <span class="nv">new</span> <span class="nv">web</span> <span class="nv">site</span>? [.]
+<span class="o">&gt;</span> <span class="nv">What</span> <span class="nv">will</span> <span class="nv">be</span> <span class="nv">the</span> <span class="nv">title</span> <span class="nv">of</span> <span class="nv">this</span> <span class="nv">web</span> <span class="nv">site</span>? 商伟的技术博客
+<span class="o">&gt;</span> <span class="nv">Who</span> <span class="nv">will</span> <span class="nv">be</span> <span class="nv">the …</span></pre></div> <a class="btn primary xsmall" href="/三分钟创建一个静态网页.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>微信小程序介绍</h2>
+	<div class="well small">Permalink: <a class="more" href="/微信小程序介绍.html">2019-08-08 18:44:00+02:00</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/xiao-cheng-xu.html">小程序</a>
+tags: <a href="/tag/xiao-cheng-xu.html">小程序</a> </div>
+	<div class="summary"><h3>开发者工具</h3>
+<p>为方便微信小程序，微信推出了微信开发者工具。</p>
+<p><a href="https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html">https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html</a></p>
+<h2>微信小程序官方文档</h2>
+<p><a href="https://developers.weixin.qq.com/miniprogram/dev/framework/">https://developers.weixin.qq.com/miniprogram/dev/framework/</a></p>
+<h2>小程序快速入门</h2>
+<p><a href="https://developers.weixin.qq.com/community/business/doc/000264e20a0dd8e69669b609451c0d">https://developers.weixin.qq.com/community/business/doc/000264e20a0dd8e69669b609451c0d</a></p> <a class="btn primary xsmall" href="/微信小程序介绍.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>随手笔记</h2>
+	<div class="well small">Permalink: <a class="more" href="/随手笔记.html">2019-08-08 18:44:00+02:00</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/sui-shou-bi-ji.html">随手笔记</a>
+tags: <a href="/tag/sui-shou-bi-ji.html">随手笔记</a> </div>
+	<div class="summary"><p>pelican content</p>
+<p>pelican --listen</p> <a class="btn primary xsmall" href="/随手笔记.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>微信小程基础</h2>
+	<div class="well small">Permalink: <a class="more" href="/微信小程基础.html">2019-08-07 18:44:00+02:00</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/xiao-cheng-xu.html">小程序</a>
+tags: <a href="/tag/xiao-cheng-xu.html">小程序</a> </div>
+	<div class="summary"><h4>微信小程序须知</h4>
+<div class="highlight"><pre><span></span><span class="err">每一个小程序的代码中，还有一个必须的元素，</span><span class="n">app</span><span class="p">.</span><span class="n">js</span> <span class="n">app</span><span class="p">.</span><span class="n">json</span> <span class="n">app</span><span class="p">.</span><span class="n">wxss</span>
+</pre></div>
+
+
+<ul>
+<li>app.json</li>
+<li>是设置小程序初始的界面</li>
+<li>app.wxml</li>
+<li>是写页面的，展示的内容都在这里书写</li>
+<li>app.wxss</li>
+<li>是书写样式的地方，相当于CSS</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="nt">&lt;view&gt;&lt;/view&gt;</span>为小程序的基本格式，里边写的是代码。
+<span class="nt">&lt;image</span> <span class="na">src=</span><span class="s">&quot;../images/shang.png&quot;</span><span class="nt">&gt;&lt;/image&gt;</span>展示图片
+<span class="nt">&lt;text&gt;&lt;/text&gt;</span>是文本框
+</pre></div>
+
+
+<h4>微信小程序里面的底部导航栏</h4>
+<p>在app.json里面编写</p>
+<div class="highlight"><pre><span></span>  <span class="ss">&quot;tabBar&quot;</span><span class="p">:</span> <span class="err">{</span>
+    <span class="ss">&quot;backgroundColor&quot;</span><span class="p">:</span> <span class="ss">&quot;#fff&quot;</span><span class="p">,</span>
+    <span class="ss">&quot;color&quot;</span><span class="p">:</span> <span class="ss">&quot;#A0A0A0&quot;</span><span class="p">,</span>
+    <span class="ss">&quot;selectedColor&quot;</span><span class="p">:</span> <span class="ss">&quot;#FF3300&quot;</span><span class="p">,</span>
+    <span class="ss">&quot;list&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="err">{</span>
+        <span class="ss">&quot;pagePath&quot;</span><span class="p">:</span> <span class="ss">&quot;pages/index/index&quot;</span><span class="p">,</span>
+        <span class="ss">&quot;iconPath …</span></pre></div> <a class="btn primary xsmall" href="/微信小程基础.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>Python-公共方法</h2>
+	<div class="well small">Permalink: <a class="more" href="/Python-公共方法.html">1000-01-10 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/python.html">Python</a>
+tags: <a href="/tag/python.html">Python</a> </div>
+	<div class="summary"><h5>运算符</h5>
+<table>
+<thead>
+<tr>
+<th align="left">运算符</th>
+<th>Python 表达式</th>
+<th>结果</th>
+<th>描述</th>
+<th>支持的数据类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">+</td>
+<td>[1, 2] + [3, 4]</td>
+<td>[1, 2, 3, 4]</td>
+<td>合并</td>
+<td>字符串、列表、元组</td>
+</tr>
+<tr>
+<td align="left">*</td>
+<td>['Hi!'] * 4</td>
+<td>['Hi!', 'Hi!', 'Hi!', 'Hi!']</td>
+<td>复制</td>
+<td>字符串、列表、元组</td>
+</tr>
+<tr>
+<td align="left">in</td>
+<td>3 in (1, 2, 3)</td>
+<td>True</td>
+<td>元素是否存在</td>
+<td>字符串、列表、元组、字典</td>
+</tr>
+<tr>
+<td align="left">not in</td>
+<td>4 not in (1, 2, 3)</td>
+<td>True …</td></tr></tbody></table> <a class="btn primary xsmall" href="/Python-公共方法.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>Python-集合</h2>
+	<div class="well small">Permalink: <a class="more" href="/Python-集合.html">1000-01-10 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/python.html">Python</a>
+tags: <a href="/tag/python.html">Python</a> </div>
+	<div class="summary"><h4>集合的介绍</h4>
+<ul>
+<li>
+<p>集合(set)</p>
+</li>
+<li>
+<p>集合是无序的，集合中的元素是唯一的，集合一般用于元组或者列表中的元素去重</p>
+</li>
+</ul>
+<h5>集合的添加操作</h5>
+<ul>
+<li>add</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="n">set1</span><span class="p">.</span><span class="k">add</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+</pre></div>
+
+
+<ul>
+<li>update</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="c1">#是把要传入的元素拆分，做为个体传入到集合中</span>
+<span class="n">set1</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s2">&quot;abcd&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<h5>集合的删除操作</h5>
+<ul>
+<li>
+<p>remove</p>
+</li>
+<li>
+<p>使用remove删除集合中的元素 如果有 直接删除 如果没有 程序报错</p>
+<p>set1.remove(22)</p>
+</li>
+<li>
+<p>pop</p>
+</li>
+<li>使用pop删除是随机删除集合中的元素 如果set1没有元素讲程序报</li>
+<li>
+<p>set1.pop()</p>
+</li>
+<li>
+<p>discard</p>
+</li>
+<li>使用discard删除 如果元素存在 直接删除 如果元素不存在 不做任何操</li>
+<li>set1.discard(2)</li>
+</ul>
+<h4>交集和并集( &amp; 和 | )</h4>
+<h5>交集</h5>
+<div class="highlight"><pre><span></span><span class="n">set1</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span>
+<span class="n">set2 …</span></pre></div> <a class="btn primary xsmall" href="/Python-集合.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>Python-元祖</h2>
+	<div class="well small">Permalink: <a class="more" href="/Python-元祖.html">1000-01-09 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/python.html">Python</a>
+tags: <a href="/tag/python.html">Python</a> </div>
+	<div class="summary"><h4>元祖的介绍</h4>
+<ul>
+<li>
+<p>元祖(tuple)</p>
+</li>
+<li>
+<p>Python的元组与列表类似，不同之处在于<strong>元组的元素不能修改</strong>。元组使用小括号，列表使用方括号</p>
+</li>
+<li>
+<p>元祖 在只有一个元素的时候，要在小括号里面加上逗号。</p>
+</li>
+</ul>
+<h5>元祖不可以修改但是可以查看</h5>
+<ul>
+<li>也是下标进行查看</li>
+</ul> <a class="btn primary xsmall" href="/Python-元祖.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>Python-字典</h2>
+	<div class="well small">Permalink: <a class="more" href="/Python-字典.html">1000-01-09 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/python.html">Python</a>
+tags: <a href="/tag/python.html">Python</a> </div>
+	<div class="summary"><h4>字典的介绍</h4>
+<div class="highlight"><pre><span></span><span class="n">info</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span><span class="s1">&#39;班长&#39;</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;sex&#39;</span><span class="p">:</span><span class="s1">&#39;f&#39;</span><span class="p">,</span> <span class="s1">&#39;address&#39;</span><span class="p">:</span><span class="s1">&#39;地球亚洲中国北京&#39;</span><span class="p">}</span>
+</pre></div>
+
+
+<ul>
+<li>字典和列表一样，也能够存储多个数据</li>
+<li>列表中找某个元素时，是根据下标进行的</li>
+<li>字典中找某个元素时，是根据'名字'（就是冒号:前面的那个值，例如上面代码中的'name'、'id'、'sex'）</li>
+<li>字典的每个元素由2部分组成，键:值。例如 'name':'班长' ,'name'为键，'班长'为值</li>
+</ul>
+<h5>字典的添加操作</h5>
+<ul>
+<li>info['id'] = ‘shangwei’</li>
+<li>如果在使用 <strong>变量名['键'] = 数据</strong> 时，这个“键”在字典中，不存在，那么就会新增这个元素</li>
+</ul>
+<h5>字典的删除操作</h5>
+<ul>
+<li>del</li>
+<li>del删除指定的元素</li>
+<li>clear()</li>
+<li>:clear清空整个字典</li>
+</ul>
+<h5>字典的修改操作</h5>
+<ul>
+<li>字典的修改操作就是 …</li></ul> <a class="btn primary xsmall" href="/Python-字典.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>Python-列表</h2>
+	<div class="well small">Permalink: <a class="more" href="/Python-列表.html">1000-01-08 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/python.html">Python</a>
+tags: <a href="/tag/python.html">Python</a> </div>
+	<div class="summary"><h4>列表的介绍</h4>
+<ul>
+<li>列表(list)</li>
+</ul>
+<p>变量nameListt的类型为列表</p>
+<div class="highlight"><pre><span></span>    <span class="n">namesList</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;xiaoWang&#39;</span><span class="p">,</span><span class="s1">&#39;xiaoZhang&#39;</span><span class="p">,</span><span class="s1">&#39;xiaoHua&#39;</span><span class="p">]</span>
+</pre></div>
+
+
+<p>比C语言的数组强大的地方在于列表中的元素可以是不同类型的</p>
+<div class="highlight"><pre><span></span>    <span class="n">testList</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">]</span>
+</pre></div>
+
+
+<h4>列表的循环遍历</h4>
+<h5>1. 使用for循环</h5>
+<p>为了更有效率的输出列表的每个数据，可以使用循环来完成</p>
+<p>demo:</p>
+<div class="highlight"><pre><span></span>    <span class="n">namesList</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;xiaoWang&#39;</span><span class="p">,</span><span class="s1">&#39;xiaoZhang&#39;</span><span class="p">,</span><span class="s1">&#39;xiaoHua&#39;</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">namesList</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+</pre></div>
+
+
+<p>结果:</p>
+<div class="highlight"><pre><span></span>    <span class="n">xiaoWang</span>
+    <span class="n">xiaoZhang</span>
+    <span class="n">xiaoHua</span>
+</pre></div>
+
+
+<h5>2. 使用while循环</h5>
+<p>为了更有效率的输出列表的每个数据，可以使用循环来完成</p>
+<p>demo:</p>
+<div class="highlight"><pre><span></span>    <span class="n">namesList</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;xiaoWang&#39;</span><span class="p">,</span><span class="s1">&#39;xiaoZhang&#39;</span><span class="p">,</span><span class="s1">&#39;xiaoHua&#39;</span><span class="p">]</span>
+
+    <span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">namesList</span><span class="p">)</span>
+
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">while</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">length</span><span class="p">:</span>
+        <span class="k">print …</span></pre></div> <a class="btn primary xsmall" href="/Python-列表.html">more…</a>
+	</div>
+</div>	
+
+<div class="pagination">
+<ul>
+		<li class="prev"><a href="/index.html">&larr; Previous</a></li>
+		<li class=""><a href="/index.html">1</a></li>
+		<li class="active"><a href="/index2.html">2</a></li>
+		<li class=""><a href="/index3.html">3</a></li>
+		<li class=""><a href="/index4.html">4</a></li>
+		<li class=""><a href="/index5.html">5</a></li>
+		<li class="next"><a href="/index3.html">Next &rarr;</a></li>
+</ul>
+</div>
+
+		<footer>
+		  <p>Powered by <a href="http://getpelican.com/">Pelican</a>. Theme based on <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a>.</p>
+		  <p>&copy; 商伟</p>
+		</footer>
+	  </div>
+
+	</div>
+</body>
+</html>
