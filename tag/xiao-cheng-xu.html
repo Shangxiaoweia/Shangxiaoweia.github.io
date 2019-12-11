@@ -56,11 +56,12 @@
 				<li><a href="http://getpelican.com/">Pelican</a></li>
 				<li><a href="http://python.org/">Python.org</a></li>
 				<li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+				<li><a href="https://shangxiaoweia.github.io/puzzle.html">拼图</a></li>
 			</ul>
 			<div class="social">
 			<h3>Social</h3>
 			<ul>
-				<li><a href="http://han520min.github.io">hanmin</a></li>
+				<li><a href="https://han520min.github.io">hanmin</a></li>
 			</ul>
 			</div>
 		</div>
@@ -120,6 +121,33 @@ tags: <a href="/tag/xiao-cheng-xu.html">小程序</a> </div>
 	</div>
 </div>	
 <div class='article'>
+	<h2>微信小程序弹窗</h2>
+	<div class="well small">Permalink: <a class="more" href="/微信小程序弹窗.html">1000-01-03 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/xiao-cheng-xu.html">小程序</a>
+tags: <a href="/tag/xiao-cheng-xu.html">小程序</a> </div>
+	<div class="summary"><p>wxml</p>
+<div class="highlight"><pre><span></span>&lt;view class=&quot;content&quot;&gt;
+    &lt;button bindtap=&quot;popSuccessTest&quot;&gt;成功提示弹窗&lt;/button&gt;
+    &lt;button bindtap=&quot;popMaskTest&quot;&gt;带透明蒙层的弹窗&lt;/button&gt;
+    &lt;button bindtap=&quot;popTest&quot;&gt;纯文字弹窗&lt;/button&gt;
+    &lt;button bindtap=&quot;popCustomIcon&quot;&gt;自定义图标&lt;/button&gt;
+    &lt;button bindtap=&quot;popConfirm&quot;&gt;confirm的弹窗&lt;/button&gt;
+    &lt;button bindtap=&quot;popLoading&quot;&gt;加载弹窗&lt;/button&gt;
+    &lt;button bindtap=&quot;popSelect&quot;&gt;选择框弹窗&lt;/button&gt;
+&lt;/view&gt;
+</pre></div>
+
+
+<p>js</p>
+<div class="highlight"><pre><span></span>Page({
+  popSuccessTest: function () {
+    wx.showToast({
+      title: &#39;成功提示弹窗&#39;,
+      icon: &#39;&#39;,     //默认值是success …</pre></div> <a class="btn primary xsmall" href="/微信小程序弹窗.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
 	<h2>微信小程序路由带参</h2>
 	<div class="well small">Permalink: <a class="more" href="/微信小程序路由带参.html">1000-01-02 18:44:00+00:09</a>
 by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
@@ -131,25 +159,28 @@ tags: <a href="/tag/xiao-cheng-xu.html">小程序</a> </div>
 </pre></div>
 
 
-<p>user--js</p>
+<p>一、user--js</p>
 <div class="highlight"><pre><span></span>onLoad: function (options) { 
     this.setData({
         user_id: options.id,
         user_name: options.name
-    }) 
+    }),
+    success:function(){
+　　　　console.log(&#39;接口调用成功&#39;)
+　　},
+　　fail:function(){
+　　　　console.log(&#39;接口调用失败&#39;) 
+　　},
+　　complete:function(){
+　　　　console.log(&#39;调用结束，调用成功失败都会执行&#39;)
+　　}
 }
 </pre></div>
 
 
 <h5>点击事件传参</h5>
 <p>wxml</p>
-<div class="highlight"><pre><span></span>    &lt;view wx:for=&#39;{{list}}&#39; data-item=&#39;{{item}}&#39; data-id=&#39;{{item.id}}&#39; bindtap=&#39;goDetail&#39;&gt;&lt;/view&gt;
-</pre></div>
-
-
-<p>js</p>
-<div class="highlight"><pre><span></span> goDetail: function(e){
-    let id =  e.currentTarget.dataset …</pre></div> <a class="btn primary xsmall" href="/微信小程序路由带参.html">more…</a>
+<div class="highlight"><pre><span></span>    &lt;view wx:for=&#39;{{list …</pre></div> <a class="btn primary xsmall" href="/微信小程序路由带参.html">more…</a>
 	</div>
 </div>	
 <div class='article'>

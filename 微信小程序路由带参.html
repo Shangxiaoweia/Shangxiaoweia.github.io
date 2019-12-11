@@ -56,11 +56,12 @@
 				<li><a href="http://getpelican.com/">Pelican</a></li>
 				<li><a href="http://python.org/">Python.org</a></li>
 				<li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+				<li><a href="https://shangxiaoweia.github.io/puzzle.html">拼图</a></li>
 			</ul>
 			<div class="social">
 			<h3>Social</h3>
 			<ul>
-				<li><a href="http://han520min.github.io">hanmin</a></li>
+				<li><a href="https://han520min.github.io">hanmin</a></li>
 			</ul>
 			</div>
 		</div>
@@ -78,12 +79,21 @@ tags: <a href="/tag/xiao-cheng-xu.html">小程序</a> </div>
 </pre></div>
 
 
-<p>user--js</p>
+<p>一、user--js</p>
 <div class="highlight"><pre><span></span>onLoad: function (options) { 
     this.setData({
         user_id: options.id,
         user_name: options.name
-    }) 
+    }),
+    success:function(){
+　　　　console.log(&#39;接口调用成功&#39;)
+　　},
+　　fail:function(){
+　　　　console.log(&#39;接口调用失败&#39;) 
+　　},
+　　complete:function(){
+　　　　console.log(&#39;调用结束，调用成功失败都会执行&#39;)
+　　}
 }
 </pre></div>
 
@@ -121,6 +131,19 @@ tags: <a href="/tag/xiao-cheng-xu.html">小程序</a> </div>
 <div class="highlight"><pre><span></span>passQuery: function(e){
     let query = e.currentTarget.dataset[&#39;index&#39;];
     }
+</pre></div>
+
+
+<h5>同一</h5>
+<div class="highlight"><pre><span></span>wx.reLaunch    关闭所有页面，打开到应用内的某个页面。（不会有返回上一页箭头）
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>wx.redirectTo　关闭当前页面，跳转到应用内某个页面。（如果下一页面 有返回上一页箭头，则跳过当前页面）
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>wx.switchTab    跳转到tabBar 页面，并关闭其他所有非 tabBar 页面
 </pre></div></div>
 	</div>
 		<footer>
