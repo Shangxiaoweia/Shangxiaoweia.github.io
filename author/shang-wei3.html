@@ -72,6 +72,56 @@
 	  <div class="content">
 <div class="page-header"><h1>商伟的技术博客 <small>商伟</small></h1></div>
 <div class='article'>
+	<h2>Python-列表</h2>
+	<div class="well small">Permalink: <a class="more" href="/Python-列表.html">1000-01-08 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/python.html">Python</a>
+tags: <a href="/tag/python.html">Python</a> </div>
+	<div class="summary"><h4>列表的介绍</h4>
+<ul>
+<li>列表(list)</li>
+</ul>
+<p>变量nameListt的类型为列表</p>
+<div class="highlight"><pre><span></span>    <span class="n">namesList</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;xiaoWang&#39;</span><span class="p">,</span><span class="s1">&#39;xiaoZhang&#39;</span><span class="p">,</span><span class="s1">&#39;xiaoHua&#39;</span><span class="p">]</span>
+</pre></div>
+
+
+<p>比C语言的数组强大的地方在于列表中的元素可以是不同类型的</p>
+<div class="highlight"><pre><span></span>    <span class="n">testList</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">]</span>
+</pre></div>
+
+
+<h4>列表的循环遍历</h4>
+<h5>1. 使用for循环</h5>
+<p>为了更有效率的输出列表的每个数据，可以使用循环来完成</p>
+<p>demo:</p>
+<div class="highlight"><pre><span></span>    <span class="n">namesList</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;xiaoWang&#39;</span><span class="p">,</span><span class="s1">&#39;xiaoZhang&#39;</span><span class="p">,</span><span class="s1">&#39;xiaoHua&#39;</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">namesList</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+</pre></div>
+
+
+<p>结果:</p>
+<div class="highlight"><pre><span></span>    <span class="n">xiaoWang</span>
+    <span class="n">xiaoZhang</span>
+    <span class="n">xiaoHua</span>
+</pre></div>
+
+
+<h5>2. 使用while循环</h5>
+<p>为了更有效率的输出列表的每个数据，可以使用循环来完成</p>
+<p>demo:</p>
+<div class="highlight"><pre><span></span>    <span class="n">namesList</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;xiaoWang&#39;</span><span class="p">,</span><span class="s1">&#39;xiaoZhang&#39;</span><span class="p">,</span><span class="s1">&#39;xiaoHua&#39;</span><span class="p">]</span>
+
+    <span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">namesList</span><span class="p">)</span>
+
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">while</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">length</span><span class="p">:</span>
+        <span class="k">print …</span></pre></div> <a class="btn primary xsmall" href="/Python-列表.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
 	<h2>Python-字符串</h2>
 	<div class="well small">Permalink: <a class="more" href="/Python-字符串.html">1000-01-07 18:44:00+00:09</a>
 by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
@@ -457,44 +507,6 @@ tags: <a href="/tag/xiao-cheng-xu.html">小程序</a> </div>
 <h5>点击事件传参</h5>
 <p>wxml</p>
 <div class="highlight"><pre><span></span>    &lt;view wx:for=&#39;{{list …</pre></div> <a class="btn primary xsmall" href="/微信小程序路由带参.html">more…</a>
-	</div>
-</div>	
-<div class='article'>
-	<h2>爬虫第一个请求</h2>
-	<div class="well small">Permalink: <a class="more" href="/爬虫第一个请求.html">1000-01-02 18:44:00+00:09</a>
-by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/pa-chong.html">爬虫</a>
-tags: <a href="/tag/pa-chong.html">爬虫</a> </div>
-	<div class="summary"><hr>
-<h2>1.请求过程与网页基础</h2>
-<h4>1.1  URL介绍</h4>
-<div class="highlight"><pre><span></span>- 确定URL
-</pre></div>
-
-
-<h4>1.2  HTTP请求过程</h4>
-<div class="highlight"><pre><span></span># 请求过程:
-
-​    客户端, 通常指web浏览器或APP向服务器发起请求, 服务器接收到请求进行处理, 并向客户端发起响应.
-</pre></div>
-
-
-<h4>1.3  请求</h4>
-<div class="highlight"><pre><span></span><span class="c1"># 请求: 有客户端向服务器发出的, 可以分为四部分内容: 请求方法(Request Method), 请求网址(Request URL), 请求头(Request Headers), 请求体(Request Body)</span>
-</pre></div>
-
-
-<div class="highlight"><pre><span></span><span class="c1"># 请求方法:常见有8种</span>
-
-<span class="o">-</span> <span class="n">GET</span><span class="p">:</span> <span class="err">请求页面</span><span class="p">,</span> <span class="err">并返回页面内容</span>  <span class="c1"># 重点</span>
-
-<span class="o">-</span> <span class="n">POST</span><span class="p">:</span> <span class="err">用于提交表单数据或上传文件</span><span class="p">,</span> <span class="err">数据包含在请求体中</span>  <span class="c1"># 重点</span>
-
-<span class="o">-</span> <span class="n">PUT</span><span class="p">:</span> <span class="err">从客户端向服务器传送的数据取代指定文档中的内容</span>
-
-<span class="o">-</span> <span class="n">DELETE</span><span class="p">:</span> <span class="err">请求服务器删除指定的页面</span>
-
-<span class="o">-</span> <span class="n">HEAD</span><span class="p">:</span> <span class="err">类似于</span><span class="n">GET请求</span><span class="err">，只不过返回的响应中没有具体的内容 …</span></pre></div> <a class="btn primary xsmall" href="/爬虫第一个请求.html">more…</a>
 	</div>
 </div>	
 

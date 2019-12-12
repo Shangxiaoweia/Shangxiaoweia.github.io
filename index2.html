@@ -72,6 +72,57 @@
 	  <div class="content">
 <div class="page-header"><h1> 商伟的技术博客 </h1></div>
 <div class='article'>
+	<h2>Django跨域与VUE跨域</h2>
+	<div class="well small">Permalink: <a class="more" href="/Django跨域与VUE跨域.html">2019-08-08 18:44:00+02:00</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/django.html">Django</a>
+tags: <a href="/tag/django.html">Django</a> </div>
+	<div class="summary"><h2>Django 解决跨域</h2>
+<ul>
+<li>安装 django-cors-headers</li>
+</ul>
+<div class="highlight"><pre><span></span>  pip install django-cors-headers
+</pre></div>
+
+
+<ul>
+<li>在 settings.py 的 install_apps 中注册</li>
+</ul>
+<div class="highlight"><pre><span></span>  <span class="nv">INSTALLED_APPS</span> <span class="o">=</span> <span class="o">[</span>
+      <span class="s1">&#39;corsheaders&#39;</span>
+  <span class="o">]</span>
+</pre></div>
+
+
+<ul>
+<li>在settings.py 的 middleware 中注册</li>
+</ul>
+<div class="highlight"><pre><span></span>  <span class="nv">MIDDLEWARE</span> <span class="o">=</span> <span class="o">[</span>
+      <span class="s1">&#39;corsheaders.middleware.CorsMiddleware&#39;</span>, <span class="c1"># 一定要在commonmiddleware之上</span>
+    <span class="s1">&#39;django.middleware.common.CommonMiddleware&#39;</span>,
+  <span class="o">]</span>
+</pre></div>
+
+
+<ul>
+<li>在 settings.py 的任意位置 添加</li>
+</ul>
+<div class="highlight"><pre><span></span>  <span class="nv">CORS_ORIGIN_ALLOW_ALL</span> <span class="o">=</span> True
+</pre></div>
+
+
+<ul>
+<li>完成django 跨域</li>
+</ul>
+<h2>VUE 解决跨域</h2>
+<ul>
+<li>打开config/index.js,在proxyTable中添写如下代码</li>
+</ul>
+<div class="highlight"><pre><span></span>proxyTable: <span class="o">{</span> 
+  <span class="s1">&#39;/api&#39;</span>: <span class="o">{</span>  //使用<span class="s2">&quot;/api&quot;</span>来代替<span class="s2">&quot;http …</span></pre></div> <a class="btn primary xsmall" href="/Django跨域与VUE跨域.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
 	<h2>django分页组件（paginator）</h2>
 	<div class="well small">Permalink: <a class="more" href="/django分页组件（paginator）.html">2019-08-08 18:44:00+02:00</a>
 by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
@@ -355,56 +406,6 @@ tags: <a href="/tag/python.html">Python</a> </div>
 <h5>字典的修改操作</h5>
 <ul>
 <li>字典的修改操作就是 …</li></ul> <a class="btn primary xsmall" href="/Python-字典.html">more…</a>
-	</div>
-</div>	
-<div class='article'>
-	<h2>Python-列表</h2>
-	<div class="well small">Permalink: <a class="more" href="/Python-列表.html">1000-01-08 18:44:00+00:09</a>
-by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/python.html">Python</a>
-tags: <a href="/tag/python.html">Python</a> </div>
-	<div class="summary"><h4>列表的介绍</h4>
-<ul>
-<li>列表(list)</li>
-</ul>
-<p>变量nameListt的类型为列表</p>
-<div class="highlight"><pre><span></span>    <span class="n">namesList</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;xiaoWang&#39;</span><span class="p">,</span><span class="s1">&#39;xiaoZhang&#39;</span><span class="p">,</span><span class="s1">&#39;xiaoHua&#39;</span><span class="p">]</span>
-</pre></div>
-
-
-<p>比C语言的数组强大的地方在于列表中的元素可以是不同类型的</p>
-<div class="highlight"><pre><span></span>    <span class="n">testList</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">]</span>
-</pre></div>
-
-
-<h4>列表的循环遍历</h4>
-<h5>1. 使用for循环</h5>
-<p>为了更有效率的输出列表的每个数据，可以使用循环来完成</p>
-<p>demo:</p>
-<div class="highlight"><pre><span></span>    <span class="n">namesList</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;xiaoWang&#39;</span><span class="p">,</span><span class="s1">&#39;xiaoZhang&#39;</span><span class="p">,</span><span class="s1">&#39;xiaoHua&#39;</span><span class="p">]</span>
-    <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">namesList</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
-</pre></div>
-
-
-<p>结果:</p>
-<div class="highlight"><pre><span></span>    <span class="n">xiaoWang</span>
-    <span class="n">xiaoZhang</span>
-    <span class="n">xiaoHua</span>
-</pre></div>
-
-
-<h5>2. 使用while循环</h5>
-<p>为了更有效率的输出列表的每个数据，可以使用循环来完成</p>
-<p>demo:</p>
-<div class="highlight"><pre><span></span>    <span class="n">namesList</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;xiaoWang&#39;</span><span class="p">,</span><span class="s1">&#39;xiaoZhang&#39;</span><span class="p">,</span><span class="s1">&#39;xiaoHua&#39;</span><span class="p">]</span>
-
-    <span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">namesList</span><span class="p">)</span>
-
-    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
-
-    <span class="k">while</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">length</span><span class="p">:</span>
-        <span class="k">print …</span></pre></div> <a class="btn primary xsmall" href="/Python-列表.html">more…</a>
 	</div>
 </div>	
 
