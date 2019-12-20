@@ -31,6 +31,7 @@
 					<li ><a href="/category/django.html">Django</a></li>
 					<li ><a href="/category/git.html">GIT</a></li>
 					<li ><a href="/category/javascript.html">JavaScript</a></li>
+					<li ><a href="/category/mongodb.html">Mongodb</a></li>
 					<li ><a href="/category/mysql.html">MySQL</a></li>
 					<li ><a href="/category/pa-chong.html">爬虫</a></li>
 					<li ><a href="/category/python.html">Python</a></li>
@@ -153,6 +154,42 @@ tags: <a href="/tag/git.html">GIT</a> </div>
 	</div>
 </div>	
 <div class='article'>
+	<h2>Linux下python3源码安装</h2>
+	<div class="well small">Permalink: <a class="more" href="/Linux下python3源码安装.html">1000-01-01 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/python.html">Python</a>
+tags: <a href="/tag/python.html">Python</a> </div>
+	<div class="summary"><h5>Linux下Python3源码安装</h5>
+<ul>
+<li>1.下载</li>
+</ul>
+<div class="highlight"><pre><span></span>wget https://www.python.org/ftp/python/3.7.4/Python-3.7.4.tgz
+</pre></div>
+
+
+<ul>
+<li>2.解压</li>
+</ul>
+<div class="highlight"><pre><span></span>tar -xzvf Python-3.7.4.tgz
+cd Python-3.7.4
+</pre></div>
+
+
+<ul>
+<li>3.config # 指定安装目录</li>
+</ul>
+<div class="highlight"><pre><span></span>mkdir -p /usr/local/python3
+./configure --prefix=/usr/local/python3/
+</pre></div>
+
+
+<ul>
+<li>4.make 编译</li>
+<li>5.make install 安装</li>
+<li>6 …</li></ul> <a class="btn primary xsmall" href="/Linux下python3源码安装.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
 	<h2>Linux安装redis</h2>
 	<div class="well small">Permalink: <a class="more" href="/Linux安装redis.html">1000-01-01 18:44:00+00:09</a>
 by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
@@ -198,6 +235,58 @@ tags: <a href="/tag/redis.html">redis</a> </div>
 <li>查看是否启动成功：</li>
 </ul>
 <div class="highlight"><pre><span></span> <span class="n">ps</span> <span class="n">aux</span> <span class="o">|</span> <span class="n">grep</span> <span class="n">redis …</span></pre></div> <a class="btn primary xsmall" href="/Linux安装redis.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>Mongodb-操作</h2>
+	<div class="well small">Permalink: <a class="more" href="/Mongodb-操作.html">1000-01-01 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/mongodb.html">Mongodb</a>
+tags: <a href="/tag/mongodb.html">Mongodb</a> </div>
+	<div class="summary"><h5>命令</h5>
+<div class="highlight"><pre><span></span>$ mongo    # 进入到mongo命令行
+&gt; use test    # 连接到test数据库
+</pre></div>
+
+
+<p>启动服务后，进入 MongoDB 命令行操作界面：</p>
+<div class="highlight"><pre><span></span>mongo
+</pre></div>
+
+
+<p>使用 use 命令创建数据库：</p>
+<div class="highlight"><pre><span></span>use mydb
+</pre></div>
+
+
+<p>查看当前连接的数据库：</p>
+<div class="highlight"><pre><span></span>db
+</pre></div>
+
+
+<p>查看所有的数据库：</p>
+<div class="highlight"><pre><span></span>show dbs
+</pre></div>
+
+
+<h5>删除数据库</h5>
+<p>使用 db.dropDatabase() 销毁数据库：</p>
+<div class="highlight"><pre><span></span>&gt; use <span class="nb">local</span>
+switched to db <span class="nb">local</span>
+&gt; db.dropDatabase<span class="o">()</span>
+</pre></div>
+
+
+<p>查看所有的数据库：</p>
+<div class="highlight"><pre><span></span>&gt; show dbs
+</pre></div>
+
+
+<h5>创建集合</h5>
+<p>在数据库 mydb 中创建一个集合</p>
+<div class="highlight"><pre><span></span>&gt; use mydb
+switched to db mydb
+&gt; db.createCollection<span class="o">(</span><span class="s2">&quot;users …</span></pre></div> <a class="btn primary xsmall" href="/Mongodb-操作.html">more…</a>
 	</div>
 </div>	
 <div class='article'>
@@ -403,77 +492,6 @@ tags: <a href="/tag/vue.html">VUE</a> </div>
           <span class="n">url</span><span class="p">:</span><span class="s1">&#39;http://127 …</span></pre></div> <a class="btn primary xsmall" href="/VUE添加图片.html">more…</a>
 	</div>
 </div>	
-<div class='article'>
-	<h2>VUE父子件传参+分页</h2>
-	<div class="well small">Permalink: <a class="more" href="/VUE父子件传参+分页.html">1000-01-01 18:44:00+00:09</a>
-by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/vue.html">VUE</a>
-tags: <a href="/tag/vue.html">VUE</a> </div>
-	<div class="summary"><h2>直接上代码、然后解释：</h2>
-<h3>父组件代码</h3>
-<div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">template</span><span class="o">&gt;</span>
-  <span class="o">&lt;</span><span class="n">div</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;fu&quot;</span><span class="o">&gt;</span>
-    <span class="err">这是父组件</span>
-    <span class="o">&lt;</span><span class="n">zi</span> <span class="p">:</span><span class="n">name1</span><span class="o">=</span><span class="n">data</span> <span class="nd">@da</span><span class="o">=</span><span class="s2">&quot;add&quot;</span><span class="o">&gt;&lt;/</span><span class="n">zi</span><span class="o">&gt;</span>
-  <span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
-<span class="o">&lt;/</span><span class="n">template</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">script</span><span class="o">&gt;</span>
-  <span class="kn">import</span> <span class="nn">zi</span> <span class="nn">from</span> <span class="s1">&#39;../components/zi&#39;</span>
-
-  <span class="n">export</span> <span class="n">default</span> <span class="p">{</span>
-    <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;fu&quot;</span><span class="p">,</span>
-    <span class="n">data</span><span class="p">()</span> <span class="p">{</span>
-      <span class="k">return</span> <span class="p">{</span>
-        <span class="n">data</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
-      <span class="p">}</span>
-    <span class="p">},</span>
-    <span class="n">components</span><span class="p">:</span> <span class="p">{</span>
-      <span class="s1">&#39;zi&#39;</span><span class="p">:</span> <span class="n">zi</span>
-    <span class="p">},</span>
-    <span class="n">methods</span><span class="p">:</span> <span class="p">{</span>
-      <span class="n">add</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">alert</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
-      <span class="p">}</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-<span class="o">&lt;/</span><span class="n">script</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">style</span> <span class="n">scoped</span><span class="o">&gt;</span>
-<span class="o">&lt;/</span><span class="n">style</span><span class="o">&gt;</span>
-</pre></div>
-
-
-<h3>子组件代码</h3>
-<div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="nv">template</span><span class="o">&gt;</span>
-  <span class="o">&lt;</span><span class="nv">div</span> <span class="nv">id</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">zi …</span></pre></div> <a class="btn primary xsmall" href="/VUE父子件传参+分页.html">more…</a>
-	</div>
-</div>	
-<div class='article'>
-	<h2>VUE路由跳转带参</h2>
-	<div class="well small">Permalink: <a class="more" href="/VUE路由跳转带参.html">1000-01-01 18:44:00+00:09</a>
-by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/vue.html">VUE</a>
-tags: <a href="/tag/vue.html">VUE</a> </div>
-	<div class="summary"><h4>使用this.$router.push()跳转带参</h4>
-<h5>params传参</h5>
-<div class="highlight"><pre><span></span>注意：patams传参 ，路径不能使用path 只能使用name,不然获取不到传的数据
-
-this.$router.push({name: &#39;dispatch&#39;, params: {paicheNo: obj.paicheNo}})
-
-取数据：this.$route.params.paicheNo
-
-this.$route.params.paicheNo
-</pre></div>
-
-
-<h5>query传参</h5>
-<div class="highlight"><pre><span></span>this.$router.push({name: &#39;dispatch&#39;, query: {paicheNo: obj.paicheNo}})
-
-取数据：this.$route.query.paicheNo
-
-this.$route.query.paicheNo
-</pre></div> <a class="btn primary xsmall" href="/VUE路由跳转带参.html">more…</a>
-	</div>
-</div>	
 
 <div class="pagination">
 <ul>
@@ -483,6 +501,7 @@ this.$route.query.paicheNo
 		<li class=""><a href="/author/shang-wei3.html">3</a></li>
 		<li class="active"><a href="/author/shang-wei4.html">4</a></li>
 		<li class=""><a href="/author/shang-wei5.html">5</a></li>
+		<li class=""><a href="/author/shang-wei6.html">6</a></li>
 		<li class="next"><a href="/author/shang-wei5.html">Next &rarr;</a></li>
 </ul>
 </div>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>商伟的技术博客</title>
+	<meta name="description" content="">
+	<meta name="author" content="商伟">
+
+	<!-- HTML5 shim, for IE6-8 support of HTML elements -->
+	<!--[if lt IE 9]>
+		<script src="/theme/html5.js"></script>
+	<![endif]-->
+
+	<!-- Styles -->
+	<link href="/theme/bootstrap.min.css" rel="stylesheet">
+	<link href="/theme/local.css" rel="stylesheet">
+	<link href="/theme/pygments.css" rel="stylesheet">
+
+	<!-- Feeds -->
+
+
+
+
+</head>
+<body>
+	<div class="topbar">
+	  <div class="topbar-inner">
+		<div class="container-fluid">
+		  <a class="brand" href="/">商伟的技术博客</a>
+			<ul class="nav">
+					<li class="active"><a href="/category/django.html">Django</a></li>
+					<li ><a href="/category/git.html">GIT</a></li>
+					<li ><a href="/category/javascript.html">JavaScript</a></li>
+					<li ><a href="/category/mongodb.html">Mongodb</a></li>
+					<li ><a href="/category/mysql.html">MySQL</a></li>
+					<li ><a href="/category/pa-chong.html">爬虫</a></li>
+					<li ><a href="/category/python.html">Python</a></li>
+					<li ><a href="/category/rabbitmq.html">RabbitMQ</a></li>
+					<li ><a href="/category/redis.html">redis</a></li>
+					<li ><a href="/category/sui-shou-bi-ji.html">随手笔记</a></li>
+					<li ><a href="/category/supervisor.html">Supervisor</a></li>
+					<li ><a href="/category/vue.html">VUE</a></li>
+					<li ><a href="/category/wang-luo.html">网络</a></li>
+					<li ><a href="/category/xiao-cheng-xu.html">小程序</a></li>
+					<li ><a href="/category/xu-ni-huan-jing.html">虚拟环境</a></li>
+			</ul>
+			<p class="pull-right"><a href="/archives.html">[archives]</a> <a href="/tags.html">[tags]</a></p>
+		</div>
+	  </div>
+	</div>
+
+	<div class="container-fluid">
+	  <div class="sidebar">
+		<div class="well">
+			<h3>Blogroll</h3>
+			<ul>
+				<li><a href="http://getpelican.com/">Pelican</a></li>
+				<li><a href="http://python.org/">Python.org</a></li>
+				<li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+				<li><a href="https://shangxiaoweia.github.io/puzzle.html">拼图</a></li>
+				<li><a href="https://shangxiaoweia.github.io/GluttonousSnake.html">贪吃蛇</a></li>
+				<li><a href="https://shangxiaoweia.github.io/tetris.html">俄罗斯方块</a></li>
+				<li><a href="https://shangxiaoweia.github.io/fish.html">大鱼吃小鱼</a></li>
+			</ul>
+			<div class="social">
+			<h3>Social</h3>
+			<ul>
+				<li><a href="https://han520min.github.io">hanmin</a></li>
+			</ul>
+			</div>
+		</div>
+	  </div>
+	  <div class="content">
+	<div class='article'>
+		<div class="page-header"><h1>Django126发送邮件</h1></div>
+		<div class="well small">Permalink: <a class="more" href="/Django126发送邮件.html">2019-08-08 18:44:00+02:00</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/django.html">Django</a>
+tags: <a href="/tag/django.html">Django</a> </div>
+		<div><ul>
+<li>首先取得网易授权</li>
+</ul>
+<div class="highlight"><pre><span></span>  <span class="m">1</span>. 设置
+  <span class="m">2</span>.左侧客户端授权码
+  <span class="m">3</span>.自定义授权码 也就是你配置文件中的密码
+</pre></div>
+
+
+<ul>
+<li>配置文件</li>
+</ul>
+<div class="highlight"><pre><span></span>  邮件
+  <span class="nv">EMAIL_HOST</span> <span class="o">=</span> <span class="s1">&#39;shang.126.com&#39;</span>
+  设置端口号，为数字
+  <span class="nv">EMAIL_PORT</span> <span class="o">=</span> <span class="m">25</span>
+  设置发件人邮箱
+  <span class="nv">EMAIL_HOST_USER</span> <span class="o">=</span> <span class="s1">&#39;shang@126.com&#39;</span>
+  设置发件人 授权码
+  <span class="nv">EMAIL_HOST_PASSWORD</span> <span class="o">=</span> <span class="s1">&#39;ice1a3136&#39;</span>
+  设置是否启用安全链接
+  <span class="nv">EMAIL_USER_TLS</span> <span class="o">=</span> True
+  <span class="nv">EMAIL_USER_TLS</span> <span class="o">=</span> False
+  <span class="nv">DEFAULT_FROM_EMAIL</span> <span class="o">=</span> EMAIL_HOST_USER
+</pre></div>
+
+
+<ul>
+<li>views.py</li>
+</ul>
+<div class="highlight"><pre><span></span>  from django.core.mail import send_email
+  from django.conf import settings
+  def sendMsg<span class="o">()</span>:
+    <span class="nv">res</span> <span class="o">=</span> send_mail<span class="o">(</span><span class="s1">&#39;关于中秋节放假通知&#39;</span>,
+                    <span class="s1">&#39;中秋节放三天假&#39;</span>,
+                    settings.DEFAULT_FROM_EMAIL,
+                    <span class="o">[</span><span class="s1">&#39;imock@sina.com&#39;</span><span class="o">])</span>
+    <span class="k">if</span> <span class="nv">res</span> <span class="o">==</span> <span class="m">1</span>:
+      <span class="k">return</span> HttpResponse<span class="o">(</span><span class="s1">&#39;邮件发送成功&#39;</span><span class="o">)</span>
+    <span class="k">else</span>:
+      <span class="k">return</span> HttpResponse<span class="o">(</span><span class="s1">&#39;邮件发送失败&#39;</span><span class="o">)</span>
+</pre></div></div>
+	</div>
+		<footer>
+		  <p>Powered by <a href="http://getpelican.com/">Pelican</a>. Theme based on <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a>.</p>
+		  <p>&copy; 商伟</p>
+		</footer>
+	  </div>
+
+	</div>
+</body>
+</html>

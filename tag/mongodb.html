@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>商伟的技术博客</title>
+	<meta name="description" content="">
+	<meta name="author" content="商伟">
+
+	<!-- HTML5 shim, for IE6-8 support of HTML elements -->
+	<!--[if lt IE 9]>
+		<script src="/theme/html5.js"></script>
+	<![endif]-->
+
+	<!-- Styles -->
+	<link href="/theme/bootstrap.min.css" rel="stylesheet">
+	<link href="/theme/local.css" rel="stylesheet">
+	<link href="/theme/pygments.css" rel="stylesheet">
+
+	<!-- Feeds -->
+
+
+
+
+</head>
+<body>
+	<div class="topbar">
+	  <div class="topbar-inner">
+		<div class="container-fluid">
+		  <a class="brand" href="/">商伟的技术博客</a>
+			<ul class="nav">
+					<li ><a href="/category/django.html">Django</a></li>
+					<li ><a href="/category/git.html">GIT</a></li>
+					<li ><a href="/category/javascript.html">JavaScript</a></li>
+					<li ><a href="/category/mongodb.html">Mongodb</a></li>
+					<li ><a href="/category/mysql.html">MySQL</a></li>
+					<li ><a href="/category/pa-chong.html">爬虫</a></li>
+					<li ><a href="/category/python.html">Python</a></li>
+					<li ><a href="/category/rabbitmq.html">RabbitMQ</a></li>
+					<li ><a href="/category/redis.html">redis</a></li>
+					<li ><a href="/category/sui-shou-bi-ji.html">随手笔记</a></li>
+					<li ><a href="/category/supervisor.html">Supervisor</a></li>
+					<li ><a href="/category/vue.html">VUE</a></li>
+					<li ><a href="/category/wang-luo.html">网络</a></li>
+					<li ><a href="/category/xiao-cheng-xu.html">小程序</a></li>
+					<li ><a href="/category/xu-ni-huan-jing.html">虚拟环境</a></li>
+			</ul>
+			<p class="pull-right"><a href="/archives.html">[archives]</a> <a href="/tags.html">[tags]</a></p>
+		</div>
+	  </div>
+	</div>
+
+	<div class="container-fluid">
+	  <div class="sidebar">
+		<div class="well">
+			<h3>Blogroll</h3>
+			<ul>
+				<li><a href="http://getpelican.com/">Pelican</a></li>
+				<li><a href="http://python.org/">Python.org</a></li>
+				<li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+				<li><a href="https://shangxiaoweia.github.io/puzzle.html">拼图</a></li>
+				<li><a href="https://shangxiaoweia.github.io/GluttonousSnake.html">贪吃蛇</a></li>
+				<li><a href="https://shangxiaoweia.github.io/tetris.html">俄罗斯方块</a></li>
+				<li><a href="https://shangxiaoweia.github.io/fish.html">大鱼吃小鱼</a></li>
+			</ul>
+			<div class="social">
+			<h3>Social</h3>
+			<ul>
+				<li><a href="https://han520min.github.io">hanmin</a></li>
+			</ul>
+			</div>
+		</div>
+	  </div>
+	  <div class="content">
+<div class="page-header"><h1>商伟的技术博客 <small>Mongodb</small></h1></div>
+<div class='article'>
+	<h2>Mongodb-操作</h2>
+	<div class="well small">Permalink: <a class="more" href="/Mongodb-操作.html">1000-01-01 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/mongodb.html">Mongodb</a>
+tags: <a href="/tag/mongodb.html">Mongodb</a> </div>
+	<div class="summary"><h5>命令</h5>
+<div class="highlight"><pre><span></span>$ mongo    # 进入到mongo命令行
+&gt; use test    # 连接到test数据库
+</pre></div>
+
+
+<p>启动服务后，进入 MongoDB 命令行操作界面：</p>
+<div class="highlight"><pre><span></span>mongo
+</pre></div>
+
+
+<p>使用 use 命令创建数据库：</p>
+<div class="highlight"><pre><span></span>use mydb
+</pre></div>
+
+
+<p>查看当前连接的数据库：</p>
+<div class="highlight"><pre><span></span>db
+</pre></div>
+
+
+<p>查看所有的数据库：</p>
+<div class="highlight"><pre><span></span>show dbs
+</pre></div>
+
+
+<h5>删除数据库</h5>
+<p>使用 db.dropDatabase() 销毁数据库：</p>
+<div class="highlight"><pre><span></span>&gt; use <span class="nb">local</span>
+switched to db <span class="nb">local</span>
+&gt; db.dropDatabase<span class="o">()</span>
+</pre></div>
+
+
+<p>查看所有的数据库：</p>
+<div class="highlight"><pre><span></span>&gt; show dbs
+</pre></div>
+
+
+<h5>创建集合</h5>
+<p>在数据库 mydb 中创建一个集合</p>
+<div class="highlight"><pre><span></span>&gt; use mydb
+switched to db mydb
+&gt; db.createCollection<span class="o">(</span><span class="s2">&quot;users …</span></pre></div> <a class="btn primary xsmall" href="/Mongodb-操作.html">more…</a>
+	</div>
+</div>	
+
+
+		<footer>
+		  <p>Powered by <a href="http://getpelican.com/">Pelican</a>. Theme based on <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a>.</p>
+		  <p>&copy; 商伟</p>
+		</footer>
+	  </div>
+
+	</div>
+</body>
+</html>

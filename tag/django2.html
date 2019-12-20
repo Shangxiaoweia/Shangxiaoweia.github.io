@@ -31,6 +31,7 @@
 					<li ><a href="/category/django.html">Django</a></li>
 					<li ><a href="/category/git.html">GIT</a></li>
 					<li ><a href="/category/javascript.html">JavaScript</a></li>
+					<li ><a href="/category/mongodb.html">Mongodb</a></li>
 					<li ><a href="/category/mysql.html">MySQL</a></li>
 					<li ><a href="/category/pa-chong.html">爬虫</a></li>
 					<li ><a href="/category/python.html">Python</a></li>
@@ -131,6 +132,53 @@ tags: <a href="/tag/django.html">Django</a> </div>
 <div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nv">Where</span> <span class="k">do</span> <span class="nv">you</span> <span class="nv">want</span> <span class="nv">to</span> <span class="nv">create</span> <span class="nv">your</span> <span class="nv">new</span> <span class="nv">web</span> <span class="nv">site</span>? [.]
 <span class="o">&gt;</span> <span class="nv">What</span> <span class="nv">will</span> <span class="nv">be</span> <span class="nv">the</span> <span class="nv">title</span> <span class="nv">of</span> <span class="nv">this</span> <span class="nv">web</span> <span class="nv">site</span>? 商伟的技术博客
 <span class="o">&gt;</span> <span class="nv">Who</span> <span class="nv">will</span> <span class="nv">be</span> <span class="nv">the …</span></pre></div> <a class="btn primary xsmall" href="/三分钟创建一个静态网页.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>创建一个静态网页</h2>
+	<div class="well small">Permalink: <a class="more" href="/创建一个静态网页.html">1000-01-01 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/django.html">Django</a>
+tags: <a href="/tag/django.html">Django</a> </div>
+	<div class="summary"><h2>uvicorn和circus的用处</h2>
+<h5>Django3部署</h5>
+<div class="highlight"><pre><span></span>推荐： uvicorn + circus/supervisord
+</pre></div>
+
+
+<h5>Django2部署</h5>
+<div class="highlight"><pre><span></span>推荐： gunicorn + circus/supervisord
+</pre></div>
+
+
+<h5>sanic部署</h5>
+<div class="highlight"><pre><span></span>推荐： uvicorn + circus
+</pre></div>
+
+
+<ul>
+<li>
+<p>步骤</p>
+</li>
+<li>
+<p>安装circus</p>
+<ul>
+<li>pip install circus</li>
+</ul>
+</li>
+<li>安装uvicorn<ul>
+<li>pip install uvicorn</li>
+</ul>
+</li>
+<li>项目中写一个circus.ini</li>
+</ul>
+<p>```text
+  [watcher:mysite]
+  cmd = venv/bin/uvicorn --fd $(circus.sockets.misite) server:app
+  use_sockets = True
+  numprocesses = 2</p>
+<p>[socket:mysite]
+  host = 0.0.0.0 …</p> <a class="btn primary xsmall" href="/创建一个静态网页.html">more…</a>
 	</div>
 </div>	
 

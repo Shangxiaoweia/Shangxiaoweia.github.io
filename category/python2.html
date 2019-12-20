@@ -31,6 +31,7 @@
 					<li ><a href="/category/django.html">Django</a></li>
 					<li ><a href="/category/git.html">GIT</a></li>
 					<li ><a href="/category/javascript.html">JavaScript</a></li>
+					<li ><a href="/category/mongodb.html">Mongodb</a></li>
 					<li ><a href="/category/mysql.html">MySQL</a></li>
 					<li ><a href="/category/pa-chong.html">爬虫</a></li>
 					<li class="active"><a href="/category/python.html">Python</a></li>
@@ -135,6 +136,42 @@ tags: <a href="/tag/python.html">Python</a> </div>
 	</div>
 </div>	
 <div class='article'>
+	<h2>Linux下python3源码安装</h2>
+	<div class="well small">Permalink: <a class="more" href="/Linux下python3源码安装.html">1000-01-01 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/python.html">Python</a>
+tags: <a href="/tag/python.html">Python</a> </div>
+	<div class="summary"><h5>Linux下Python3源码安装</h5>
+<ul>
+<li>1.下载</li>
+</ul>
+<div class="highlight"><pre><span></span>wget https://www.python.org/ftp/python/3.7.4/Python-3.7.4.tgz
+</pre></div>
+
+
+<ul>
+<li>2.解压</li>
+</ul>
+<div class="highlight"><pre><span></span>tar -xzvf Python-3.7.4.tgz
+cd Python-3.7.4
+</pre></div>
+
+
+<ul>
+<li>3.config # 指定安装目录</li>
+</ul>
+<div class="highlight"><pre><span></span>mkdir -p /usr/local/python3
+./configure --prefix=/usr/local/python3/
+</pre></div>
+
+
+<ul>
+<li>4.make 编译</li>
+<li>5.make install 安装</li>
+<li>6 …</li></ul> <a class="btn primary xsmall" href="/Linux下python3源码安装.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
 	<h2>Python输入与输出</h2>
 	<div class="well small">Permalink: <a class="more" href="/Python输入与输出.html">1000-01-01 18:44:00+00:09</a>
 by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
@@ -178,6 +215,28 @@ tags: <a href="/tag/python.html">Python</a> </div>
 
 <span class="n">age</span> <span class="o">+=</span> <span class="mi">1</span>
 <span class="k">print</span><span class="p">(</span><span class="s2">&quot;我今年</span><span class="si">%d</span><span class="s2">岁&quot;</span> <span class="o">%</span> <span class="n">age …</span></pre></div> <a class="btn primary xsmall" href="/Python输入与输出.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>如何安装python3</h2>
+	<div class="well small">Permalink: <a class="more" href="/如何安装python3.html">1000-01-01 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/python.html">Python</a>
+tags: <a href="/tag/python.html">Python</a> </div>
+	<div class="summary"><h5>CentOS7下安装python3</h5>
+<p>1、安装pyhton3.7 的依赖包</p>
+<div class="highlight"><pre><span></span>yum -y groupinstall &quot;Development tools&quot;
+yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel libffi-devel
+</pre></div>
+
+
+<p>2、下载python3.7的“源码”：</p>
+<div class="highlight"><pre><span></span>wget https://www.python.org/ftp/python/3.7.0/Python-3.7.0.tar.xz
+</pre></div>
+
+
+<p>3、解压并编译安装：</p>
+<div class="highlight"><pre><span></span>tar -xJvf Python-3.7 …</pre></div> <a class="btn primary xsmall" href="/如何安装python3.html">more…</a>
 	</div>
 </div>	
 
