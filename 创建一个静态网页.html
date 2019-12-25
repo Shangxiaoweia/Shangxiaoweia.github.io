@@ -77,51 +77,7 @@
 by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
  in <a href="/category/django.html">Django</a>
 tags: <a href="/tag/django.html">Django</a> </div>
-		<div><h2>uvicorn和circus的用处</h2>
-<h5>Django3部署</h5>
-<div class="highlight"><pre><span></span>推荐： uvicorn + circus/supervisord
-</pre></div>
-
-
-<h5>Django2部署</h5>
-<div class="highlight"><pre><span></span>推荐： gunicorn + circus/supervisord
-</pre></div>
-
-
-<h5>sanic部署</h5>
-<div class="highlight"><pre><span></span>推荐： uvicorn + circus
-</pre></div>
-
-
-<ul>
-<li>
-<p>步骤</p>
-</li>
-<li>
-<p>安装circus</p>
-<ul>
-<li>pip install circus</li>
-</ul>
-</li>
-<li>安装uvicorn<ul>
-<li>pip install uvicorn</li>
-</ul>
-</li>
-<li>项目中写一个circus.ini</li>
-</ul>
-<p>```text
-  [watcher:mysite]
-  cmd = venv/bin/uvicorn --fd $(circus.sockets.misite) server:app
-  use_sockets = True
-  numprocesses = 2</p>
-<p>[socket:mysite]
-  host = 0.0.0.0
-  port = 80
-  ```</p>
-<ul>
-<li>uvicorn --deamon circus.ini</li>
-</ul>
-<h4>静态网站</h4>
+		<div><h4>静态网站</h4>
 <h5>gitbook 把markdown转化为html</h5>
 <div class="highlight"><pre><span></span>gitbook server
 </pre></div>

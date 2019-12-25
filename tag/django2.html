@@ -135,8 +135,8 @@ tags: <a href="/tag/django.html">Django</a> </div>
 	</div>
 </div>	
 <div class='article'>
-	<h2>创建一个静态网页</h2>
-	<div class="well small">Permalink: <a class="more" href="/创建一个静态网页.html">1000-01-01 18:44:00+00:09</a>
+	<h2>Django部署</h2>
+	<div class="well small">Permalink: <a class="more" href="/Django部署.html">1000-01-01 18:44:00+00:09</a>
 by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
  in <a href="/category/django.html">Django</a>
 tags: <a href="/tag/django.html">Django</a> </div>
@@ -178,7 +178,40 @@ tags: <a href="/tag/django.html">Django</a> </div>
   use_sockets = True
   numprocesses = 2</p>
 <p>[socket:mysite]
-  host = 0.0.0.0 …</p> <a class="btn primary xsmall" href="/创建一个静态网页.html">more…</a>
+  host = 0.0.0.0 …</p> <a class="btn primary xsmall" href="/Django部署.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>创建一个静态网页</h2>
+	<div class="well small">Permalink: <a class="more" href="/创建一个静态网页.html">1000-01-01 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/django.html">Django</a>
+tags: <a href="/tag/django.html">Django</a> </div>
+	<div class="summary"><h4>静态网站</h4>
+<h5>gitbook 把markdown转化为html</h5>
+<div class="highlight"><pre><span></span>gitbook server
+</pre></div>
+
+
+<h4>上传文件</h4>
+<p>推荐: 使用支持sftp协议的工具上传 ssh2协议</p>
+<p>列如: pycharm filezilla 等</p>
+<h4>Nginx</h4>
+<ul>
+<li>可以当做HTTP服务器，提供HTML的传输服务</li>
+<li>yum install -y nginx</li>
+<li>whereis nginx</li>
+<li>启动nginx   nginx</li>
+<li>nginx -s relaod 修改nginx.conf之后，可以重载</li>
+</ul>
+<h5>显示发布的页面</h5>
+<p>修改nginx.conf 内的root</p>
+<p>user 修改为 root</p>
+<p>root 你发布的页面路径</p>
+<p>chmod -R 755 _book   修改权限</p>
+<p>之后 重新加载</p>
+<h5>https以下是Nginx的默认路径：</h5>
+<div class="highlight"><pre><span></span>(1) Nginx配置路径：/etc …</pre></div> <a class="btn primary xsmall" href="/创建一个静态网页.html">more…</a>
 	</div>
 </div>	
 

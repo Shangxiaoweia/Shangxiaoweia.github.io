@@ -111,6 +111,84 @@ tags: <a href="/tag/pa-chong.html">爬虫</a> </div>
 	</div>
 </div>	
 <div class='article'>
+	<h2>Django部署</h2>
+	<div class="well small">Permalink: <a class="more" href="/Django部署.html">1000-01-01 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/django.html">Django</a>
+tags: <a href="/tag/django.html">Django</a> </div>
+	<div class="summary"><h2>uvicorn和circus的用处</h2>
+<h5>Django3部署</h5>
+<div class="highlight"><pre><span></span>推荐： uvicorn + circus/supervisord
+</pre></div>
+
+
+<h5>Django2部署</h5>
+<div class="highlight"><pre><span></span>推荐： gunicorn + circus/supervisord
+</pre></div>
+
+
+<h5>sanic部署</h5>
+<div class="highlight"><pre><span></span>推荐： uvicorn + circus
+</pre></div>
+
+
+<ul>
+<li>
+<p>步骤</p>
+</li>
+<li>
+<p>安装circus</p>
+<ul>
+<li>pip install circus</li>
+</ul>
+</li>
+<li>安装uvicorn<ul>
+<li>pip install uvicorn</li>
+</ul>
+</li>
+<li>项目中写一个circus.ini</li>
+</ul>
+<p>```text
+  [watcher:mysite]
+  cmd = venv/bin/uvicorn --fd $(circus.sockets.misite) server:app
+  use_sockets = True
+  numprocesses = 2</p>
+<p>[socket:mysite]
+  host = 0.0.0.0 …</p> <a class="btn primary xsmall" href="/Django部署.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>Docker</h2>
+	<div class="well small">Permalink: <a class="more" href="/Docker.html">1000-01-01 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/sui-shou-bi-ji.html">随手笔记</a>
+tags: <a href="/tag/sui-shou-bi-ji.html">随手笔记</a> </div>
+	<div class="summary"><p>Docker容器<a href="https://www.runoob.com/docker/docker-container-usage.html">https://www.runoob.com/docker/docker-container-usage.html</a></p>
+<h5>设置阿里云镜像源</h5>
+<div class="highlight"><pre><span></span>sudo yum-config-manager --add-repo https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo 
+</pre></div>
+
+
+<h5>把yum更新到最新</h5>
+<div class="highlight"><pre><span></span>yum update
+</pre></div>
+
+
+<h5>卸载旧版本</h5>
+<div class="highlight"><pre><span></span>$ sudo yum remove docker  docker-common docker-selinux docker-engine
+</pre></div>
+
+
+<h5>安装依赖包</h5>
+<div class="highlight"><pre><span></span>sudo yum install -y yum-utils device-mapper-persistent-data lvm2 
+</pre></div>
+
+
+<h5>设置阿里云镜像</h5>
+<div class="highlight"><pre><span></span>sudo yum-config-manager --add-repo https://mirrors.aliyun.com/docker-ce/linux …</pre></div> <a class="btn primary xsmall" href="/Docker.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
 	<h2>Gitee</h2>
 	<div class="well small">Permalink: <a class="more" href="/Gitee.html">1000-01-01 18:44:00+00:09</a>
 by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
@@ -415,81 +493,6 @@ echo_supervisord_conf &gt; /etc/supervisor/supervisord.conf
 
 
 <p>b) 为你的程序创建一个.conf文件，放在目录 …</p> <a class="btn primary xsmall" href="/Supervisor.html">more…</a>
-	</div>
-</div>	
-<div class='article'>
-	<h2>VUE拦截器</h2>
-	<div class="well small">Permalink: <a class="more" href="/VUE拦截器.html">1000-01-01 18:44:00+00:09</a>
-by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/vue.html">VUE</a>
-tags: <a href="/tag/vue.html">VUE</a> </div>
-	<div class="summary"><h2>vue 拦截器</h2>
-<ul>
-<li>
-<p>路由拦截器</p>
-</li>
-<li>
-<p>已路由为导向</p>
-</li>
-</ul>
-<div class="highlight"><pre><span></span>  router.beforeEach<span class="o">((</span>to,from,next<span class="o">)=</span>&gt;<span class="o">{</span>
-      <span class="k">if</span><span class="o">(</span>to.path<span class="o">==</span><span class="s1">&#39;/login&#39;</span> <span class="o">||</span> to.path<span class="o">==</span><span class="s1">&#39;reg&#39;</span> <span class="o">||</span> localStorage.getItem<span class="o">(</span><span class="s1">&#39;token&#39;</span><span class="o">)){</span>
-        next<span class="o">()</span><span class="p">;</span>
-      <span class="o">}</span><span class="k">else</span><span class="o">{</span>
-        alert<span class="o">(</span><span class="s1">&#39;请重新登录&#39;</span><span class="o">)</span><span class="p">;</span>
-        next<span class="o">(</span><span class="s1">&#39;/login&#39;</span><span class="o">)</span><span class="p">;</span>
-      <span class="o">}</span>
-  <span class="o">})</span>
-</pre></div>
-
-
-<ul>
-<li>
-<p>请求拦截器</p>
-</li>
-<li>
-<p>当发送请求时才会触发此功能</p>
-</li>
-</ul>
-<div class="highlight"><pre><span></span>  axios.interceptors.request.use<span class="o">(</span><span class="k">function</span> <span class="o">(</span>config<span class="o">)</span> <span class="o">{</span>
-    <span class="nb">let</span> <span class="nv">token</span> <span class="o">=</span> window.localStorage.getItem<span class="o">(</span><span class="s2">&quot;token&quot;</span><span class="o">)</span><span class="p">;</span>
-        <span class="k">if</span> <span class="o">(</span>token<span class="o">)</span> <span class="o">{</span>
-            config.headers.token <span class="o">=</span> token<span class="p">;</span>    //将token放到请求头发送给服务器
-        <span class="o">}</span>
-       <span class="k">return</span> config<span class="p">;</span> // 最终需要返回config
-      <span class="o">}</span>, <span class="k">function …</span></pre></div> <a class="btn primary xsmall" href="/VUE拦截器.html">more…</a>
-	</div>
-</div>	
-<div class='article'>
-	<h2>VUE添加图片</h2>
-	<div class="well small">Permalink: <a class="more" href="/VUE添加图片.html">1000-01-01 18:44:00+00:09</a>
-by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/vue.html">VUE</a>
-tags: <a href="/tag/vue.html">VUE</a> </div>
-	<div class="summary"><h1>VUE添加图片</h1>
-<h3>不多说直接上代码</h3>
-<div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">template</span><span class="o">&gt;</span>
-  <span class="o">&lt;</span><span class="n">div</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;Daa_img&quot;</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="nb">input</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;file&quot;</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;img&quot;</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="nb">input</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;button&quot;</span> <span class="nd">@click</span><span class="o">=</span><span class="s2">&quot;add&quot;</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;添加&quot;</span><span class="o">&gt;</span>
-  <span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
-<span class="o">&lt;/</span><span class="n">template</span><span class="o">&gt;</span>
-
-<span class="o">&lt;</span><span class="n">script</span><span class="o">&gt;</span>
-  <span class="kn">import</span> <span class="nn">axios</span> <span class="nn">from</span> <span class="s1">&#39;axios&#39;</span>
-  <span class="n">export</span> <span class="n">default</span> <span class="p">{</span>
-    <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;Daa_img&quot;</span><span class="p">,</span>
-    <span class="n">data</span><span class="p">(){</span>
-      <span class="k">return</span><span class="p">{</span>
-        <span class="n">data</span><span class="p">:</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
-      <span class="p">}</span>
-    <span class="p">},</span>
-    <span class="n">methods</span><span class="p">:{</span>
-      <span class="n">add</span><span class="p">(){</span>
-        <span class="n">let</span> <span class="n">datafrom</span> <span class="o">=</span> <span class="n">new</span> <span class="n">FormData</span><span class="p">();</span>
-        <span class="n">datafrom</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;img&#39;</span><span class="p">,</span><span class="n">document</span><span class="o">.</span><span class="n">getElementById</span><span class="p">(</span><span class="s1">&#39;img&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">files</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
-        <span class="n">axios</span><span class="p">({</span>
-          <span class="n">url</span><span class="p">:</span><span class="s1">&#39;http://127 …</span></pre></div> <a class="btn primary xsmall" href="/VUE添加图片.html">more…</a>
 	</div>
 </div>	
 

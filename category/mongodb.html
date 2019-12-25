@@ -124,6 +124,26 @@ switched to db mydb
 &gt; db.createCollection<span class="o">(</span><span class="s2">&quot;users …</span></pre></div> <a class="btn primary xsmall" href="/Mongodb-操作.html">more…</a>
 	</div>
 </div>	
+<div class='article'>
+	<h2>如何安装mongodb</h2>
+	<div class="well small">Permalink: <a class="more" href="/如何安装mongodb.html">1000-01-01 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/mongodb.html">Mongodb</a>
+tags: <a href="/tag/mongodb.html">Mongodb</a> </div>
+	<div class="summary"><h5>创建一个<code>/etc/yum.repos.d/mongodb-org-4.2.repo</code>文件，以便您可以使用<code>yum</code>以下命令直接安装MongoDB ：</h5>
+<div class="highlight"><pre><span></span>touch /etc/yum.repos.d/mongodb-org-4.2.repo
+</pre></div>
+
+
+<h5>编写</h5>
+<div class="highlight"><pre><span></span>[mongodb-org-4.2]
+name=MongoDB Repository
+baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/4.2/x86_64/
+gpgcheck=1
+enabled=1
+gpgkey=https://www.mongodb.org/static/pgp/server-4 …</pre></div> <a class="btn primary xsmall" href="/如何安装mongodb.html">more…</a>
+	</div>
+</div>	
 
 
 		<footer>

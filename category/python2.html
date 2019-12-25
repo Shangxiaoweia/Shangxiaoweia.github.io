@@ -224,6 +224,14 @@ by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
  in <a href="/category/python.html">Python</a>
 tags: <a href="/tag/python.html">Python</a> </div>
 	<div class="summary"><h5>CentOS7下安装python3</h5>
+<p>yun安装</p>
+<div class="highlight"><pre><span></span>yum install python3
+# 下面的命令是用来解决找不到python.h
+yum list |grep python3 |grep devel
+yum install python3-devel.x86_64
+</pre></div>
+
+
 <p>1、安装pyhton3.7 的依赖包</p>
 <div class="highlight"><pre><span></span>yum -y groupinstall &quot;Development tools&quot;
 yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel libffi-devel
@@ -231,12 +239,7 @@ yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel r
 
 
 <p>2、下载python3.7的“源码”：</p>
-<div class="highlight"><pre><span></span>wget https://www.python.org/ftp/python/3.7.0/Python-3.7.0.tar.xz
-</pre></div>
-
-
-<p>3、解压并编译安装：</p>
-<div class="highlight"><pre><span></span>tar -xJvf Python-3.7 …</pre></div> <a class="btn primary xsmall" href="/如何安装python3.html">more…</a>
+<div class="highlight"><pre><span></span>wget https://www.python.org …</pre></div> <a class="btn primary xsmall" href="/如何安装python3.html">more…</a>
 	</div>
 </div>	
 

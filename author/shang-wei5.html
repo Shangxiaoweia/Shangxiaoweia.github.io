@@ -73,6 +73,81 @@
 	  <div class="content">
 <div class="page-header"><h1>商伟的技术博客 <small>商伟</small></h1></div>
 <div class='article'>
+	<h2>VUE拦截器</h2>
+	<div class="well small">Permalink: <a class="more" href="/VUE拦截器.html">1000-01-01 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/vue.html">VUE</a>
+tags: <a href="/tag/vue.html">VUE</a> </div>
+	<div class="summary"><h2>vue 拦截器</h2>
+<ul>
+<li>
+<p>路由拦截器</p>
+</li>
+<li>
+<p>已路由为导向</p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span>  router.beforeEach<span class="o">((</span>to,from,next<span class="o">)=</span>&gt;<span class="o">{</span>
+      <span class="k">if</span><span class="o">(</span>to.path<span class="o">==</span><span class="s1">&#39;/login&#39;</span> <span class="o">||</span> to.path<span class="o">==</span><span class="s1">&#39;reg&#39;</span> <span class="o">||</span> localStorage.getItem<span class="o">(</span><span class="s1">&#39;token&#39;</span><span class="o">)){</span>
+        next<span class="o">()</span><span class="p">;</span>
+      <span class="o">}</span><span class="k">else</span><span class="o">{</span>
+        alert<span class="o">(</span><span class="s1">&#39;请重新登录&#39;</span><span class="o">)</span><span class="p">;</span>
+        next<span class="o">(</span><span class="s1">&#39;/login&#39;</span><span class="o">)</span><span class="p">;</span>
+      <span class="o">}</span>
+  <span class="o">})</span>
+</pre></div>
+
+
+<ul>
+<li>
+<p>请求拦截器</p>
+</li>
+<li>
+<p>当发送请求时才会触发此功能</p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span>  axios.interceptors.request.use<span class="o">(</span><span class="k">function</span> <span class="o">(</span>config<span class="o">)</span> <span class="o">{</span>
+    <span class="nb">let</span> <span class="nv">token</span> <span class="o">=</span> window.localStorage.getItem<span class="o">(</span><span class="s2">&quot;token&quot;</span><span class="o">)</span><span class="p">;</span>
+        <span class="k">if</span> <span class="o">(</span>token<span class="o">)</span> <span class="o">{</span>
+            config.headers.token <span class="o">=</span> token<span class="p">;</span>    //将token放到请求头发送给服务器
+        <span class="o">}</span>
+       <span class="k">return</span> config<span class="p">;</span> // 最终需要返回config
+      <span class="o">}</span>, <span class="k">function …</span></pre></div> <a class="btn primary xsmall" href="/VUE拦截器.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>VUE添加图片</h2>
+	<div class="well small">Permalink: <a class="more" href="/VUE添加图片.html">1000-01-01 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/vue.html">VUE</a>
+tags: <a href="/tag/vue.html">VUE</a> </div>
+	<div class="summary"><h1>VUE添加图片</h1>
+<h3>不多说直接上代码</h3>
+<div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">template</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">div</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;Daa_img&quot;</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nb">input</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;file&quot;</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;img&quot;</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nb">input</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;button&quot;</span> <span class="nd">@click</span><span class="o">=</span><span class="s2">&quot;add&quot;</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;添加&quot;</span><span class="o">&gt;</span>
+  <span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">template</span><span class="o">&gt;</span>
+
+<span class="o">&lt;</span><span class="n">script</span><span class="o">&gt;</span>
+  <span class="kn">import</span> <span class="nn">axios</span> <span class="nn">from</span> <span class="s1">&#39;axios&#39;</span>
+  <span class="n">export</span> <span class="n">default</span> <span class="p">{</span>
+    <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;Daa_img&quot;</span><span class="p">,</span>
+    <span class="n">data</span><span class="p">(){</span>
+      <span class="k">return</span><span class="p">{</span>
+        <span class="n">data</span><span class="p">:</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
+      <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="n">methods</span><span class="p">:{</span>
+      <span class="n">add</span><span class="p">(){</span>
+        <span class="n">let</span> <span class="n">datafrom</span> <span class="o">=</span> <span class="n">new</span> <span class="n">FormData</span><span class="p">();</span>
+        <span class="n">datafrom</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;img&#39;</span><span class="p">,</span><span class="n">document</span><span class="o">.</span><span class="n">getElementById</span><span class="p">(</span><span class="s1">&#39;img&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">files</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+        <span class="n">axios</span><span class="p">({</span>
+          <span class="n">url</span><span class="p">:</span><span class="s1">&#39;http://127 …</span></pre></div> <a class="btn primary xsmall" href="/VUE添加图片.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
 	<h2>VUE父子件传参+分页</h2>
 	<div class="well small">Permalink: <a class="more" href="/VUE父子件传参+分页.html">1000-01-01 18:44:00+00:09</a>
 by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
@@ -292,102 +367,31 @@ tags: <a href="/tag/pa-chong.html">爬虫</a> </div>
 by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
  in <a href="/category/django.html">Django</a>
 tags: <a href="/tag/django.html">Django</a> </div>
-	<div class="summary"><h2>uvicorn和circus的用处</h2>
-<h5>Django3部署</h5>
-<div class="highlight"><pre><span></span>推荐： uvicorn + circus/supervisord
+	<div class="summary"><h4>静态网站</h4>
+<h5>gitbook 把markdown转化为html</h5>
+<div class="highlight"><pre><span></span>gitbook server
 </pre></div>
 
 
-<h5>Django2部署</h5>
-<div class="highlight"><pre><span></span>推荐： gunicorn + circus/supervisord
-</pre></div>
-
-
-<h5>sanic部署</h5>
-<div class="highlight"><pre><span></span>推荐： uvicorn + circus
-</pre></div>
-
-
+<h4>上传文件</h4>
+<p>推荐: 使用支持sftp协议的工具上传 ssh2协议</p>
+<p>列如: pycharm filezilla 等</p>
+<h4>Nginx</h4>
 <ul>
-<li>
-<p>步骤</p>
-</li>
-<li>
-<p>安装circus</p>
-<ul>
-<li>pip install circus</li>
+<li>可以当做HTTP服务器，提供HTML的传输服务</li>
+<li>yum install -y nginx</li>
+<li>whereis nginx</li>
+<li>启动nginx   nginx</li>
+<li>nginx -s relaod 修改nginx.conf之后，可以重载</li>
 </ul>
-</li>
-<li>安装uvicorn<ul>
-<li>pip install uvicorn</li>
-</ul>
-</li>
-<li>项目中写一个circus.ini</li>
-</ul>
-<p>```text
-  [watcher:mysite]
-  cmd = venv/bin/uvicorn --fd $(circus.sockets.misite) server:app
-  use_sockets = True
-  numprocesses = 2</p>
-<p>[socket:mysite]
-  host = 0.0.0.0 …</p> <a class="btn primary xsmall" href="/创建一个静态网页.html">more…</a>
-	</div>
-</div>	
-<div class='article'>
-	<h2>创建与使用虚拟环境</h2>
-	<div class="well small">Permalink: <a class="more" href="/创建与使用虚拟环境.html">1000-01-01 18:44:00+00:09</a>
-by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/xu-ni-huan-jing.html">虚拟环境</a>
-tags: <a href="/tag/xu-ni-huan-jing.html">虚拟环境</a> </div>
-	<div class="summary"><h2>创建与使用环境</h2>
-<div class="highlight"><pre><span></span><span class="o">#</span> <span class="err">安装</span><span class="p">:</span>
-
-<span class="n">pip</span> <span class="n">install</span> <span class="n">virtualenvwrapper</span><span class="o">-</span><span class="n">win</span>
-</pre></div>
-
-
-<div class="highlight"><pre><span></span><span class="o">#</span> <span class="err">常用命令</span><span class="p">:</span>
-
-<span class="n">mkvirtualenv</span> <span class="n">envname</span>  <span class="o">#</span> <span class="err">创建虚拟环境并自动切换到该环境下</span>
-
-<span class="n">workon</span> <span class="n">envname</span>  <span class="o">#</span> <span class="err">切换到某虚拟环境下</span>
-
-<span class="n">pip</span> <span class="n">list</span> <span class="o">#</span> <span class="err">查看蓄奴环境下的安装包</span>
-
-<span class="n">rmvirtualenv</span> <span class="n">envname</span>  <span class="o">#</span> <span class="err">删除虚拟环境</span>
-
-<span class="n">deactivate</span>  <span class="o">#</span> <span class="err">退出虚拟环境</span>
-
-<span class="n">lsvirtualenv</span> <span class="o">&amp;</span> <span class="n">workon</span> <span class="o">#</span> <span class="err">列出所有常见的虚拟环境</span>
-
-<span class="n">mkvirtualenv</span> <span class="c1">--python==C:\...\python.exe envname  # 指定Python解释器创建虚拟环境</span>
-</pre></div> <a class="btn primary xsmall" href="/创建与使用虚拟环境.html">more…</a>
-	</div>
-</div>	
-<div class='article'>
-	<h2>初识MySQL</h2>
-	<div class="well small">Permalink: <a class="more" href="/初识MySQL.html">1000-01-01 18:44:00+00:09</a>
-by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/mysql.html">MySQL</a>
-tags: <a href="/tag/mysql.html">MySQL</a> </div>
-	<div class="summary"><h4>1.为什么学习数据库</h4>
-<div class="highlight"><pre><span></span>数据的存储方式大致有内存存储, 文件存储, 数据库存储. 其中内存存储有断电消失的特性, 不适合永久保存数据. 文件存储不利于数据的查询有调用.所以采用数据库形式存储数据.
-数据库具有以下优点:
-　　　　1).持久化数据到本地
-　　　　2).可以实现结构化查询, 方便管理数据
-</pre></div>
-
-
-<h4>2.数据库相关概念</h4>
-<div class="highlight"><pre><span></span>　　　　(1).DB : 数据库, 英文全称为DataBase. 是存储数据的仓库, 其中保存了一系列有组织的数据.
-　　　　(2).DBMS : 数据库管理系统, 英文全称为Database Management System. 数据库是通过DBMS常见和操作的容器.常见数据库管理系统 : MySQL, Oracle, DB2(适合处理海量数据), SQLServer
-　　　　(3).SQL : 结构化查询语言(Structure Query Language), 专门用来与数据库通信的语言.
-</pre></div>
-
-
-<h4>3.SQL的优点:</h4>
-<div class="highlight"><pre><span></span>　　　　(1).不是某个特定数据库供应商专有的语言, 几乎所有DBMS都支持SQL
-　　　　(2).简单易学 …</pre></div> <a class="btn primary xsmall" href="/初识MySQL.html">more…</a>
+<h5>显示发布的页面</h5>
+<p>修改nginx.conf 内的root</p>
+<p>user 修改为 root</p>
+<p>root 你发布的页面路径</p>
+<p>chmod -R 755 _book   修改权限</p>
+<p>之后 重新加载</p>
+<h5>https以下是Nginx的默认路径：</h5>
+<div class="highlight"><pre><span></span>(1) Nginx配置路径：/etc …</pre></div> <a class="btn primary xsmall" href="/创建一个静态网页.html">more…</a>
 	</div>
 </div>	
 
