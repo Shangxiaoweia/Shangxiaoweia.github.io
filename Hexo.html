@@ -115,7 +115,37 @@ git clone --branch v5.1.2 https://github.com/iissnan/hexo-theme-next themes/next
 <h5>然后在修改 /blog/config.yml 文件，将其中的 theme 改成 next</h5>
 <h5>最后，将打包好的public目录上传到服务器，使用nginx代理访问就可以了</h5>
 <h5>如果没有自己的域名和服务器怎么办？没关系，可以申请 Github 免费静态内容空间，在github.com注册一个账号，然后创建一个新的仓库</h5>
-<h4>具体步骤请移步<a href='https://shangxiaoweia.github.io/Git-上传静态网页.html'>github上传静态页面访问</a></h4></div>
+<h4>具体步骤请移步<a href='https://shangxiaoweia.github.io/Git-上传静态网页.html'>github上传静态页面访问</a></h4>
+<h4>常用hexo命令</h4>
+<ul>
+<li>常见命令</li>
+</ul>
+<div class="highlight"><pre><span></span>hexo new &quot;postName&quot; #新建文章
+hexo new page &quot;pageName&quot; #新建页面
+hexo generate #生成静态页面至public目录
+hexo server #开启预览访问端口（默认端口4000，&#39;ctrl + c&#39;关闭server）
+hexo deploy #部署到GitHub
+hexo help  # 查看帮助
+hexo version  #查看Hexo的版本
+</pre></div>
+
+
+<ul>
+<li>缩写</li>
+</ul>
+<div class="highlight"><pre><span></span>hexo n == hexo new
+hexo g == hexo generate
+hexo s == hexo server
+hexo d == hexo deploy
+</pre></div>
+
+
+<ul>
+<li>组合命令</li>
+</ul>
+<div class="highlight"><pre><span></span>hexo s -g #生成并本地预览
+hexo d -g #生成并上传
+</pre></div></div>
 	</div>
 		<footer>
 		  <p>Powered by <a href="http://getpelican.com/">Pelican</a>. Theme based on <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a>.</p>
