@@ -73,6 +73,132 @@
 	  <div class="content">
 <div class="page-header"><h1> 商伟的技术博客 </h1></div>
 <div class='article'>
+	<h2>js-循环</h2>
+	<div class="well small">Permalink: <a class="more" href="/js-循环.html">1000-01-01 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/javascript.html">JavaScript</a>
+tags: <a href="/tag/javascript.html">JavaScript</a> </div>
+	<div class="summary"><h5>for循环 （用于循环数组）</h5>
+<div class="highlight"><pre><span></span>for(let i=0;i&lt;data.length;i++){
+　　console.log(data[i])
+}
+</pre></div>
+
+
+<h5>for 循环简写</h5>
+<div class="highlight"><pre><span></span>for(var i=0; i&lt;10; ++i) console.log(i)
+</pre></div>
+
+
+<h5>forEach循环（用于循环数组）</h5>
+<div class="highlight"><pre><span></span>data.forEach(function(element,index) {
+　　console.log(element);//数组的值
+       console.log(index)//当前索引
+})
+</pre></div> <a class="btn primary xsmall" href="/js-循环.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>redis哨兵模式</h2>
+	<div class="well small">Permalink: <a class="more" href="/redis哨兵模式.html">1000-01-01 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/redis.html">redis</a>
+tags: <a href="/tag/redis.html">redis</a> </div>
+	<div class="summary"><h1>Redis哨兵(Sentinel)模式</h1>
+<h2>一、概述</h2>
+<p>哨兵通过发送命令。等待Redis服务器响应，从而监控运行的多个Redis实例</p>
+<p><img alt="1574609729003" src="http://c.biancheng.net/uploads/allimg/190725/5-1ZH51400314I.png"></p>
+<h3>哨兵作用</h3>
+<ul>
+<li>通过发送命令，让Redis服务器返回 监控其运行状态，包括主服务器和从服务器</li>
+<li>当哨兵监测到master宕机，会自动将slave(从)切换成master(主)，然后通过‘发布订阅模式’ 通知其他从服务器，修改配置文件，让他们切换主机</li>
+</ul>
+<h2>二、配置redis主从服务器</h2>
+<ol>
+<li>修改redis.conf</li>
+</ol>
+<div class="highlight"><pre><span></span>   <span class="c1"># redis服务器可以跨网络访问</span>
+   <span class="n">bind</span> <span class="mf">0.0</span><span class="o">.</span><span class="mf">0.0</span>
+   <span class="c1"># 设置密码</span>
+   <span class="n">requirepass</span> <span class="s1">&#39;123&#39;</span>
+   <span class="c1"># 指定主服务器(只配置从服务器，主服务器不需要配置)</span>
+   <span class="n">slaveof</span> <span class="mf">192.168</span><span class="o">.</span><span class="mf">11.128</span> <span class="mi">6379</span>
+   <span class="c1"># 主服务器密码</span>
+   <span class="n">masterauth</span> <span class="mi">123</span>
+</pre></div>
+
+
+<ol>
+<li>配置3个哨兵，每个哨兵的配置都是一样的 …</li></ol> <a class="btn primary xsmall" href="/redis哨兵模式.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>介绍爬虫</h2>
+	<div class="well small">Permalink: <a class="more" href="/介绍爬虫.html">1000-01-01 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/pa-chong.html">爬虫</a>
+tags: <a href="/tag/pa-chong.html">爬虫</a> </div>
+	<div class="summary"><hr>
+<h2>1. 爬虫概述</h2>
+<h4>1.1  爬虫概念</h4>
+<div class="highlight"><pre><span></span><span class="err">爬虫</span><span class="p">,</span> <span class="err">又称网页蜘蛛或网络机器人</span><span class="o">.</span>
+
+<span class="err">爬虫是</span> <span class="err">模拟人操作客户端</span><span class="p">(</span><span class="err">浏览器</span><span class="p">,</span> <span class="n">APP</span><span class="p">)</span>   <span class="err">向服务器发起网络请求</span>    <span class="err">抓取数据的自动化程序或脚本</span><span class="o">.</span>
+
+<span class="c1"># 说明:</span>
+
+<span class="err">​</span>    <span class="mf">1.</span><span class="err">模拟</span><span class="p">:</span> <span class="err">用爬虫程序伪装出人的行为</span><span class="p">,</span> <span class="err">避免被服务识别为爬虫程序</span>
+
+<span class="err">​</span>    <span class="mf">2.</span><span class="err">客户端</span><span class="p">:</span> <span class="err">浏览器</span><span class="p">,</span> <span class="n">APP都可以实现人与服务器之间的交互行为</span><span class="p">,</span> <span class="err">应用客户端从服务器获取数据</span>
+
+<span class="err">​</span>    <span class="mf">3.</span><span class="err">自动化</span><span class="p">:</span> <span class="err">数据量较小时可以人工获取数据</span><span class="p">,</span> <span class="err">但往往在公司中爬取的数据量在百万条</span><span class="p">,</span> <span class="err">千万条级别的</span><span class="p">,</span> <span class="err">所以要程序自动化获取数据</span><span class="o">.</span>
+</pre></div>
+
+
+<h4>1.2  爬虫语言</h4>
+<div class="highlight"><pre><span></span><span class="c1"># 爬虫语言:PHP, C/C++, Java, Python</span>
+
+<span class="c1"># 对比:</span>
+
+<span class="err">​</span>    <span class="n">PHP</span><span class="p">:</span> <span class="err">并发能力差</span><span class="p">,</span> <span class="err">对多进程和多线程支持不好</span><span class="p">,</span> <span class="err">数据量较大时爬虫效率较低</span>
+
+<span class="err">​</span>    <span class="n">C</span><span class="o">/</span><span class="n">C</span><span class="o">++</span><span class="p">:</span> <span class="err">语言效率高</span><span class="p">,</span> <span class="err">但学习成本高</span><span class="p">,</span> <span class="err">对程序员的技术能力要求较高</span><span class="p">,</span>  <span class="err">所以目前还停留在研究层面</span><span class="p">,</span> <span class="err">市场需求量很小 …</span></pre></div> <a class="btn primary xsmall" href="/介绍爬虫.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>创建一个静态网页</h2>
+	<div class="well small">Permalink: <a class="more" href="/创建一个静态网页.html">1000-01-01 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/django.html">Django</a>
+tags: <a href="/tag/django.html">Django</a> </div>
+	<div class="summary"><h4>静态网站</h4>
+<h5>gitbook 把markdown转化为html</h5>
+<div class="highlight"><pre><span></span>gitbook server
+</pre></div>
+
+
+<h4>上传文件</h4>
+<p>推荐: 使用支持sftp协议的工具上传 ssh2协议</p>
+<p>列如: pycharm filezilla 等</p>
+<h4>Nginx</h4>
+<ul>
+<li>可以当做HTTP服务器，提供HTML的传输服务</li>
+<li>yum install -y nginx</li>
+<li>whereis nginx</li>
+<li>启动nginx   nginx</li>
+<li>nginx -s relaod 修改nginx.conf之后，可以重载</li>
+</ul>
+<h5>显示发布的页面</h5>
+<p>修改nginx.conf 内的root</p>
+<p>user 修改为 root</p>
+<p>root 你发布的页面路径</p>
+<p>chmod -R 755 _book   修改权限</p>
+<p>之后 重新加载</p>
+<h5>https以下是Nginx的默认路径：</h5>
+<div class="highlight"><pre><span></span>(1) Nginx配置路径：/etc …</pre></div> <a class="btn primary xsmall" href="/创建一个静态网页.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
 	<h2>创建与使用虚拟环境</h2>
 	<div class="well small">Permalink: <a class="more" href="/创建与使用虚拟环境.html">1000-01-01 18:44:00+00:09</a>
 by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
@@ -270,36 +396,6 @@ tags: <a href="/tag/wang-luo.html">网络</a> </div>
 <li>缺点：服务器hold连接会消耗资源 …</li></ul> <a class="btn primary xsmall" href="/网络.html">more…</a>
 	</div>
 </div>	
-<div class='article'>
-	<h2>软连接</h2>
-	<div class="well small">Permalink: <a class="more" href="/软链接.html">1000-01-01 18:44:00+00:09</a>
-by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/sui-shou-bi-ji.html">随手笔记</a>
-tags: <a href="/tag/sui-shou-bi-ji.html">随手笔记</a> </div>
-	<div class="summary"><div class="highlight"><pre><span></span>增加
-
-ln-s  源文件  软连接名
-
-修改
-ln –snf  源文件    软连接
-删除
-
-只删除软连接
-
-rm -rf 软连接名
-
-只删除源文件
-
-rm -rf 源文件
-
-
-
--r循环
-
--f强制
-</pre></div> <a class="btn primary xsmall" href="/软链接.html">more…</a>
-	</div>
-</div>	
 
 <div class="pagination">
 <ul>
@@ -310,7 +406,8 @@ rm -rf 源文件
 		<li class=""><a href="/index4.html">4</a></li>
 		<li class=""><a href="/index5.html">5</a></li>
 		<li class="active"><a href="/index6.html">6</a></li>
-		<li class="next disabled"><a href="#">&rarr; Next</a></li>
+		<li class=""><a href="/index7.html">7</a></li>
+		<li class="next"><a href="/index7.html">Next &rarr;</a></li>
 </ul>
 </div>
 

@@ -78,23 +78,23 @@ by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
  in <a href="/category/django.html">Django</a>
 tags: <a href="/tag/django.html">Django</a> </div>
 		<div><h3>这个静态网页可以用来做你自己的博客，pelican是以为法国开发者研发的，非常好用，它的每一篇文章会事先渲染成HTML静态文件，访问速度非常快。</h3>
-<p>1)安装pelcan和markdown</p>
+<h5>1)安装pelcan和markdown</h5>
 <div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">pelican</span>  <span class="n">markdown</span> <span class="c1">--upgrade</span>
 </pre></div>
 
 
-<p>2)创建一个文件夹用来作为博客的目录</p>
+<h5>2)创建一个文件夹用来作为博客的目录</h5>
 <div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="err">博客目录</span>
 </pre></div>
 
 
-<p>3)cd到该目录下运行命令生成博客的框架</p>
+<h5>3)cd到该目录下运行命令生成博客的框架</h5>
 <div class="highlight"><pre><span></span><span class="n">cd</span> <span class="err">博客目录</span>
 <span class="n">pelican</span><span class="o">-</span><span class="n">quickstart</span>
 </pre></div>
 
 
-<p>4)安装过程中会有很多的配置，不知道的可以直接n，后期都是可以进行修改的</p>
+<h5>4)安装过程中会有很多的配置，不知道的可以直接n，后期都是可以进行修改的</h5>
 <div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nv">Where</span> <span class="k">do</span> <span class="nv">you</span> <span class="nv">want</span> <span class="nv">to</span> <span class="nv">create</span> <span class="nv">your</span> <span class="nv">new</span> <span class="nv">web</span> <span class="nv">site</span>? [.]
 <span class="o">&gt;</span> <span class="nv">What</span> <span class="nv">will</span> <span class="nv">be</span> <span class="nv">the</span> <span class="nv">title</span> <span class="nv">of</span> <span class="nv">this</span> <span class="nv">web</span> <span class="nv">site</span>? 商伟的技术博客
 <span class="o">&gt;</span> <span class="nv">Who</span> <span class="nv">will</span> <span class="nv">be</span> <span class="nv">the</span> <span class="nv">author</span> <span class="nv">of</span> <span class="nv">this</span> <span class="nv">web</span> <span class="nv">site</span>? 商伟
@@ -115,8 +115,8 @@ tags: <a href="/tag/django.html">Django</a> </div>
 </pre></div>
 
 
-<p>5)现在你的目录下会有很多的文件，在content目录下，是你写文章的地方，我们通常情况下使用markdown语法</p>
-<p>6)我们现在创建我们的第一个博客</p>
+<h5>5)现在你的目录下会有很多的文件，在content目录下，是你写文章的地方，我们通常情况下使用markdown语法</h5>
+<h5>6)我们现在创建我们的第一个博客</h5>
 <div class="highlight"><pre><span></span><span class="n">Title</span><span class="o">:</span> <span class="err">商伟的技术博客</span>
 <span class="n">Date</span><span class="o">:</span> <span class="mi">1997</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="mi">28</span> <span class="mi">11</span><span class="o">:</span><span class="mi">11</span>
 <span class="n">Modified</span><span class="o">:</span> <span class="mi">1997</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="mi">28</span> <span class="mi">11</span><span class="o">:</span><span class="mi">11</span>
@@ -129,32 +129,33 @@ tags: <a href="/tag/django.html">Django</a> </div>
 </pre></div>
 
 
-<p>7)然后运行命令生成静态网页</p>
+<h5>7)然后运行命令生成静态网页</h5>
 <div class="highlight"><pre><span></span><span class="n">pelican</span> <span class="n">content</span>
 </pre></div>
 
 
-<p>8)执行之后，output 目录会多出一些文件，我们的markdown文件也会转为html文件放在该目录下</p>
-<p>9)网站的主题会设置颜色、布局选项等。尝试一个新主题非常容易，你可以在<a href="http://www.pelicanthemes.com/">http://www.pelicanthemes.com/</a>预览其中的许多内容。</p>
-<p>10)我们在柏可可的根目录下，将主题克隆下来</p>
+<h5>8)执行之后，output 目录会多出一些文件，我们的markdown文件也会转为html文件放在该目录下</h5>
+<h5>9)网站的主题会设置颜色、布局选项等。尝试一个新主题非常容易，你可以在<a href="http://www.pelicanthemes.com/">http://www.pelicanthemes.com/</a>预览其中的许多内容。</h5>
+<h5>10)我们在柏可可的根目录下，将主题克隆下来</h5>
 <div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">getpelican</span><span class="o">/</span><span class="n">pelican</span><span class="o">-</span><span class="n">themes</span><span class="p">.</span><span class="n">git</span>
 </pre></div>
 
 
-<p>11)然后再你的目录里会生成pelican-themes文件，这里会有很多的主题来选择。</p>
-<p>12)打开pelicanconf.py配置文件内添加自己喜欢的主题</p>
+<h5>11)然后再你的目录里会生成pelican-themes文件，这里会有很多的主题来选择。</h5>
+<h5>12)打开pelicanconf.py配置文件内添加自己喜欢的主题</h5>
 <div class="highlight"><pre><span></span><span class="n">THEME</span> <span class="o">=</span> <span class="s1">&#39;pelican-themes/bootstrap2&#39;</span>
 </pre></div>
 
 
-<p>13)在次生成静态页面，并且启动服务</p>
+<h5>13)在次生成静态页面，并且启动服务</h5>
 <div class="highlight"><pre><span></span><span class="n">pelican</span> <span class="n">content</span>
 <span class="n">pelican</span> <span class="c1">--listen</span>
 </pre></div>
 
 
-<p>14)访问http://localhost:8000</p>
-<h3>这个样子我们的博客就已经大功告成了，只要我们把output文件夹push到github就可以进行访问了。</h3></div>
+<h5>14)访问http://localhost:8000</h5>
+<h5>这个样子我们的博客就已经大功告成了，只要我们把output文件夹push到github就可以进行访问了。</h5>
+<h4>具体步骤请移步<a href='https://shangxiaoweia.github.io/Git-上传静态网页.html'>github上传静态页面访问</a></h4></div>
 	</div>
 		<footer>
 		  <p>Powered by <a href="http://getpelican.com/">Pelican</a>. Theme based on <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a>.</p>

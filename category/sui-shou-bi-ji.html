@@ -114,6 +114,105 @@ tags: <a href="/tag/sui-shou-bi-ji.html">随手笔记</a> </div>
 	</div>
 </div>	
 <div class='article'>
+	<h2>Hexo-博客</h2>
+	<div class="well small">Permalink: <a class="more" href="/Hexo.html">1000-01-01 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/sui-shou-bi-ji.html">随手笔记</a>
+tags: <a href="/tag/sui-shou-bi-ji.html">随手笔记</a> </div>
+	<div class="summary"><h5>首先安装Hexo，在此之前，请确保电脑里已经安装好新版的node.js</h5>
+<div class="highlight"><pre><span></span>npm install -g hexo-cli
+</pre></div>
+
+
+<h5>如果感觉安装速度比较慢，可以为npm指定国内的源</h5>
+<div class="highlight"><pre><span></span>npm config set registry https://registry.npm.taobao.org
+</pre></div>
+
+
+<h5>安装完成后，创建博客项目</h5>
+<div class="highlight"><pre><span></span>hexo init blog
+</pre></div>
+
+
+<h5>这样，就建立起了一个blog文件夹，进入到blog目录下 cd blog，建立第一篇文章</h5>
+<div class="highlight"><pre><span></span>hexo new myfirst
+</pre></div>
+
+
+<h5>然后运行hexo服务</h5>
+<div class="highlight"><pre><span></span>hexo server
+</pre></div>
+
+
+<h5>就可以在本地访问你的博客网站了，默认端口号是4000</h5>
+<h5>那么如何将博客网站打包呢？直接运行打包命令，这样就能使用 Hexo 引擎将 Markdown 格式的文件解析成可以使用浏览器查看的 HTML 文件，HTML 文件存储在 blog …</h5> <a class="btn primary xsmall" href="/Hexo.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>Hugo-博客</h2>
+	<div class="well small">Permalink: <a class="more" href="/Hugo.html">1000-01-01 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/sui-shou-bi-ji.html">随手笔记</a>
+tags: <a href="/tag/sui-shou-bi-ji.html">随手笔记</a> </div>
+	<div class="summary"><h5>首先，可以去go的官网网站下载安装包  https://golang.org/dl/ 然后直接双击安装即可，不需要配置环境变量，因为安装过程自动配置，安装完毕后，打开命令行，输入</h5>
+<div class="highlight"><pre><span></span><span class="k">go</span><span class="w"> </span><span class="n">version</span><span class="w"></span>
+</pre></div>
+
+
+<h5>显示主版本号即表示安装成功</h5>
+<h5>然后，可以进行hugo的在线源码编译安装，打开命令行，输入下面的命令</h5>
+<div class="highlight"><pre><span></span><span class="k">go</span><span class="w"> </span><span class="k">get</span><span class="w"> </span><span class="o">-</span><span class="n">u</span><span class="w"> </span><span class="o">-</span><span class="n">v</span><span class="w"> </span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">spf13</span><span class="o">/</span><span class="n">hugo</span><span class="w"></span>
+<span class="k">go</span><span class="w"> </span><span class="n">build</span><span class="w"> </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">hugo</span><span class="w"> </span><span class="n">main</span><span class="p">.</span><span class="k">go</span><span class="w"></span>
+<span class="n">mv</span><span class="w"> </span><span class="n">hugo</span><span class="w"> </span><span class="err">$</span><span class="n">GOPATH</span><span class="o">/</span><span class="n">bin</span><span class="w"></span>
+</pre></div>
+
+
+<h5>如果你不想在线编译安装，也可以去hugo的官网 <a href="https://github.com/gohugoio/hugo/releases">https://github.com/gohugoio/hugo/releases</a> 下载稳定版的压缩包，解压之后配置一下环境变量也可以</h5>
+<h5>装完以后，在命令行内输入</h5>
+<div class="highlight"><pre><span></span><span class="n">hugo …</span></pre></div> <a class="btn primary xsmall" href="/Hugo.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>Nginx</h2>
+	<div class="well small">Permalink: <a class="more" href="/Nginx.html">1000-01-01 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/sui-shou-bi-ji.html">随手笔记</a>
+tags: <a href="/tag/sui-shou-bi-ji.html">随手笔记</a> </div>
+	<div class="summary"><h5>将public上传到阿里云服务器的root目录下</h5>
+<h5>修改nginx配置文件</h5>
+<div class="highlight"><pre><span></span><span class="n">vim</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">nginx</span><span class="o">/</span><span class="n">conf</span><span class="p">.</span><span class="n">d</span><span class="o">/</span><span class="k">default</span><span class="p">.</span><span class="n">conf</span>
+</pre></div>
+
+
+<h5>监听80端口，并且项目目录指定/root/public</h5>
+<div class="highlight"><pre><span></span><span class="n">server</span> <span class="err">{</span>
+    <span class="k">listen</span>       <span class="mi">80</span><span class="p">;</span>
+    <span class="k">server_name</span>  <span class="n">localhost</span><span class="p">;</span>
+
+    <span class="n">access_log</span>      <span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="n">md_vue_access</span><span class="p">.</span><span class="n">log</span><span class="p">;</span>
+    <span class="n">error_log</span>       <span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="n">md_vue_error</span><span class="p">.</span><span class="n">log</span><span class="p">;</span>
+
+
+    <span class="n">client_max_body_size</span> <span class="mi">75</span><span class="n">M</span><span class="p">;</span>
+
+
+    <span class="k">location</span> <span class="o">/</span> <span class="err">{</span>
+
+        <span class="n">root</span> <span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="k">public</span><span class="p">;</span>
+        <span class="k">index</span> <span class="k">index</span><span class="p">.</span><span class="n">html</span><span class="p">;</span>
+
+    <span class="err">}</span>
+
+    <span class="n">error_log</span>    <span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="n">md_vue</span><span class="o">/</span><span class="n">error</span><span class="p">.</span><span class="n">log</span>    <span class="n">error</span><span class="p">;</span>
+
+<span class="err">}</span>
+</pre></div>
+
+
+<h5>重启nginx systemctl restart nginx.service 然后访问一下就ok了</h5> <a class="btn primary xsmall" href="/Nginx.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
 	<h2>软连接</h2>
 	<div class="well small">Permalink: <a class="more" href="/软链接.html">1000-01-01 18:44:00+00:09</a>
 by <a class="url fn" href="/author/shang-wei.html">商伟 </a>

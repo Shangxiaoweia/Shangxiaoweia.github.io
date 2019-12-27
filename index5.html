@@ -73,6 +73,174 @@
 	  <div class="content">
 <div class="page-header"><h1> 商伟的技术博客 </h1></div>
 <div class='article'>
+	<h2>Nginx</h2>
+	<div class="well small">Permalink: <a class="more" href="/Nginx.html">1000-01-01 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/sui-shou-bi-ji.html">随手笔记</a>
+tags: <a href="/tag/sui-shou-bi-ji.html">随手笔记</a> </div>
+	<div class="summary"><h5>将public上传到阿里云服务器的root目录下</h5>
+<h5>修改nginx配置文件</h5>
+<div class="highlight"><pre><span></span><span class="n">vim</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">nginx</span><span class="o">/</span><span class="n">conf</span><span class="p">.</span><span class="n">d</span><span class="o">/</span><span class="k">default</span><span class="p">.</span><span class="n">conf</span>
+</pre></div>
+
+
+<h5>监听80端口，并且项目目录指定/root/public</h5>
+<div class="highlight"><pre><span></span><span class="n">server</span> <span class="err">{</span>
+    <span class="k">listen</span>       <span class="mi">80</span><span class="p">;</span>
+    <span class="k">server_name</span>  <span class="n">localhost</span><span class="p">;</span>
+
+    <span class="n">access_log</span>      <span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="n">md_vue_access</span><span class="p">.</span><span class="n">log</span><span class="p">;</span>
+    <span class="n">error_log</span>       <span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="n">md_vue_error</span><span class="p">.</span><span class="n">log</span><span class="p">;</span>
+
+
+    <span class="n">client_max_body_size</span> <span class="mi">75</span><span class="n">M</span><span class="p">;</span>
+
+
+    <span class="k">location</span> <span class="o">/</span> <span class="err">{</span>
+
+        <span class="n">root</span> <span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="k">public</span><span class="p">;</span>
+        <span class="k">index</span> <span class="k">index</span><span class="p">.</span><span class="n">html</span><span class="p">;</span>
+
+    <span class="err">}</span>
+
+    <span class="n">error_log</span>    <span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="n">md_vue</span><span class="o">/</span><span class="n">error</span><span class="p">.</span><span class="n">log</span>    <span class="n">error</span><span class="p">;</span>
+
+<span class="err">}</span>
+</pre></div>
+
+
+<h5>重启nginx systemctl restart nginx.service 然后访问一下就ok了</h5> <a class="btn primary xsmall" href="/Nginx.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>Python输入与输出</h2>
+	<div class="well small">Permalink: <a class="more" href="/Python输入与输出.html">1000-01-01 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/python.html">Python</a>
+tags: <a href="/tag/python.html">Python</a> </div>
+	<div class="summary"><h2>Python输出</h2>
+<div class="highlight"><pre><span></span><span class="c1"># 打印提示</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;hello world&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;萨瓦迪卡---泰语，你好的意思&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<h2>2. 格式化输出</h2>
+<h3>&lt;1&gt;格式化操作的目的</h3>
+<p>比如有以下代码:</p>
+<div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;我今年10岁&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;我今年11岁&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;我今年12岁&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<ul>
+<li>想一想:</li>
+</ul>
+<blockquote>
+<p>在输出年龄的时候，用了多次"我今年xx岁"，能否简化一下程序呢？？？</p>
+</blockquote>
+<ul>
+<li>答:</li>
+</ul>
+<blockquote>
+<p>字符串格式化</p>
+</blockquote>
+<h3>&lt;2&gt;什么是格式化</h3>
+<p>看如下代码:</p>
+<div class="highlight"><pre><span></span><span class="n">age</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;我今年</span><span class="si">%d</span><span class="s2">岁&quot;</span> <span class="o">%</span> <span class="n">age</span><span class="p">)</span>
+
+<span class="n">age</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;我今年</span><span class="si">%d</span><span class="s2">岁&quot;</span> <span class="o">%</span> <span class="n">age</span><span class="p">)</span>
+
+<span class="n">age</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;我今年</span><span class="si">%d</span><span class="s2">岁&quot;</span> <span class="o">%</span> <span class="n">age …</span></pre></div> <a class="btn primary xsmall" href="/Python输入与输出.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>RabbitMQ</h2>
+	<div class="well small">Permalink: <a class="more" href="/RabbitMQ.html">1000-01-01 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/rabbitmq.html">RabbitMQ</a>
+tags: <a href="/tag/rabbitmq.html">RabbitMQ</a> </div>
+	<div class="summary"><p>1.下载relang</p>
+<div class="highlight"><pre><span></span>yum install erlang
+</pre></div>
+
+
+<p>2.下载rpm包</p>
+<div class="highlight"><pre><span></span> wget http://www.rabbitmq.com/releases/rabbitmq-server/v3.6.15/rabbitmq-server-3.6.15-1.el7.noarch.rpm
+</pre></div>
+
+
+<p>3.下载完成后安装</p>
+<div class="highlight"><pre><span></span>yum install rabbitmq-server-3.6.15-1.el7.noarch.rpm
+</pre></div>
+
+
+<p>4.安装完后重启服务</p>
+<div class="highlight"><pre><span></span>service rabbitmq-server start
+</pre></div>
+
+
+<p>5.查看服务状态</p>
+<div class="highlight"><pre><span></span>service rabbitmq-server status
+</pre></div>
+
+
+<ol>
+<li>安装插件</li>
+</ol>
+<div class="highlight"><pre><span></span>/sbin/rabbitmq-plugins <span class="nb">enable</span> rabbitmq_management 
+</pre></div>
+
+
+<p>7.重启服务 …</p> <a class="btn primary xsmall" href="/RabbitMQ.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>Supervisor</h2>
+	<div class="well small">Permalink: <a class="more" href="/Supervisor.html">1000-01-01 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/supervisor.html">Supervisor</a>
+tags: <a href="/tag/supervisor.html">Supervisor</a> </div>
+	<div class="summary"><h2>介绍</h2>
+<p>Supervisor就是一个超级管理员，监管员。Supervisor是一个进程管理工具，当进程中断的时候Supervisor能自动重新启动它。</p>
+<h2>Supervisor安装与配置</h2>
+<h3>1、安装Python包管理工具(<a href="https://pypi.org/project/setuptools/">easy_install</a>)</h3>
+<div class="highlight"><pre><span></span>yum install python-setuptools
+</pre></div>
+
+
+<h3>2、安装Supervisor</h3>
+<div class="highlight"><pre><span></span>easy_install supervisor
+</pre></div>
+
+
+<h3>3、配置Supervisor应用守护</h3>
+<p>a) 通过运行echo_supervisord_conf程序生成supervisor的初始化配置文件，如下所示：</p>
+<div class="highlight"><pre><span></span>mkdir /etc/supervisor
+echo_supervisord_conf &gt; /etc/supervisor/supervisord.conf
+</pre></div>
+
+
+<p>然后查看路径下的supervisord.conf。在文件尾部添加如下配置。</p>
+<div class="highlight"><pre><span></span>...
+
+<span class="p">;</span><span class="o">[</span>include<span class="o">]</span>
+<span class="p">;</span><span class="nv">files</span> <span class="o">=</span> relative/directory/*.ini
+
+<span class="p">;</span>conf.d 为配置表目录的文件夹，需要手动创建
+<span class="o">[</span>include<span class="o">]</span>
+<span class="nv">files</span> <span class="o">=</span> conf.d/*.conf
+</pre></div>
+
+
+<p>b) 为你的程序创建一个.conf文件，放在目录 …</p> <a class="btn primary xsmall" href="/Supervisor.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
 	<h2>VUE拦截器</h2>
 	<div class="well small">Permalink: <a class="more" href="/VUE拦截器.html">1000-01-01 18:44:00+00:09</a>
 by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
@@ -268,132 +436,6 @@ else console.log(&#39;b大&#39;)
 <div class="highlight"><pre><span></span>console.log …</pre></div> <a class="btn primary xsmall" href="/js-if语句.html">more…</a>
 	</div>
 </div>	
-<div class='article'>
-	<h2>js-循环</h2>
-	<div class="well small">Permalink: <a class="more" href="/js-循环.html">1000-01-01 18:44:00+00:09</a>
-by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/javascript.html">JavaScript</a>
-tags: <a href="/tag/javascript.html">JavaScript</a> </div>
-	<div class="summary"><h5>for循环 （用于循环数组）</h5>
-<div class="highlight"><pre><span></span>for(let i=0;i&lt;data.length;i++){
-　　console.log(data[i])
-}
-</pre></div>
-
-
-<h5>for 循环简写</h5>
-<div class="highlight"><pre><span></span>for(var i=0; i&lt;10; ++i) console.log(i)
-</pre></div>
-
-
-<h5>forEach循环（用于循环数组）</h5>
-<div class="highlight"><pre><span></span>data.forEach(function(element,index) {
-　　console.log(element);//数组的值
-       console.log(index)//当前索引
-})
-</pre></div> <a class="btn primary xsmall" href="/js-循环.html">more…</a>
-	</div>
-</div>	
-<div class='article'>
-	<h2>redis哨兵模式</h2>
-	<div class="well small">Permalink: <a class="more" href="/redis哨兵模式.html">1000-01-01 18:44:00+00:09</a>
-by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/redis.html">redis</a>
-tags: <a href="/tag/redis.html">redis</a> </div>
-	<div class="summary"><h1>Redis哨兵(Sentinel)模式</h1>
-<h2>一、概述</h2>
-<p>哨兵通过发送命令。等待Redis服务器响应，从而监控运行的多个Redis实例</p>
-<p><img alt="1574609729003" src="http://c.biancheng.net/uploads/allimg/190725/5-1ZH51400314I.png"></p>
-<h3>哨兵作用</h3>
-<ul>
-<li>通过发送命令，让Redis服务器返回 监控其运行状态，包括主服务器和从服务器</li>
-<li>当哨兵监测到master宕机，会自动将slave(从)切换成master(主)，然后通过‘发布订阅模式’ 通知其他从服务器，修改配置文件，让他们切换主机</li>
-</ul>
-<h2>二、配置redis主从服务器</h2>
-<ol>
-<li>修改redis.conf</li>
-</ol>
-<div class="highlight"><pre><span></span>   <span class="c1"># redis服务器可以跨网络访问</span>
-   <span class="n">bind</span> <span class="mf">0.0</span><span class="o">.</span><span class="mf">0.0</span>
-   <span class="c1"># 设置密码</span>
-   <span class="n">requirepass</span> <span class="s1">&#39;123&#39;</span>
-   <span class="c1"># 指定主服务器(只配置从服务器，主服务器不需要配置)</span>
-   <span class="n">slaveof</span> <span class="mf">192.168</span><span class="o">.</span><span class="mf">11.128</span> <span class="mi">6379</span>
-   <span class="c1"># 主服务器密码</span>
-   <span class="n">masterauth</span> <span class="mi">123</span>
-</pre></div>
-
-
-<ol>
-<li>配置3个哨兵，每个哨兵的配置都是一样的 …</li></ol> <a class="btn primary xsmall" href="/redis哨兵模式.html">more…</a>
-	</div>
-</div>	
-<div class='article'>
-	<h2>介绍爬虫</h2>
-	<div class="well small">Permalink: <a class="more" href="/介绍爬虫.html">1000-01-01 18:44:00+00:09</a>
-by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/pa-chong.html">爬虫</a>
-tags: <a href="/tag/pa-chong.html">爬虫</a> </div>
-	<div class="summary"><hr>
-<h2>1. 爬虫概述</h2>
-<h4>1.1  爬虫概念</h4>
-<div class="highlight"><pre><span></span><span class="err">爬虫</span><span class="p">,</span> <span class="err">又称网页蜘蛛或网络机器人</span><span class="o">.</span>
-
-<span class="err">爬虫是</span> <span class="err">模拟人操作客户端</span><span class="p">(</span><span class="err">浏览器</span><span class="p">,</span> <span class="n">APP</span><span class="p">)</span>   <span class="err">向服务器发起网络请求</span>    <span class="err">抓取数据的自动化程序或脚本</span><span class="o">.</span>
-
-<span class="c1"># 说明:</span>
-
-<span class="err">​</span>    <span class="mf">1.</span><span class="err">模拟</span><span class="p">:</span> <span class="err">用爬虫程序伪装出人的行为</span><span class="p">,</span> <span class="err">避免被服务识别为爬虫程序</span>
-
-<span class="err">​</span>    <span class="mf">2.</span><span class="err">客户端</span><span class="p">:</span> <span class="err">浏览器</span><span class="p">,</span> <span class="n">APP都可以实现人与服务器之间的交互行为</span><span class="p">,</span> <span class="err">应用客户端从服务器获取数据</span>
-
-<span class="err">​</span>    <span class="mf">3.</span><span class="err">自动化</span><span class="p">:</span> <span class="err">数据量较小时可以人工获取数据</span><span class="p">,</span> <span class="err">但往往在公司中爬取的数据量在百万条</span><span class="p">,</span> <span class="err">千万条级别的</span><span class="p">,</span> <span class="err">所以要程序自动化获取数据</span><span class="o">.</span>
-</pre></div>
-
-
-<h4>1.2  爬虫语言</h4>
-<div class="highlight"><pre><span></span><span class="c1"># 爬虫语言:PHP, C/C++, Java, Python</span>
-
-<span class="c1"># 对比:</span>
-
-<span class="err">​</span>    <span class="n">PHP</span><span class="p">:</span> <span class="err">并发能力差</span><span class="p">,</span> <span class="err">对多进程和多线程支持不好</span><span class="p">,</span> <span class="err">数据量较大时爬虫效率较低</span>
-
-<span class="err">​</span>    <span class="n">C</span><span class="o">/</span><span class="n">C</span><span class="o">++</span><span class="p">:</span> <span class="err">语言效率高</span><span class="p">,</span> <span class="err">但学习成本高</span><span class="p">,</span> <span class="err">对程序员的技术能力要求较高</span><span class="p">,</span>  <span class="err">所以目前还停留在研究层面</span><span class="p">,</span> <span class="err">市场需求量很小 …</span></pre></div> <a class="btn primary xsmall" href="/介绍爬虫.html">more…</a>
-	</div>
-</div>	
-<div class='article'>
-	<h2>创建一个静态网页</h2>
-	<div class="well small">Permalink: <a class="more" href="/创建一个静态网页.html">1000-01-01 18:44:00+00:09</a>
-by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/django.html">Django</a>
-tags: <a href="/tag/django.html">Django</a> </div>
-	<div class="summary"><h4>静态网站</h4>
-<h5>gitbook 把markdown转化为html</h5>
-<div class="highlight"><pre><span></span>gitbook server
-</pre></div>
-
-
-<h4>上传文件</h4>
-<p>推荐: 使用支持sftp协议的工具上传 ssh2协议</p>
-<p>列如: pycharm filezilla 等</p>
-<h4>Nginx</h4>
-<ul>
-<li>可以当做HTTP服务器，提供HTML的传输服务</li>
-<li>yum install -y nginx</li>
-<li>whereis nginx</li>
-<li>启动nginx   nginx</li>
-<li>nginx -s relaod 修改nginx.conf之后，可以重载</li>
-</ul>
-<h5>显示发布的页面</h5>
-<p>修改nginx.conf 内的root</p>
-<p>user 修改为 root</p>
-<p>root 你发布的页面路径</p>
-<p>chmod -R 755 _book   修改权限</p>
-<p>之后 重新加载</p>
-<h5>https以下是Nginx的默认路径：</h5>
-<div class="highlight"><pre><span></span>(1) Nginx配置路径：/etc …</pre></div> <a class="btn primary xsmall" href="/创建一个静态网页.html">more…</a>
-	</div>
-</div>	
 
 <div class="pagination">
 <ul>
@@ -404,6 +446,7 @@ tags: <a href="/tag/django.html">Django</a> </div>
 		<li class=""><a href="/index4.html">4</a></li>
 		<li class="active"><a href="/index5.html">5</a></li>
 		<li class=""><a href="/index6.html">6</a></li>
+		<li class=""><a href="/index7.html">7</a></li>
 		<li class="next"><a href="/index6.html">Next &rarr;</a></li>
 </ul>
 </div>

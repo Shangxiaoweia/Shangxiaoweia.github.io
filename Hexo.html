@@ -37,7 +37,7 @@
 					<li ><a href="/category/python.html">Python</a></li>
 					<li ><a href="/category/rabbitmq.html">RabbitMQ</a></li>
 					<li ><a href="/category/redis.html">redis</a></li>
-					<li ><a href="/category/sui-shou-bi-ji.html">随手笔记</a></li>
+					<li class="active"><a href="/category/sui-shou-bi-ji.html">随手笔记</a></li>
 					<li ><a href="/category/supervisor.html">Supervisor</a></li>
 					<li ><a href="/category/vue.html">VUE</a></li>
 					<li ><a href="/category/wang-luo.html">网络</a></li>
@@ -71,10 +71,55 @@
 		</div>
 	  </div>
 	  <div class="content">
-<div class="page-header"><h1>商伟的技术博客 - Authors</h1></div>    <h1>Authors on 商伟的技术博客</h1>
-    <ul>
-        <li><a href="/author/shang-wei.html">商伟</a> (61)</li>
-    </ul>
+	<div class='article'>
+		<div class="page-header"><h1>Hexo-博客</h1></div>
+		<div class="well small">Permalink: <a class="more" href="/Hexo.html">1000-01-01 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/sui-shou-bi-ji.html">随手笔记</a>
+tags: <a href="/tag/sui-shou-bi-ji.html">随手笔记</a> </div>
+		<div><h5>首先安装Hexo，在此之前，请确保电脑里已经安装好新版的node.js</h5>
+<div class="highlight"><pre><span></span>npm install -g hexo-cli
+</pre></div>
+
+
+<h5>如果感觉安装速度比较慢，可以为npm指定国内的源</h5>
+<div class="highlight"><pre><span></span>npm config set registry https://registry.npm.taobao.org
+</pre></div>
+
+
+<h5>安装完成后，创建博客项目</h5>
+<div class="highlight"><pre><span></span>hexo init blog
+</pre></div>
+
+
+<h5>这样，就建立起了一个blog文件夹，进入到blog目录下 cd blog，建立第一篇文章</h5>
+<div class="highlight"><pre><span></span>hexo new myfirst
+</pre></div>
+
+
+<h5>然后运行hexo服务</h5>
+<div class="highlight"><pre><span></span>hexo server
+</pre></div>
+
+
+<h5>就可以在本地访问你的博客网站了，默认端口号是4000</h5>
+<h5>那么如何将博客网站打包呢？直接运行打包命令，这样就能使用 Hexo 引擎将 Markdown 格式的文件解析成可以使用浏览器查看的 HTML 文件，HTML 文件存储在 blog/public 目录下</h5>
+<div class="highlight"><pre><span></span>hexo generate
+</pre></div>
+
+
+<h5>下面我们可以配置一下hexo主题，Hexo 提供了默认主题 landscape，主题的位置在 blog -&gt;themes 文件夹下。主题根据自己喜好可以在网上找到:<a href="https://hexo.io/themes/">https://hexo.io/themes/</a></h5>
+<h5>主题都放在blog/themes文件夹下面，这我们下载一个新的主题</h5>
+<div class="highlight"><pre><span></span>mkdir themes/next
+git clone --branch v5.1.2 https://github.com/iissnan/hexo-theme-next themes/next
+</pre></div>
+
+
+<h5>然后在修改 /blog/config.yml 文件，将其中的 theme 改成 next</h5>
+<h5>最后，将打包好的public目录上传到服务器，使用nginx代理访问就可以了</h5>
+<h5>如果没有自己的域名和服务器怎么办？没关系，可以申请 Github 免费静态内容空间，在github.com注册一个账号，然后创建一个新的仓库</h5>
+<h4>具体步骤请移步<a href='https://shangxiaoweia.github.io/Git-上传静态网页.html'>github上传静态页面访问</a></h4></div>
+	</div>
 		<footer>
 		  <p>Powered by <a href="http://getpelican.com/">Pelican</a>. Theme based on <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a>.</p>
 		  <p>&copy; 商伟</p>
