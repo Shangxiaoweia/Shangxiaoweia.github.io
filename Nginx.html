@@ -58,9 +58,6 @@
 				<li><a href="http://python.org/">Python.org</a></li>
 				<li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
 				<li><a href="https://shangxiaoweia.github.io/puzzle.html">拼图</a></li>
-				<li><a href="https://shangxiaoweia.github.io/GluttonousSnake.html">贪吃蛇</a></li>
-				<li><a href="https://shangxiaoweia.github.io/tetris.html">俄罗斯方块</a></li>
-				<li><a href="https://shangxiaoweia.github.io/fish.html">大鱼吃小鱼</a></li>
 			</ul>
 			<div class="social">
 			<h3>Social</h3>
@@ -79,32 +76,32 @@ by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
 tags: <a href="/tag/sui-shou-bi-ji.html">随手笔记</a> </div>
 		<div><h5>将public上传到阿里云服务器的root目录下</h5>
 <h5>修改nginx配置文件</h5>
-<div class="highlight"><pre><span></span><span class="n">vim</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">nginx</span><span class="o">/</span><span class="n">conf</span><span class="p">.</span><span class="n">d</span><span class="o">/</span><span class="k">default</span><span class="p">.</span><span class="n">conf</span>
+<div class="highlight"><pre><span></span>vim /etc/nginx/conf.d/default.conf
 </pre></div>
 
 
 <h5>监听80端口，并且项目目录指定/root/public</h5>
-<div class="highlight"><pre><span></span><span class="n">server</span> <span class="err">{</span>
-    <span class="k">listen</span>       <span class="mi">80</span><span class="p">;</span>
-    <span class="k">server_name</span>  <span class="n">localhost</span><span class="p">;</span>
+<div class="highlight"><pre><span></span>server {
+    listen       80;
+    server_name  localhost;
 
-    <span class="n">access_log</span>      <span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="n">md_vue_access</span><span class="p">.</span><span class="n">log</span><span class="p">;</span>
-    <span class="n">error_log</span>       <span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="n">md_vue_error</span><span class="p">.</span><span class="n">log</span><span class="p">;</span>
-
-
-    <span class="n">client_max_body_size</span> <span class="mi">75</span><span class="n">M</span><span class="p">;</span>
+    access_log      /root/md_vue_access.log;
+    error_log       /root/md_vue_error.log;
 
 
-    <span class="k">location</span> <span class="o">/</span> <span class="err">{</span>
+    client_max_body_size 75M;
 
-        <span class="n">root</span> <span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="k">public</span><span class="p">;</span>
-        <span class="k">index</span> <span class="k">index</span><span class="p">.</span><span class="n">html</span><span class="p">;</span>
 
-    <span class="err">}</span>
+    location / {
 
-    <span class="n">error_log</span>    <span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="n">md_vue</span><span class="o">/</span><span class="n">error</span><span class="p">.</span><span class="n">log</span>    <span class="n">error</span><span class="p">;</span>
+        root /root/public;
+        index index.html;
 
-<span class="err">}</span>
+    }
+
+    error_log    /root/md_vue/error.log    error;
+
+}
 </pre></div>
 
 

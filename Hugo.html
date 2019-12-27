@@ -58,9 +58,6 @@
 				<li><a href="http://python.org/">Python.org</a></li>
 				<li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
 				<li><a href="https://shangxiaoweia.github.io/puzzle.html">拼图</a></li>
-				<li><a href="https://shangxiaoweia.github.io/GluttonousSnake.html">贪吃蛇</a></li>
-				<li><a href="https://shangxiaoweia.github.io/tetris.html">俄罗斯方块</a></li>
-				<li><a href="https://shangxiaoweia.github.io/fish.html">大鱼吃小鱼</a></li>
 			</ul>
 			<div class="social">
 			<h3>Social</h3>
@@ -78,78 +75,78 @@ by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
  in <a href="/category/sui-shou-bi-ji.html">随手笔记</a>
 tags: <a href="/tag/sui-shou-bi-ji.html">随手笔记</a> </div>
 		<div><h5>首先，可以去go的官网网站下载安装包  https://golang.org/dl/ 然后直接双击安装即可，不需要配置环境变量，因为安装过程自动配置，安装完毕后，打开命令行，输入</h5>
-<div class="highlight"><pre><span></span><span class="k">go</span><span class="w"> </span><span class="n">version</span><span class="w"></span>
+<div class="highlight"><pre><span></span>go version
 </pre></div>
 
 
 <h5>显示主版本号即表示安装成功</h5>
 <h5>然后，可以进行hugo的在线源码编译安装，打开命令行，输入下面的命令</h5>
-<div class="highlight"><pre><span></span><span class="k">go</span><span class="w"> </span><span class="k">get</span><span class="w"> </span><span class="o">-</span><span class="n">u</span><span class="w"> </span><span class="o">-</span><span class="n">v</span><span class="w"> </span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">spf13</span><span class="o">/</span><span class="n">hugo</span><span class="w"></span>
-<span class="k">go</span><span class="w"> </span><span class="n">build</span><span class="w"> </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">hugo</span><span class="w"> </span><span class="n">main</span><span class="p">.</span><span class="k">go</span><span class="w"></span>
-<span class="n">mv</span><span class="w"> </span><span class="n">hugo</span><span class="w"> </span><span class="err">$</span><span class="n">GOPATH</span><span class="o">/</span><span class="n">bin</span><span class="w"></span>
+<div class="highlight"><pre><span></span>go get -u -v github.com/spf13/hugo
+go build -o hugo main.go
+mv hugo $GOPATH/bin
 </pre></div>
 
 
 <h5>如果你不想在线编译安装，也可以去hugo的官网 <a href="https://github.com/gohugoio/hugo/releases">https://github.com/gohugoio/hugo/releases</a> 下载稳定版的压缩包，解压之后配置一下环境变量也可以</h5>
 <h5>装完以后，在命令行内输入</h5>
-<div class="highlight"><pre><span></span><span class="n">hugo</span> <span class="k">version</span>
+<div class="highlight"><pre><span></span>hugo version
 </pre></div>
 
 
 <h5>打印出版本号即表示hugo安装成功</h5>
 <h5>在命令行中输入命令</h5>
-<div class="highlight"><pre><span></span><span class="n">hugo</span> <span class="k">new</span> <span class="n">site</span> <span class="n">hugo_blog</span>
+<div class="highlight"><pre><span></span>hugo new site hugo_blog
 </pre></div>
 
 
 <h5>就生成了一个名字为hugo_blog的新站点，可以感受到速度非常快，和vue.js创建新站点的速度比起来简直天差地别</h5>
 <h5>打开配置文件config.toml，这是hugo的站点的相关配置，可以进行一些个性化的定制，改为下面这样：</h5>
-<div class="highlight"><pre><span></span><span class="n">baseURL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">&quot;/&quot;</span><span class="w"></span>
-<span class="n">languageCode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">&quot;en-us&quot;</span><span class="w"></span>
-<span class="n">title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">&quot;商伟的博客&quot;</span><span class="w"></span>
-<span class="n">#指定主题</span><span class="w"></span>
-<span class="n">theme</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">&quot;hyde&quot;</span><span class="w"></span>
+<div class="highlight"><pre><span></span>baseURL = &quot;/&quot;
+languageCode = &quot;en-us&quot;
+title = &quot;商伟的博客&quot;
+#指定主题
+theme = &quot;hyde&quot;
 
-<span class="o">[</span><span class="n">params</span><span class="o">]</span><span class="w"></span>
-<span class="n">#博客简介</span><span class="w"></span>
-<span class="n">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">&quot;这里是商伟的个人博客&quot;</span><span class="w"></span>
-<span class="n">#博客主题颜色</span><span class="w"></span>
-<span class="n">themeColor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">&quot;theme-base-08&quot;</span><span class="w"></span>
+[params]
+#博客简介
+description = &quot;这里是商伟的个人博客&quot;
+#博客主题颜色
+themeColor = &quot;theme-base-08&quot;
 </pre></div>
 
 
 <h5>可以看到我们制定了一个主题hyde，添加了Theme后的站点才有血有肉，丰富多彩。</h5>
 <h5>更多的主题可以在这个上面下载，都是免费而开源的：<a href="https://themes.gohugo.io/">https://themes.gohugo.io/</a></h5>
 <h5>进入到站点内的themes目录，输入命令下载hyde主题，hugo有很多漂亮的主题可以选择</h5>
-<div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">spf13</span><span class="o">/</span><span class="n">hyde</span><span class="p">.</span><span class="n">git</span>
+<div class="highlight"><pre><span></span>git clone https://github.com/spf13/hyde.git
 </pre></div>
 
 
 <h5>结构和样式有了，我们还没有内容。我们来创建站点的第一篇文章</h5>
 <h5>输入命令</h5>
-<div class="highlight"><pre><span></span><span class="n">hugo</span> <span class="k">new</span> <span class="n">one</span><span class="p">.</span><span class="n">md</span>
+<div class="highlight"><pre><span></span>hugo new one.md
 </pre></div>
 
 
 <h5>hugo在content下创建one.md文件，我们编写一些文件内容：</h5>
-<div class="highlight"><pre><span></span><span class="c1">---</span>
-<span class="nb">date</span><span class="p">:</span> <span class="ss">&quot;1000-10-10&quot;</span>
-<span class="n">title</span><span class="p">:</span> <span class="ss">&quot;第一篇文章&quot;</span>
-<span class="c1">---</span>
+<div class="highlight"><pre><span></span>---
+date: &quot;1000-10-10&quot;
+title: &quot;第一篇文章&quot;
+---
 
-<span class="err">这是我的第一篇文章</span>
+这是我的第一篇文章
 </pre></div>
 
 
 <h5>然后在命令行中输入</h5>
-<div class="highlight"><pre><span></span><span class="n">hugo</span> <span class="n">server</span>
+<div class="highlight"><pre><span></span>hugo server
 </pre></div>
 
 
 <h5>来热启动项目</h5>
 <h5>可以看到已经在1313端口起了一个hugo服务</h5>
 <h5>至此，非常快速而简单博客已经做好了，那么如何部署到线上呢？非常简单输入命令进行打包操作：</h5>
-<div class="highlight"><pre><span></span><span class="n">hugo</span> <span class="c1">--baseUrl=&quot;/&quot;</span>
+<div class="highlight"><pre><span></span>hugo --baseUrl=&quot;/&quot;
 </pre></div>
 
 

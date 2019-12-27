@@ -58,9 +58,6 @@
 				<li><a href="http://python.org/">Python.org</a></li>
 				<li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
 				<li><a href="https://shangxiaoweia.github.io/puzzle.html">拼图</a></li>
-				<li><a href="https://shangxiaoweia.github.io/GluttonousSnake.html">贪吃蛇</a></li>
-				<li><a href="https://shangxiaoweia.github.io/tetris.html">俄罗斯方块</a></li>
-				<li><a href="https://shangxiaoweia.github.io/fish.html">大鱼吃小鱼</a></li>
 			</ul>
 			<div class="social">
 			<h3>Social</h3>
@@ -155,21 +152,21 @@ by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
  in <a href="/category/sui-shou-bi-ji.html">随手笔记</a>
 tags: <a href="/tag/sui-shou-bi-ji.html">随手笔记</a> </div>
 	<div class="summary"><h5>首先，可以去go的官网网站下载安装包  https://golang.org/dl/ 然后直接双击安装即可，不需要配置环境变量，因为安装过程自动配置，安装完毕后，打开命令行，输入</h5>
-<div class="highlight"><pre><span></span><span class="k">go</span><span class="w"> </span><span class="n">version</span><span class="w"></span>
+<div class="highlight"><pre><span></span>go version
 </pre></div>
 
 
 <h5>显示主版本号即表示安装成功</h5>
 <h5>然后，可以进行hugo的在线源码编译安装，打开命令行，输入下面的命令</h5>
-<div class="highlight"><pre><span></span><span class="k">go</span><span class="w"> </span><span class="k">get</span><span class="w"> </span><span class="o">-</span><span class="n">u</span><span class="w"> </span><span class="o">-</span><span class="n">v</span><span class="w"> </span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">spf13</span><span class="o">/</span><span class="n">hugo</span><span class="w"></span>
-<span class="k">go</span><span class="w"> </span><span class="n">build</span><span class="w"> </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">hugo</span><span class="w"> </span><span class="n">main</span><span class="p">.</span><span class="k">go</span><span class="w"></span>
-<span class="n">mv</span><span class="w"> </span><span class="n">hugo</span><span class="w"> </span><span class="err">$</span><span class="n">GOPATH</span><span class="o">/</span><span class="n">bin</span><span class="w"></span>
+<div class="highlight"><pre><span></span>go get -u -v github.com/spf13/hugo
+go build -o hugo main.go
+mv hugo $GOPATH/bin
 </pre></div>
 
 
 <h5>如果你不想在线编译安装，也可以去hugo的官网 <a href="https://github.com/gohugoio/hugo/releases">https://github.com/gohugoio/hugo/releases</a> 下载稳定版的压缩包，解压之后配置一下环境变量也可以</h5>
 <h5>装完以后，在命令行内输入</h5>
-<div class="highlight"><pre><span></span><span class="n">hugo …</span></pre></div> <a class="btn primary xsmall" href="/Hugo.html">more…</a>
+<div class="highlight"><pre><span></span>hugo …</pre></div> <a class="btn primary xsmall" href="/Hugo.html">more…</a>
 	</div>
 </div>	
 <div class='article'>
@@ -180,32 +177,32 @@ by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
 tags: <a href="/tag/sui-shou-bi-ji.html">随手笔记</a> </div>
 	<div class="summary"><h5>将public上传到阿里云服务器的root目录下</h5>
 <h5>修改nginx配置文件</h5>
-<div class="highlight"><pre><span></span><span class="n">vim</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">nginx</span><span class="o">/</span><span class="n">conf</span><span class="p">.</span><span class="n">d</span><span class="o">/</span><span class="k">default</span><span class="p">.</span><span class="n">conf</span>
+<div class="highlight"><pre><span></span>vim /etc/nginx/conf.d/default.conf
 </pre></div>
 
 
 <h5>监听80端口，并且项目目录指定/root/public</h5>
-<div class="highlight"><pre><span></span><span class="n">server</span> <span class="err">{</span>
-    <span class="k">listen</span>       <span class="mi">80</span><span class="p">;</span>
-    <span class="k">server_name</span>  <span class="n">localhost</span><span class="p">;</span>
+<div class="highlight"><pre><span></span>server {
+    listen       80;
+    server_name  localhost;
 
-    <span class="n">access_log</span>      <span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="n">md_vue_access</span><span class="p">.</span><span class="n">log</span><span class="p">;</span>
-    <span class="n">error_log</span>       <span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="n">md_vue_error</span><span class="p">.</span><span class="n">log</span><span class="p">;</span>
-
-
-    <span class="n">client_max_body_size</span> <span class="mi">75</span><span class="n">M</span><span class="p">;</span>
+    access_log      /root/md_vue_access.log;
+    error_log       /root/md_vue_error.log;
 
 
-    <span class="k">location</span> <span class="o">/</span> <span class="err">{</span>
+    client_max_body_size 75M;
 
-        <span class="n">root</span> <span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="k">public</span><span class="p">;</span>
-        <span class="k">index</span> <span class="k">index</span><span class="p">.</span><span class="n">html</span><span class="p">;</span>
 
-    <span class="err">}</span>
+    location / {
 
-    <span class="n">error_log</span>    <span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="n">md_vue</span><span class="o">/</span><span class="n">error</span><span class="p">.</span><span class="n">log</span>    <span class="n">error</span><span class="p">;</span>
+        root /root/public;
+        index index.html;
 
-<span class="err">}</span>
+    }
+
+    error_log    /root/md_vue/error.log    error;
+
+}
 </pre></div>
 
 

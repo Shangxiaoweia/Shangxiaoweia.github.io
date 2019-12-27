@@ -58,9 +58,6 @@
 				<li><a href="http://python.org/">Python.org</a></li>
 				<li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
 				<li><a href="https://shangxiaoweia.github.io/puzzle.html">拼图</a></li>
-				<li><a href="https://shangxiaoweia.github.io/GluttonousSnake.html">贪吃蛇</a></li>
-				<li><a href="https://shangxiaoweia.github.io/tetris.html">俄罗斯方块</a></li>
-				<li><a href="https://shangxiaoweia.github.io/fish.html">大鱼吃小鱼</a></li>
 			</ul>
 			<div class="social">
 			<h3>Social</h3>
@@ -113,25 +110,25 @@ by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
 tags: <a href="/tag/django.html">Django</a> </div>
 	<div class="summary"><h3>这个静态网页可以用来做你自己的博客，pelican是以为法国开发者研发的，非常好用，它的每一篇文章会事先渲染成HTML静态文件，访问速度非常快。</h3>
 <h5>1)安装pelcan和markdown</h5>
-<div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">pelican</span>  <span class="n">markdown</span> <span class="c1">--upgrade</span>
+<div class="highlight"><pre><span></span>pip install pelican  markdown --upgrade
 </pre></div>
 
 
 <h5>2)创建一个文件夹用来作为博客的目录</h5>
-<div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="err">博客目录</span>
+<div class="highlight"><pre><span></span>mkdir 博客目录
 </pre></div>
 
 
 <h5>3)cd到该目录下运行命令生成博客的框架</h5>
-<div class="highlight"><pre><span></span><span class="n">cd</span> <span class="err">博客目录</span>
-<span class="n">pelican</span><span class="o">-</span><span class="n">quickstart</span>
+<div class="highlight"><pre><span></span>cd 博客目录
+pelican-quickstart
 </pre></div>
 
 
 <h5>4)安装过程中会有很多的配置，不知道的可以直接n，后期都是可以进行修改的</h5>
-<div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nv">Where</span> <span class="k">do</span> <span class="nv">you</span> <span class="nv">want</span> <span class="nv">to</span> <span class="nv">create</span> <span class="nv">your</span> <span class="nv">new</span> <span class="nv">web</span> <span class="nv">site</span>? [.]
-<span class="o">&gt;</span> <span class="nv">What</span> <span class="nv">will</span> <span class="nv">be</span> <span class="nv">the</span> <span class="nv">title</span> <span class="nv">of</span> <span class="nv">this</span> <span class="nv">web</span> <span class="nv">site</span>? 商伟的技术博客
-<span class="o">&gt;</span> <span class="nv">Who</span> <span class="nv">will</span> <span class="nv">be</span> <span class="nv">the …</span></pre></div> <a class="btn primary xsmall" href="/三分钟创建一个静态网页.html">more…</a>
+<div class="highlight"><pre><span></span>&gt; Where do you want to create your new web site? [.]
+&gt; What will be the title of this web site? 商伟的技术博客
+&gt; Who will be the author …</pre></div> <a class="btn primary xsmall" href="/三分钟创建一个静态网页.html">more…</a>
 	</div>
 </div>	
 <div class='article'>
