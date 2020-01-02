@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>商伟的技术博客</title>
+	<meta name="description" content="">
+	<meta name="author" content="商伟">
+
+	<!-- HTML5 shim, for IE6-8 support of HTML elements -->
+	<!--[if lt IE 9]>
+		<script src="/theme/html5.js"></script>
+	<![endif]-->
+
+	<!-- Styles -->
+	<link href="/theme/bootstrap.min.css" rel="stylesheet">
+	<link href="/theme/local.css" rel="stylesheet">
+	<link href="/theme/pygments.css" rel="stylesheet">
+
+	<!-- Feeds -->
+
+
+
+
+</head>
+<body>
+	<div class="topbar">
+	  <div class="topbar-inner">
+		<div class="container-fluid">
+		  <a class="brand" href="/">商伟的技术博客</a>
+			<ul class="nav">
+					<li ><a href="/category/django.html">Django</a></li>
+					<li ><a href="/category/git.html">GIT</a></li>
+					<li ><a href="/category/javascript.html">JavaScript</a></li>
+					<li ><a href="/category/mongodb.html">Mongodb</a></li>
+					<li ><a href="/category/mysql.html">MySQL</a></li>
+					<li ><a href="/category/pa-chong.html">爬虫</a></li>
+					<li ><a href="/category/python.html">Python</a></li>
+					<li ><a href="/category/rabbitmq.html">RabbitMQ</a></li>
+					<li ><a href="/category/redis.html">redis</a></li>
+					<li class="active"><a href="/category/sui-shou-bi-ji.html">随手笔记</a></li>
+					<li ><a href="/category/supervisor.html">Supervisor</a></li>
+					<li ><a href="/category/vue.html">VUE</a></li>
+					<li ><a href="/category/wang-luo.html">网络</a></li>
+					<li ><a href="/category/xiao-cheng-xu.html">小程序</a></li>
+					<li ><a href="/category/xu-ni-huan-jing.html">虚拟环境</a></li>
+			</ul>
+			<p class="pull-right"><a href="/archives.html">[archives]</a> <a href="/tags.html">[tags]</a></p>
+		</div>
+	  </div>
+	</div>
+
+	<div class="container-fluid">
+	  <div class="sidebar">
+		<div class="well">
+			<h3>Blogroll</h3>
+			<ul>
+				<li><a href="http://getpelican.com/">Pelican</a></li>
+				<li><a href="http://python.org/">Python.org</a></li>
+				<li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+				<li><a href="https://shangxiaoweia.github.io/puzzle.html">拼图</a></li>
+			</ul>
+			<div class="social">
+			<h3>Social</h3>
+			<ul>
+				<li><a href="https://han520min.github.io">hanmin</a></li>
+			</ul>
+			</div>
+		</div>
+	  </div>
+	  <div class="content">
+	<div class='article'>
+		<div class="page-header"><h1>Hugo-博客</h1></div>
+		<div class="well small">Permalink: <a class="more" href="/Hugo.html">1000-01-01 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/sui-shou-bi-ji.html">随手笔记</a>
+tags: <a href="/tag/sui-shou-bi-ji.html">随手笔记</a> </div>
+		<div><h5>首先，可以去go的官网网站下载安装包  https://golang.org/dl/ 然后直接双击安装即可，不需要配置环境变量，因为安装过程自动配置，安装完毕后，打开命令行，输入</h5>
+<div class="highlight"><pre><span></span>go version
+</pre></div>
+
+
+<h5>显示主版本号即表示安装成功</h5>
+<h5>然后，可以进行hugo的在线源码编译安装，打开命令行，输入下面的命令</h5>
+<div class="highlight"><pre><span></span>go get -u -v github.com/spf13/hugo
+go build -o hugo main.go
+mv hugo $GOPATH/bin
+</pre></div>
+
+
+<h5>如果你不想在线编译安装，也可以去hugo的官网 <a href="https://github.com/gohugoio/hugo/releases">https://github.com/gohugoio/hugo/releases</a> 下载稳定版的压缩包，解压之后配置一下环境变量也可以</h5>
+<h5>装完以后，在命令行内输入</h5>
+<div class="highlight"><pre><span></span>hugo version
+</pre></div>
+
+
+<h5>打印出版本号即表示hugo安装成功</h5>
+<h5>在命令行中输入命令</h5>
+<div class="highlight"><pre><span></span>hugo new site hugo_blog
+</pre></div>
+
+
+<h5>就生成了一个名字为hugo_blog的新站点，可以感受到速度非常快，和vue.js创建新站点的速度比起来简直天差地别</h5>
+<h5>打开配置文件config.toml，这是hugo的站点的相关配置，可以进行一些个性化的定制，改为下面这样：</h5>
+<div class="highlight"><pre><span></span>baseURL = &quot;/&quot;
+languageCode = &quot;en-us&quot;
+title = &quot;商伟的博客&quot;
+#指定主题
+theme = &quot;hyde&quot;
+
+[params]
+#博客简介
+description = &quot;这里是商伟的个人博客&quot;
+#博客主题颜色
+themeColor = &quot;theme-base-08&quot;
+</pre></div>
+
+
+<h5>可以看到我们制定了一个主题hyde，添加了Theme后的站点才有血有肉，丰富多彩。</h5>
+<h5>更多的主题可以在这个上面下载，都是免费而开源的：<a href="https://themes.gohugo.io/">https://themes.gohugo.io/</a></h5>
+<h5>进入到站点内的themes目录，输入命令下载hyde主题，hugo有很多漂亮的主题可以选择</h5>
+<div class="highlight"><pre><span></span>git clone https://github.com/spf13/hyde.git
+</pre></div>
+
+
+<h5>结构和样式有了，我们还没有内容。我们来创建站点的第一篇文章</h5>
+<h5>输入命令</h5>
+<div class="highlight"><pre><span></span>hugo new one.md
+</pre></div>
+
+
+<h5>hugo在content下创建one.md文件，我们编写一些文件内容：</h5>
+<div class="highlight"><pre><span></span>---
+date: &quot;1000-10-10&quot;
+title: &quot;第一篇文章&quot;
+---
+
+这是我的第一篇文章
+</pre></div>
+
+
+<h5>然后在命令行中输入</h5>
+<div class="highlight"><pre><span></span>hugo server
+</pre></div>
+
+
+<h5>来热启动项目</h5>
+<h5>可以看到已经在1313端口起了一个hugo服务</h5>
+<h5>至此，非常快速而简单博客已经做好了，那么如何部署到线上呢？非常简单输入命令进行打包操作：</h5>
+<div class="highlight"><pre><span></span>hugo --baseUrl=&quot;/&quot;
+</pre></div>
+
+
+<h5>hugo就会把你的站点生成纯静态页面，然后打包到public文件夹</h5>
+<h5>这个样子我们的博客就已经大功告成了，只要我们把public文件夹push到github就可以进行访问了。</h5>
+<h5><a href='https://shangxiaoweia.github.io/Git-上传静态网页.html'></h5>
+<h5>github上传静态页面访问</a></h5></div>
+	</div>
+		<footer>
+		  <p>Powered by <a href="http://getpelican.com/">Pelican</a>. Theme based on <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a>.</p>
+		  <p>&copy; 商伟</p>
+		</footer>
+	  </div>
+
+	</div>
+</body>
+</html>

@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>商伟的技术博客</title>
+	<meta name="description" content="">
+	<meta name="author" content="商伟">
+
+	<!-- HTML5 shim, for IE6-8 support of HTML elements -->
+	<!--[if lt IE 9]>
+		<script src="/theme/html5.js"></script>
+	<![endif]-->
+
+	<!-- Styles -->
+	<link href="/theme/bootstrap.min.css" rel="stylesheet">
+	<link href="/theme/local.css" rel="stylesheet">
+	<link href="/theme/pygments.css" rel="stylesheet">
+
+	<!-- Feeds -->
+
+
+
+
+</head>
+<body>
+	<div class="topbar">
+	  <div class="topbar-inner">
+		<div class="container-fluid">
+		  <a class="brand" href="/">商伟的技术博客</a>
+			<ul class="nav">
+					<li ><a href="/category/django.html">Django</a></li>
+					<li ><a href="/category/git.html">GIT</a></li>
+					<li ><a href="/category/javascript.html">JavaScript</a></li>
+					<li ><a href="/category/mongodb.html">Mongodb</a></li>
+					<li ><a href="/category/mysql.html">MySQL</a></li>
+					<li ><a href="/category/pa-chong.html">爬虫</a></li>
+					<li class="active"><a href="/category/python.html">Python</a></li>
+					<li ><a href="/category/rabbitmq.html">RabbitMQ</a></li>
+					<li ><a href="/category/redis.html">redis</a></li>
+					<li ><a href="/category/sui-shou-bi-ji.html">随手笔记</a></li>
+					<li ><a href="/category/supervisor.html">Supervisor</a></li>
+					<li ><a href="/category/vue.html">VUE</a></li>
+					<li ><a href="/category/wang-luo.html">网络</a></li>
+					<li ><a href="/category/xiao-cheng-xu.html">小程序</a></li>
+					<li ><a href="/category/xu-ni-huan-jing.html">虚拟环境</a></li>
+			</ul>
+			<p class="pull-right"><a href="/archives.html">[archives]</a> <a href="/tags.html">[tags]</a></p>
+		</div>
+	  </div>
+	</div>
+
+	<div class="container-fluid">
+	  <div class="sidebar">
+		<div class="well">
+			<h3>Blogroll</h3>
+			<ul>
+				<li><a href="http://getpelican.com/">Pelican</a></li>
+				<li><a href="http://python.org/">Python.org</a></li>
+				<li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+				<li><a href="https://shangxiaoweia.github.io/puzzle.html">拼图</a></li>
+			</ul>
+			<div class="social">
+			<h3>Social</h3>
+			<ul>
+				<li><a href="https://han520min.github.io">hanmin</a></li>
+			</ul>
+			</div>
+		</div>
+	  </div>
+	  <div class="content">
+	<div class='article'>
+		<div class="page-header"><h1>if语句</h1></div>
+		<div class="well small">Permalink: <a class="more" href="/if语句.html">1000-01-04 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/python.html">Python</a>
+tags: <a href="/tag/python.html">Python</a> </div>
+		<div><h3>if介绍</h3>
+<ul>
+<li>如果某些条件满足，才能做某件事情；条件不满足时，则不能做，这就是所谓的判断。</li>
+<li>不仅生活中有，在软件开发中"判断"功能也经常会用到</li>
+</ul>
+<h3>一、if判断语句</h3>
+<h3>&lt;1&gt;if判断语句介绍</h3>
+<ul>
+<li>if语句是用来进行判断的，其使用格式如下：</li>
+</ul>
+<div class="highlight"><pre><span></span>    <span class="k">if</span> <span class="err">要判断的条件</span><span class="p">:</span>
+        <span class="err">条件成立时，要做的事情</span>
+</pre></div>
+
+
+<ul>
+<li>demo1:（demo的中文意思：演示、案例）</li>
+</ul>
+<div class="highlight"><pre><span></span>    <span class="n">age</span> <span class="o">=</span> <span class="mi">30</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;------if判断开始------&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;我已经成年了&quot;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;------if判断结束------&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<ul>
+<li>运行结果:</li>
+</ul>
+<div class="highlight"><pre><span></span>    <span class="o">------</span><span class="n">if判断开始</span><span class="o">------</span>
+    <span class="err">我已经成年了</span>
+    <span class="o">------</span><span class="n">if判断结束</span><span class="o">------</span>
+</pre></div>
+
+
+<ul>
+<li>demo2:</li>
+</ul>
+<div class="highlight"><pre><span></span>    <span class="n">age</span> <span class="o">=</span> <span class="mi">16</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;------if判断开始------&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;我已经成年了&quot;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;------if判断结束------&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<ul>
+<li>运行结果:</li>
+</ul>
+<div class="highlight"><pre><span></span>    <span class="o">------</span><span class="n">if判断开始</span><span class="o">------</span>
+    <span class="o">------</span><span class="n">if判断结束</span><span class="o">------</span>
+</pre></div>
+
+
+<p>小总结：</p>
+<ul>
+<li>以上2个demo仅仅是age变量的值不一样，导致结果却不同；能够看得出if判断语句的作用：就是当满足一定条件时才会执行代码块语句，否则就不执行代码块语句。</li>
+</ul>
+<h3>二、比较、关系运算符</h3>
+<h3>&lt;1&gt; 比较(即关系)运算符</h3>
+<table>
+<thead>
+<tr>
+<th align="left">运算符</th>
+<th align="left">描述</th>
+<th align="left">示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">==</td>
+<td align="left">检查两个操作数的值是否相等，如果是则条件变为真。</td>
+<td align="left">如a=3,b=3，则（a == b) 为 True</td>
+</tr>
+<tr>
+<td align="left">!=</td>
+<td align="left">检查两个操作数的值是否相等，如果值不相等，则条件变为真。</td>
+<td align="left">如a=1,b=3，则(a != b) 为 True</td>
+</tr>
+<tr>
+<td align="left">&gt;</td>
+<td align="left">检查左操作数的值是否大于右操作数的值，如果是，则条件成立。</td>
+<td align="left">如a=7,b=3，则(a &gt; b) 为 True</td>
+</tr>
+<tr>
+<td align="left">&lt;</td>
+<td align="left">检查左操作数的值是否小于右操作数的值，如果是，则条件成立。</td>
+<td align="left">如a=7,b=3，则(a &lt; b) 为 False</td>
+</tr>
+<tr>
+<td align="left">&gt;=</td>
+<td align="left">检查左操作数的值是否大于或等于右操作数的值，如果是，则条件成立。</td>
+<td align="left">如a=3,b=3，则(a &gt;= b) 为 True</td>
+</tr>
+<tr>
+<td align="left">&lt;=</td>
+<td align="left">检查左操作数的值是否小于或等于右操作数的值，如果是，则条件成立。</td>
+<td align="left">如a=3,b=3，则(a &lt;= b) 为 True</td>
+</tr>
+</tbody>
+</table>
+<p>&lt;2&gt; 逻辑运算符</p>
+<table>
+<thead>
+<tr>
+<th align="left">运算符</th>
+<th>逻辑表达式</th>
+<th align="left">描述</th>
+<th align="left">实例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">and</td>
+<td>x and y</td>
+<td align="left">布尔"与"：如果 x 为 False，x and y 返回 False，否则它返回 y 的值。</td>
+<td align="left">True and False， 返回 False。</td>
+</tr>
+<tr>
+<td align="left">or</td>
+<td>x or y</td>
+<td align="left">布尔"或"：如果 x 是 True，它返回 True，否则它返回 y 的值。</td>
+<td align="left">False or True， 返回 True。</td>
+</tr>
+<tr>
+<td align="left">not</td>
+<td>not x</td>
+<td align="left">布尔"非"：如果 x 为 True，返回 False 。如果 x 为 False，它返回 True。</td>
+<td align="left">not True 返回 False, not False 返回 True</td>
+</tr>
+</tbody>
+</table>
+<h3>三、if-else</h3>
+<p>if-else</p>
+<blockquote>
+<p>想一想：在使用if的时候，它只能做到满足条件时要做的事情。那万一需要在不满足条件的时候，做某些事，该怎么办呢？</p>
+<p>答：使用 if-else</p>
+</blockquote>
+<h3>&lt;1&gt;if-else的使用格式</h3>
+<div class="highlight"><pre><span></span>    <span class="k">if</span> <span class="err">条件</span><span class="p">:</span>
+        <span class="err">满足条件时要做的事情</span><span class="mi">1</span>
+        <span class="err">满足条件时要做的事情</span><span class="mi">2</span>
+        <span class="err">满足条件时要做的事情</span><span class="mi">3</span>
+        <span class="o">...</span><span class="p">(</span><span class="err">省略</span><span class="p">)</span><span class="o">...</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="err">不满足条件时要做的事情</span><span class="mi">1</span>
+        <span class="err">不满足条件时要做的事情</span><span class="mi">2</span>
+        <span class="err">不满足条件时要做的事情</span><span class="mi">3</span>
+        <span class="o">...</span><span class="p">(</span><span class="err">省略</span><span class="p">)</span><span class="o">...</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>    <span class="n">chePiao</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># 用1代表有车票，0代表没有车票</span>
+    <span class="k">if</span> <span class="n">chePiao</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;有车票，可以上火车&quot;</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;终于可以见到Ta了，美滋滋~~~&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;没有车票，不能上车&quot;</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;亲爱的，那就下次见了&quot;</span><span class="err">）</span>
+</pre></div>
+
+
+<p>结果1：有车票的情况</p>
+<div class="highlight"><pre><span></span>    <span class="err">有车票，可以上火车</span>
+    <span class="err">终于可以见到</span><span class="n">Ta了</span><span class="err">，美滋滋</span><span class="o">~~~</span>
+</pre></div>
+
+
+<p>结果2：没有车票的情况</p>
+<div class="highlight"><pre><span></span>    <span class="err">没有车票，不能上车</span>
+    <span class="err">亲爱的，那就下次见了</span>
+</pre></div>
+
+
+<h3>四、slif</h3>
+<h3>&lt;1&gt; elif的功能</h3>
+<p>elif的使用格式如下:</p>
+<div class="highlight"><pre><span></span>    <span class="k">if</span> <span class="n">xxx1</span><span class="p">:</span>
+        <span class="err">事情</span><span class="mi">1</span>
+    <span class="k">elif</span> <span class="n">xxx2</span><span class="p">:</span>
+        <span class="err">事情</span><span class="mi">2</span>
+    <span class="k">elif</span> <span class="n">xxx3</span><span class="p">:</span>
+        <span class="err">事情</span><span class="mi">3</span>
+</pre></div>
+
+
+<p>说明:</p>
+<ul>
+<li>当xxx1满足时，执行事情1，然后整个if结束</li>
+<li>当xxx1不满足时，那么判断xxx2，如果xxx2满足，则执行事情2，然后整个if结束</li>
+<li>当xxx1不满足时，xxx2也不满足，如果xxx3满足，则执行事情3，然后整个if结束</li>
+</ul>
+<p>demo:</p>
+<div class="highlight"><pre><span></span>    <span class="n">score</span> <span class="o">=</span> <span class="mi">77</span>
+
+    <span class="k">if</span> <span class="n">score</span><span class="o">&gt;=</span><span class="mi">90</span> <span class="ow">and</span> <span class="n">score</span><span class="o">&lt;=</span><span class="mi">100</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;本次考试，等级为A&#39;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">score</span><span class="o">&gt;=</span><span class="mi">80</span> <span class="ow">and</span> <span class="n">score</span><span class="o">&lt;</span><span class="mi">90</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;本次考试，等级为B&#39;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">score</span><span class="o">&gt;=</span><span class="mi">70</span> <span class="ow">and</span> <span class="n">score</span><span class="o">&lt;</span><span class="mi">80</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;本次考试，等级为C&#39;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">score</span><span class="o">&gt;=</span><span class="mi">60</span> <span class="ow">and</span> <span class="n">score</span><span class="o">&lt;</span><span class="mi">70</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;本次考试，等级为D&#39;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">score</span><span class="o">&gt;=</span><span class="mi">0</span> <span class="ow">and</span> <span class="n">score</span><span class="o">&lt;</span><span class="mi">60</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;本次考试，等级为E&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<h3>&lt;2&gt; 注意点</h3>
+<ul>
+<li>可以和else一起使用</li>
+</ul>
+<p><code>python
+     if 性别为男性:
+         输出男性的体重
+         ...
+     elif 性别为女性:
+         输出女性的体重
+         ...
+     else:
+         第三种性别的体重
+         ...</code></p>
+<p>说明:</p>
+<ul>
+<li>当 “性别为男性” 满足时，执行 “输出男性的体重”的相关代码</li>
+<li>当 “性别为男性” 不满足时，如果 “性别为女性”满足，则执行 “输出女性的体重”的相关代码</li>
+<li>当 “性别为男性” 不满足，“性别为女性”也不满足，那么久默认执行else后面的代码，即 “第三种性别的体重”相关代码</li>
+</ul>
+<blockquote>
+<p>elif必须和if一起使用，否则出错</p>
+<p>else 一般用在最后，即所有条件都不满足时使用</p>
+</blockquote>
+<h3>五、if嵌套</h3>
+<h3>&lt;1&gt;if嵌套的格式</h3>
+<div class="highlight"><pre><span></span>    <span class="k">if</span> <span class="err">条件</span><span class="mi">1</span><span class="p">:</span>
+
+        <span class="err">满足条件</span><span class="mi">1</span> <span class="err">做的事情</span><span class="mi">1</span>
+        <span class="err">满足条件</span><span class="mi">1</span> <span class="err">做的事情</span><span class="mi">2</span>
+
+        <span class="k">if</span> <span class="err">条件</span><span class="mi">2</span><span class="p">:</span>
+            <span class="err">满足条件</span><span class="mi">2</span> <span class="err">做的事情</span><span class="mi">1</span>
+            <span class="err">满足条件</span><span class="mi">2</span> <span class="err">做的事情</span><span class="mi">2</span>
+</pre></div>
+
+
+<ul>
+<li>说明</li>
+<li>外层的if判断，也可以是if-else</li>
+<li>内层的if判断，也可以是if-else</li>
+<li>根据实际开发的情况，进行选择</li>
+</ul>
+<h3>&lt;2&gt;if嵌套的应用</h3>
+<div class="highlight"><pre><span></span><span class="n">chePiao</span> <span class="o">=</span> <span class="mi">1</span>     <span class="c1"># 用1代表有车票，0代表没有车票</span>
+<span class="n">daoLenght</span> <span class="o">=</span> <span class="mi">9</span>     <span class="c1"># 刀子的长度，单位为cm</span>
+
+<span class="k">if</span> <span class="n">chePiao</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;有车票，可以进站&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">daoLenght</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;通过安检&quot;</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;终于可以见到Ta了，美滋滋~~~&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;没有通过安检&quot;</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;刀子的长度超过规定，等待警察处理...&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;没有车票，不能进站&quot;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;亲爱的，那就下次见了&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>结果1：chePiao = 1;daoLenght = 9</p>
+<div class="highlight"><pre><span></span>    <span class="err">有车票，可以进站</span>
+    <span class="err">通过安检</span>
+    <span class="err">终于可以见到</span><span class="n">Ta了</span><span class="err">，美滋滋</span><span class="o">~~~</span>
+</pre></div>
+
+
+<p>结果2：chePiao = 1;daoLenght = 20</p>
+<div class="highlight"><pre><span></span>    <span class="err">有车票，可以进站</span>
+    <span class="err">没有通过安检</span>
+    <span class="err">刀子的长度超过规定，等待警察处理</span><span class="p">...</span>
+</pre></div>
+
+
+<p>结果3：chePiao = 0;daoLenght = 9</p>
+<div class="highlight"><pre><span></span>    <span class="err">没有车票，不能进站</span>
+    <span class="err">亲爱的，那就下次见了</span>
+</pre></div>
+
+
+<p>结果4：chePiao = 0;daoLenght = 20</p>
+<div class="highlight"><pre><span></span>    <span class="err">没有车票，不能进站</span>
+    <span class="err">亲爱的，那就下次见了</span>
+</pre></div></div>
+	</div>
+		<footer>
+		  <p>Powered by <a href="http://getpelican.com/">Pelican</a>. Theme based on <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a>.</p>
+		  <p>&copy; 商伟</p>
+		</footer>
+	  </div>
+
+	</div>
+</body>
+</html>

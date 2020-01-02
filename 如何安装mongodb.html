@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>商伟的技术博客</title>
+	<meta name="description" content="">
+	<meta name="author" content="商伟">
+
+	<!-- HTML5 shim, for IE6-8 support of HTML elements -->
+	<!--[if lt IE 9]>
+		<script src="/theme/html5.js"></script>
+	<![endif]-->
+
+	<!-- Styles -->
+	<link href="/theme/bootstrap.min.css" rel="stylesheet">
+	<link href="/theme/local.css" rel="stylesheet">
+	<link href="/theme/pygments.css" rel="stylesheet">
+
+	<!-- Feeds -->
+
+
+
+
+</head>
+<body>
+	<div class="topbar">
+	  <div class="topbar-inner">
+		<div class="container-fluid">
+		  <a class="brand" href="/">商伟的技术博客</a>
+			<ul class="nav">
+					<li ><a href="/category/django.html">Django</a></li>
+					<li ><a href="/category/git.html">GIT</a></li>
+					<li ><a href="/category/javascript.html">JavaScript</a></li>
+					<li class="active"><a href="/category/mongodb.html">Mongodb</a></li>
+					<li ><a href="/category/mysql.html">MySQL</a></li>
+					<li ><a href="/category/pa-chong.html">爬虫</a></li>
+					<li ><a href="/category/python.html">Python</a></li>
+					<li ><a href="/category/rabbitmq.html">RabbitMQ</a></li>
+					<li ><a href="/category/redis.html">redis</a></li>
+					<li ><a href="/category/sui-shou-bi-ji.html">随手笔记</a></li>
+					<li ><a href="/category/supervisor.html">Supervisor</a></li>
+					<li ><a href="/category/vue.html">VUE</a></li>
+					<li ><a href="/category/wang-luo.html">网络</a></li>
+					<li ><a href="/category/xiao-cheng-xu.html">小程序</a></li>
+					<li ><a href="/category/xu-ni-huan-jing.html">虚拟环境</a></li>
+			</ul>
+			<p class="pull-right"><a href="/archives.html">[archives]</a> <a href="/tags.html">[tags]</a></p>
+		</div>
+	  </div>
+	</div>
+
+	<div class="container-fluid">
+	  <div class="sidebar">
+		<div class="well">
+			<h3>Blogroll</h3>
+			<ul>
+				<li><a href="http://getpelican.com/">Pelican</a></li>
+				<li><a href="http://python.org/">Python.org</a></li>
+				<li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+				<li><a href="https://shangxiaoweia.github.io/puzzle.html">拼图</a></li>
+			</ul>
+			<div class="social">
+			<h3>Social</h3>
+			<ul>
+				<li><a href="https://han520min.github.io">hanmin</a></li>
+			</ul>
+			</div>
+		</div>
+	  </div>
+	  <div class="content">
+	<div class='article'>
+		<div class="page-header"><h1>如何安装mongodb</h1></div>
+		<div class="well small">Permalink: <a class="more" href="/如何安装mongodb.html">1000-01-01 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/mongodb.html">Mongodb</a>
+tags: <a href="/tag/mongodb.html">Mongodb</a> </div>
+		<div><h5>创建一个<code>/etc/yum.repos.d/mongodb-org-4.2.repo</code>文件，以便您可以使用<code>yum</code>以下命令直接安装MongoDB ：</h5>
+<div class="highlight"><pre><span></span>touch /etc/yum.repos.d/mongodb-org-4.2.repo
+</pre></div>
+
+
+<h5>编写</h5>
+<div class="highlight"><pre><span></span>[mongodb-org-4.2]
+name=MongoDB Repository
+baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/4.2/x86_64/
+gpgcheck=1
+enabled=1
+gpgkey=https://www.mongodb.org/static/pgp/server-4.2.asc
+</pre></div>
+
+
+<h5>要安装最新的稳定版MongoDB，请发出以下命令：</h5>
+<div class="highlight"><pre><span></span>sudo yum install -y mongodb-org
+</pre></div>
+
+
+<h5>另外，要安装特定版本的MongoDB，请分别指定每个组件包，并将版本号附加到包名中，如以下示例所示：</h5>
+<div class="highlight"><pre><span></span>sudo yum install -y mongodb-org-4.2.2 mongodb-org-server-4.2.2 mongodb-org-shell-4.2.2 mongodb-org-mongos-4.2.2 mongodb-org-tools-4.2.2
+</pre></div>
+
+
+<h5>您可以指定任何可用的MongoDB版本。但是<code>yum</code> ，当有新版本可用时，将升级软件包。为防止意外升级，请固定包装。要固定包，<code>exclude</code>请在<code>/etc/yum.conf</code>文件中添加以下指令：</h5>
+<div class="highlight"><pre><span></span>exclude = mongodb-org，mongodb-org-server，mongodb-org-shell，mongodb-org-mongos，mongodb-org-tools
+</pre></div>
+
+
+<h5>运行</h5>
+<div class="highlight"><pre><span></span>mongod
+</pre></div>
+
+
+<h5>后台运行</h5>
+<div class="highlight"><pre><span></span>mongod --fork --logpath=log/mongodb.log
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>
+</pre></div></div>
+	</div>
+		<footer>
+		  <p>Powered by <a href="http://getpelican.com/">Pelican</a>. Theme based on <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a>.</p>
+		  <p>&copy; 商伟</p>
+		</footer>
+	  </div>
+
+	</div>
+</body>
+</html>

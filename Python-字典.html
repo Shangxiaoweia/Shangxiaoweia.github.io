@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>商伟的技术博客</title>
+	<meta name="description" content="">
+	<meta name="author" content="商伟">
+
+	<!-- HTML5 shim, for IE6-8 support of HTML elements -->
+	<!--[if lt IE 9]>
+		<script src="/theme/html5.js"></script>
+	<![endif]-->
+
+	<!-- Styles -->
+	<link href="/theme/bootstrap.min.css" rel="stylesheet">
+	<link href="/theme/local.css" rel="stylesheet">
+	<link href="/theme/pygments.css" rel="stylesheet">
+
+	<!-- Feeds -->
+
+
+
+
+</head>
+<body>
+	<div class="topbar">
+	  <div class="topbar-inner">
+		<div class="container-fluid">
+		  <a class="brand" href="/">商伟的技术博客</a>
+			<ul class="nav">
+					<li ><a href="/category/django.html">Django</a></li>
+					<li ><a href="/category/git.html">GIT</a></li>
+					<li ><a href="/category/javascript.html">JavaScript</a></li>
+					<li ><a href="/category/mongodb.html">Mongodb</a></li>
+					<li ><a href="/category/mysql.html">MySQL</a></li>
+					<li ><a href="/category/pa-chong.html">爬虫</a></li>
+					<li class="active"><a href="/category/python.html">Python</a></li>
+					<li ><a href="/category/rabbitmq.html">RabbitMQ</a></li>
+					<li ><a href="/category/redis.html">redis</a></li>
+					<li ><a href="/category/sui-shou-bi-ji.html">随手笔记</a></li>
+					<li ><a href="/category/supervisor.html">Supervisor</a></li>
+					<li ><a href="/category/vue.html">VUE</a></li>
+					<li ><a href="/category/wang-luo.html">网络</a></li>
+					<li ><a href="/category/xiao-cheng-xu.html">小程序</a></li>
+					<li ><a href="/category/xu-ni-huan-jing.html">虚拟环境</a></li>
+			</ul>
+			<p class="pull-right"><a href="/archives.html">[archives]</a> <a href="/tags.html">[tags]</a></p>
+		</div>
+	  </div>
+	</div>
+
+	<div class="container-fluid">
+	  <div class="sidebar">
+		<div class="well">
+			<h3>Blogroll</h3>
+			<ul>
+				<li><a href="http://getpelican.com/">Pelican</a></li>
+				<li><a href="http://python.org/">Python.org</a></li>
+				<li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+				<li><a href="https://shangxiaoweia.github.io/puzzle.html">拼图</a></li>
+			</ul>
+			<div class="social">
+			<h3>Social</h3>
+			<ul>
+				<li><a href="https://han520min.github.io">hanmin</a></li>
+			</ul>
+			</div>
+		</div>
+	  </div>
+	  <div class="content">
+	<div class='article'>
+		<div class="page-header"><h1>Python-字典</h1></div>
+		<div class="well small">Permalink: <a class="more" href="/Python-字典.html">1000-01-09 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/python.html">Python</a>
+tags: <a href="/tag/python.html">Python</a> </div>
+		<div><h4>字典的介绍</h4>
+<div class="highlight"><pre><span></span><span class="n">info</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span><span class="s1">&#39;班长&#39;</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;sex&#39;</span><span class="p">:</span><span class="s1">&#39;f&#39;</span><span class="p">,</span> <span class="s1">&#39;address&#39;</span><span class="p">:</span><span class="s1">&#39;地球亚洲中国北京&#39;</span><span class="p">}</span>
+</pre></div>
+
+
+<ul>
+<li>字典和列表一样，也能够存储多个数据</li>
+<li>列表中找某个元素时，是根据下标进行的</li>
+<li>字典中找某个元素时，是根据'名字'（就是冒号:前面的那个值，例如上面代码中的'name'、'id'、'sex'）</li>
+<li>字典的每个元素由2部分组成，键:值。例如 'name':'班长' ,'name'为键，'班长'为值</li>
+</ul>
+<h5>字典的添加操作</h5>
+<ul>
+<li>info['id'] = ‘shangwei’</li>
+<li>如果在使用 <strong>变量名['键'] = 数据</strong> 时，这个“键”在字典中，不存在，那么就会新增这个元素</li>
+</ul>
+<h5>字典的删除操作</h5>
+<ul>
+<li>del</li>
+<li>del删除指定的元素</li>
+<li>clear()</li>
+<li>:clear清空整个字典</li>
+</ul>
+<h5>字典的修改操作</h5>
+<ul>
+<li>字典的修改操作就是 通过key来进行修改</li>
+<li>info['id'] = 123</li>
+</ul>
+<h5>字典的查找操作</h5>
+<ul>
+<li>直接查找key</li>
+<li>info['age']</li>
+<li>如果字典存在key 返回他的 value 不存在则报错</li>
+<li>在我们不确定字典中是否存在某个键而又想获取其值时，可以使用get方法，还可以设置默认值</li>
+<li>age = info.get('age') #'age'键不存在，所以age为None</li>
+<li>age = info.get('age', 18) # 若info中不存在'age'这个键，就返回默认值18</li>
+</ul>
+<h5>字典的常见操作</h5>
+<ul>
+<li>keys</li>
+<li>返回一个包含字典所有KEY的列表</li>
+<li>values</li>
+<li>返回一个包含字典所有VALUE的列表</li>
+<li>items</li>
+<li>返回一个包含所有（键，值）元祖的列表</li>
+<li>has_key （Python3 已取消）</li>
+<li>dict.has_key(key)如果key在字典中，返回True，否则返回False</li>
+</ul>
+<h5>遍历</h5>
+<ul>
+<li>我们可以用 for 循环来遍历字典</li>
+</ul>
+<h5>enumerate()</h5>
+<blockquote>
+<p>enumerate() 函数用于将一个可遍历的数据对象(如列表、元组或字符串)组合为一个索引序列，同时列出数据和数据下标，一般用在 for 循环当中。</p>
+</blockquote>
+<div class="highlight"><pre><span></span><span class="n">chars</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="nb">chr</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">chars</span><span class="p">):</span>
+     <span class="k">print</span> <span class="n">i</span><span class="p">,</span> <span class="nb">chr</span>
+<span class="o">...</span>
+<span class="mi">0</span> <span class="n">a</span>
+<span class="mi">1</span> <span class="n">b</span>
+<span class="mi">2</span> <span class="n">c</span>
+<span class="mi">3</span> <span class="n">d</span>
+</pre></div></div>
+	</div>
+		<footer>
+		  <p>Powered by <a href="http://getpelican.com/">Pelican</a>. Theme based on <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a>.</p>
+		  <p>&copy; 商伟</p>
+		</footer>
+	  </div>
+
+	</div>
+</body>
+</html>

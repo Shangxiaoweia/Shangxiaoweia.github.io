@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>商伟的技术博客</title>
+	<meta name="description" content="">
+	<meta name="author" content="商伟">
+
+	<!-- HTML5 shim, for IE6-8 support of HTML elements -->
+	<!--[if lt IE 9]>
+		<script src="/theme/html5.js"></script>
+	<![endif]-->
+
+	<!-- Styles -->
+	<link href="/theme/bootstrap.min.css" rel="stylesheet">
+	<link href="/theme/local.css" rel="stylesheet">
+	<link href="/theme/pygments.css" rel="stylesheet">
+
+	<!-- Feeds -->
+
+
+
+
+</head>
+<body>
+	<div class="topbar">
+	  <div class="topbar-inner">
+		<div class="container-fluid">
+		  <a class="brand" href="/">商伟的技术博客</a>
+			<ul class="nav">
+					<li class="active"><a href="/category/django.html">Django</a></li>
+					<li ><a href="/category/git.html">GIT</a></li>
+					<li ><a href="/category/javascript.html">JavaScript</a></li>
+					<li ><a href="/category/mongodb.html">Mongodb</a></li>
+					<li ><a href="/category/mysql.html">MySQL</a></li>
+					<li ><a href="/category/pa-chong.html">爬虫</a></li>
+					<li ><a href="/category/python.html">Python</a></li>
+					<li ><a href="/category/rabbitmq.html">RabbitMQ</a></li>
+					<li ><a href="/category/redis.html">redis</a></li>
+					<li ><a href="/category/sui-shou-bi-ji.html">随手笔记</a></li>
+					<li ><a href="/category/supervisor.html">Supervisor</a></li>
+					<li ><a href="/category/vue.html">VUE</a></li>
+					<li ><a href="/category/wang-luo.html">网络</a></li>
+					<li ><a href="/category/xiao-cheng-xu.html">小程序</a></li>
+					<li ><a href="/category/xu-ni-huan-jing.html">虚拟环境</a></li>
+			</ul>
+			<p class="pull-right"><a href="/archives.html">[archives]</a> <a href="/tags.html">[tags]</a></p>
+		</div>
+	  </div>
+	</div>
+
+	<div class="container-fluid">
+	  <div class="sidebar">
+		<div class="well">
+			<h3>Blogroll</h3>
+			<ul>
+				<li><a href="http://getpelican.com/">Pelican</a></li>
+				<li><a href="http://python.org/">Python.org</a></li>
+				<li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+				<li><a href="https://shangxiaoweia.github.io/puzzle.html">拼图</a></li>
+			</ul>
+			<div class="social">
+			<h3>Social</h3>
+			<ul>
+				<li><a href="https://han520min.github.io">hanmin</a></li>
+			</ul>
+			</div>
+		</div>
+	  </div>
+	  <div class="content">
+	<div class='article'>
+		<div class="page-header"><h1>Django查询语句</h1></div>
+		<div class="well small">Permalink: <a class="more" href="/Django查询语句.html">2019-08-08 18:44:00+02:00</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/django.html">Django</a>
+tags: <a href="/tag/django.html">Django</a> </div>
+		<div><h1>查询语句</h1>
+<div class="highlight"><pre><span></span>    #查询全部数据 翻译为 <span class="nv">select</span> <span class="o">*</span> <span class="nv">from</span> <span class="nv">user</span><span class="c1">; all()返回值是list</span>
+    <span class="nv">res</span> <span class="o">=</span> <span class="nv">User</span>.<span class="nv">objects</span>.<span class="nv">all</span><span class="ss">()</span>
+    #<span class="nv">print</span><span class="ss">(</span><span class="nv">res</span><span class="ss">)</span>
+    #分页 <span class="mi">0</span>开始位置,<span class="mi">2</span>结束位置，注意<span class="mi">2</span>不是取几条
+    <span class="nv">res</span> <span class="o">=</span> <span class="nv">User</span>.<span class="nv">objects</span>.<span class="nv">all</span><span class="ss">()</span>[<span class="mi">0</span>,<span class="mi">2</span>]
+    #<span class="nv">print</span><span class="ss">(</span><span class="nv">res</span><span class="ss">)</span>
+
+    #查询限定条件的数据 翻译为 <span class="nv">select</span> <span class="o">*</span> <span class="nv">from</span> <span class="nv">user</span> <span class="nv">where</span> <span class="nv">username</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="s">新用户123</span><span class="s1">&#39;</span> <span class="nv">and</span>逻辑使用多个参数传递
+    <span class="nv">res</span> <span class="o">=</span> <span class="nv">User</span>.<span class="nv">objects</span>.<span class="nv">filter</span><span class="ss">(</span><span class="nv">username</span><span class="o">=</span><span class="s1">&#39;</span><span class="s">新用户</span><span class="s1">&#39;</span>,<span class="nv">password</span><span class="o">=</span><span class="s1">&#39;</span><span class="s">你好</span><span class="s1">&#39;</span><span class="ss">)</span>
+    #<span class="nv">print</span><span class="ss">(</span><span class="nv">res</span><span class="ss">)</span>
+
+    #只取一条 翻译 <span class="nv">select</span> <span class="o">*</span> <span class="nv">from</span> <span class="nv">user</span> <span class="nv">where</span> <span class="nv">id</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="nv">res_one</span> <span class="o">=</span> <span class="nv">User</span>.<span class="nv">objects</span>.<span class="nv">get</span><span class="ss">(</span><span class="nv">id</span><span class="o">=</span><span class="mi">1</span><span class="ss">)</span>
+    #<span class="nv">print</span><span class="ss">(</span><span class="nv">res_one</span><span class="ss">)</span>
+
+    #排除条件  翻译为 <span class="nv">select</span> <span class="o">*</span> <span class="nv">from</span> <span class="nv">user</span> <span class="nv">where</span> <span class="nv">username</span> <span class="o">!=</span> <span class="s1">&#39;</span><span class="s">新用户123</span><span class="s1">&#39;</span>   <span class="o">&lt;&gt;</span>
+    <span class="nv">res</span> <span class="o">=</span> <span class="nv">User</span>.<span class="nv">objects</span>.<span class="nv">exclude</span><span class="ss">(</span><span class="nv">username</span><span class="o">=</span><span class="s1">&#39;</span><span class="s">新用户</span><span class="s1">&#39;</span><span class="ss">)</span>
+
+    #定制字段显示 翻译为 <span class="nv">select</span> <span class="nv">password</span> <span class="nv">from</span> <span class="nv">user</span> <span class="nv">where</span> <span class="nv">name</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="s">新用户</span><span class="s1">&#39;</span>
+    <span class="nv">res_s</span> <span class="o">=</span> <span class="nv">User</span>.<span class="nv">objects</span>.<span class="nv">filter</span><span class="ss">(</span><span class="nv">username</span><span class="o">=</span><span class="s1">&#39;</span><span class="s">新用户</span><span class="s1">&#39;</span><span class="ss">)</span>.<span class="nv">values</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">password</span><span class="s1">&#39;</span><span class="ss">)</span>
+
+    #使用<span class="nv">values</span><span class="ss">()</span>方法可以自动将结果集转换成可用模式
+    <span class="nv">data</span> <span class="o">=</span> <span class="nv">User</span>.<span class="nv">objects</span>.<span class="nv">all</span><span class="ss">()</span>.<span class="nv">values</span><span class="ss">()</span>
+    <span class="nv">data</span> <span class="o">=</span> <span class="nv">list</span><span class="ss">(</span><span class="nv">data</span><span class="ss">)</span>
+
+    #排序 翻译为 <span class="nv">select</span> <span class="o">*</span> <span class="nv">from</span> <span class="nv">user</span> <span class="nv">order</span> <span class="nv">by</span> <span class="nv">id</span> <span class="nv">asc</span>  倒序使用 <span class="nv">reverse</span><span class="ss">()</span>
+    <span class="nv">res</span> <span class="o">=</span> <span class="nv">User</span>.<span class="nv">objects</span>.<span class="nv">filter</span><span class="ss">(</span><span class="nv">username</span><span class="o">=</span><span class="s1">&#39;</span><span class="s">新用户</span><span class="s1">&#39;</span><span class="ss">)</span>.<span class="nv">order_by</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">password</span><span class="s2">&quot;</span><span class="ss">)</span>.<span class="nv">reverse</span><span class="ss">()</span>
+    #第二种方法 <span class="o">-</span><span class="nv">password</span>降序
+    <span class="nv">res</span> <span class="o">=</span> <span class="nv">User</span>.<span class="nv">objects</span>.<span class="nv">filter</span><span class="ss">(</span><span class="nv">username</span><span class="o">=</span><span class="s1">&#39;</span><span class="s">新用户</span><span class="s1">&#39;</span><span class="ss">)</span>.<span class="nv">order_by</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">-password</span><span class="s2">&quot;</span><span class="ss">)</span>
+
+    #去重 翻译为 <span class="nv">select</span> <span class="nv">distinct</span><span class="ss">(</span><span class="nv">username</span><span class="ss">)</span> <span class="nv">from</span> <span class="nv">user</span> <span class="nv">where</span> <span class="nv">username</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="s">新用户</span><span class="s1">&#39;</span>
+    <span class="nv">res_dis</span> <span class="o">=</span> <span class="nv">User</span>.<span class="nv">objects</span>.<span class="nv">filter</span><span class="ss">(</span><span class="nv">username</span><span class="o">=</span><span class="s1">&#39;</span><span class="s">新用户</span><span class="s1">&#39;</span><span class="ss">)</span>.<span class="nv">values</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">username</span><span class="s1">&#39;</span><span class="ss">)</span>.<span class="nv">distinct</span><span class="ss">()</span>
+    #<span class="nv">print</span><span class="ss">(</span><span class="nv">res_dis</span><span class="ss">)</span>
+
+    #取数量 翻译为 <span class="nv">select</span> <span class="nv">count</span><span class="ss">(</span><span class="o">*</span><span class="ss">)</span> <span class="nv">from</span> <span class="nv">user</span>
+    <span class="nv">res_count</span> <span class="o">=</span> <span class="nv">User</span>.<span class="nv">objects</span>.<span class="nv">filter</span><span class="ss">(</span><span class="nv">username</span><span class="o">=</span><span class="s1">&#39;</span><span class="s">新用户</span><span class="s1">&#39;</span><span class="ss">)</span>.<span class="nv">count</span><span class="ss">()</span>
+    <span class="nv">print</span><span class="ss">(</span><span class="nv">res_count</span><span class="ss">)</span>
+
+    #模糊查询 <span class="nv">contains</span>：是否包含。<span class="nv">select</span> <span class="o">*</span> <span class="nv">from</span> <span class="nv">user</span> <span class="nv">where</span> <span class="nv">name</span> <span class="nv">like</span> <span class="s1">&#39;</span><span class="s">%新%</span><span class="s1">&#39;</span>
+
+    例：查询姓名包含<span class="s1">&#39;</span><span class="s">新</span><span class="s1">&#39;</span>的用户。
+    <span class="nv">User</span>.<span class="nv">objects</span>.<span class="nv">filter</span><span class="ss">(</span><span class="nv">name__contains</span><span class="o">=</span><span class="s1">&#39;</span><span class="s">新</span><span class="s1">&#39;</span><span class="ss">)</span>
+
+    #<span class="nv">startswith</span>、<span class="nv">endswith</span>：以指定值开头或结尾
+    <span class="nv">User</span>.<span class="nv">objects</span>.<span class="nv">filter</span><span class="ss">(</span><span class="nv">name__startswith</span><span class="o">=</span><span class="s1">&#39;</span><span class="s">新</span><span class="s1">&#39;</span><span class="ss">)</span>
+
+    #<span class="nv">isnull</span>：是否为<span class="nv">null</span>
+    <span class="nv">User</span>.<span class="nv">objects</span>.<span class="nv">filter</span><span class="ss">(</span><span class="nv">name__isnull</span><span class="o">=</span><span class="nv">True</span><span class="ss">)</span>
+
+    #<span class="nv">in</span>：是否包含在范围内
+    <span class="nv">User</span>.<span class="nv">objects</span>.<span class="nv">filter</span><span class="ss">(</span><span class="nv">id__in</span><span class="o">=</span>[<span class="mi">1</span>,<span class="mi">3</span>,<span class="mi">5</span>]<span class="ss">)</span>
+
+    #比较查询
+
+    <span class="nv">gt</span>大于 <span class="ss">(</span><span class="nv">greater</span> <span class="k">then</span><span class="ss">)</span>
+    <span class="nv">gte</span>大于等于 <span class="ss">(</span><span class="nv">greater</span> <span class="k">then</span> <span class="nv">equal</span><span class="ss">)</span>
+    <span class="nv">lt</span>小于 <span class="ss">(</span><span class="nv">less</span> <span class="k">then</span><span class="ss">)</span>
+    <span class="nv">lte</span>小于等于 <span class="ss">(</span><span class="nv">less</span> <span class="k">then</span> <span class="nv">equal</span><span class="ss">)</span>
+    例：<span class="nv">User</span>.<span class="nv">objects</span>.<span class="nv">filter</span><span class="ss">(</span><span class="nv">id__gt</span><span class="o">=</span><span class="mi">2</span><span class="ss">)</span>
+</pre></div></div>
+	</div>
+		<footer>
+		  <p>Powered by <a href="http://getpelican.com/">Pelican</a>. Theme based on <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a>.</p>
+		  <p>&copy; 商伟</p>
+		</footer>
+	  </div>
+
+	</div>
+</body>
+</html>

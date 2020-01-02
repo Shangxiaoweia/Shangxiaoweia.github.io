@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>商伟的技术博客</title>
+	<meta name="description" content="">
+	<meta name="author" content="商伟">
+
+	<!-- HTML5 shim, for IE6-8 support of HTML elements -->
+	<!--[if lt IE 9]>
+		<script src="/theme/html5.js"></script>
+	<![endif]-->
+
+	<!-- Styles -->
+	<link href="/theme/bootstrap.min.css" rel="stylesheet">
+	<link href="/theme/local.css" rel="stylesheet">
+	<link href="/theme/pygments.css" rel="stylesheet">
+
+	<!-- Feeds -->
+
+
+
+
+</head>
+<body>
+	<div class="topbar">
+	  <div class="topbar-inner">
+		<div class="container-fluid">
+		  <a class="brand" href="/">商伟的技术博客</a>
+			<ul class="nav">
+					<li ><a href="/category/django.html">Django</a></li>
+					<li ><a href="/category/git.html">GIT</a></li>
+					<li ><a href="/category/javascript.html">JavaScript</a></li>
+					<li ><a href="/category/mongodb.html">Mongodb</a></li>
+					<li ><a href="/category/mysql.html">MySQL</a></li>
+					<li ><a href="/category/pa-chong.html">爬虫</a></li>
+					<li ><a href="/category/python.html">Python</a></li>
+					<li ><a href="/category/rabbitmq.html">RabbitMQ</a></li>
+					<li ><a href="/category/redis.html">redis</a></li>
+					<li ><a href="/category/sui-shou-bi-ji.html">随手笔记</a></li>
+					<li ><a href="/category/supervisor.html">Supervisor</a></li>
+					<li ><a href="/category/vue.html">VUE</a></li>
+					<li ><a href="/category/wang-luo.html">网络</a></li>
+					<li ><a href="/category/xiao-cheng-xu.html">小程序</a></li>
+					<li ><a href="/category/xu-ni-huan-jing.html">虚拟环境</a></li>
+			</ul>
+			<p class="pull-right"><a href="/archives.html">[archives]</a> <a href="/tags.html">[tags]</a></p>
+		</div>
+	  </div>
+	</div>
+
+	<div class="container-fluid">
+	  <div class="sidebar">
+		<div class="well">
+			<h3>Blogroll</h3>
+			<ul>
+				<li><a href="http://getpelican.com/">Pelican</a></li>
+				<li><a href="http://python.org/">Python.org</a></li>
+				<li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+				<li><a href="https://shangxiaoweia.github.io/puzzle.html">拼图</a></li>
+			</ul>
+			<div class="social">
+			<h3>Social</h3>
+			<ul>
+				<li><a href="https://han520min.github.io">hanmin</a></li>
+			</ul>
+			</div>
+		</div>
+	  </div>
+	  <div class="content">
+<div class="page-header"><h1>商伟的技术博客 <small>网络</small></h1></div>
+<div class='article'>
+	<h2>网络</h2>
+	<div class="well small">Permalink: <a class="more" href="/网络.html">1000-01-01 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/wang-luo.html">网络</a>
+tags: <a href="/tag/wang-luo.html">网络</a> </div>
+	<div class="summary"><h2>OSI七层协议</h2>
+<table>
+<thead>
+<tr>
+<th>-</th>
+<th>-</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>物理层</td>
+<td></td>
+</tr>
+<tr>
+<td>数据层</td>
+<td>rarp、arp</td>
+</tr>
+<tr>
+<td>网络层</td>
+<td>ip、IPv4、IPv6</td>
+</tr>
+<tr>
+<td>传输层</td>
+<td>tcp、udp</td>
+</tr>
+<tr>
+<td>会话层</td>
+<td></td>
+</tr>
+<tr>
+<td>表示层</td>
+<td></td>
+</tr>
+<tr>
+<td>应用层</td>
+<td>Ftp、ssh、http</td>
+</tr>
+</tbody>
+</table>
+<h2>HTTP协议</h2>
+<h3>无状态</h3>
+<ul>
+<li>没有记忆功能，服务器不知道客户端是什么状态</li>
+<li>解决办法：session，cookie</li>
+</ul>
+<h3>无连接</h3>
+<ul>
+<li>每次链接只处理一个请求，然后断开链接</li>
+<li>解决办法：</li>
+<li>轮询</li>
+<li>长轮询</li>
+<li>websocket</li>
+</ul>
+<h2>轮询</h2>
+<ul>
+<li>客户端定时向服务器发起请求，服务器接到请求后马上返回响应信息并关闭连接。</li>
+<li>优点：后端编写程序容易</li>
+<li>缺点：请求中有大半是无用，浪费带宽和服务器资源。</li>
+<li>适用于小型应用</li>
+</ul>
+<h2>长轮询</h2>
+<ul>
+<li>客户端向服务器发起请求，服务器接到请求后hold住连接，直到有新消息才返回响应信息并关闭连接，客户端处理完响应信息后再向服务器发送新的请求。</li>
+<li>优点：在无消息的情况下不会频繁的请求。</li>
+<li>缺点：服务器hold连接会消耗资源 …</li></ul> <a class="btn primary xsmall" href="/网络.html">more…</a>
+	</div>
+</div>	
+
+
+		<footer>
+		  <p>Powered by <a href="http://getpelican.com/">Pelican</a>. Theme based on <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a>.</p>
+		  <p>&copy; 商伟</p>
+		</footer>
+	  </div>
+
+	</div>
+</body>
+</html>
