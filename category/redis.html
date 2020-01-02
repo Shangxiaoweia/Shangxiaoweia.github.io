@@ -163,6 +163,51 @@ tags: <a href="/tag/redis.html">redis</a> </div>
 <li>配置3个哨兵，每个哨兵的配置都是一样的 …</li></ol> <a class="btn primary xsmall" href="/redis哨兵模式.html">more…</a>
 	</div>
 </div>	
+<div class='article'>
+	<h2>redis安装及配置</h2>
+	<div class="well small">Permalink: <a class="more" href="/redis安装及配置.html">1000-01-01 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/redis.html">redis</a>
+tags: <a href="/tag/redis.html">redis</a> </div>
+	<div class="summary"><h5>centos7 安装redis</h5>
+<h5>下载源码</h5>
+<div class="highlight"><pre><span></span>wget http://download.redis.io/releases/redis-5.0.7.tar.gz
+</pre></div>
+
+
+<h5>解压</h5>
+<div class="highlight"><pre><span></span>tar xzf redis-5.0.7.tar.gz
+</pre></div>
+
+
+<h5>进入文件进行编译</h5>
+<div class="highlight"><pre><span></span>cd redis-5.0.7/ 
+</pre></div>
+
+
+<h5>执行提示信息</h5>
+<div class="highlight"><pre><span></span> make &amp;&amp; make install PREFIX=/usr/local/redis
+</pre></div>
+
+
+<h4>如果出现</h4>
+<h4>1)</h4>
+<p><img alt="shang" src="http://q2swuopnz.bkt.clouddn.com/blogs/1577448685327.png"></p>
+<h5>原因是系统没有安装gcc环境，解决：</h5>
+<h5>安装gcc</h5>
+<div class="highlight"><pre><span></span>yum install gcc-c++
+</pre></div>
+
+
+<h5>清空上次编译残留，不然会有问题的</h5>
+<div class="highlight"><pre><span></span>make distclean
+</pre></div>
+
+
+<h5>执行编译及安装</h5>
+<div class="highlight"><pre><span></span> make &amp;&amp; make …</pre></div> <a class="btn primary xsmall" href="/redis安装及配置.html">more…</a>
+	</div>
+</div>	
 
 
 		<footer>

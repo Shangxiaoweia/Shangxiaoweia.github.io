@@ -290,6 +290,49 @@ tags: <a href="/tag/python.html">Python</a> </div>
 	</div>
 </div>	
 <div class='article'>
+	<h2>Python-正则</h2>
+	<div class="well small">Permalink: <a class="more" href="/Python-正则.html">1000-01-10 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/python.html">Python</a>
+tags: <a href="/tag/python.html">Python</a> </div>
+	<div class="summary"><h3>正则</h3>
+<blockquote>
+<p>一些特殊符号及文本组合在一起的用来描述字符或字符串的一些规则，叫做正则</p>
+</blockquote>
+<h4>正则中的特殊符号</h4>
+<blockquote>
+<p><strong>匹配一个范围</strong>： <strong>[]</strong>
+<strong>[A-Z]</strong>：A, B, C…
+<strong>[0-9]</strong>：1, 2, 3…</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><strong>匹配任何数字字符</strong>：<strong>\d</strong>
+<strong>\d</strong>：1, 2, 3…</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><strong>匹配任何空白符</strong>：<strong>\s</strong>
+<strong>\s</strong>：\t (水平制表), \v (垂直制表), \n (换行), \r (回车), \f (换页)</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><strong>匹配任何数字、字母、字符及下划线</strong>：<strong>\w</strong>
+<strong>\w</strong>： a, 1, _</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><strong>匹配除了换行符任意一个单个字符</strong>：<strong>.</strong>
+a<strong>.</strong>c：abc, a2c, a_c
+<strong>..</strong>：匹配任意字符组成的两个长度的字符串</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><strong>匹配前面出现的正则表达式0次或多次</strong>：<strong><em>*</em></strong>
+a<strong><em>*</em>：aaa …</strong></p></blockquote> <a class="btn primary xsmall" href="/Python-正则.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
 	<h2>Python-集合</h2>
 	<div class="well small">Permalink: <a class="more" href="/Python-集合.html">1000-01-10 18:44:00+00:09</a>
 by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
@@ -370,40 +413,6 @@ tags: <a href="/tag/python.html">Python</a> </div>
 <ul>
 <li>也是下标进行查看</li>
 </ul> <a class="btn primary xsmall" href="/Python-元祖.html">more…</a>
-	</div>
-</div>	
-<div class='article'>
-	<h2>Python-字典</h2>
-	<div class="well small">Permalink: <a class="more" href="/Python-字典.html">1000-01-09 18:44:00+00:09</a>
-by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/python.html">Python</a>
-tags: <a href="/tag/python.html">Python</a> </div>
-	<div class="summary"><h4>字典的介绍</h4>
-<div class="highlight"><pre><span></span><span class="n">info</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span><span class="s1">&#39;班长&#39;</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;sex&#39;</span><span class="p">:</span><span class="s1">&#39;f&#39;</span><span class="p">,</span> <span class="s1">&#39;address&#39;</span><span class="p">:</span><span class="s1">&#39;地球亚洲中国北京&#39;</span><span class="p">}</span>
-</pre></div>
-
-
-<ul>
-<li>字典和列表一样，也能够存储多个数据</li>
-<li>列表中找某个元素时，是根据下标进行的</li>
-<li>字典中找某个元素时，是根据'名字'（就是冒号:前面的那个值，例如上面代码中的'name'、'id'、'sex'）</li>
-<li>字典的每个元素由2部分组成，键:值。例如 'name':'班长' ,'name'为键，'班长'为值</li>
-</ul>
-<h5>字典的添加操作</h5>
-<ul>
-<li>info['id'] = ‘shangwei’</li>
-<li>如果在使用 <strong>变量名['键'] = 数据</strong> 时，这个“键”在字典中，不存在，那么就会新增这个元素</li>
-</ul>
-<h5>字典的删除操作</h5>
-<ul>
-<li>del</li>
-<li>del删除指定的元素</li>
-<li>clear()</li>
-<li>:clear清空整个字典</li>
-</ul>
-<h5>字典的修改操作</h5>
-<ul>
-<li>字典的修改操作就是 …</li></ul> <a class="btn primary xsmall" href="/Python-字典.html">more…</a>
 	</div>
 </div>	
 

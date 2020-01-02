@@ -70,6 +70,40 @@
 	  <div class="content">
 <div class="page-header"><h1>商伟的技术博客 <small>商伟</small></h1></div>
 <div class='article'>
+	<h2>Python-字典</h2>
+	<div class="well small">Permalink: <a class="more" href="/Python-字典.html">1000-01-09 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/python.html">Python</a>
+tags: <a href="/tag/python.html">Python</a> </div>
+	<div class="summary"><h4>字典的介绍</h4>
+<div class="highlight"><pre><span></span><span class="n">info</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span><span class="s1">&#39;班长&#39;</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;sex&#39;</span><span class="p">:</span><span class="s1">&#39;f&#39;</span><span class="p">,</span> <span class="s1">&#39;address&#39;</span><span class="p">:</span><span class="s1">&#39;地球亚洲中国北京&#39;</span><span class="p">}</span>
+</pre></div>
+
+
+<ul>
+<li>字典和列表一样，也能够存储多个数据</li>
+<li>列表中找某个元素时，是根据下标进行的</li>
+<li>字典中找某个元素时，是根据'名字'（就是冒号:前面的那个值，例如上面代码中的'name'、'id'、'sex'）</li>
+<li>字典的每个元素由2部分组成，键:值。例如 'name':'班长' ,'name'为键，'班长'为值</li>
+</ul>
+<h5>字典的添加操作</h5>
+<ul>
+<li>info['id'] = ‘shangwei’</li>
+<li>如果在使用 <strong>变量名['键'] = 数据</strong> 时，这个“键”在字典中，不存在，那么就会新增这个元素</li>
+</ul>
+<h5>字典的删除操作</h5>
+<ul>
+<li>del</li>
+<li>del删除指定的元素</li>
+<li>clear()</li>
+<li>:clear清空整个字典</li>
+</ul>
+<h5>字典的修改操作</h5>
+<ul>
+<li>字典的修改操作就是 …</li></ul> <a class="btn primary xsmall" href="/Python-字典.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
 	<h2>Python-列表</h2>
 	<div class="well small">Permalink: <a class="more" href="/Python-列表.html">1000-01-08 18:44:00+00:09</a>
 by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
@@ -469,42 +503,6 @@ tags: <a href="/tag/git.html">GIT</a> </div>
 <span class="p">(</span><span class="err">默认是</span><span class="n">id_rsa</span><span class="p">)</span><span class="o">./</span><span class="err">密码名称</span> 
 <span class="n">mkdir</span> <span class="o">.</span><span class="n">ssh</span>   <span class="c1">#创建</span>
 <span class="n">ls …</span></pre></div> <a class="btn primary xsmall" href="/云服务部署Git.html">more…</a>
-	</div>
-</div>	
-<div class='article'>
-	<h2>微信小程序路由带参</h2>
-	<div class="well small">Permalink: <a class="more" href="/微信小程序路由带参.html">1000-01-02 18:44:00+00:09</a>
-by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/xiao-cheng-xu.html">小程序</a>
-tags: <a href="/tag/xiao-cheng-xu.html">小程序</a> </div>
-	<div class="summary"><h5>通过url带参传递</h5>
-<p>wxml</p>
-<div class="highlight"><pre><span></span>&lt;navigator url=&quot;../user/user?id={{item.id}}&amp;name={{item.name}}&quot;&gt;点此进入 detail&lt;/navigator&gt;
-</pre></div>
-
-
-<p>一、user--js</p>
-<div class="highlight"><pre><span></span>onLoad: function (options) { 
-    this.setData({
-        user_id: options.id,
-        user_name: options.name
-    }),
-    success:function(){
-　　　　console.log(&#39;接口调用成功&#39;)
-　　},
-　　fail:function(){
-　　　　console.log(&#39;接口调用失败&#39;) 
-　　},
-　　complete:function(){
-　　　　console.log(&#39;调用结束，调用成功失败都会执行&#39;)
-　　}
-}
-</pre></div>
-
-
-<h5>点击事件传参</h5>
-<p>wxml</p>
-<div class="highlight"><pre><span></span>    &lt;view wx:for=&#39;{{list …</pre></div> <a class="btn primary xsmall" href="/微信小程序路由带参.html">more…</a>
 	</div>
 </div>	
 

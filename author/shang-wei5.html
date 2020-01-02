@@ -70,6 +70,58 @@
 	  <div class="content">
 <div class="page-header"><h1>商伟的技术博客 <small>商伟</small></h1></div>
 <div class='article'>
+	<h2>Mongodb-操作</h2>
+	<div class="well small">Permalink: <a class="more" href="/Mongodb-操作.html">1000-01-01 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/mongodb.html">Mongodb</a>
+tags: <a href="/tag/mongodb.html">Mongodb</a> </div>
+	<div class="summary"><h5>命令</h5>
+<div class="highlight"><pre><span></span>$ mongo    # 进入到mongo命令行
+&gt; use test    # 连接到test数据库
+</pre></div>
+
+
+<p>启动服务后，进入 MongoDB 命令行操作界面：</p>
+<div class="highlight"><pre><span></span>mongo
+</pre></div>
+
+
+<p>使用 use 命令创建数据库：</p>
+<div class="highlight"><pre><span></span>use mydb
+</pre></div>
+
+
+<p>查看当前连接的数据库：</p>
+<div class="highlight"><pre><span></span>db
+</pre></div>
+
+
+<p>查看所有的数据库：</p>
+<div class="highlight"><pre><span></span>show dbs
+</pre></div>
+
+
+<h5>删除数据库</h5>
+<p>使用 db.dropDatabase() 销毁数据库：</p>
+<div class="highlight"><pre><span></span>&gt; use <span class="nb">local</span>
+switched to db <span class="nb">local</span>
+&gt; db.dropDatabase<span class="o">()</span>
+</pre></div>
+
+
+<p>查看所有的数据库：</p>
+<div class="highlight"><pre><span></span>&gt; show dbs
+</pre></div>
+
+
+<h5>创建集合</h5>
+<p>在数据库 mydb 中创建一个集合</p>
+<div class="highlight"><pre><span></span>&gt; use mydb
+switched to db mydb
+&gt; db.createCollection<span class="o">(</span><span class="s2">&quot;users …</span></pre></div> <a class="btn primary xsmall" href="/Mongodb-操作.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
 	<h2>Nginx</h2>
 	<div class="well small">Permalink: <a class="more" href="/Nginx.html">1000-01-01 18:44:00+00:09</a>
 by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
@@ -393,44 +445,6 @@ tags: <a href="/tag/redis.html">redis</a> </div>
 <span class="mi">2</span><span class="p">.</span><span class="err">将该文件夹添加至系统环境变量中</span>
 <span class="mi">3</span><span class="p">.</span><span class="err">在解压的文件目录的地址栏上输入</span><span class="n">cmd</span><span class="p">,</span> <span class="err">在</span><span class="n">cmd窗口中输入redis</span><span class="o">-</span><span class="n">server</span> <span class="p">.</span><span class="o">/</span><span class="n">redis</span><span class="p">.</span><span class="n">windows</span><span class="p">.</span><span class="n">conf</span> <span class="p">,</span> <span class="err">然后回车</span><span class="p">,</span> <span class="n">redis安装成功了</span>
 </pre></div> <a class="btn primary xsmall" href="/Windows安装redis.html">more…</a>
-	</div>
-</div>	
-<div class='article'>
-	<h2>js-if语句</h2>
-	<div class="well small">Permalink: <a class="more" href="/js-if语句.html">1000-01-01 18:44:00+00:09</a>
-by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/javascript.html">JavaScript</a>
-tags: <a href="/tag/javascript.html">JavaScript</a> </div>
-	<div class="summary"><h5>定义</h5>
-<div class="highlight"><pre><span></span>let a = 1,b = 2;
-console.log(a)
-console.log(b)
-</pre></div>
-
-
-<h5>方法一</h5>
-<div class="highlight"><pre><span></span>if(a &gt; b){
-  console.log(&#39;a大&#39;)
-}else{
-  console.log(&#39;b大&#39;)
-}
-</pre></div>
-
-
-<h5>方法二</h5>
-<div class="highlight"><pre><span></span>if(a &gt; b) console.log(&#39;a大&#39;)
-if(a &lt; b) console.log(&#39;b大&#39;
-</pre></div>
-
-
-<h5>方法三</h5>
-<div class="highlight"><pre><span></span>if(a &gt; b) console.log(&#39;a大&#39;)
-else console.log(&#39;b大&#39;)
-</pre></div>
-
-
-<h5>方法四</h5>
-<div class="highlight"><pre><span></span>console.log …</pre></div> <a class="btn primary xsmall" href="/js-if语句.html">more…</a>
 	</div>
 </div>	
 

@@ -70,6 +70,42 @@
 	  <div class="content">
 <div class="page-header"><h1> 商伟的技术博客 </h1></div>
 <div class='article'>
+	<h2>微信小程序路由带参</h2>
+	<div class="well small">Permalink: <a class="more" href="/微信小程序路由带参.html">1000-01-02 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/xiao-cheng-xu.html">小程序</a>
+tags: <a href="/tag/xiao-cheng-xu.html">小程序</a> </div>
+	<div class="summary"><h5>通过url带参传递</h5>
+<p>wxml</p>
+<div class="highlight"><pre><span></span>&lt;navigator url=&quot;../user/user?id={{item.id}}&amp;name={{item.name}}&quot;&gt;点此进入 detail&lt;/navigator&gt;
+</pre></div>
+
+
+<p>一、user--js</p>
+<div class="highlight"><pre><span></span>onLoad: function (options) { 
+    this.setData({
+        user_id: options.id,
+        user_name: options.name
+    }),
+    success:function(){
+　　　　console.log(&#39;接口调用成功&#39;)
+　　},
+　　fail:function(){
+　　　　console.log(&#39;接口调用失败&#39;) 
+　　},
+　　complete:function(){
+　　　　console.log(&#39;调用结束，调用成功失败都会执行&#39;)
+　　}
+}
+</pre></div>
+
+
+<h5>点击事件传参</h5>
+<p>wxml</p>
+<div class="highlight"><pre><span></span>    &lt;view wx:for=&#39;{{list …</pre></div> <a class="btn primary xsmall" href="/微信小程序路由带参.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
 	<h2>爬虫第一个请求</h2>
 	<div class="well small">Permalink: <a class="more" href="/爬虫第一个请求.html">1000-01-02 18:44:00+00:09</a>
 by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
@@ -385,58 +421,6 @@ tags: <a href="/tag/redis.html">redis</a> </div>
 <li>查看是否启动成功：</li>
 </ul>
 <div class="highlight"><pre><span></span> <span class="n">ps</span> <span class="n">aux</span> <span class="o">|</span> <span class="n">grep</span> <span class="n">redis …</span></pre></div> <a class="btn primary xsmall" href="/Linux安装redis.html">more…</a>
-	</div>
-</div>	
-<div class='article'>
-	<h2>Mongodb-操作</h2>
-	<div class="well small">Permalink: <a class="more" href="/Mongodb-操作.html">1000-01-01 18:44:00+00:09</a>
-by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/mongodb.html">Mongodb</a>
-tags: <a href="/tag/mongodb.html">Mongodb</a> </div>
-	<div class="summary"><h5>命令</h5>
-<div class="highlight"><pre><span></span>$ mongo    # 进入到mongo命令行
-&gt; use test    # 连接到test数据库
-</pre></div>
-
-
-<p>启动服务后，进入 MongoDB 命令行操作界面：</p>
-<div class="highlight"><pre><span></span>mongo
-</pre></div>
-
-
-<p>使用 use 命令创建数据库：</p>
-<div class="highlight"><pre><span></span>use mydb
-</pre></div>
-
-
-<p>查看当前连接的数据库：</p>
-<div class="highlight"><pre><span></span>db
-</pre></div>
-
-
-<p>查看所有的数据库：</p>
-<div class="highlight"><pre><span></span>show dbs
-</pre></div>
-
-
-<h5>删除数据库</h5>
-<p>使用 db.dropDatabase() 销毁数据库：</p>
-<div class="highlight"><pre><span></span>&gt; use <span class="nb">local</span>
-switched to db <span class="nb">local</span>
-&gt; db.dropDatabase<span class="o">()</span>
-</pre></div>
-
-
-<p>查看所有的数据库：</p>
-<div class="highlight"><pre><span></span>&gt; show dbs
-</pre></div>
-
-
-<h5>创建集合</h5>
-<p>在数据库 mydb 中创建一个集合</p>
-<div class="highlight"><pre><span></span>&gt; use mydb
-switched to db mydb
-&gt; db.createCollection<span class="o">(</span><span class="s2">&quot;users …</span></pre></div> <a class="btn primary xsmall" href="/Mongodb-操作.html">more…</a>
 	</div>
 </div>	
 
