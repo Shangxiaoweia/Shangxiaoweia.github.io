@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>商伟的技术博客</title>
+	<meta name="description" content="">
+	<meta name="author" content="商伟">
+
+	<!-- HTML5 shim, for IE6-8 support of HTML elements -->
+	<!--[if lt IE 9]>
+		<script src="/theme/html5.js"></script>
+	<![endif]-->
+
+	<!-- Styles -->
+	<link href="/theme/bootstrap.min.css" rel="stylesheet">
+	<link href="/theme/local.css" rel="stylesheet">
+	<link href="/theme/pygments.css" rel="stylesheet">
+
+	<!-- Feeds -->
+
+
+
+
+</head>
+<body>
+	<div class="topbar">
+	  <div class="topbar-inner">
+		<div class="container-fluid">
+		  <a class="brand" href="/">商伟的技术博客</a>
+			<ul class="nav">
+					<li ><a href="/category/django.html">Django</a></li>
+					<li ><a href="/category/docker.html">Docker</a></li>
+					<li ><a href="/category/git.html">GIT</a></li>
+					<li ><a href="/category/javascript.html">JavaScript</a></li>
+					<li ><a href="/category/mongodb.html">Mongodb</a></li>
+					<li ><a href="/category/mysql.html">MySQL</a></li>
+					<li ><a href="/category/pa-chong.html">爬虫</a></li>
+					<li ><a href="/category/python.html">Python</a></li>
+					<li ><a href="/category/rabbitmq.html">RabbitMQ</a></li>
+					<li ><a href="/category/redis.html">redis</a></li>
+					<li ><a href="/category/shu-ju-jie-gou.html">数据结构</a></li>
+					<li ><a href="/category/sui-shou-bi-ji.html">随手笔记</a></li>
+					<li ><a href="/category/supervisor.html">Supervisor</a></li>
+					<li ><a href="/category/vue.html">VUE</a></li>
+					<li ><a href="/category/wang-luo.html">网络</a></li>
+					<li class="active"><a href="/category/xiao-cheng-xu.html">小程序</a></li>
+					<li ><a href="/category/xu-ni-huan-jing.html">虚拟环境</a></li>
+			</ul>
+			<p class="pull-right"><a href="/archives.html">[archives]</a> <a href="/tags.html">[tags]</a></p>
+		</div>
+	  </div>
+	</div>
+
+	<div class="container-fluid">
+	  <div class="sidebar">
+		<div class="well">
+			<h3>Blogroll</h3>
+			<ul>
+				<li><a href="http://getpelican.com/">Pelican</a></li>
+				<li><a href="http://python.org/">Python.org</a></li>
+				<li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+				<li><a href="https://shangxiaoweia.github.io/puzzle.html">拼图</a></li>
+			</ul>
+			<div class="social">
+			<h3>Social</h3>
+			<ul>
+				<li><a href="https://han520min.github.io">hanmin</a></li>
+			</ul>
+			</div>
+		</div>
+	  </div>
+	  <div class="content">
+	<div class='article'>
+		<div class="page-header"><h1>微信小程基础</h1></div>
+		<div class="well small">Permalink: <a class="more" href="/微信小程基础.html">2019-08-07 18:44:00+02:00</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/xiao-cheng-xu.html">小程序</a>
+tags: <a href="/tag/xiao-cheng-xu.html">小程序</a> </div>
+		<div><h4>微信小程序须知</h4>
+<div class="highlight"><pre><span></span><span class="err">每一个小程序的代码中，还有一个必须的元素，</span><span class="n">app</span><span class="p">.</span><span class="n">js</span> <span class="n">app</span><span class="p">.</span><span class="n">json</span> <span class="n">app</span><span class="p">.</span><span class="n">wxss</span>
+</pre></div>
+
+
+<ul>
+<li>app.json</li>
+<li>是设置小程序初始的界面</li>
+<li>app.wxml</li>
+<li>是写页面的，展示的内容都在这里书写</li>
+<li>app.wxss</li>
+<li>是书写样式的地方，相当于CSS</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="nt">&lt;view&gt;&lt;/view&gt;</span>为小程序的基本格式，里边写的是代码。
+<span class="nt">&lt;image</span> <span class="na">src=</span><span class="s">&quot;../images/shang.png&quot;</span><span class="nt">&gt;&lt;/image&gt;</span>展示图片
+<span class="nt">&lt;text&gt;&lt;/text&gt;</span>是文本框
+</pre></div>
+
+
+<h4>微信小程序里面的底部导航栏</h4>
+<p>在app.json里面编写</p>
+<div class="highlight"><pre><span></span>  <span class="ss">&quot;tabBar&quot;</span><span class="p">:</span> <span class="err">{</span>
+    <span class="ss">&quot;backgroundColor&quot;</span><span class="p">:</span> <span class="ss">&quot;#fff&quot;</span><span class="p">,</span>
+    <span class="ss">&quot;color&quot;</span><span class="p">:</span> <span class="ss">&quot;#A0A0A0&quot;</span><span class="p">,</span>
+    <span class="ss">&quot;selectedColor&quot;</span><span class="p">:</span> <span class="ss">&quot;#FF3300&quot;</span><span class="p">,</span>
+    <span class="ss">&quot;list&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="err">{</span>
+        <span class="ss">&quot;pagePath&quot;</span><span class="p">:</span> <span class="ss">&quot;pages/index/index&quot;</span><span class="p">,</span>
+        <span class="ss">&quot;iconPath&quot;</span><span class="p">:</span> <span class="ss">&quot;image/index.png&quot;</span><span class="p">,</span>
+        <span class="ss">&quot;selectedIconPath&quot;</span><span class="p">:</span> <span class="ss">&quot;image/zx_s.png&quot;</span><span class="p">,</span>
+        <span class="ss">&quot;text&quot;</span><span class="p">:</span> <span class="ss">&quot;首页&quot;</span>
+      <span class="err">}</span><span class="p">,</span>
+      <span class="err">{</span>
+        <span class="ss">&quot;pagePath&quot;</span><span class="p">:</span> <span class="ss">&quot;pages/covenant/covenant&quot;</span><span class="p">,</span>
+        <span class="ss">&quot;iconPath&quot;</span><span class="p">:</span> <span class="ss">&quot;image/covenant.png&quot;</span><span class="p">,</span>
+        <span class="ss">&quot;selectedIconPath&quot;</span><span class="p">:</span> <span class="ss">&quot;image/zx_s.png&quot;</span><span class="p">,</span>
+        <span class="ss">&quot;text&quot;</span><span class="p">:</span> <span class="ss">&quot;约课&quot;</span>
+      <span class="err">}</span>
+    <span class="p">]</span>
+  <span class="err">}</span>
+</pre></div></div>
+	</div>
+		<footer>
+		  <p>Powered by <a href="http://getpelican.com/">Pelican</a>. Theme based on <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a>.</p>
+		  <p>&copy; 商伟</p>
+		</footer>
+	  </div>
+
+	</div>
+</body>
+</html>

@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>商伟的技术博客</title>
+	<meta name="description" content="">
+	<meta name="author" content="商伟">
+
+	<!-- HTML5 shim, for IE6-8 support of HTML elements -->
+	<!--[if lt IE 9]>
+		<script src="/theme/html5.js"></script>
+	<![endif]-->
+
+	<!-- Styles -->
+	<link href="/theme/bootstrap.min.css" rel="stylesheet">
+	<link href="/theme/local.css" rel="stylesheet">
+	<link href="/theme/pygments.css" rel="stylesheet">
+
+	<!-- Feeds -->
+
+
+
+
+</head>
+<body>
+	<div class="topbar">
+	  <div class="topbar-inner">
+		<div class="container-fluid">
+		  <a class="brand" href="/">商伟的技术博客</a>
+			<ul class="nav">
+					<li class="active"><a href="/category/django.html">Django</a></li>
+					<li ><a href="/category/docker.html">Docker</a></li>
+					<li ><a href="/category/git.html">GIT</a></li>
+					<li ><a href="/category/javascript.html">JavaScript</a></li>
+					<li ><a href="/category/mongodb.html">Mongodb</a></li>
+					<li ><a href="/category/mysql.html">MySQL</a></li>
+					<li ><a href="/category/pa-chong.html">爬虫</a></li>
+					<li ><a href="/category/python.html">Python</a></li>
+					<li ><a href="/category/rabbitmq.html">RabbitMQ</a></li>
+					<li ><a href="/category/redis.html">redis</a></li>
+					<li ><a href="/category/shu-ju-jie-gou.html">数据结构</a></li>
+					<li ><a href="/category/sui-shou-bi-ji.html">随手笔记</a></li>
+					<li ><a href="/category/supervisor.html">Supervisor</a></li>
+					<li ><a href="/category/vue.html">VUE</a></li>
+					<li ><a href="/category/wang-luo.html">网络</a></li>
+					<li ><a href="/category/xiao-cheng-xu.html">小程序</a></li>
+					<li ><a href="/category/xu-ni-huan-jing.html">虚拟环境</a></li>
+			</ul>
+			<p class="pull-right"><a href="/archives.html">[archives]</a> <a href="/tags.html">[tags]</a></p>
+		</div>
+	  </div>
+	</div>
+
+	<div class="container-fluid">
+	  <div class="sidebar">
+		<div class="well">
+			<h3>Blogroll</h3>
+			<ul>
+				<li><a href="http://getpelican.com/">Pelican</a></li>
+				<li><a href="http://python.org/">Python.org</a></li>
+				<li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+				<li><a href="https://shangxiaoweia.github.io/puzzle.html">拼图</a></li>
+			</ul>
+			<div class="social">
+			<h3>Social</h3>
+			<ul>
+				<li><a href="https://han520min.github.io">hanmin</a></li>
+			</ul>
+			</div>
+		</div>
+	  </div>
+	  <div class="content">
+	<div class='article'>
+		<div class="page-header"><h1>Django多对多系列化与反序列化</h1></div>
+		<div class="well small">Permalink: <a class="more" href="/Django多对多系列化与反序列化.html">2019-08-08 18:44:00+02:00</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/django.html">Django</a>
+tags: <a href="/tag/django.html">Django</a> </div>
+		<div><h2>Django 序列化和反序列化</h2>
+<p>一、 序列化</p>
+<ul>
+<li>
+<p>查询所有的学生的信息，包括任课老师</p>
+</li>
+<li>
+<p><code>models.py</code></p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
+
+<span class="c1"># 学生类</span>
+<span class="k">class</span> <span class="nc">Student</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">32</span><span class="p">)</span>
+
+    <span class="c1"># 老师类</span>
+<span class="k">class</span> <span class="nc">Teacher</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">32</span><span class="p">)</span>
+    <span class="n">students</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ManyToManyField</span><span class="p">(</span><span class="n">to</span><span class="o">=</span><span class="s1">&#39;Student&#39;</span><span class="p">,</span><span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;teacher&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<ul>
+<li><code>serializer.py</code></li>
+</ul>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rest_framework</span> <span class="kn">import</span> <span class="n">serializers</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">models</span>
+
+<span class="c1"># 老师序列化</span>
+<span class="k">class</span> <span class="nc">TeacherSerializer</span><span class="p">(</span><span class="n">serializers</span><span class="o">.</span><span class="n">ModelSerializer</span><span class="p">):</span>
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Teacher</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span><span class="s1">&#39;name&#39;</span><span class="p">)</span>
+        <span class="c1"># 学生序列化</span>
+        <span class="k">class</span> <span class="nc">StudentSerializer</span><span class="p">(</span><span class="n">serializers</span><span class="o">.</span><span class="n">Serializer</span><span class="p">):</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">32</span><span class="p">)</span>
+            <span class="n">teacher</span> <span class="o">=</span> <span class="n">TeacherSerializer</span><span class="p">(</span><span class="n">many</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span><span class="n">read_only</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+
+
+<ul>
+<li><code>views.py</code></li>
+</ul>
+<div class="highlight"><pre><span></span># 查询所有的学生对应的老师
+<span class="nv">studentobj</span> <span class="o">=</span> <span class="nv">models</span>.<span class="nv">Student</span>.<span class="nv">objects</span>.<span class="nv">all</span><span class="ss">()</span>
+<span class="nv">stu</span> <span class="o">=</span> <span class="nv">StudentSerializer</span><span class="ss">(</span><span class="nv">studentobj</span>,<span class="nv">many</span><span class="o">=</span><span class="nv">True</span><span class="ss">)</span>
+<span class="k">return</span> <span class="nv">Response</span><span class="ss">(</span><span class="nv">stu</span>.<span class="nv">data</span><span class="ss">)</span>
+</pre></div>
+
+
+<ul>
+<li><code>结果</code></li>
+</ul>
+<div class="highlight"><pre><span></span>    <span class="p">[</span>
+        <span class="err">{</span>
+            <span class="ss">&quot;name&quot;</span><span class="p">:</span> <span class="ss">&quot;小张&quot;</span><span class="p">,</span>
+            <span class="ss">&quot;teacher&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="err">{</span>
+                <span class="ss">&quot;id&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+                <span class="ss">&quot;name&quot;</span><span class="p">:</span> <span class="ss">&quot;郑老师&quot;</span>
+                <span class="err">}</span>
+            <span class="p">]</span>
+        <span class="err">}</span><span class="p">,</span>
+        <span class="err">{</span>
+            <span class="ss">&quot;name&quot;</span><span class="p">:</span> <span class="ss">&quot;小李&quot;</span><span class="p">,</span>
+            <span class="ss">&quot;teacher&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="err">{</span>
+                <span class="ss">&quot;id&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+                <span class="ss">&quot;name&quot;</span><span class="p">:</span> <span class="ss">&quot;董老师&quot;</span>
+                <span class="err">}</span>
+            <span class="p">]</span>
+        <span class="err">}</span><span class="p">,</span>
+        <span class="err">{</span>
+        <span class="ss">&quot;name&quot;</span><span class="p">:</span> <span class="ss">&quot;小夏&quot;</span><span class="p">,</span>
+        <span class="ss">&quot;teacher&quot;</span><span class="p">:</span> <span class="p">[]</span>
+        <span class="err">}</span><span class="p">,</span>
+        <span class="err">{</span>
+        <span class="ss">&quot;name&quot;</span><span class="p">:</span> <span class="ss">&quot;小徐&quot;</span><span class="p">,</span>
+        <span class="ss">&quot;teacher&quot;</span><span class="p">:</span> <span class="p">[]</span>
+        <span class="err">}</span>
+    <span class="p">]</span>
+</pre></div>
+
+
+<ul>
+<li>
+<p>查询所有的老师的信息，包括所教学生</p>
+</li>
+<li>
+<p><code>models.py</code></p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span>    <span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
+
+    <span class="c1"># 学生类</span>
+    <span class="k">class</span> <span class="nc">Student</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">32</span><span class="p">)</span>
+
+    <span class="c1"># 老师类</span>
+    <span class="k">class</span> <span class="nc">Teacher</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">32</span><span class="p">)</span>
+    <span class="n">students</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ManyToManyField</span><span class="p">(</span><span class="n">to</span><span class="o">=</span><span class="s1">&#39;Student&#39;</span><span class="p">,</span><span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;teacher&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<ul>
+<li><code>serializer.py</code></li>
+</ul>
+<div class="highlight"><pre><span></span>    <span class="kn">from</span> <span class="nn">rest_framework</span> <span class="kn">import</span> <span class="n">serializers</span>
+    <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">models</span>
+
+    <span class="c1"># 学生序列化</span>
+    <span class="k">class</span> <span class="nc">StudentSerializer</span><span class="p">(</span><span class="n">serializers</span><span class="o">.</span><span class="n">ModelSerializer</span><span class="p">):</span>
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Teacher</span>
+    <span class="n">fields</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span><span class="s1">&#39;name&#39;</span><span class="p">)</span>
+    <span class="c1"># 老师序列化</span>
+    <span class="k">class</span> <span class="nc">TeacherSerializer</span><span class="p">(</span><span class="n">serializers</span><span class="o">.</span><span class="n">Serializer</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">32</span><span class="p">)</span>
+    <span class="n">students</span> <span class="o">=</span> <span class="n">TeacherSerializer</span><span class="p">(</span><span class="n">many</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span><span class="n">read_only</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+
+
+<ul>
+<li><code>views.py</code></li>
+</ul>
+<div class="highlight"><pre><span></span>    <span class="nv">teacherobj</span> <span class="o">=</span> <span class="nv">models</span>.<span class="nv">Teacher</span>.<span class="nv">objects</span>.<span class="nv">all</span><span class="ss">()</span>
+    <span class="nv">teach</span> <span class="o">=</span> <span class="nv">TeacherSerializer1</span><span class="ss">(</span><span class="nv">teacherobj</span>,<span class="nv">many</span><span class="o">=</span><span class="nv">True</span><span class="ss">)</span>
+    <span class="k">return</span> <span class="nv">Response</span><span class="ss">(</span><span class="nv">teach</span>.<span class="nv">data</span><span class="ss">)</span>
+</pre></div>
+
+
+<ul>
+<li><code>结果</code></li>
+</ul>
+<div class="highlight"><pre><span></span>    <span class="p">[</span>
+        <span class="err">{</span>
+            <span class="ss">&quot;name&quot;</span><span class="p">:</span> <span class="ss">&quot;王老师&quot;</span><span class="p">,</span>
+            <span class="ss">&quot;students&quot;</span><span class="p">:</span> <span class="p">[]</span>
+            <span class="err">}</span><span class="p">,</span>
+            <span class="err">{</span>
+            <span class="ss">&quot;name&quot;</span><span class="p">:</span> <span class="ss">&quot;刘老师&quot;</span><span class="p">,</span>
+            <span class="ss">&quot;students&quot;</span><span class="p">:</span> <span class="p">[]</span>
+            <span class="err">}</span><span class="p">,</span>
+        <span class="err">{</span>
+            <span class="ss">&quot;name&quot;</span><span class="p">:</span> <span class="ss">&quot;郑老师&quot;</span><span class="p">,</span>
+            <span class="ss">&quot;students&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="err">{</span>
+                    <span class="ss">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                    <span class="ss">&quot;name&quot;</span><span class="p">:</span> <span class="ss">&quot;小张&quot;</span>
+                <span class="err">}</span>
+            <span class="p">]</span>
+        <span class="err">}</span><span class="p">,</span>
+        <span class="err">{</span>
+            <span class="ss">&quot;name&quot;</span><span class="p">:</span> <span class="ss">&quot;董老师&quot;</span><span class="p">,</span>
+            <span class="ss">&quot;students&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="err">{</span>
+                <span class="ss">&quot;id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+                <span class="ss">&quot;name&quot;</span><span class="p">:</span> <span class="ss">&quot;小李&quot;</span>
+                <span class="err">}</span>
+            <span class="p">]</span>
+        <span class="err">}</span>
+    <span class="p">]</span>
+</pre></div>
+
+
+<p>二、反序列化</p>
+<ul>
+<li>
+<p>老师添加学生</p>
+</li>
+<li>
+<p><code>models.py</code></p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span>    <span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
+
+    <span class="c1"># 学生类</span>
+    <span class="k">class</span> <span class="nc">Student</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">32</span><span class="p">)</span>
+
+
+    <span class="c1"># 老师类</span>
+    <span class="k">class</span> <span class="nc">Teacher</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">32</span><span class="p">)</span>
+        <span class="n">students</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ManyToManyField</span><span class="p">(</span><span class="n">to</span><span class="o">=</span><span class="s1">&#39;Student&#39;</span><span class="p">,</span><span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;teacher&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<ul>
+<li><code>serializer.py</code></li>
+</ul>
+<div class="highlight"><pre><span></span>    # 反序列化
+    <span class="nv">class</span> <span class="nv">TeacherUnserializer</span><span class="ss">(</span><span class="nv">serializers</span>.<span class="nv">Serializer</span><span class="ss">)</span>:
+        <span class="nv">id</span> <span class="o">=</span> <span class="nv">serializers</span>.<span class="nv">IntegerField</span><span class="ss">()</span>
+        <span class="nv">student_id</span> <span class="o">=</span> <span class="nv">serializers</span>.<span class="nv">ListField</span><span class="ss">()</span>
+
+        <span class="nv">def</span> <span class="nv">create</span><span class="ss">(</span><span class="nv">self</span>,<span class="nv">data</span><span class="ss">)</span>:
+            <span class="nv">tid</span> <span class="o">=</span> <span class="nv">data</span>.<span class="nv">pop</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">id</span><span class="s1">&#39;</span><span class="ss">)</span>
+            <span class="nv">student_id</span> <span class="o">=</span> <span class="nv">data</span>.<span class="nv">pop</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">student_id</span><span class="s1">&#39;</span><span class="ss">)</span>
+            <span class="nv">teacherobj</span> <span class="o">=</span> <span class="nv">models</span>.<span class="nv">Teacher</span>.<span class="nv">objects</span>.<span class="nv">filter</span><span class="ss">(</span><span class="nv">id</span><span class="o">=</span><span class="nv">tid</span><span class="ss">)</span>.<span class="nv">first</span><span class="ss">()</span>
+            <span class="nv">teacherobj</span>.<span class="nv">students</span>.<span class="nv">set</span><span class="ss">(</span>
+                <span class="nv">student_id</span>
+            <span class="ss">)</span>
+            <span class="k">return</span> <span class="nv">teacherobj</span>
+</pre></div>
+
+
+<ul>
+<li><code>views.py</code></li>
+</ul>
+<div class="highlight"><pre><span></span>    <span class="nv">data</span> <span class="o">=</span> {
+        <span class="s2">&quot;</span><span class="s">id</span><span class="s2">&quot;</span>:<span class="mi">2</span>,
+        <span class="s2">&quot;</span><span class="s">student_id</span><span class="s2">&quot;</span>:[<span class="mi">1</span>,<span class="mi">2</span>,<span class="mi">3</span>,<span class="mi">4</span>]
+    }
+    <span class="nv">obj</span> <span class="o">=</span> <span class="nv">TeacherUnserializer</span><span class="ss">(</span><span class="nv">data</span><span class="o">=</span><span class="nv">data</span><span class="ss">)</span>
+    <span class="k">if</span> <span class="nv">obj</span>.<span class="nv">is_valid</span><span class="ss">()</span>:
+        <span class="nv">obj</span>.<span class="nv">save</span><span class="ss">()</span>
+    <span class="nv">print</span><span class="ss">(</span><span class="nv">obj</span>.<span class="nv">errors</span><span class="ss">)</span>
+    <span class="k">return</span> <span class="nv">Response</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">ok</span><span class="s1">&#39;</span><span class="ss">)</span>
+</pre></div>
+
+
+<ul>
+<li>
+<p>学生添加老师</p>
+</li>
+<li>
+<p><code>models.py</code></p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span>    <span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
+
+    <span class="c1"># 学生类</span>
+    <span class="k">class</span> <span class="nc">Student</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">32</span><span class="p">)</span>
+
+    <span class="c1"># 老师类</span>
+    <span class="k">class</span> <span class="nc">Teacher</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">32</span><span class="p">)</span>
+        <span class="n">students</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ManyToManyField</span><span class="p">(</span><span class="n">to</span><span class="o">=</span><span class="s1">&#39;Student&#39;</span><span class="p">,</span><span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;teacher&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<ul>
+<li><code>serializer.py</code></li>
+</ul>
+<div class="highlight"><pre><span></span>    # 反序列化
+    <span class="nv">class</span> <span class="nv">StudentUnserializer</span><span class="ss">(</span><span class="nv">serializers</span>.<span class="nv">Serializer</span><span class="ss">)</span>:
+        <span class="nv">id</span> <span class="o">=</span> <span class="nv">serializers</span>.<span class="nv">IntegerField</span><span class="ss">()</span>
+        <span class="nv">teacher_id</span> <span class="o">=</span> <span class="nv">serializers</span>.<span class="nv">ListField</span><span class="ss">()</span>
+
+        <span class="nv">def</span> <span class="nv">create</span><span class="ss">(</span><span class="nv">self</span>,<span class="nv">data</span><span class="ss">)</span>:
+            <span class="nv">id</span> <span class="o">=</span> <span class="nv">data</span>.<span class="nv">pop</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">id</span><span class="s1">&#39;</span><span class="ss">)</span>
+            <span class="nv">teacher_id</span> <span class="o">=</span> <span class="nv">data</span>.<span class="nv">pop</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">teacher_id</span><span class="s1">&#39;</span><span class="ss">)</span>
+            <span class="nv">studentobj</span> <span class="o">=</span> <span class="nv">models</span>.<span class="nv">Student</span>.<span class="nv">objects</span>.<span class="nv">filter</span><span class="ss">(</span><span class="nv">id</span><span class="o">=</span><span class="nv">id</span><span class="ss">)</span>.<span class="nv">first</span><span class="ss">()</span>
+            <span class="nv">studentobj</span>.<span class="nv">teacher</span>.<span class="nv">set</span><span class="ss">(</span>
+                <span class="nv">teacher_id</span>
+            <span class="ss">)</span>
+            <span class="k">return</span> <span class="nv">studentobj</span>
+</pre></div>
+
+
+<ul>
+<li><code>views.py</code></li>
+</ul>
+<div class="highlight"><pre><span></span>    <span class="nv">data</span> <span class="o">=</span> {
+        <span class="s2">&quot;</span><span class="s">id</span><span class="s2">&quot;</span>: <span class="mi">2</span>,
+        <span class="s2">&quot;</span><span class="s">teacher_id</span><span class="s2">&quot;</span>: [<span class="mi">1</span>, <span class="mi">2</span>, <span class="mi">3</span>, <span class="mi">4</span>]
+    }
+    <span class="nv">obj</span> <span class="o">=</span> <span class="nv">StudentUnserializer</span><span class="ss">(</span><span class="nv">data</span><span class="o">=</span><span class="nv">data</span><span class="ss">)</span>
+    <span class="k">if</span> <span class="nv">obj</span>.<span class="nv">is_valid</span><span class="ss">()</span>:
+        <span class="nv">obj</span>.<span class="nv">save</span><span class="ss">()</span>
+    <span class="nv">print</span><span class="ss">(</span><span class="nv">obj</span>.<span class="nv">errors</span><span class="ss">)</span>
+    <span class="k">return</span> <span class="nv">Response</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">ok</span><span class="s1">&#39;</span><span class="ss">)</span>
+</pre></div></div>
+	</div>
+		<footer>
+		  <p>Powered by <a href="http://getpelican.com/">Pelican</a>. Theme based on <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a>.</p>
+		  <p>&copy; 商伟</p>
+		</footer>
+	  </div>
+
+	</div>
+</body>
+</html>

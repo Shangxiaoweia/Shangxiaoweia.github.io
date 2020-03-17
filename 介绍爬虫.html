@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>商伟的技术博客</title>
+	<meta name="description" content="">
+	<meta name="author" content="商伟">
+
+	<!-- HTML5 shim, for IE6-8 support of HTML elements -->
+	<!--[if lt IE 9]>
+		<script src="/theme/html5.js"></script>
+	<![endif]-->
+
+	<!-- Styles -->
+	<link href="/theme/bootstrap.min.css" rel="stylesheet">
+	<link href="/theme/local.css" rel="stylesheet">
+	<link href="/theme/pygments.css" rel="stylesheet">
+
+	<!-- Feeds -->
+
+
+
+
+</head>
+<body>
+	<div class="topbar">
+	  <div class="topbar-inner">
+		<div class="container-fluid">
+		  <a class="brand" href="/">商伟的技术博客</a>
+			<ul class="nav">
+					<li ><a href="/category/django.html">Django</a></li>
+					<li ><a href="/category/docker.html">Docker</a></li>
+					<li ><a href="/category/git.html">GIT</a></li>
+					<li ><a href="/category/javascript.html">JavaScript</a></li>
+					<li ><a href="/category/mongodb.html">Mongodb</a></li>
+					<li ><a href="/category/mysql.html">MySQL</a></li>
+					<li class="active"><a href="/category/pa-chong.html">爬虫</a></li>
+					<li ><a href="/category/python.html">Python</a></li>
+					<li ><a href="/category/rabbitmq.html">RabbitMQ</a></li>
+					<li ><a href="/category/redis.html">redis</a></li>
+					<li ><a href="/category/shu-ju-jie-gou.html">数据结构</a></li>
+					<li ><a href="/category/sui-shou-bi-ji.html">随手笔记</a></li>
+					<li ><a href="/category/supervisor.html">Supervisor</a></li>
+					<li ><a href="/category/vue.html">VUE</a></li>
+					<li ><a href="/category/wang-luo.html">网络</a></li>
+					<li ><a href="/category/xiao-cheng-xu.html">小程序</a></li>
+					<li ><a href="/category/xu-ni-huan-jing.html">虚拟环境</a></li>
+			</ul>
+			<p class="pull-right"><a href="/archives.html">[archives]</a> <a href="/tags.html">[tags]</a></p>
+		</div>
+	  </div>
+	</div>
+
+	<div class="container-fluid">
+	  <div class="sidebar">
+		<div class="well">
+			<h3>Blogroll</h3>
+			<ul>
+				<li><a href="http://getpelican.com/">Pelican</a></li>
+				<li><a href="http://python.org/">Python.org</a></li>
+				<li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+				<li><a href="https://shangxiaoweia.github.io/puzzle.html">拼图</a></li>
+			</ul>
+			<div class="social">
+			<h3>Social</h3>
+			<ul>
+				<li><a href="https://han520min.github.io">hanmin</a></li>
+			</ul>
+			</div>
+		</div>
+	  </div>
+	  <div class="content">
+	<div class='article'>
+		<div class="page-header"><h1>介绍爬虫</h1></div>
+		<div class="well small">Permalink: <a class="more" href="/介绍爬虫.html">1000-01-01 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/pa-chong.html">爬虫</a>
+tags: <a href="/tag/pa-chong.html">爬虫</a> </div>
+		<div><hr>
+<h2>1. 爬虫概述</h2>
+<h4>1.1  爬虫概念</h4>
+<div class="highlight"><pre><span></span><span class="err">爬虫</span><span class="p">,</span> <span class="err">又称网页蜘蛛或网络机器人</span><span class="o">.</span>
+
+<span class="err">爬虫是</span> <span class="err">模拟人操作客户端</span><span class="p">(</span><span class="err">浏览器</span><span class="p">,</span> <span class="n">APP</span><span class="p">)</span>   <span class="err">向服务器发起网络请求</span>    <span class="err">抓取数据的自动化程序或脚本</span><span class="o">.</span>
+
+<span class="c1"># 说明:</span>
+
+<span class="err">​</span>    <span class="mf">1.</span><span class="err">模拟</span><span class="p">:</span> <span class="err">用爬虫程序伪装出人的行为</span><span class="p">,</span> <span class="err">避免被服务识别为爬虫程序</span>
+
+<span class="err">​</span>    <span class="mf">2.</span><span class="err">客户端</span><span class="p">:</span> <span class="err">浏览器</span><span class="p">,</span> <span class="n">APP都可以实现人与服务器之间的交互行为</span><span class="p">,</span> <span class="err">应用客户端从服务器获取数据</span>
+
+<span class="err">​</span>    <span class="mf">3.</span><span class="err">自动化</span><span class="p">:</span> <span class="err">数据量较小时可以人工获取数据</span><span class="p">,</span> <span class="err">但往往在公司中爬取的数据量在百万条</span><span class="p">,</span> <span class="err">千万条级别的</span><span class="p">,</span> <span class="err">所以要程序自动化获取数据</span><span class="o">.</span>
+</pre></div>
+
+
+<h4>1.2  爬虫语言</h4>
+<div class="highlight"><pre><span></span><span class="c1"># 爬虫语言:PHP, C/C++, Java, Python</span>
+
+<span class="c1"># 对比:</span>
+
+<span class="err">​</span>    <span class="n">PHP</span><span class="p">:</span> <span class="err">并发能力差</span><span class="p">,</span> <span class="err">对多进程和多线程支持不好</span><span class="p">,</span> <span class="err">数据量较大时爬虫效率较低</span>
+
+<span class="err">​</span>    <span class="n">C</span><span class="o">/</span><span class="n">C</span><span class="o">++</span><span class="p">:</span> <span class="err">语言效率高</span><span class="p">,</span> <span class="err">但学习成本高</span><span class="p">,</span> <span class="err">对程序员的技术能力要求较高</span><span class="p">,</span>  <span class="err">所以目前还停留在研究层面</span><span class="p">,</span> <span class="err">市场需求量很小</span>
+
+<span class="err">​</span>    <span class="n">Java</span><span class="p">:</span> <span class="n">Python爬虫的主要竞争对手</span><span class="p">,</span> <span class="err">由于</span><span class="n">Java语言的特点</span><span class="p">,</span> <span class="err">代码臃肿</span><span class="p">,</span> <span class="err">代码量大</span><span class="p">,</span> <span class="err">维护成本重构成本高</span><span class="p">,</span> <span class="err">开发效率低</span><span class="o">.</span> <span class="err">但目前市场上岗位需求比较旺盛</span><span class="o">.</span>
+
+<span class="err">​</span>    <span class="n">Python</span><span class="p">:</span><span class="err">语法简单</span><span class="p">,</span> <span class="err">学习成本较低</span><span class="p">,</span> <span class="err">对新手比较友好</span><span class="o">.</span> <span class="n">Python语言良好的生态</span><span class="p">,</span> <span class="err">大量库和框架的支持是的</span><span class="n">Python爬虫目前处于爬虫圈的主导地位</span><span class="o">.</span>
+</pre></div>
+
+
+<h4>1.3  爬虫分类</h4>
+<p>​           (1). 通用爬虫</p>
+<p>​           (2). 聚焦爬虫</p>
+<div class="highlight"><pre><span></span><span class="mf">1.</span><span class="err">通用爬虫</span><span class="p">:</span><span class="err">搜索引擎</span>
+
+<span class="c1"># 实例: 百度, 搜狗, Google的搜索引擎</span>
+
+<span class="c1"># 功能: 访问网页 -&gt; 抓取数据 -&gt; 数据处理 -&gt; 提供检索服务</span>
+
+<span class="c1"># 工作流:</span>
+
+<span class="err">​</span>        <span class="mf">1.</span><span class="err">给定一个起始</span><span class="n">URL</span><span class="p">,</span> <span class="err">存于爬取队列中</span>
+
+<span class="err">​</span>        <span class="mf">2.</span><span class="err">爬虫程序从队列中取出</span><span class="n">url</span><span class="p">,</span> <span class="err">爬取数据</span>
+
+<span class="err">​</span>        <span class="mf">3.</span><span class="err">解析爬取数据</span><span class="p">,</span> <span class="err">获取网页内的所有</span><span class="n">url</span><span class="p">,</span> <span class="err">放入爬取队列</span>
+
+<span class="err">​</span>        <span class="mf">4.</span><span class="err">重复第二个步骤</span>
+
+<span class="c1"># 使搜索引擎获取网站链接:</span>
+
+<span class="err">​</span>        <span class="mf">1.</span><span class="err">主动将</span><span class="n">url提交各搜索引擎</span>
+
+<span class="err">​</span>        <span class="mf">2.</span><span class="err">在其他热门网站设置友情了解</span>
+
+<span class="err">​</span>        <span class="mf">3.</span><span class="err">百度和</span><span class="n">DNS服务商合作</span><span class="p">,</span> <span class="err">收录新网站</span>
+
+<span class="c1"># 网站排名(SEO):</span>
+
+<span class="err">​</span>        <span class="mf">1.</span><span class="err">根据</span><span class="n">PageRank值进行排名</span><span class="p">(</span><span class="err">流量</span><span class="p">,</span> <span class="err">点击率</span><span class="p">)</span>
+
+<span class="err">​</span>        <span class="mf">2.</span><span class="err">百度竞价排名</span><span class="p">,</span> <span class="err">钱多就靠前排</span>
+
+<span class="c1"># 缺点:</span>
+
+<span class="err">​</span>        <span class="mf">1.</span><span class="err">抓取的内容多数无用</span>
+
+<span class="err">​</span>        <span class="mf">2.</span><span class="err">无法精确获取数据</span>
+
+<span class="c1"># 协议: robots协议 --&gt;  约定哪些内容允许哪些爬虫抓取</span>
+
+<span class="err">​</span>        <span class="mf">1.</span><span class="err">无需遵守</span><span class="p">,</span> <span class="err">该协议适用于通用爬虫</span><span class="p">,</span> <span class="err">而我们写的是聚焦爬虫</span>
+
+<span class="err">​</span>        <span class="mf">2.</span><span class="err">查看方法</span><span class="p">:</span> <span class="err">网站</span><span class="n">url</span><span class="o">/</span><span class="n">robots</span><span class="o">.</span><span class="n">txt</span><span class="p">,</span> <span class="err">如</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">baidu</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">robots</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="mf">2.</span><span class="err">聚焦爬虫</span>
+
+<span class="c1"># 概念:</span>
+
+<span class="err">​</span>    <span class="err">聚焦爬虫指针对某一领域根据特定要求实现的爬虫程序</span><span class="p">,</span> <span class="err">抓取需要的数据</span><span class="p">(</span><span class="err">垂直领域爬取</span><span class="p">)</span>
+
+<span class="c1"># 设计思路:</span>
+
+<span class="err">​</span>    <span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="err">确定爬取的</span><span class="n">url</span><span class="p">,</span> <span class="err">模拟浏览器请服务器发送请求</span>
+
+<span class="err">​</span>    <span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="err">获取响应数据并进行数据解析</span>
+
+<span class="err">​</span>    <span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="err">将目标数据持久化到本地</span>
+</pre></div>
+
+
+<h4>1.4 爬虫课程概览:</h4>
+<div class="highlight"><pre><span></span><span class="mf">1.</span><span class="err">请求库的学习</span>
+
+<span class="mf">2.</span><span class="err">解析库的学习</span>
+
+<span class="mf">3.</span><span class="err">反爬机制与反反爬策略</span>
+
+<span class="err">​</span>    <span class="n">UA检测</span>
+
+<span class="err">​</span>    <span class="err">动态数据加载</span><span class="p">:</span> <span class="n">JS动态数据加载</span><span class="p">,</span> <span class="n">Ajax数据加载</span>
+
+<span class="err">​</span>    <span class="n">IP封禁</span>
+
+<span class="err">​</span>    <span class="err">账号封禁</span>
+
+<span class="err">​</span>    <span class="err">验证码</span>
+
+<span class="err">​</span>    <span class="err">数据加密</span>
+
+<span class="err">​</span>    <span class="err">图片懒加载</span>
+
+<span class="mf">4.</span><span class="n">scrapy爬虫框架</span>
+
+<span class="mf">5.</span><span class="err">增量式爬虫与分布式爬虫</span>
+
+<span class="mf">6.</span><span class="err">总结与串讲</span>
+</pre></div>
+
+
+<hr>
+<h2>2. 协议</h2>
+<h2>OSI七层模型</h2>
+<div class="highlight"><pre><span></span>应用层
+
+表示层
+
+会话层
+
+传输层
+
+网络层
+
+数据链路层
+
+物理层
+</pre></div>
+
+
+<h2>TCP/IP五层模型</h2>
+<div class="highlight"><pre><span></span>应用层：HTTP,HTTPS,FIP（文件传输）,SSH
+
+传输层：TCP，UDP
+
+网络层
+
+数据链路层
+
+物理层
+</pre></div>
+
+
+<h4>2.1  HTTP协议与HTTPS协议</h4>
+<div class="highlight"><pre><span></span><span class="c1"># HTTP协议: 明文传输, 端口80</span>
+
+<span class="o">-</span> <span class="n">Http协议</span><span class="p">,</span> <span class="err">全称为</span><span class="n">Hyper</span> <span class="n">Text</span> <span class="n">Transfer</span> <span class="n">Protocol</span><span class="p">,</span> <span class="err">即超文本传输协议</span><span class="o">.</span>
+
+<span class="o">-</span> <span class="n">HTTP协议是用于从网络传输超文本数据到本地浏览器的传送协议</span><span class="p">,</span> <span class="err">它能保证高效而准确地传送超文本文档</span><span class="o">.</span>
+
+<span class="o">-</span> <span class="err">目前广泛使用的是</span><span class="n">HTTP</span> <span class="mf">1.1</span><span class="err">版本</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="c1"># HTTPS协议: 加密传输, 端口443</span>
+
+<span class="o">-</span> <span class="n">HTTPS全称是Hyper</span> <span class="n">Text</span> <span class="n">Transfer</span> <span class="n">Protocol</span> <span class="n">over</span> <span class="n">Secure</span> <span class="n">Socket</span> <span class="n">Layer</span><span class="p">,</span> <span class="err">是以安全为目标的</span><span class="n">HTTP通道</span><span class="o">.</span> <span class="n">HTTPS协议实质是HTTP的安全版</span><span class="p">,</span> <span class="err">即</span><span class="n">HTTP下加入SSL层</span><span class="p">,</span> <span class="err">简称</span><span class="n">HTTPS</span><span class="o">.</span>
+
+<span class="o">-</span> <span class="n">HTTPS的安全体现在SSL的加密行为</span><span class="p">,</span> <span class="err">即通过</span><span class="n">HTTPS协议传输的数据都是经过SSL加密的</span>
+
+<span class="o">-</span> <span class="n">HTTPS的作用</span><span class="p">:</span>
+
+<span class="err">​</span>    <span class="mf">1.</span><span class="err">建立一个信息安全的通道来保证数据传输的安全</span>
+
+<span class="err">​</span>    <span class="mf">2.</span><span class="err">确认网站的真实性</span><span class="p">,</span> <span class="err">凡是使用了</span><span class="n">HTTPS的网站</span><span class="p">,</span> <span class="err">都可以通过点击浏览器地址栏的锁头标志来查看网站认证之后的真实信息</span><span class="p">,</span> <span class="err">也可以通过</span><span class="n">CA机构颁发的安全签章来查询</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>#TCP与UDP
+
+1.TCP协议:是一种面向连接的,可靠的,基于字节流的传输层通信协议
+
+​    有序性:数据包编号,判断数据包的正确次序
+
+​    正确性:使用checksum函数检查数据包是否损坏,发送接收时都会计算校验和
+
+​    可靠性:发送端有超时重发,并由确认机制识别错误和数据的丢失
+
+​    可控性:滑动窗口协议与拥塞控制算法控制数据包的发送速度
+
+2.UDP协议:用户数据报协议,面向无连接的传输层协议,传输不可靠·
+
+​    无连接,数据可能丢失或损坏 
+
+​    报文小,传输速度快
+
+​    吞吐量大的网络传输,可以在一定程度上承受数据丢失
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="o">#</span> <span class="n">ARP协议</span><span class="p">:</span><span class="err">通过</span><span class="n">IP获取目标计算机mac地址的协议</span>
+</pre></div>
+
+
+<h4>2.2  服务器常见端口</h4>
+<div class="highlight"><pre><span></span><span class="mf">1.</span><span class="n">ftp</span><span class="p">:</span> <span class="n">File</span> <span class="n">Transfer</span> <span class="n">Protocol的缩写</span><span class="p">,</span> <span class="err">即文件传输协议</span><span class="o">.</span> <span class="err">端口</span><span class="p">:</span><span class="mi">21</span>
+
+<span class="mf">2.</span><span class="n">ssh</span><span class="p">:</span> <span class="n">Secure</span> <span class="n">Shell的缩写</span><span class="p">,</span> <span class="err">用于远程登录会话</span><span class="o">.</span> <span class="err">端口</span><span class="p">:</span><span class="mi">22</span>
+
+<span class="mf">3.</span><span class="n">MySQL</span><span class="p">:</span> <span class="err">关系型数据库</span><span class="p">,</span> <span class="err">端口</span><span class="p">:</span><span class="mi">3306</span>
+
+<span class="mf">4.</span><span class="n">MongoDB</span><span class="p">:</span> <span class="err">非关系型数据库</span><span class="p">,</span> <span class="err">端口</span><span class="p">:</span><span class="mi">27017</span>
+
+<span class="mf">5.</span><span class="n">Redis</span><span class="p">:</span> <span class="err">非关系型数据库</span><span class="p">,</span> <span class="err">端口</span><span class="p">:</span><span class="mi">6379</span>
+</pre></div>
+
+
+<hr>
+<h2>3. 开发准备</h2>
+<h4>3.1  web端</h4>
+<div class="highlight"><pre><span></span><span class="n">Python3</span><span class="p">.</span><span class="mi">6</span>
+
+<span class="n">Pycharm</span>
+
+<span class="n">Google</span> <span class="n">Chrome</span>
+</pre></div>
+
+
+<h4>3.2  APP</h4>
+<div class="highlight"><pre><span></span><span class="n">fiddler抓包工具</span>
+
+<span class="n">Charles抓包工具</span>
+
+<span class="n">Appium自动化测试工具</span>
+</pre></div></div>
+	</div>
+		<footer>
+		  <p>Powered by <a href="http://getpelican.com/">Pelican</a>. Theme based on <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a>.</p>
+		  <p>&copy; 商伟</p>
+		</footer>
+	  </div>
+
+	</div>
+</body>
+</html>

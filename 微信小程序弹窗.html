@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>商伟的技术博客</title>
+	<meta name="description" content="">
+	<meta name="author" content="商伟">
+
+	<!-- HTML5 shim, for IE6-8 support of HTML elements -->
+	<!--[if lt IE 9]>
+		<script src="/theme/html5.js"></script>
+	<![endif]-->
+
+	<!-- Styles -->
+	<link href="/theme/bootstrap.min.css" rel="stylesheet">
+	<link href="/theme/local.css" rel="stylesheet">
+	<link href="/theme/pygments.css" rel="stylesheet">
+
+	<!-- Feeds -->
+
+
+
+
+</head>
+<body>
+	<div class="topbar">
+	  <div class="topbar-inner">
+		<div class="container-fluid">
+		  <a class="brand" href="/">商伟的技术博客</a>
+			<ul class="nav">
+					<li ><a href="/category/django.html">Django</a></li>
+					<li ><a href="/category/docker.html">Docker</a></li>
+					<li ><a href="/category/git.html">GIT</a></li>
+					<li ><a href="/category/javascript.html">JavaScript</a></li>
+					<li ><a href="/category/mongodb.html">Mongodb</a></li>
+					<li ><a href="/category/mysql.html">MySQL</a></li>
+					<li ><a href="/category/pa-chong.html">爬虫</a></li>
+					<li ><a href="/category/python.html">Python</a></li>
+					<li ><a href="/category/rabbitmq.html">RabbitMQ</a></li>
+					<li ><a href="/category/redis.html">redis</a></li>
+					<li ><a href="/category/shu-ju-jie-gou.html">数据结构</a></li>
+					<li ><a href="/category/sui-shou-bi-ji.html">随手笔记</a></li>
+					<li ><a href="/category/supervisor.html">Supervisor</a></li>
+					<li ><a href="/category/vue.html">VUE</a></li>
+					<li ><a href="/category/wang-luo.html">网络</a></li>
+					<li class="active"><a href="/category/xiao-cheng-xu.html">小程序</a></li>
+					<li ><a href="/category/xu-ni-huan-jing.html">虚拟环境</a></li>
+			</ul>
+			<p class="pull-right"><a href="/archives.html">[archives]</a> <a href="/tags.html">[tags]</a></p>
+		</div>
+	  </div>
+	</div>
+
+	<div class="container-fluid">
+	  <div class="sidebar">
+		<div class="well">
+			<h3>Blogroll</h3>
+			<ul>
+				<li><a href="http://getpelican.com/">Pelican</a></li>
+				<li><a href="http://python.org/">Python.org</a></li>
+				<li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+				<li><a href="https://shangxiaoweia.github.io/puzzle.html">拼图</a></li>
+			</ul>
+			<div class="social">
+			<h3>Social</h3>
+			<ul>
+				<li><a href="https://han520min.github.io">hanmin</a></li>
+			</ul>
+			</div>
+		</div>
+	  </div>
+	  <div class="content">
+	<div class='article'>
+		<div class="page-header"><h1>微信小程序弹窗</h1></div>
+		<div class="well small">Permalink: <a class="more" href="/微信小程序弹窗.html">1000-01-03 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/xiao-cheng-xu.html">小程序</a>
+tags: <a href="/tag/xiao-cheng-xu.html">小程序</a> </div>
+		<div><p>wxml</p>
+<div class="highlight"><pre><span></span>&lt;view class=&quot;content&quot;&gt;
+    &lt;button bindtap=&quot;popSuccessTest&quot;&gt;成功提示弹窗&lt;/button&gt;
+    &lt;button bindtap=&quot;popMaskTest&quot;&gt;带透明蒙层的弹窗&lt;/button&gt;
+    &lt;button bindtap=&quot;popTest&quot;&gt;纯文字弹窗&lt;/button&gt;
+    &lt;button bindtap=&quot;popCustomIcon&quot;&gt;自定义图标&lt;/button&gt;
+    &lt;button bindtap=&quot;popConfirm&quot;&gt;confirm的弹窗&lt;/button&gt;
+    &lt;button bindtap=&quot;popLoading&quot;&gt;加载弹窗&lt;/button&gt;
+    &lt;button bindtap=&quot;popSelect&quot;&gt;选择框弹窗&lt;/button&gt;
+&lt;/view&gt;
+</pre></div>
+
+
+<p>js</p>
+<div class="highlight"><pre><span></span>Page({
+  popSuccessTest: function () {
+    wx.showToast({
+      title: &#39;成功提示弹窗&#39;,
+      icon: &#39;&#39;,     //默认值是success,就算没有icon这个值，就算有其他值最终也显示success
+      duration: 2000,      //停留时间
+    })
+  },
+  popMaskTest: function () {
+    wx.showToast({
+      title: &#39;带蒙层的弹窗&#39;,     
+      duration: 2000,    
+      mask:true    //是否有透明蒙层，默认为false 
+                   //如果有透明蒙层，弹窗的期间不能点击文档内容 
+    })
+  },
+  popTest: function(){
+    wx.showToast({
+      title: &#39;纯文字弹窗&#39;,
+      icon: &#39;none&#39;,    //如果要纯文本，不要icon，将值设为&#39;none&#39;
+      duration: 2000     
+    })  
+  },
+  popCustomIcon: function () {
+    wx.showToast({
+      title: &#39;自定义图标弹窗&#39;,
+      image: &#39;../image/11.jpg&#39;,  //image的优先级会高于icon
+      duration: 2000     
+    })
+  },
+  popConfirm: function(){
+    wx.showModal({
+      title: &#39;confirm的弹窗&#39;,
+      content: &#39;确认要删除该项吗？&#39;,
+      success: function (res) {
+        if (res.confirm) {  
+          console.log(&#39;点击确认回调&#39;)
+        } else {   
+          console.log(&#39;点击取消回调&#39;)
+        }
+      }
+    })
+  },
+  popLoading: function(){
+    wx.showLoading({
+      title:&#39;加载中...&#39;
+    });
+  },
+  popSelect: function(){
+    wx.showActionSheet({
+      itemList: [&#39;1&#39;, &#39;2&#39;, &#39;3&#39;],
+      success: function (res) {
+        console.log(res);
+      }
+    })
+  }
+});
+</pre></div>
+
+
+<h5>注意</h5>
+<div class="highlight"><pre><span></span>wx.showToast中比较重要的属性
+
+title: &#39;弹窗文字内容&#39;,
+
+icon: 弹窗图标默认值是success，当没有这个属性时，或者当值为&#39;&#39;，或者为其他值时(设置了error,warning都无效)都最终为success。如果要纯文本，不要icon，将值设为&#39;none&#39;
+
+image: 自定义图标,image的优先级会高于icon
+
+duration: 弹窗停留时间,
+
+mask: 是否有透明蒙层，默认为false ，如果有透明蒙层，弹窗的期间不能点击弹窗后面的文档内容
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>wx.showLoading注意点
+
+使用wx.showLoading触发的弹窗，需要用wx.hideLoading()来关闭.
+</pre></div></div>
+	</div>
+		<footer>
+		  <p>Powered by <a href="http://getpelican.com/">Pelican</a>. Theme based on <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a>.</p>
+		  <p>&copy; 商伟</p>
+		</footer>
+	  </div>
+
+	</div>
+</body>
+</html>

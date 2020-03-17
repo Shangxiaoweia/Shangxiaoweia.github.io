@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>商伟的技术博客</title>
+	<meta name="description" content="">
+	<meta name="author" content="商伟">
+
+	<!-- HTML5 shim, for IE6-8 support of HTML elements -->
+	<!--[if lt IE 9]>
+		<script src="/theme/html5.js"></script>
+	<![endif]-->
+
+	<!-- Styles -->
+	<link href="/theme/bootstrap.min.css" rel="stylesheet">
+	<link href="/theme/local.css" rel="stylesheet">
+	<link href="/theme/pygments.css" rel="stylesheet">
+
+	<!-- Feeds -->
+
+
+
+
+</head>
+<body>
+	<div class="topbar">
+	  <div class="topbar-inner">
+		<div class="container-fluid">
+		  <a class="brand" href="/">商伟的技术博客</a>
+			<ul class="nav">
+					<li class="active"><a href="/category/my-shang.html">my-shang</a></li>
+			</ul>
+			<p class="pull-right"><a href="/archives.html">[archives]</a> <a href="/tags.html">[tags]</a></p>
+		</div>
+	  </div>
+	</div>
+
+	<div class="container-fluid">
+	  <div class="sidebar">
+		<div class="well">
+			<h3>Blogroll</h3>
+			<ul>
+				<li><a href="http://getpelican.com/">Pelican</a></li>
+				<li><a href="http://python.org/">Python.org</a></li>
+				<li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+				<li><a href="#">You can modify those links in your config file</a></li>
+			</ul>
+			<div class="social">
+			<h3>Social</h3>
+			<ul>
+				<li><a href="#">You can add links in your config file</a></li>
+				<li><a href="#">Another social link</a></li>
+			</ul>
+			</div>
+		</div>
+	  </div>
+	  <div class="content">
+	<div class='article'>
+		<div class="page-header"><h1>rabbitmq</h1></div>
+		<div class="well small">Permalink: <a class="more" href="/my-rabbitmq.html">2019-08-09 18:44:00+02:00</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/my-shang.html">my-shang</a>
+tags: <a href="/tag/shang.html">shang</a> </div>
+		<div><p>1.下载relang</p>
+<div class="highlight"><pre><span></span>yum install erlang
+</pre></div>
+
+
+<p>2.下载rpm包</p>
+<div class="highlight"><pre><span></span> wget http://www.rabbitmq.com/releases/rabbitmq-server/v3.6.15/rabbitmq-server-3.6.15-1.el7.noarch.rpm
+</pre></div>
+
+
+<p>3.下载完成后安装</p>
+<div class="highlight"><pre><span></span>yum install rabbitmq-server-3.6.15-1.el7.noarch.rpm
+</pre></div>
+
+
+<p>4.安装完后重启服务</p>
+<div class="highlight"><pre><span></span>service rabbitmq-server start
+</pre></div>
+
+
+<p>5.查看服务状态</p>
+<div class="highlight"><pre><span></span>service rabbitmq-server status
+</pre></div>
+
+
+<ol>
+<li>安装插件</li>
+</ol>
+<div class="highlight"><pre><span></span>/sbin/rabbitmq-plugins <span class="nb">enable</span> rabbitmq_management 
+</pre></div>
+
+
+<p>7.重启服务</p>
+<div class="highlight"><pre><span></span>service rabbitmq-server restart
+</pre></div>
+
+
+<p>8.如果找不到配置文件可自行在网上复制一份在/etc/rabbitmq/下创建rabbitmq.config</p>
+<p>9.从3.3.0版本开始，禁止使用guest/guest登录localhost之外的访问。解决办法是，找到配置文件中的：</p>
+<div class="highlight"><pre><span></span>{loopback_users, [&lt;&lt;&quot;guest&quot;&gt;&gt;]},
+
+​        修改为：
+
+{loopback_users, []},
+</pre></div>
+
+
+<p>10.创建账号</p>
+<div class="highlight"><pre><span></span>rabbitmqctl add_user <span class="nb">test</span> <span class="m">123456</span>
+</pre></div>
+
+
+<p>11.设置用户角色</p>
+<div class="highlight"><pre><span></span>rabbitmqctl  set_user_tags  <span class="nb">test</span>  administrator
+</pre></div>
+
+
+<p>12.设置用户权限</p>
+<div class="highlight"><pre><span></span>rabbitmqctl set_permissions -p <span class="s2">&quot;/&quot;</span> <span class="nb">test</span> <span class="s2">&quot;.*&quot;</span> <span class="s2">&quot;.*&quot;</span> <span class="s2">&quot;.*&quot;</span>
+</pre></div>
+
+
+<p>13.设置完成后可以查看当前用户和角色(需要开启服务)</p>
+<div class="highlight"><pre><span></span>rabbitmqctl list_users
+</pre></div>
+
+
+<p>14.阿里云安全组配置5672/15672外网可访问</p></div>
+	</div>
+		<footer>
+		  <p>Powered by <a href="http://getpelican.com/">Pelican</a>. Theme based on <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a>.</p>
+		  <p>&copy; 商伟</p>
+		</footer>
+	  </div>
+
+	</div>
+</body>
+</html>
