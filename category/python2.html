@@ -29,6 +29,7 @@
 		  <a class="brand" href="/">商伟的技术博客</a>
 			<ul class="nav">
 					<li ><a href="/category/django.html">Django</a></li>
+					<li ><a href="/category/docker.html">Docker</a></li>
 					<li ><a href="/category/git.html">GIT</a></li>
 					<li ><a href="/category/javascript.html">JavaScript</a></li>
 					<li ><a href="/category/mongodb.html">Mongodb</a></li>
@@ -37,6 +38,7 @@
 					<li class="active"><a href="/category/python.html">Python</a></li>
 					<li ><a href="/category/rabbitmq.html">RabbitMQ</a></li>
 					<li ><a href="/category/redis.html">redis</a></li>
+					<li ><a href="/category/shu-ju-jie-gou.html">数据结构</a></li>
 					<li ><a href="/category/sui-shou-bi-ji.html">随手笔记</a></li>
 					<li ><a href="/category/supervisor.html">Supervisor</a></li>
 					<li ><a href="/category/vue.html">VUE</a></li>
@@ -287,6 +289,38 @@ yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel r
 
 <p>2、下载python3.7的“源码”：</p>
 <div class="highlight"><pre><span></span>wget https://www.python.org …</pre></div> <a class="btn primary xsmall" href="/如何安装python3.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>Python-链接WIFI</h2>
+	<div class="well small">Permalink: <a class="more" href="/Python-链接WIFI.html">0999-01-01 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/python.html">Python</a>
+tags: <a href="/tag/python.html">Python</a> </div>
+	<div class="summary"><h4>生成密码字段</h4>
+<div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="kn">import</span> <span class="nn">itertools</span> <span class="kn">as</span> <span class="nn">its</span>
+
+<span class="c1"># 单个字符的集合</span>
+<span class="n">words</span><span class="o">=</span><span class="s2">&quot;0123456789&quot;</span>
+
+<span class="c1"># 每次任选一个字符，重复8次</span>
+<span class="n">arrays</span> <span class="o">=</span> <span class="n">its</span><span class="o">.</span><span class="n">product</span><span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="n">repeat</span> <span class="o">=</span> <span class="mi">8</span><span class="p">)</span>
+
+<span class="c1"># 写入txt文本文件</span>
+<span class="n">dictionary</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;C:/Users/Administrator/Desktop/dictionary.txt&quot;</span><span class="p">,</span><span class="s2">&quot;a&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">arrays</span><span class="p">:</span>
+    <span class="c1"># 一行密码</span>
+    <span class="n">dictionary</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">item</span><span class="p">))</span>
+    <span class="c1"># 换行</span>
+    <span class="n">dictionary</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">))</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+
+<span class="c1"># 关闭文件</span>
+<span class="n">dictionary</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;[mission completion …</span></pre></div> <a class="btn primary xsmall" href="/Python-链接WIFI.html">more…</a>
 	</div>
 </div>	
 

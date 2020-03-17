@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>商伟的技术博客</title>
+	<meta name="description" content="">
+	<meta name="author" content="商伟">
+
+	<!-- HTML5 shim, for IE6-8 support of HTML elements -->
+	<!--[if lt IE 9]>
+		<script src="/theme/html5.js"></script>
+	<![endif]-->
+
+	<!-- Styles -->
+	<link href="/theme/bootstrap.min.css" rel="stylesheet">
+	<link href="/theme/local.css" rel="stylesheet">
+	<link href="/theme/pygments.css" rel="stylesheet">
+
+	<!-- Feeds -->
+
+
+
+
+</head>
+<body>
+	<div class="topbar">
+	  <div class="topbar-inner">
+		<div class="container-fluid">
+		  <a class="brand" href="/">商伟的技术博客</a>
+			<ul class="nav">
+					<li ><a href="/category/django.html">Django</a></li>
+					<li class="active"><a href="/category/docker.html">Docker</a></li>
+					<li ><a href="/category/git.html">GIT</a></li>
+					<li ><a href="/category/javascript.html">JavaScript</a></li>
+					<li ><a href="/category/mongodb.html">Mongodb</a></li>
+					<li ><a href="/category/mysql.html">MySQL</a></li>
+					<li ><a href="/category/pa-chong.html">爬虫</a></li>
+					<li ><a href="/category/python.html">Python</a></li>
+					<li ><a href="/category/rabbitmq.html">RabbitMQ</a></li>
+					<li ><a href="/category/redis.html">redis</a></li>
+					<li ><a href="/category/shu-ju-jie-gou.html">数据结构</a></li>
+					<li ><a href="/category/sui-shou-bi-ji.html">随手笔记</a></li>
+					<li ><a href="/category/supervisor.html">Supervisor</a></li>
+					<li ><a href="/category/vue.html">VUE</a></li>
+					<li ><a href="/category/wang-luo.html">网络</a></li>
+					<li ><a href="/category/xiao-cheng-xu.html">小程序</a></li>
+					<li ><a href="/category/xu-ni-huan-jing.html">虚拟环境</a></li>
+			</ul>
+			<p class="pull-right"><a href="/archives.html">[archives]</a> <a href="/tags.html">[tags]</a></p>
+		</div>
+	  </div>
+	</div>
+
+	<div class="container-fluid">
+	  <div class="sidebar">
+		<div class="well">
+			<h3>Blogroll</h3>
+			<ul>
+				<li><a href="http://getpelican.com/">Pelican</a></li>
+				<li><a href="http://python.org/">Python.org</a></li>
+				<li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+				<li><a href="https://shangxiaoweia.github.io/puzzle.html">拼图</a></li>
+			</ul>
+			<div class="social">
+			<h3>Social</h3>
+			<ul>
+				<li><a href="https://han520min.github.io">hanmin</a></li>
+			</ul>
+			</div>
+		</div>
+	  </div>
+	  <div class="content">
+	<div class='article'>
+		<div class="page-header"><h1>Docker-基础</h1></div>
+		<div class="well small">Permalink: <a class="more" href="/Docker-基础.html">0999-01-01 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/docker.html">Docker</a>
+tags: <a href="/tag/docker.html">Docker</a> </div>
+		<div><h4>什么是Docker</h4>
+<ul>
+<li>Docker 是使用最广泛的开源容器引擎</li>
+<li>一种操作系统基本的虚拟化技术</li>
+<li>一种简单的应用程序打包工具</li>
+<li>依赖 Linux 内核特性：Namespace(资源隔离) 和 Cgroup（资源限制）</li>
+</ul>
+<p><strong>注：</strong>每个容器拥有一套和宿主机完全隔离的文件系统（共用linux内核），程序在这个虚拟容器里运行，就好像在真实的物理机上运行一样。</p>
+<p>​   <strong>容器：</strong></p>
+<p><strong>1）</strong>容器是一个操作系统级别下的虚拟化技术，运行一个容器就行运行一个进程一样</p>
+<p><strong>2）</strong>容器依赖linux内核特性：Namespace（资源隔离）和Cgroups（资源限制）</p>
+<p><strong>资源隔离：</strong></p>
+<p>1）Linux Namespaces机制提供一种资源隔离方案，每个namespace看上去就像一个单独的Linux系统。</p>
+<p>2）PID,IPC(进程通信),Network等系统资源不再是全局性的，而是属于某个特定的Namespace。</p>
+<p>3）每个namespace下的资源对于其他namespace下的资源都是透明，不可见的。</p>
+<p>4）系统中可以同时存在两个进程号为0,1,2的进程，由于属于不同的namespace，所以它们之间并不冲突。</p>
+<p>5）而在用户层面上只能看到属于用户自己namespace下的资源，例如使用ps命令只能列出自己namespace下的进程。</p>
+<p>6）这样每个namespace看上去就像一个单独的Linux系统。</p>
+<p><strong>资源限制：</strong></p>
+<p>1）为了让容器中的进程更加可控，Docker 使用 Linux cgroups 来限制容器中的进程允许使用的系统资源。</p>
+<p>2）可以在启动容器是指定每个容器可以使用的 网络、磁盘、CPU以及内存 等</p>
+<h4>docker思想</h4>
+<p>1. Docker的思想源于集装箱，集装箱解决了什么问题呢？
+   　　　　　　2. 在早期运输货物需要不同分类的船，例如运输水果的船，运输生活用品的船
+   　　　　　　3. 有了集装箱后，在大船上，可以把货物分类到不同的集装箱中，水果一个集装箱，生活用品一个集装箱
+   　　　　　　4. 它们之间互不影响，只要把货物封装好集装箱里，就可以把不同类的货物一起运走。
+   　　　　　　5. 通过Docker logo也可以看出所以然来，Docker就像大船，集装箱就是容器。
+   　　　　　　6. 一条鲸鱼拖着若干个集装箱的经典形象已经深入人心。</p>
+<p><img alt="Docker" src="./images/1080958-20200226190551565-393885812.png"></p>
+<h4>docker 与 虚拟机比较</h4>
+<p>1. docker设计小巧，部署迁移快速，运行高效，按照应用隔离，管理人员可以看到所有容器的内容。</p>
+<p>2. 虚拟化技术比较臃肿，需要先创建新的系统，按照系统隔离，管理员无法看到系统内部信息。</p>
+<p><strong>举例：</strong></p>
+<p>1）Docker就是手机中的各种APP，只需要一个系统就可以下载自己所需的应用</p>
+<p>2）虚拟化技术相当于苹果手机安装一个庞大软件，这个软件上安装安卓系统、魅族系统等，每个系统上还要安装各类应用。</p>
+<p><img alt="img" src="./1080958-20200303221439196-714640533.png"></p>
+<p><img alt="img" src="./1080958-20190109090611269-1084429194.png"></p>
+<h4>docker解决的问题</h4>
+<p>1. 高效的利用资源</p>
+<p>2. 单台机器得部署多个应用；</p>
+<p>3. 应用之间互相隔离（微服务）；</p>
+<p>4. 应用之间不能发生资源抢占，每个应用只能使用事先注册申请的资源。</p>
+<h4>Docker架构</h4>
+<p>1. <strong>Docker客户端(Client):</strong> docker 命令行工具，用户也可以通过 REST API 与服务器通信</p>
+<p>2. <strong>Docker服务器(Docker daemon):</strong> 服务器组件，以 Linux 后台服务的方式运行， Docker daemon 运行在 Docker host 上，负责创建、运行、监控容器，构建、存储镜像</p>
+<p>3. <strong>Docker镜像(Image):</strong> 可将 Docker 镜像看着只读模板，通过它可以创建 Docker 容器</p>
+<p>4. <strong>镜像仓库(Registry):</strong> Registry 是存放 Docker 镜像的仓库，Registry 分私有和公有两种</p>
+<p>5. <strong>Docker容器(Container):</strong> Docker 容器就是 Docker 镜像的运行实例</p>
+<p><img alt="img" src="./1080958-20200305192545934-637244421.png"></p></div>
+	</div>
+		<footer>
+		  <p>Powered by <a href="http://getpelican.com/">Pelican</a>. Theme based on <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a>.</p>
+		  <p>&copy; 商伟</p>
+		</footer>
+	  </div>
+
+	</div>
+</body>
+</html>
