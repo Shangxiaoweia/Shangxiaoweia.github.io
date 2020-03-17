@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>商伟的技术博客</title>
+	<meta name="description" content="">
+	<meta name="author" content="商伟">
+
+	<!-- HTML5 shim, for IE6-8 support of HTML elements -->
+	<!--[if lt IE 9]>
+		<script src="/theme/html5.js"></script>
+	<![endif]-->
+
+	<!-- Styles -->
+	<link href="/theme/bootstrap.min.css" rel="stylesheet">
+	<link href="/theme/local.css" rel="stylesheet">
+	<link href="/theme/pygments.css" rel="stylesheet">
+
+	<!-- Feeds -->
+
+
+
+
+</head>
+<body>
+	<div class="topbar">
+	  <div class="topbar-inner">
+		<div class="container-fluid">
+		  <a class="brand" href="/">商伟的技术博客</a>
+			<ul class="nav">
+					<li ><a href="/category/django.html">Django</a></li>
+					<li class="active"><a href="/category/docker.html">Docker</a></li>
+					<li ><a href="/category/git.html">GIT</a></li>
+					<li ><a href="/category/javascript.html">JavaScript</a></li>
+					<li ><a href="/category/mongodb.html">Mongodb</a></li>
+					<li ><a href="/category/mysql.html">MySQL</a></li>
+					<li ><a href="/category/pa-chong.html">爬虫</a></li>
+					<li ><a href="/category/python.html">Python</a></li>
+					<li ><a href="/category/rabbitmq.html">RabbitMQ</a></li>
+					<li ><a href="/category/redis.html">redis</a></li>
+					<li ><a href="/category/shu-ju-jie-gou.html">数据结构</a></li>
+					<li ><a href="/category/sui-shou-bi-ji.html">随手笔记</a></li>
+					<li ><a href="/category/supervisor.html">Supervisor</a></li>
+					<li ><a href="/category/vue.html">VUE</a></li>
+					<li ><a href="/category/wang-luo.html">网络</a></li>
+					<li ><a href="/category/xiao-cheng-xu.html">小程序</a></li>
+					<li ><a href="/category/xu-ni-huan-jing.html">虚拟环境</a></li>
+			</ul>
+			<p class="pull-right"><a href="/archives.html">[archives]</a> <a href="/tags.html">[tags]</a></p>
+		</div>
+	  </div>
+	</div>
+
+	<div class="container-fluid">
+	  <div class="sidebar">
+		<div class="well">
+			<h3>Blogroll</h3>
+			<ul>
+				<li><a href="http://getpelican.com/">Pelican</a></li>
+				<li><a href="http://python.org/">Python.org</a></li>
+				<li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+				<li><a href="https://shangxiaoweia.github.io/puzzle.html">拼图</a></li>
+			</ul>
+			<div class="social">
+			<h3>Social</h3>
+			<ul>
+				<li><a href="https://han520min.github.io">hanmin</a></li>
+			</ul>
+			</div>
+		</div>
+	  </div>
+	  <div class="content">
+	<div class='article'>
+		<div class="page-header"><h1>Docker-应用场景</h1></div>
+		<div class="well small">Permalink: <a class="more" href="/Docker-应用场景.html">2019-08-09 18:44:00+02:00</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/docker.html">Docker</a>
+tags: <a href="/tag/docker.html">Docker</a> </div>
+		<div><h4>docker技术应用场景</h4>
+<p><strong>1、场景一：节省项目环境部署时间</strong></p>
+<p><strong>1）单项目打包</strong></p>
+<p>1. 每次部署项目到测试、生产等环境，都要部署一大堆依赖的软件、工具，时间久，出错概率大。</p>
+<p>2. Docker主要理念就是环境打包部署，可在任意Docker Engine运行。</p>
+<p>3. 我们只需要将每个项目环境打包到镜像，push到镜像仓库，当有需要部署这个项目时，
+　　　　　　　　  直接pull镜像启动容器，这个项目就可以访问了！一次构建多次部署，一劳永逸。</p>
+<p><strong>2）整套项目打包</strong></p>
+<p>1. 比如有一个产品可以整套部署到客户那里，以往都是派一名实施工程师到客户那部署。</p>
+<p>2. 如果用了Docker，我们可以前期将这套项目封装打包起来，实现一键部署，分分钟钟搞定，就不需要再派人过去了。比如官方的Docker Compose编排工具。</p>
+<p><strong>3）新开源技术试用</strong></p>
+<p>1. 有时，我们想调研一些开源项目，我们可以直接从公共镜像仓库pull项目官方做好镜像启动容器即可。</p>
+<p><strong>2、场景二：环境一致性</strong></p>
+<p>1. 项目在开发电脑本地运行没问题，到了测试或生产环境就运行不起来。</p>
+<p>2. Docker将项目环境打包成镜像，可以在任何Docker Engine部署。</p>
+<p><strong>3、场景三：持续集成</strong></p>
+<p>1. 一个项目版本快速迭代的测试场景，需要一个合理的CI（持续集成）/CD（持续部署）环境支撑。</p>
+<p>2. CI/CD是一个周期性自动化项目测试流程，包括构建、部署、测试、发布等工作，很少需要人工干预。</p>
+<p>3. Docker通过项目镜像构建和快速部署，打通测试环境与生产环境，高度保持多个环境之间一致性。</p>
+<p><strong>4、场景四：微服务</strong></p>
+<p>1. 微服务指尽可能细粒度拆分业务程序架构，由多个独立服务组成业务系统。</p>
+<p>2. Docker容器作为这些独立服务的部署单元，每个服务单独部署到一个docker容器中。</p></div>
+	</div>
+		<footer>
+		  <p>Powered by <a href="http://getpelican.com/">Pelican</a>. Theme based on <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a>.</p>
+		  <p>&copy; 商伟</p>
+		</footer>
+	  </div>
+
+	</div>
+</body>
+</html>
