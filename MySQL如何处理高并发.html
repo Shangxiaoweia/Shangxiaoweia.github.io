@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>商伟的技术博客</title>
+	<meta name="description" content="">
+	<meta name="author" content="商伟">
+
+	<!-- HTML5 shim, for IE6-8 support of HTML elements -->
+	<!--[if lt IE 9]>
+		<script src="/theme/html5.js"></script>
+	<![endif]-->
+
+	<!-- Styles -->
+	<link href="/theme/bootstrap.min.css" rel="stylesheet">
+	<link href="/theme/local.css" rel="stylesheet">
+	<link href="/theme/pygments.css" rel="stylesheet">
+
+	<!-- Feeds -->
+
+
+
+
+</head>
+<body>
+	<div class="topbar">
+	  <div class="topbar-inner">
+		<div class="container-fluid">
+		  <a class="brand" href="/">商伟的技术博客</a>
+			<ul class="nav">
+					<li ><a href="/category/django.html">Django</a></li>
+					<li ><a href="/category/docker.html">Docker</a></li>
+					<li ><a href="/category/git.html">GIT</a></li>
+					<li ><a href="/category/javascript.html">JavaScript</a></li>
+					<li ><a href="/category/mongodb.html">Mongodb</a></li>
+					<li class="active"><a href="/category/mysql.html">MySQL</a></li>
+					<li ><a href="/category/pa-chong.html">爬虫</a></li>
+					<li ><a href="/category/python.html">Python</a></li>
+					<li ><a href="/category/rabbitmq.html">RabbitMQ</a></li>
+					<li ><a href="/category/redis.html">redis</a></li>
+					<li ><a href="/category/shu-ju-jie-gou.html">数据结构</a></li>
+					<li ><a href="/category/sui-shou-bi-ji.html">随手笔记</a></li>
+					<li ><a href="/category/supervisor.html">Supervisor</a></li>
+					<li ><a href="/category/vue.html">VUE</a></li>
+					<li ><a href="/category/wang-luo.html">网络</a></li>
+					<li ><a href="/category/xiao-cheng-xu.html">小程序</a></li>
+					<li ><a href="/category/xu-ni-huan-jing.html">虚拟环境</a></li>
+			</ul>
+			<p class="pull-right"><a href="/archives.html">[archives]</a> <a href="/tags.html">[tags]</a></p>
+		</div>
+	  </div>
+	</div>
+
+	<div class="container-fluid">
+	  <div class="sidebar">
+		<div class="well">
+			<h3>Blogroll</h3>
+			<ul>
+				<li><a href="http://getpelican.com/">Pelican</a></li>
+				<li><a href="http://python.org/">Python.org</a></li>
+				<li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+			</ul>
+			<div class="social">
+			<h3>Social</h3>
+			<ul>
+				<li><a href="https://han520min.github.io">hanmin</a></li>
+			</ul>
+			</div>
+		</div>
+	  </div>
+	  <div class="content">
+	<div class='article'>
+		<div class="page-header"><h1>MySQL如何处理高并发</h1></div>
+		<div class="well small">Permalink: <a class="more" href="/MySQL如何处理高并发.html">1000-01-02 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/mysql.html">MySQL</a>
+tags: <a href="/tag/mysql.html">MySQL</a> </div>
+		<div><p>mysql高并发的解决方法有：优化SQL语句，优化数据库字段，加缓存，分区表，读写分离以及垂直拆分，解耦模块，水平切分等。</p>
+<p><img alt="img" src="http://m.qpic.cn/psc?/V11vDzPO1w5782/zfrllz9Q9AzvUwq**DIV0xo6ofOl1tm1xtoEPeWYw.j*ILHA3ns2KV60ONGh5MWbwevakiYnnuBwq*2m5SvQrQ!!/b&amp;bo=6gE6AQAAAAARB.A!&amp;rf=viewer_4"></p>
+<p>高并发大多的瓶颈在后台，在存储mysql的正常的优化方案如下：</p>
+<p>（1）代码中sql语句优化</p>
+<p>（2）数据库字段优化，索引优化</p>
+<p>（3）加缓存，redis/memcache等</p>
+<p>（4）主从，读写分离</p>
+<p>（5）分区表</p>
+<p>（6）垂直拆分，解耦模块</p>
+<p>（7）水平切分</p>
+<h5>方案分析：</h5>
+<p>1、方法1和方法2是最简单，也是提升效率最快的方式。因为每条语句都命中了索引，是最高效的。但是如果是为了使sql达到最优而去建索引，那么索引就泛滥了，对于千万级以上的表来说，维护索引的成本大大增加，反而增加了数据库的内存的开销。</p>
+<p>2、数据库字段的优化。曾经发现一高级程序员在表字段的设计上，一个日期类型，被设计为varchar类型，不规范的同时，无法对写入数据校验，做索引的效率也有差别</p>
+<p>3、缓存适合读多写少，更新频度相对较低的业务场景，否则缓存异议不大，命中率不高。缓存通常来说主要为了提高接口处理速度，降低并发带来的db压力以及由此产生的其他问题。</p>
+<p>4、分区不是分表，结果还是一张表，只不过把存放的数据文件分成了多个小块。在表数据非常大的情况下，可以解决无法一次载入内存，以及大表数据维护等问题。</p>
+<p>5、垂直拆分将表按列拆成多表，常见于将主表的扩展数据独立开，文本数据独立开，降低磁盘io的压力。</p>
+<p>6、水平拆，水平拆分的主要目的是提升单表并发读写能力(压力分散到各个分表中)和磁盘IO性能(一个非常大的.MYD文件分摊到各个小表的.MYD文件中)。如果没有千万级以上数据，为什么要拆，仅对单表做做优化也是可以的；再如果没有太大的并发量，分区表也一般能够满足。所以，一般情况下，水平拆分是最后的选择，在设计时还是需要一步一步走。</p></div>
+	</div>
+		<footer>
+		  <p>Powered by <a href="http://getpelican.com/">Pelican</a>. Theme based on <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a>.</p>
+		  <p>&copy; 商伟</p>
+		</footer>
+	  </div>
+
+	</div>
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>商伟的技术博客</title>
+	<meta name="description" content="">
+	<meta name="author" content="商伟">
+
+	<!-- HTML5 shim, for IE6-8 support of HTML elements -->
+	<!--[if lt IE 9]>
+		<script src="/theme/html5.js"></script>
+	<![endif]-->
+
+	<!-- Styles -->
+	<link href="/theme/bootstrap.min.css" rel="stylesheet">
+	<link href="/theme/local.css" rel="stylesheet">
+	<link href="/theme/pygments.css" rel="stylesheet">
+
+	<!-- Feeds -->
+
+
+
+
+</head>
+<body>
+	<div class="topbar">
+	  <div class="topbar-inner">
+		<div class="container-fluid">
+		  <a class="brand" href="/">商伟的技术博客</a>
+			<ul class="nav">
+					<li ><a href="/category/django.html">Django</a></li>
+					<li ><a href="/category/docker.html">Docker</a></li>
+					<li ><a href="/category/git.html">GIT</a></li>
+					<li ><a href="/category/javascript.html">JavaScript</a></li>
+					<li ><a href="/category/mongodb.html">Mongodb</a></li>
+					<li class="active"><a href="/category/mysql.html">MySQL</a></li>
+					<li ><a href="/category/pa-chong.html">爬虫</a></li>
+					<li ><a href="/category/python.html">Python</a></li>
+					<li ><a href="/category/rabbitmq.html">RabbitMQ</a></li>
+					<li ><a href="/category/redis.html">redis</a></li>
+					<li ><a href="/category/shu-ju-jie-gou.html">数据结构</a></li>
+					<li ><a href="/category/sui-shou-bi-ji.html">随手笔记</a></li>
+					<li ><a href="/category/supervisor.html">Supervisor</a></li>
+					<li ><a href="/category/vue.html">VUE</a></li>
+					<li ><a href="/category/wang-luo.html">网络</a></li>
+					<li ><a href="/category/xiao-cheng-xu.html">小程序</a></li>
+					<li ><a href="/category/xu-ni-huan-jing.html">虚拟环境</a></li>
+			</ul>
+			<p class="pull-right"><a href="/archives.html">[archives]</a> <a href="/tags.html">[tags]</a></p>
+		</div>
+	  </div>
+	</div>
+
+	<div class="container-fluid">
+	  <div class="sidebar">
+		<div class="well">
+			<h3>Blogroll</h3>
+			<ul>
+				<li><a href="http://getpelican.com/">Pelican</a></li>
+				<li><a href="http://python.org/">Python.org</a></li>
+				<li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+			</ul>
+			<div class="social">
+			<h3>Social</h3>
+			<ul>
+				<li><a href="https://han520min.github.io">hanmin</a></li>
+			</ul>
+			</div>
+		</div>
+	  </div>
+	  <div class="content">
+	<div class='article'>
+		<div class="page-header"><h1>MySQL事务和锁</h1></div>
+		<div class="well small">Permalink: <a class="more" href="/MySQL事务和锁.html">1000-01-04 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/mysql.html">MySQL</a>
+tags: <a href="/tag/mysql.html">MySQL</a> </div>
+		<div><h4>InnoDB与MyISAM区别</h4>
+<ul>
+<li>MyISAM不支持事物回滚，InnoDB是支持事物</li>
+<li>MyISAM和MEMORY存储引擎采用的是表级锁（table-level locking）。</li>
+<li>InnoDB存储引擎既支持行级锁（row-level locking），也支持表级锁，但默认情况下是采用行级锁。</li>
+<li>MyISAM更适合查询多的情况</li>
+<li>InnoDB更适合写入多的</li>
+</ul>
+<h4>行级锁 &amp; 表级锁</h4>
+<ul>
+<li>行级锁（写多读少）开销大，加锁慢，锁定粒度最小，发生锁冲突概率最低，并发度最高</li>
+<li>表级锁（适合大量读）开销小，加锁快，锁定粒度大、发生锁冲突最高，并发度最低</li>
+</ul>
+<h4>乐观锁&amp;悲观锁</h4>
+<ul>
+<li>乐观锁（写少读多）：读取商品数量时不加锁，到修改商品数量是回校验，当前商品数量和刚读取的数量是否一致，如果相同加排他锁，然后写入，否则重试</li>
+<li>悲观锁（写多读少）：读取商品数量时就加一把排它锁，直到修改商品数量完成释放排它锁，其他线程才能读取商品数量</li>
+</ul>
+<h4>共享锁 &amp; 排它锁</h4>
+<ul>
+<li>共享锁（读锁）：所有线程都可以读这个数据，但不能写</li>
+<li>排它锁（写锁）：一旦加了排它锁，其他线程连读数据的权利都没有</li>
+</ul>
+<h4>事务的（ACID）特征</h4>
+<ul>
+<li>原子性(Atomicity)：整个事物的所有操作要么全部提交成功，要么全部失败回滚(不会出现部分执行的情况)。</li>
+<li>一致性(Consistency)：几个并行执行的事务，其执行结果必须与按某一顺序串行执行的结果相一致。</li>
+<li>隔离性(Isolation)：事务的执行不受其他事务的干扰，事务执行的中间结果对其他事务必须是透明的。</li>
+<li>持久性(Durability): 一个事务一旦被提交了，那么对数据库中的数据的改变就是永久性的，即便是在数据库系- 统遇到故障的情况下也不会丢失提交事务的操作。</li>
+</ul>
+<h4>事物隔离级别</h4>
+<ul>
+<li>未提交读：脏读</li>
+<li>读取到其他事物还未提交的数据</li>
+<li>例：初始count=100,B事物把count修改为101，但是还没有commit提交到数据库，可能由于回滚并没有真正保存到数据库，但是A事物此时就读取到了101</li>
+<li>不可重复读：提交读</li>
+<li>读取其他事物提交前后的数据，两次读取结果不一样</li>
+<li>同一个事物两次读取到的数据时其他事物提交前后的，所以读取数据不一样</li>
+<li>
+<p>例：A先读取到数据count=100，但是B事物把count修改成了101，A这个事物还没有完成，在此读取时发现同一个事物两次读取的数据不一样</p>
+</li>
+<li>
+<p>可重复读：幻读（mysql默认隔离级别）</p>
+</li>
+<li>在读取数据时加一个版本号，如果其他事物修改了这个数据，我还是会读取我以前读取那个版本的数据，不会管他修改后的数据</li>
+<li>但并不能阻止另一个事务插入新的数据行，这就会导致该事物中凭空多出数据行，像出现了幻读一样，这便是幻读问题</li>
+<li>
+<p>例：A事物读取count=100后加了一个版本号，如果后续B事物将 count修改成了101,A事物不会读取最新版本的101，而是读取自己最初读取的那个版本100</p>
+</li>
+<li>
+<p>可串行读</p>
+</li>
+<li>这是事务的最高隔离级别，通过强制事务排序，使之不可能相互冲突，就是在每个读的数据行加上共享锁来实现。</li>
+<li>在该隔离级别下，可以解决前面出现的脏读、不可重复读和幻读问题，但也会导致大量的超时和锁竞争现象，一般不推荐使用。</li>
+</ul>
+<h4>乐观锁在django项目中如何使用</h4>
+<div class="highlight"><pre><span></span><span class="c1"># with语句用法</span>
+
+<span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">transaction</span>
+
+<span class="k">def</span> <span class="nf">viewfunc</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="c1"># 这部分代码不在事务中，会被Django自动提交</span>
+    <span class="o">...</span>
+
+    <span class="k">with</span> <span class="n">transaction</span><span class="o">.</span><span class="n">atomic</span><span class="p">():</span>
+        <span class="c1"># 这部分代码会在事务中执行</span>
+        <span class="o">...</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">from django.db import transaction</span>
+
+<span class="sd"># 创建保存点</span>
+<span class="sd">save_id = transaction.savepoint()  </span>
+
+<span class="sd"># 回滚到保存点</span>
+<span class="sd">transaction.savepoint_rollback(save_id)</span>
+
+<span class="sd"># 提交从保存点到当前状态的所有数据库事务操作</span>
+<span class="sd">transaction.savepoint_commit(save_id)</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="err">————————————————</span>
+<span class="err">版权声明：本文为</span><span class="n">CSDN博主</span><span class="err">「</span><span class="n">Hanmin_hm</span><span class="err">」的原创文章，遵循</span> <span class="n">CC</span> <span class="mf">4.0</span> <span class="n">BY</span><span class="o">-</span><span class="n">SA</span> <span class="err">版权协议，转载请附上原文出处链接及本声明。</span>
+<span class="err">原文链接：</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">blog</span><span class="o">.</span><span class="n">csdn</span><span class="o">.</span><span class="n">net</span><span class="o">/</span><span class="n">Hanmin_hm</span><span class="o">/</span><span class="n">article</span><span class="o">/</span><span class="n">details</span><span class="o">/</span><span class="mi">104819668</span>
+</pre></div>
+
+
+<p>MySQL主从同步原理：https://www.cnblogs.com/xiaonq/p/11191405.html</p>
+<p>MySQL索引原理：https://www.cnblogs.com/xiaonq/p/10416496.html</p></div>
+	</div>
+		<footer>
+		  <p>Powered by <a href="http://getpelican.com/">Pelican</a>. Theme based on <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a>.</p>
+		  <p>&copy; 商伟</p>
+		</footer>
+	  </div>
+
+	</div>
+</body>
+</html>

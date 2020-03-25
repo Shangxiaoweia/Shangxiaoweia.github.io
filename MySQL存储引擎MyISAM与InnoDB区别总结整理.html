@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>商伟的技术博客</title>
+	<meta name="description" content="">
+	<meta name="author" content="商伟">
+
+	<!-- HTML5 shim, for IE6-8 support of HTML elements -->
+	<!--[if lt IE 9]>
+		<script src="/theme/html5.js"></script>
+	<![endif]-->
+
+	<!-- Styles -->
+	<link href="/theme/bootstrap.min.css" rel="stylesheet">
+	<link href="/theme/local.css" rel="stylesheet">
+	<link href="/theme/pygments.css" rel="stylesheet">
+
+	<!-- Feeds -->
+
+
+
+
+</head>
+<body>
+	<div class="topbar">
+	  <div class="topbar-inner">
+		<div class="container-fluid">
+		  <a class="brand" href="/">商伟的技术博客</a>
+			<ul class="nav">
+					<li ><a href="/category/django.html">Django</a></li>
+					<li ><a href="/category/docker.html">Docker</a></li>
+					<li ><a href="/category/git.html">GIT</a></li>
+					<li ><a href="/category/javascript.html">JavaScript</a></li>
+					<li ><a href="/category/mongodb.html">Mongodb</a></li>
+					<li class="active"><a href="/category/mysql.html">MySQL</a></li>
+					<li ><a href="/category/pa-chong.html">爬虫</a></li>
+					<li ><a href="/category/python.html">Python</a></li>
+					<li ><a href="/category/rabbitmq.html">RabbitMQ</a></li>
+					<li ><a href="/category/redis.html">redis</a></li>
+					<li ><a href="/category/shu-ju-jie-gou.html">数据结构</a></li>
+					<li ><a href="/category/sui-shou-bi-ji.html">随手笔记</a></li>
+					<li ><a href="/category/supervisor.html">Supervisor</a></li>
+					<li ><a href="/category/vue.html">VUE</a></li>
+					<li ><a href="/category/wang-luo.html">网络</a></li>
+					<li ><a href="/category/xiao-cheng-xu.html">小程序</a></li>
+					<li ><a href="/category/xu-ni-huan-jing.html">虚拟环境</a></li>
+			</ul>
+			<p class="pull-right"><a href="/archives.html">[archives]</a> <a href="/tags.html">[tags]</a></p>
+		</div>
+	  </div>
+	</div>
+
+	<div class="container-fluid">
+	  <div class="sidebar">
+		<div class="well">
+			<h3>Blogroll</h3>
+			<ul>
+				<li><a href="http://getpelican.com/">Pelican</a></li>
+				<li><a href="http://python.org/">Python.org</a></li>
+				<li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+			</ul>
+			<div class="social">
+			<h3>Social</h3>
+			<ul>
+				<li><a href="https://han520min.github.io">hanmin</a></li>
+			</ul>
+			</div>
+		</div>
+	  </div>
+	  <div class="content">
+	<div class='article'>
+		<div class="page-header"><h1>MySQL存储引擎MyISAM与InnoDB区别总结整理</h1></div>
+		<div class="well small">Permalink: <a class="more" href="/MySQL存储引擎MyISAM与InnoDB区别总结整理.html">1000-01-03 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/mysql.html">MySQL</a>
+tags: <a href="/tag/mysql.html">MySQL</a> </div>
+		<div><h4>MySQL默认存储引擎的变迁</h4>
+<ul>
+<li>在MySQL 5.5之前的版本中，默认的搜索引擎是MyISAM，从MySQL 5.5之后的版本中，默认的搜索引擎变更为InnoDB。</li>
+</ul>
+<h4>MyISAM与InnoDB存储引擎的主要特点</h4>
+<p>1).MyISAM存储引擎的特点是：<strong>表级锁、不支持事务、支持全文索引</strong>，适合一些CMS内容管理系统作为后台数据库使用，但是使用大并发、重负荷生产系统上，表锁结构的特性就显得力不从心；</p>
+<p>2).InnoDB存储引擎的特点是：<strong>行级锁、事务安全（ACID兼容）、支持外键</strong>、不支持FULLTEXT类型的索引(<strong>5.6.4</strong>以后版本开始支持FULLTEXT类型的索引)。<strong>InnoDB存储引擎提供了具有提交、 回滚和崩溃恢复能力的事务安全存储引擎</strong>。InnoDB是为处理巨大量时拥有最大性能而设计的。它的CPU效率可能是任何其他基于磁盘的关系数据库引擎所不能匹敌的。</p>
+<ul>
+<li>行级锁</li>
+<li>行级锁是Mysql中锁定粒度最细的一种锁，表示只针对当前操作的行进行加锁。行级锁能大大减少数据库操作的冲突。其加锁粒度最小，但加锁的开销也最大。行级锁分为共享锁 和 排他锁。</li>
+<li>
+<p>特点：开销大，加锁慢；会出现死锁；锁定粒度最小，发生锁冲突的概率最低，并发度也最高。</p>
+</li>
+<li>
+<p>表级锁</p>
+</li>
+<li>表级锁是MySQL中锁定粒度最大的一种锁，表示对当前操作的整张表加锁，它实现简单，资源消耗较少，被大部分MySQL引擎支持。最常使用的MYISAM与INNODB都支持表级锁定。表级锁定分为表共享读锁（共享锁）与表独占写锁（排他锁）。</li>
+<li>特点：开销小，加锁快；不会出现死锁；锁定粒度大，发出锁冲突的概率最高，并发度最低。</li>
+</ul>
+<h4>MyISAM与InnoDB性能测试</h4>
+<ul>
+<li>随着CPU核数的增加，InnoDB的吞吐量反而越好，而MyISAM，其吞吐量几乎没有什么变化，显然，MyISAM的表锁定机制降低了读和写的吞吐量。</li>
+</ul>
+<h4>如何选择：</h4>
+<ul>
+<li>MyISAM适合：
+  1). 做很多count 的计算；</li>
+</ul>
+<p>2). 插入不频繁，查询非常频繁，如果执行大量的SELECT，MyISAM是更好的选择；</p>
+<p>3). 没有事务。</p>
+<ul>
+<li>InnoDB适合：</li>
+</ul>
+<p>1). 可靠性要求比较高，或者要求事务；</p>
+<p>2). 表更新和查询都相当的频繁，并且表锁定的机会比较大的情况指定数据引擎的创建；</p>
+<p>3). 如果你的数据执行大量的INSERT或UPDATE，出于性能方面的考虑，应该使用InnoDB表；</p>
+<p><a href="https://www.cnblogs.com/Jtianlin/p/8954841.html">参考博客，写的相当详细</a></p></div>
+	</div>
+		<footer>
+		  <p>Powered by <a href="http://getpelican.com/">Pelican</a>. Theme based on <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a>.</p>
+		  <p>&copy; 商伟</p>
+		</footer>
+	  </div>
+
+	</div>
+</body>
+</html>

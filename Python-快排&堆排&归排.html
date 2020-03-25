@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>商伟的技术博客</title>
+	<meta name="description" content="">
+	<meta name="author" content="商伟">
+
+	<!-- HTML5 shim, for IE6-8 support of HTML elements -->
+	<!--[if lt IE 9]>
+		<script src="/theme/html5.js"></script>
+	<![endif]-->
+
+	<!-- Styles -->
+	<link href="/theme/bootstrap.min.css" rel="stylesheet">
+	<link href="/theme/local.css" rel="stylesheet">
+	<link href="/theme/pygments.css" rel="stylesheet">
+
+	<!-- Feeds -->
+
+
+
+
+</head>
+<body>
+	<div class="topbar">
+	  <div class="topbar-inner">
+		<div class="container-fluid">
+		  <a class="brand" href="/">商伟的技术博客</a>
+			<ul class="nav">
+					<li ><a href="/category/django.html">Django</a></li>
+					<li ><a href="/category/docker.html">Docker</a></li>
+					<li ><a href="/category/git.html">GIT</a></li>
+					<li ><a href="/category/javascript.html">JavaScript</a></li>
+					<li ><a href="/category/mongodb.html">Mongodb</a></li>
+					<li ><a href="/category/mysql.html">MySQL</a></li>
+					<li ><a href="/category/pa-chong.html">爬虫</a></li>
+					<li class="active"><a href="/category/python.html">Python</a></li>
+					<li ><a href="/category/rabbitmq.html">RabbitMQ</a></li>
+					<li ><a href="/category/redis.html">redis</a></li>
+					<li ><a href="/category/shu-ju-jie-gou.html">数据结构</a></li>
+					<li ><a href="/category/sui-shou-bi-ji.html">随手笔记</a></li>
+					<li ><a href="/category/supervisor.html">Supervisor</a></li>
+					<li ><a href="/category/vue.html">VUE</a></li>
+					<li ><a href="/category/wang-luo.html">网络</a></li>
+					<li ><a href="/category/xiao-cheng-xu.html">小程序</a></li>
+					<li ><a href="/category/xu-ni-huan-jing.html">虚拟环境</a></li>
+			</ul>
+			<p class="pull-right"><a href="/archives.html">[archives]</a> <a href="/tags.html">[tags]</a></p>
+		</div>
+	  </div>
+	</div>
+
+	<div class="container-fluid">
+	  <div class="sidebar">
+		<div class="well">
+			<h3>Blogroll</h3>
+			<ul>
+				<li><a href="http://getpelican.com/">Pelican</a></li>
+				<li><a href="http://python.org/">Python.org</a></li>
+				<li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+			</ul>
+			<div class="social">
+			<h3>Social</h3>
+			<ul>
+				<li><a href="https://han520min.github.io">hanmin</a></li>
+			</ul>
+			</div>
+		</div>
+	  </div>
+	  <div class="content">
+	<div class='article'>
+		<div class="page-header"><h1>Python-快排&堆排&归排</h1></div>
+		<div class="well small">Permalink: <a class="more" href="/Python-快排&堆排&归排.html">1001-01-02 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/python.html">Python</a>
+tags: <a href="/tag/python.html">Python</a> </div>
+		<div><h4>快排：快速排序中最简单的(递归调用)</h4>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+
+<span class="c1"># -*- coding:utf-8 -*-</span>
+
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">setrecursionlimit</span><span class="p">(</span><span class="mi">10000000</span><span class="p">)</span>             <span class="c1">#设置系统最大递归深度</span>
+
+<span class="k">def</span> <span class="nf">quick_sort</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">left</span> <span class="o">&lt;</span> <span class="n">right</span><span class="p">:</span>
+        <span class="n">mid</span> <span class="o">=</span> <span class="n">partition</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">)</span>    <span class="c1"># mid返回的是上一个用来排序那个数的下标</span>
+        <span class="n">quick_sort</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">mid</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">quick_sort</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span><span class="n">right</span><span class="p">)</span>
+
+<span class="c1"># 每执行一次partition函数都可以实现将某个数左边都比这个数小右边都比这个数大</span>
+
+<span class="k">def</span> <span class="nf">partition</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">):</span>
+    <span class="n">tmp</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">left</span><span class="p">]</span>
+    <span class="k">while</span> <span class="n">left</span> <span class="o">&lt;</span> <span class="n">right</span><span class="p">:</span>
+        <span class="k">while</span> <span class="n">left</span> <span class="o">&lt;</span> <span class="n">right</span> <span class="ow">and</span> <span class="n">data</span><span class="p">[</span><span class="n">right</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">tmp</span><span class="p">:</span>     <span class="c1"># 从右向左找小于tmp的数放到左边空位置</span>
+            <span class="n">right</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="n">data</span><span class="p">[</span><span class="n">left</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">right</span><span class="p">]</span>                       <span class="c1"># 将右边小于tmp值得数放到左边空位置</span>
+        <span class="k">while</span> <span class="n">left</span> <span class="o">&lt;</span> <span class="n">right</span> <span class="ow">and</span> <span class="n">data</span><span class="p">[</span><span class="n">left</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">tmp</span><span class="p">:</span>      <span class="c1"># 从左向右找到大于tmp的值放到右边空位置</span>
+            <span class="n">left</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">data</span><span class="p">[</span><span class="n">right</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">left</span><span class="p">]</span>                       <span class="c1"># 将右边大于tmp值得数放到右边空位置</span>
+    <span class="n">data</span><span class="p">[</span><span class="n">left</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmp</span>
+    <span class="k">return</span> <span class="n">left</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
+<span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>                                 <span class="c1">#将有序列表打乱</span>
+<span class="n">quick_sort</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+
+
+<h4>不使用递归实现快排</h4>
+<div class="highlight"><pre><span></span><span class="ch">#! /usr/bin/env python</span>
+
+<span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="k">def</span> <span class="nf">quick_sort</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;&#39;&#39;</span>
+<span class="sd">    模拟栈操作实现非递归的快速排序</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">arr</span>
+    <span class="n">stack</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">while</span> <span class="n">stack</span><span class="p">:</span>
+        <span class="n">l</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+        <span class="n">index</span> <span class="o">=</span> <span class="n">partition</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">l</span> <span class="o">&lt;</span> <span class="n">index</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">index</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">r</span> <span class="o">&gt;</span> <span class="n">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+            <span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">partition</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">):</span>
+    <span class="c1"># 分区操作，返回基准线下标</span>
+    <span class="n">pivot</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">start</span><span class="p">]</span>
+    <span class="k">while</span> <span class="n">start</span> <span class="o">&lt;</span> <span class="n">end</span><span class="p">:</span>
+        <span class="k">while</span> <span class="n">start</span> <span class="o">&lt;</span> <span class="n">end</span> <span class="ow">and</span> <span class="n">arr</span><span class="p">[</span><span class="n">end</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">pivot</span><span class="p">:</span>
+            <span class="n">end</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="n">arr</span><span class="p">[</span><span class="n">start</span><span class="p">]</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">end</span><span class="p">]</span>
+        <span class="k">while</span> <span class="n">start</span> <span class="o">&lt;</span> <span class="n">end</span> <span class="ow">and</span> <span class="n">arr</span><span class="p">[</span><span class="n">start</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">pivot</span><span class="p">:</span>
+            <span class="n">start</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">arr</span><span class="p">[</span><span class="n">end</span><span class="p">]</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">start</span><span class="p">]</span>
+    <span class="c1"># 此时start = end</span>
+    <span class="n">arr</span><span class="p">[</span><span class="n">start</span><span class="p">]</span> <span class="o">=</span> <span class="n">pivot</span>
+    <span class="k">return</span> <span class="n">start</span>
+
+<span class="n">lst</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">10</span><span class="p">]</span>
+<span class="n">quick_sort</span><span class="p">(</span><span class="n">lst</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">lst</span>   <span class="c1"># [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</span>
+</pre></div>
+
+
+<h4>快排简版</h4>
+<div class="highlight"><pre><span></span><span class="ch">#! /usr/bin/env python</span>
+
+<span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="k">def</span> <span class="nf">quick</span><span class="p">(</span><span class="nb">list</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">list</span>
+
+    <span class="n">tmp</span> <span class="o">=</span> <span class="nb">list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># 临时变量 可以取随机值</span>
+    <span class="n">left</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="n">tmp</span><span class="p">]</span>  <span class="c1"># 左列表</span>
+    <span class="n">right</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="n">tmp</span><span class="p">]</span>  <span class="c1"># 右列表</span>
+    <span class="k">return</span> <span class="n">quick</span><span class="p">(</span><span class="n">left</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="n">tmp</span><span class="p">]</span> <span class="o">+</span> <span class="n">quick</span><span class="p">(</span><span class="n">right</span><span class="p">)</span>
+
+<span class="n">li</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
+<span class="k">print</span> <span class="n">quick</span><span class="p">(</span><span class="n">li</span><span class="p">)</span>  <span class="c1"># [2, 3, 4, 5, 7, 8]</span>
+
+<span class="c1">#### 对[4,3,7,5,8,2]排序</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">[3, 2] + [4] + [7, 5, 8]                 # tmp = [4]</span>
+<span class="sd">[2] + [3] + [4] + [7, 5, 8]              # tmp = [3] 此时对[3, 2]这个列表进行排序</span>
+<span class="sd">[2] + [3] + [4] + [5] + [7] + [8]        # tmp = [7] 此时对[7, 5, 8]这个列表进行排序</span>
+<span class="sd">&#39;&#39;&#39;</span>
+</pre></div>
+
+
+<h4>快排原理图</h4>
+<p><img alt="img" src="http://m.qpic.cn/psc?/V11vDzPO1w5782/evyMJ*ZwKmN7EwaKYDZ0cBbbbcDtxbidquehxaFPgDChltTUIAEJFcBbINTOFl4CpNPUj0f6HhVEPRbjOefBJfH*TfnKgJlPZV02W5BUPvU!/b&amp;bo=vAIMAgAAAAARF5A!&amp;rf=viewer_4"></p>
+<div class="highlight"><pre><span></span><span class="c1"># 从排序前--------&gt; 到P归位 经历过程（前面都比5小后面都比5大）</span>
+<span class="c1"># 1、    首先从右向左比较，取出列表第一个元素5（第一个位置就空出来）与列表最后一个元素8比较，8&gt;5不换位置</span>
+<span class="c1"># 2、    用5与-2位置的9比，5&lt;9不换位置</span>
+<span class="c1"># 3、    5与-3位置的2比较，2&lt;5,将-3位置的5放到1号位置，那么-3号位置空出来了，然后从左往右比较</span>
+<span class="c1"># 4、    5与2号位置的7比，5&lt;7,将7放到-3号位置，2号位置空出来了，在从右往左比</span>
+<span class="c1"># 5、    -4号位置的1小于5将1放到空出的2号位置，-4位置空出来了，再从右向左比</span>
+<span class="c1"># 6、    这样第一次循环就实现了5放到列表中间，前面的都比5大，后面的都比5小</span>
+</pre></div>
+
+
+<h4>快排和冒泡对比</h4>
+<p><img alt="img" src="http://m.qpic.cn/psc?/V11vDzPO1w5782/evyMJ*ZwKmN7EwaKYDZ0cHLxuHP5oyBM56PfdUdxDfB8FIPf64LUHTs6cP2dEJtNli*lTASZbkfLR.CujrkOZ6J6SkZp9fDMgLco2QXyLGE!/b&amp;bo=7wLmAAAAAAADFzk!&amp;rf=viewer_4"></p>
+<ul>
+<li>
+<p>快排最坏时间复杂度为何为O(n2)</p>
+</li>
+<li>
+<p>每次划分只能将序列分为一个元素与其他元素两部分，这时的快速排序退化为冒泡排序</p>
+</li>
+<li>如果用数画出来，得到的将会是一棵单斜树，也就是说所有所有的节点只有左（右）节点的树；平均时间复杂度O(n*logn)</li>
+</ul>
+<h4>堆排</h4>
+<div class="highlight"><pre><span></span><span class="c1"># !/usr/bin/env python</span>
+<span class="c1"># -*- coding:utf-8 -*-</span>
+<span class="kn">import</span> <span class="nn">random</span>
+
+<span class="k">def</span> <span class="nf">sift</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">low</span><span class="p">,</span> <span class="n">high</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;  构造堆  堆定义：堆中某节点的值总是不大于或不小于父节点的值</span>
+<span class="sd">    :param data: 传入的待排序的列表</span>
+<span class="sd">    :param low:  需要进行排序的那个小堆的根对应的号</span>
+<span class="sd">    :param high: 需要进行排序那个小堆最大的那个号</span>
+<span class="sd">    :return:</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">root</span> <span class="o">=</span> <span class="n">low</span>  <span class="c1"># root最开始创建堆时是最后一个有孩子的父亲对应根的号</span>
+    <span class="n">child</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">root</span> <span class="o">+</span> <span class="mi">1</span>  <span class="c1"># child子堆左孩子对应的号</span>
+    <span class="n">tmp</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">root</span><span class="p">]</span>  <span class="c1"># tmp是子堆中原本根的值（拿出最高领导）</span>
+    <span class="k">while</span> <span class="n">child</span> <span class="o">&lt;=</span> <span class="n">high</span><span class="p">:</span>  <span class="c1"># 只要没到子堆的最后（每次向下找一层）  #孩子在堆里</span>
+        <span class="k">if</span> <span class="n">child</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">high</span> <span class="ow">and</span> <span class="n">data</span><span class="p">[</span><span class="n">child</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">data</span><span class="p">[</span><span class="n">child</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]:</span>  <span class="c1"># 如果有右孩纸，且比左孩子大</span>
+            <span class="n">child</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">tmp</span> <span class="o">&lt;</span> <span class="n">data</span><span class="p">[</span><span class="n">child</span><span class="p">]:</span>  <span class="c1"># 如果孩子还比子堆原有根的值tmp大，就将孩子放到子堆的根</span>
+            <span class="n">data</span><span class="p">[</span><span class="n">root</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">child</span><span class="p">]</span>  <span class="c1"># 孩子成为子堆的根</span>
+            <span class="n">root</span> <span class="o">=</span> <span class="n">child</span>  <span class="c1"># 孩子成为新父亲（向下再找一层）</span>
+            <span class="n">child</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">root</span> <span class="o">+</span> <span class="mi">1</span>  <span class="c1"># 新孩子  （此时如果child&lt;=high证明还有孩，继续找）</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">break</span>  <span class="c1"># 如果能干就跳出循环就会流出一个空位</span>
+    <span class="n">data</span><span class="p">[</span><span class="n">root</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmp</span>  <span class="c1"># 最高领导放到父亲位置</span>
+
+<span class="k">def</span> <span class="nf">heap_sort</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;调整堆&#39;&#39;&#39;</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="sd">&#39;&#39;&#39; n//2-1 就是最后一个有孩子的父亲那个子堆根的位置 &#39;&#39;&#39;</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span> <span class="o">//</span> <span class="mi">2</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>  <span class="c1"># 开始位置，结束位置， 步长       这个for循环构建堆</span>
+        <span class="c1"># for循环输出的是： （n // 2 - 1 ） ～ 0 之间的数</span>
+        <span class="n">sift</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># i是子堆的根，n-1是堆中最后一个元素</span>
+    <span class="c1"># 堆建好了，后下面就是挨个出数</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>  <span class="c1"># i指向堆的最后        这个for循环出数然后，调长调整堆</span>
+        <span class="c1"># for循环输出的是 ： n-1 ～ 0之间所有的数，n-1就是这个堆最后那个数的位置</span>
+        <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># 将堆的第一个和最后一个值调换位置(将最大数放到最后)</span>
+        <span class="n">sift</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># 将出数后的部分重新构建堆(调长)</span>
+
+
+<span class="n">data</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
+<span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>  <span class="c1"># 将有序列表打乱</span>
+<span class="n">heap_sort</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+
+
+<ul>
+<li>堆排序时间：O(nlogn) 公式推倒
+  1）推导方法1：</li>
+</ul>
+<p>循环 n -1 次，每次都是从根节点往下循环查找，所以每一次时间是 logn，总时间：logn(n-1) = nlogn - logn </p>
+<p>2）推导方法2：</p>
+<p>​ 1.在一个堆中一次调长（调整堆）时间复杂度： log(n)
+  ​ 2.排序时一次出栈顶元素需要循环 n次，每次时间复杂度为：log(n)
+  ​ 3.所以总时间复杂度：nlog(n)</p>
+<h3>归并排序（递归调用）</h3>
+<p><img alt="img" src="http://m.qpic.cn/psc?/V11vDzPO1w5782/evyMJ*ZwKmN7EwaKYDZ0cKZyZ5**gPlEk36dtFoedD7kMC*ye4cAxoYtNRtgjVrbOEsysWAGmLs5K1H3ncWbJKufFFQ6XsFzUF2BffGBW*w!/b&amp;bo=9AGTAQAAAAARF0c!&amp;rf=viewer_4"></p>
+<ul>
+<li>归并排序代码（时间复杂度：O(nlogn)）</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="ch">#! /usr/bin/env python</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="k">def</span> <span class="nf">merge</span><span class="p">(</span><span class="n">li</span><span class="p">,</span> <span class="n">low</span><span class="p">,</span> <span class="n">mid</span><span class="p">,</span> <span class="n">high</span><span class="p">):</span>
+   <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">   :param li:      带排序列表</span>
+<span class="sd">   :param low:     列表中第一个元素下标，一般是：0</span>
+<span class="sd">   :param mid:     列表中间位置下标</span>
+<span class="sd">   :param high:    列表最后位置下标</span>
+<span class="sd">   :return:</span>
+<span class="sd">   &#39;&#39;&#39;</span>
+   <span class="n">i</span> <span class="o">=</span> <span class="n">low</span>
+   <span class="n">j</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span>
+   <span class="n">ltmp</span> <span class="o">=</span> <span class="p">[]</span>
+   <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">mid</span> <span class="ow">and</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="n">high</span><span class="p">:</span>
+      <span class="k">if</span> <span class="n">li</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">li</span><span class="p">[</span><span class="n">j</span><span class="p">]:</span>
+         <span class="n">ltmp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">li</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+         <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+      <span class="k">else</span><span class="p">:</span>
+         <span class="n">ltmp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">li</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+         <span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span>
+   <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">mid</span><span class="p">:</span>
+      <span class="n">ltmp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">li</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+      <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+   <span class="k">while</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="n">high</span><span class="p">:</span>
+      <span class="n">ltmp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">li</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+      <span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span>
+   <span class="n">li</span><span class="p">[</span><span class="n">low</span><span class="p">:</span><span class="n">high</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">ltmp</span>
+
+<span class="k">def</span> <span class="nf">mergesort</span><span class="p">(</span><span class="n">li</span><span class="p">,</span> <span class="n">low</span><span class="p">,</span> <span class="n">high</span><span class="p">):</span>
+   <span class="k">if</span> <span class="n">low</span> <span class="o">&lt;</span> <span class="n">high</span><span class="p">:</span>
+      <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">low</span> <span class="o">+</span> <span class="n">high</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>          <span class="c1">#获取列表中间的索引下标</span>
+      <span class="n">mergesort</span><span class="p">(</span><span class="n">li</span><span class="p">,</span> <span class="n">low</span><span class="p">,</span> <span class="n">mid</span><span class="p">)</span>          <span class="c1">#先分解</span>
+      <span class="n">mergesort</span><span class="p">(</span><span class="n">li</span><span class="p">,</span> <span class="n">mid</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">high</span><span class="p">)</span>
+      <span class="n">merge</span><span class="p">(</span><span class="n">li</span><span class="p">,</span> <span class="n">low</span><span class="p">,</span> <span class="n">mid</span><span class="p">,</span> <span class="n">high</span><span class="p">)</span>        <span class="c1">#然后合并</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">]</span>
+<span class="n">mergesort</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="mi">0</span> <span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>                            <span class="c1"># [2, 4, 6, 8, 10, 12, 14, 16, 18]</span>
+</pre></div>
+
+
+<h4>快速排序，堆排序， 归并排序 比较</h4>
+<ul>
+<li>三种排序算法时间复杂度都是（ O(nlogn) ）</li>
+<li>一般情况下，就运行时间而言：</li>
+<li>快速排序 &lt; 归并排序 &lt; 堆排序</li>
+<li>三种排序算法的缺点</li>
+<li>快速排序： 极端情况下排序效率低( O(n2) )</li>
+<li>归并排序： 需要额外内存开销（需要新建一个列表放排序的元素）</li>
+<li>堆排序： 在快的排序算法中相对较慢，堆排序最稳定</li>
+</ul>
+<h4>时间复杂度、空间复杂度和稳定性</h4>
+<ul>
+<li>什么是时间复杂度，什么又是空间复杂度，什么是大O表示法</li>
+<li>时间复杂度<ul>
+<li>一般上，如果我们要衡量一个程序片段的执行时间，我们会把程序运行一次并打印时间，</li>
+</ul>
+</li>
+<li>空间复杂度；<ul>
+<li>空间复杂度需要考虑在运行过程中为局部变量分配的存储空间的大小，它包括为参数表中形参变量分配的存储空间和为在函数体中定义的局部变量分配的存储空间两个部分</li>
+<li>我们当然希望执行时间和消耗内存都越少越好，但很多时候其实我们无法同时兼顾，需要在时间和空间之间做一定的取舍达到平衡。</li>
+</ul>
+</li>
+<li>大O标记法<ul>
+<li>数学概念：如果存在正常数c和n，使得当N≥n的时候T(N)≤cf(N)，则标记为T(N)=O(f(N))</li>
+</ul>
+</li>
+</ul>
+<h4>各种算法比较</h4>
+<p><img alt="img" src="http://m.qpic.cn/psc?/V11vDzPO1w5782/evyMJ*ZwKmN7EwaKYDZ0cGk9N7S5MnFJZvZpbF7Ac.Q9NGYmvS0SSlSVAD7TLd1Fb3xV4cXJ3nK9wf8q2afIaHSByw5U07WtB5TqkIr4BH4!/b&amp;bo=9AGJAQAAAAARF10!&amp;rf=viewer_4"></p>
+<h4>算法不稳定定义</h4>
+<ul>
+<li>
+<p><strong>定义</strong>：在排序之前,有两个数相等，但是在排序结束之后,它们两个有可能改变顺序.</p>
+</li>
+<li>
+<p><strong>说明</strong>：在一个待排序队列中,A和B相等,且A排在B的前面,而排序之后,A排在了B的后面.这个时候,我们说这种算法是不稳定的.</p>
+</li>
+</ul>
+<h4>不稳定的几种算法</h4>
+<ul>
+<li>快排为什么不稳定</li>
+</ul>
+<p>3 2 2 4 经过第一次快排后结果：2 2 3 4 （第3号位置的2第一次排序后跑到第1号位置了）</p>
+<div class="highlight"><pre><span></span><span class="err">举个例子</span>
+<span class="err">待排数组</span> <span class="mi">6</span> <span class="mi">9</span> <span class="mi">9</span> <span class="mi">10</span> <span class="mi">11</span>
+<span class="err">我们选择第一个</span><span class="mi">9</span><span class="err">作为主元（过程是随机的），若把小于等于放在主元的左边，则第二个</span><span class="mi">9</span><span class="err">就跑到第一个</span><span class="mi">9</span><span class="err">左面了，从而导致不稳定</span>
+<span class="err">主元的选择是随机的，导致不稳定的原因在于我们无法保证每次都是稳定的，所以它是不稳定的。</span>
+</pre></div>
+
+
+<h5>堆排序为什么不稳定</h5>
+<p>如果堆顶3先输出，则，第三层的27（最后一个27）跑到堆顶，然后堆稳定，继续输出堆顶，是刚才那个27
+　这样说明后面的27先于第二个位置的27输出，不稳定
+　<img alt="img" src="http://m.qpic.cn/psc?/V11vDzPO1w5782/evyMJ*ZwKmN7EwaKYDZ0cBlCkOXsJVHr45SwEsHqB*i773DMbyokQfwAsz9GDbaNRWT30rAmibnQ7sXvjQR6uiyG4O7.MvlDmfkMkFcEv7o!/b&amp;bo=0QB0AAAAAAARF4U!&amp;rf=viewer_4"></p>
+<h4>选择排序为什么不稳定</h4>
+<p>5 8 5 2 9 第一次假定1号位置的5最小，但是实际最小的是4号位置的2
+第一次排序后为：2 8 5 5 9 以前1号位置的5跑到3号位置5的后面了</p></div>
+	</div>
+		<footer>
+		  <p>Powered by <a href="http://getpelican.com/">Pelican</a>. Theme based on <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a>.</p>
+		  <p>&copy; 商伟</p>
+		</footer>
+	  </div>
+
+	</div>
+</body>
+</html>

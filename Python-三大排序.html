@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>商伟的技术博客</title>
+	<meta name="description" content="">
+	<meta name="author" content="商伟">
+
+	<!-- HTML5 shim, for IE6-8 support of HTML elements -->
+	<!--[if lt IE 9]>
+		<script src="/theme/html5.js"></script>
+	<![endif]-->
+
+	<!-- Styles -->
+	<link href="/theme/bootstrap.min.css" rel="stylesheet">
+	<link href="/theme/local.css" rel="stylesheet">
+	<link href="/theme/pygments.css" rel="stylesheet">
+
+	<!-- Feeds -->
+
+
+
+
+</head>
+<body>
+	<div class="topbar">
+	  <div class="topbar-inner">
+		<div class="container-fluid">
+		  <a class="brand" href="/">商伟的技术博客</a>
+			<ul class="nav">
+					<li ><a href="/category/django.html">Django</a></li>
+					<li ><a href="/category/docker.html">Docker</a></li>
+					<li ><a href="/category/git.html">GIT</a></li>
+					<li ><a href="/category/javascript.html">JavaScript</a></li>
+					<li ><a href="/category/mongodb.html">Mongodb</a></li>
+					<li ><a href="/category/mysql.html">MySQL</a></li>
+					<li ><a href="/category/pa-chong.html">爬虫</a></li>
+					<li class="active"><a href="/category/python.html">Python</a></li>
+					<li ><a href="/category/rabbitmq.html">RabbitMQ</a></li>
+					<li ><a href="/category/redis.html">redis</a></li>
+					<li ><a href="/category/shu-ju-jie-gou.html">数据结构</a></li>
+					<li ><a href="/category/sui-shou-bi-ji.html">随手笔记</a></li>
+					<li ><a href="/category/supervisor.html">Supervisor</a></li>
+					<li ><a href="/category/vue.html">VUE</a></li>
+					<li ><a href="/category/wang-luo.html">网络</a></li>
+					<li ><a href="/category/xiao-cheng-xu.html">小程序</a></li>
+					<li ><a href="/category/xu-ni-huan-jing.html">虚拟环境</a></li>
+			</ul>
+			<p class="pull-right"><a href="/archives.html">[archives]</a> <a href="/tags.html">[tags]</a></p>
+		</div>
+	  </div>
+	</div>
+
+	<div class="container-fluid">
+	  <div class="sidebar">
+		<div class="well">
+			<h3>Blogroll</h3>
+			<ul>
+				<li><a href="http://getpelican.com/">Pelican</a></li>
+				<li><a href="http://python.org/">Python.org</a></li>
+				<li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+			</ul>
+			<div class="social">
+			<h3>Social</h3>
+			<ul>
+				<li><a href="https://han520min.github.io">hanmin</a></li>
+			</ul>
+			</div>
+		</div>
+	  </div>
+	  <div class="content">
+	<div class='article'>
+		<div class="page-header"><h1>Python-三大排序</h1></div>
+		<div class="well small">Permalink: <a class="more" href="/Python-三大排序.html">1001-01-01 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/python.html">Python</a>
+tags: <a href="/tag/python.html">Python</a> </div>
+		<div><h4>冒泡排序（最好是O(n), 最坏O(n2)）</h4>
+<p><strong>原理：</strong>拿自己与上面一个比较，如果上面一个比自己小就将自己和上面一个调换位置，依次再与上面一个比较，第一轮结束后最上面那个一定是最大的数.</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+<span class="k">def</span> <span class="nf">bubble_sort</span><span class="p">(</span><span class="n">li</span><span class="p">):</span>
+   <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">li</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+      <span class="n">exchange</span> <span class="o">=</span> <span class="bp">False</span>
+      <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">li</span><span class="p">)</span> <span class="o">-</span> <span class="n">i</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>  <span class="c1">#内层for循环执行一次，选出一个最大值，将可以调换位置的数调整</span>
+         <span class="k">if</span> <span class="n">li</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">li</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]:</span>
+            <span class="n">li</span><span class="p">[</span><span class="n">j</span><span class="p">],</span><span class="n">li</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">li</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span><span class="n">li</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+            <span class="n">exchange</span> <span class="o">=</span> <span class="bp">True</span>
+      <span class="k">if</span> <span class="ow">not</span> <span class="n">exchange</span><span class="p">:</span>                <span class="c1"># 如果上一趟没有发生交换就证明已经排序完成</span>
+         <span class="k">break</span>
+<span class="n">data</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
+<span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>                  <span class="c1">#将有序列表打乱</span>
+<span class="n">bubble_sort</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">bubble_sort</span><span class="p">(</span><span class="n">li</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">li</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">li</span><span class="p">)</span><span class="o">-</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">li</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">li</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]:</span>
+                <span class="n">li</span><span class="p">[</span><span class="n">j</span><span class="p">],</span><span class="n">li</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="n">li</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span><span class="n">li</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+
+<span class="n">li</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">bubble_sort</span><span class="p">(</span><span class="n">li</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">li</span><span class="p">)</span>               <span class="c1"># [0, 1, 2, 3, 4, 5, 6, 7, 8, 9</span>
+</pre></div>
+
+
+<h4>选择排序</h4>
+<ul>
+<li>先假定第一个是最小的，依次与其他数比，如果其他数中有比第一个数小就假定这个更小的最小</li>
+<li>再比，第一轮就可以找到最小的那个放到0号位置，然后在假定1号位置数最小与剩下比较，再找到第二小的数放到第1号位置</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+<span class="k">def</span> <span class="nf">select_sort</span><span class="p">(</span><span class="n">li</span><span class="p">):</span>
+   <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">li</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+      <span class="n">min_loc</span> <span class="o">=</span> <span class="n">i</span>                <span class="c1">#开始先假设0号位置的值最小</span>
+      <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">li</span><span class="p">)):</span>      <span class="c1">#循环无序区，依次比较，小于min_loc就暂定他的下标最小</span>
+         <span class="k">if</span> <span class="n">li</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">li</span><span class="p">[</span><span class="n">min_loc</span><span class="p">]:</span>        <span class="c1">#所以内层for循环每执行一次就选出一个小值</span>
+            <span class="n">min_loc</span> <span class="o">=</span> <span class="n">j</span>
+      <span class="n">li</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">li</span><span class="p">[</span><span class="n">min_loc</span><span class="p">]</span> <span class="o">=</span> <span class="n">li</span><span class="p">[</span><span class="n">min_loc</span><span class="p">],</span><span class="n">li</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+<span class="n">data</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
+<span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>        <span class="c1">#将有序列表打乱</span>
+<span class="n">select_sort</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+<span class="k">def</span> <span class="nf">select_sort</span><span class="p">(</span><span class="n">li</span><span class="p">):</span>
+   <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">li</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+      <span class="n">min_loc</span> <span class="o">=</span> <span class="n">i</span>                        <span class="c1">#开始先假设0号位置的值最小</span>
+      <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">li</span><span class="p">)):</span>      <span class="c1">#循环无序区，依次比较，小于min_loc就暂定他的下标最小</span>
+         <span class="k">if</span> <span class="n">li</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">li</span><span class="p">[</span><span class="n">min_loc</span><span class="p">]:</span>         <span class="c1">#所以内层for循环每执行一次就选出一个小值</span>
+            <span class="n">min_loc</span> <span class="o">=</span> <span class="n">j</span>
+      <span class="n">li</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">li</span><span class="p">[</span><span class="n">min_loc</span><span class="p">]</span> <span class="o">=</span> <span class="n">li</span><span class="p">[</span><span class="n">min_loc</span><span class="p">],</span><span class="n">li</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+
+<span class="n">li</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">select_sort</span><span class="p">(</span><span class="n">li</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">li</span><span class="p">)</span>               <span class="c1"># [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</span>
+</pre></div>
+
+
+<h4>插入排序</h4>
+<ul>
+<li>列表被分为有序区和无序区两个部分，最初有序区只有一个元素
+  每次从无序区选择一个元素，插入到有序区的位置，直到无序区变空</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+
+<span class="k">def</span> <span class="nf">insert_sort</span><span class="p">(</span><span class="n">li</span><span class="p">):</span>
+   <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">li</span><span class="p">)):</span>
+      <span class="n">tmp</span> <span class="o">=</span> <span class="n">li</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>     <span class="c1">#tmp是无序区取出的一个数</span>
+      <span class="n">j</span> <span class="o">=</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span>       <span class="c1">#li[j]是有序区最大的那个数</span>
+      <span class="k">while</span> <span class="n">j</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">li</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">tmp</span><span class="p">:</span>
+         <span class="c1"># li[j]是有序区最大的数，tmp是无序区取出的一个数，tmp从有序区最大的那个数开始比</span>
+         <span class="c1"># 小就调换位置，直到找到有序区中值不大于tmp的结束</span>
+         <span class="n">li</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="n">li</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>    <span class="c1">#将有序区最右边的数向右移一个位置</span>
+         <span class="n">j</span> <span class="o">=</span> <span class="n">j</span> <span class="o">-</span> <span class="mi">1</span>
+      <span class="n">li</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmp</span>       <span class="c1">#将tmp放到以前有序区最大数的位置，再依次与前一个数比较</span>
+<span class="n">data</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
+<span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>        <span class="c1">#将有序列表打乱</span>
+<span class="n">insert_sort</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+
+
+<h4>排序方法图</h4>
+<p><img alt="img" src="http://m.qpic.cn/psc?/V11vDzPO1w5782/evyMJ*ZwKmN7EwaKYDZ0cGk9N7S5MnFJZvZpbF7Ac.Q9NGYmvS0SSlSVAD7TLd1Fb3xV4cXJ3nK9wf8q2afIaHSByw5U07WtB5TqkIr4BH4!/b&amp;bo=9AGJAQAAAAARF10!&amp;rf=viewer_4"></p></div>
+	</div>
+		<footer>
+		  <p>Powered by <a href="http://getpelican.com/">Pelican</a>. Theme based on <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a>.</p>
+		  <p>&copy; 商伟</p>
+		</footer>
+	  </div>
+
+	</div>
+</body>
+</html>
