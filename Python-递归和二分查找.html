@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>商伟的技术博客</title>
+	<meta name="description" content="">
+	<meta name="author" content="商伟">
+
+	<!-- HTML5 shim, for IE6-8 support of HTML elements -->
+	<!--[if lt IE 9]>
+		<script src="/theme/html5.js"></script>
+	<![endif]-->
+
+	<!-- Styles -->
+	<link href="/theme/bootstrap.min.css" rel="stylesheet">
+	<link href="/theme/local.css" rel="stylesheet">
+	<link href="/theme/pygments.css" rel="stylesheet">
+
+	<!-- Feeds -->
+
+
+
+
+</head>
+<body>
+	<div class="topbar">
+	  <div class="topbar-inner">
+		<div class="container-fluid">
+		  <a class="brand" href="/">商伟的技术博客</a>
+			<ul class="nav">
+					<li ><a href="/category/django.html">Django</a></li>
+					<li ><a href="/category/docker.html">Docker</a></li>
+					<li ><a href="/category/git.html">GIT</a></li>
+					<li ><a href="/category/javascript.html">JavaScript</a></li>
+					<li ><a href="/category/mongodb.html">Mongodb</a></li>
+					<li ><a href="/category/mysql.html">MySQL</a></li>
+					<li ><a href="/category/pa-chong.html">爬虫</a></li>
+					<li class="active"><a href="/category/python.html">Python</a></li>
+					<li ><a href="/category/rabbitmq.html">RabbitMQ</a></li>
+					<li ><a href="/category/redis.html">redis</a></li>
+					<li ><a href="/category/shu-ju-jie-gou.html">数据结构</a></li>
+					<li ><a href="/category/sui-shou-bi-ji.html">随手笔记</a></li>
+					<li ><a href="/category/supervisor.html">Supervisor</a></li>
+					<li ><a href="/category/vue.html">VUE</a></li>
+					<li ><a href="/category/wang-luo.html">网络</a></li>
+					<li ><a href="/category/web.html">web</a></li>
+					<li ><a href="/category/xiao-cheng-xu.html">小程序</a></li>
+					<li ><a href="/category/xu-ni-huan-jing.html">虚拟环境</a></li>
+			</ul>
+			<p class="pull-right"><a href="/archives.html">[archives]</a> <a href="/tags.html">[tags]</a></p>
+		</div>
+	  </div>
+	</div>
+
+	<div class="container-fluid">
+	  <div class="sidebar">
+		<div class="well">
+			<h3>Blogroll</h3>
+			<ul>
+				<li><a href="http://getpelican.com/">Pelican</a></li>
+				<li><a href="http://python.org/">Python.org</a></li>
+				<li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+			</ul>
+			<div class="social">
+			<h3>Social</h3>
+			<ul>
+				<li><a href="https://han520min.github.io">hanmin</a></li>
+			</ul>
+			</div>
+		</div>
+	  </div>
+	  <div class="content">
+	<div class='article'>
+		<div class="page-header"><h1>Python-递归和二分查找</h1></div>
+		<div class="well small">Permalink: <a class="more" href="/Python-递归和二分查找.html">1001-01-03 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/python.html">Python</a>
+tags: <a href="/tag/python.html">Python</a> </div>
+		<div><h4>递归</h4>
+<ul>
+<li>递归条件</li>
+<li>自己调用自己</li>
+<li>有结束条件<ul>
+<li>代码</li>
+</ul>
+</li>
+<li>递归优缺点</li>
+<li>优点：<ul>
+<li>递归使代码看起来更加整洁、优雅</li>
+<li>可以用递归将复杂任务分解成更简单的子问题</li>
+<li>使用递归比使用一些嵌套迭代更容易</li>
+</ul>
+</li>
+<li>缺点:<ul>
+<li>递归的逻辑很难调试、跟进</li>
+<li>递归算法解题的运行效率较低。在递归调用的过程当中系统为每一层的返回点、局部量等开辟了栈来存储。递归次数过多容易造成栈溢出等</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">Afactorial</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>            <span class="c1">#定以一个递归函数</span>
+   <span class="k">print</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>          <span class="c1">#输出当前数字</span>
+   <span class="k">if</span> <span class="n">num</span> <span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>          <span class="c1">#判断当前数字是否&gt;0</span>
+      <span class="n">Afactorial</span><span class="p">(</span><span class="n">num</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>          <span class="c1"># 调用函数本身</span>
+   <span class="k">else</span><span class="p">:</span>
+      <span class="k">print</span><span class="p">(</span><span class="s1">&#39;-------&#39;</span><span class="p">)</span>
+   <span class="k">print</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>             <span class="c1">#再次输出当前数字</span>
+<span class="n">Afactorial</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="c1">#运行结果</span>
+<span class="mi">3</span>
+<span class="mi">2</span>
+<span class="mi">1</span>
+<span class="mi">0</span>
+<span class="o">-------</span>
+<span class="mi">0</span>
+<span class="mi">1</span>
+<span class="mi">2</span>
+<span class="mi">3</span>
+</pre></div>
+
+
+<p><img alt="img" src="http://m.qpic.cn/psc?/V11vDzPO1w5782/zfrllz9Q9AzvUwq**DIV0yUtZ1WQ7rnv2ketuRf2JcwD.eR0vdkr7zfpT7GFuw83C58wwIXNa7eNnQW..ZD.tg!!/b&amp;bo=JALfASQC3wEDCSw!&amp;rf=viewer_4"></p>
+<h4>二分查找</h4>
+<ul>
+<li>概念</li>
+<li>二分查找也称折半查找（Binary Search），它是一种效率较高的查找方法。但是，折半查找要求线性表必须采用顺序存储结构，而且表中元素按关键字有序排列。</li>
+<li>查找过程</li>
+<li>首先，假设表中元素是按升序排列，将表中间位置记录的关键字与查找关键字比较，</li>
+<li>如果两者相等，则查找成功；否则利用中间位置记录将表分成前、后两个子表，</li>
+<li>如果中间位置记录的关键字大于查找关键字，则进一步查找前一子表，否则进一步查找后一子表。</li>
+<li>重复以上过程，直到找到满足条件的记录，使查找成功，或直到子表不存在为止，此时查找不成功</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">binary_search</span><span class="p">(</span><span class="n">data_list</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    :param data_list: 传入的有序列表</span>
+<span class="sd">    :param target:  传入要查找的目标值</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">low</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># 最小数下标</span>
+    <span class="n">high</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data_list</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>  <span class="c1"># 最大数的下标</span>
+    <span class="n">index</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># 用index来记录查找的次数</span>
+
+    <span class="k">while</span> <span class="n">low</span> <span class="o">&lt;=</span> <span class="n">high</span><span class="p">:</span>
+        <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">low</span> <span class="o">+</span> <span class="n">high</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>  <span class="c1"># 取中间值</span>
+
+        <span class="k">if</span> <span class="n">data_list</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span> <span class="o">==</span> <span class="n">target</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;一共查找了</span><span class="si">%d</span><span class="s2">次,此数字在列表中的下标为:</span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">mid</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">data_list</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">target</span><span class="p">:</span>
+            <span class="n">high</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">-</span> <span class="mi">1</span>  <span class="c1"># 如果中间值比目标值大,则在mid左半边找</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">low</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span>  <span class="c1"># 如果中间值比目标值小,则在mid右半边找</span>
+
+        <span class="n">index</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="s2">&quot;一共找了</span><span class="si">%d</span><span class="s2">次,找不到这样的值!&quot;</span> <span class="o">%</span> <span class="n">index</span>
+
+
+<span class="n">ret1</span> <span class="o">=</span> <span class="n">binary_search</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)),</span> <span class="mi">888</span><span class="p">)</span>
+<span class="n">ret2</span> <span class="o">=</span> <span class="n">binary_search</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)),</span> <span class="mi">10000</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">ret1</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">ret2</span><span class="p">)</span>
+
+
+ <span class="c1">#运行结果</span>
+<span class="err">一共查找了</span><span class="mi">9</span><span class="err">次</span><span class="p">,</span><span class="err">此数字在列表中的下标为</span><span class="p">:</span><span class="mi">887</span>
+<span class="err">一共找了</span><span class="mi">11</span><span class="err">次</span><span class="p">,</span><span class="err">找不到这样的值!</span>
+</pre></div></div>
+	</div>
+		<footer>
+		  <p>Powered by <a href="http://getpelican.com/">Pelican</a>. Theme based on <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a>.</p>
+		  <p>&copy; 商伟</p>
+		</footer>
+	  </div>
+
+	</div>
+</body>
+</html>

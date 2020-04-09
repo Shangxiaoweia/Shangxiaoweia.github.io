@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>商伟的技术博客</title>
+	<meta name="description" content="">
+	<meta name="author" content="商伟">
+
+	<!-- HTML5 shim, for IE6-8 support of HTML elements -->
+	<!--[if lt IE 9]>
+		<script src="/theme/html5.js"></script>
+	<![endif]-->
+
+	<!-- Styles -->
+	<link href="/theme/bootstrap.min.css" rel="stylesheet">
+	<link href="/theme/local.css" rel="stylesheet">
+	<link href="/theme/pygments.css" rel="stylesheet">
+
+	<!-- Feeds -->
+
+
+
+
+</head>
+<body>
+	<div class="topbar">
+	  <div class="topbar-inner">
+		<div class="container-fluid">
+		  <a class="brand" href="/">商伟的技术博客</a>
+			<ul class="nav">
+					<li ><a href="/category/django.html">Django</a></li>
+					<li ><a href="/category/docker.html">Docker</a></li>
+					<li ><a href="/category/git.html">GIT</a></li>
+					<li ><a href="/category/javascript.html">JavaScript</a></li>
+					<li ><a href="/category/mongodb.html">Mongodb</a></li>
+					<li ><a href="/category/mysql.html">MySQL</a></li>
+					<li ><a href="/category/pa-chong.html">爬虫</a></li>
+					<li class="active"><a href="/category/python.html">Python</a></li>
+					<li ><a href="/category/rabbitmq.html">RabbitMQ</a></li>
+					<li ><a href="/category/redis.html">redis</a></li>
+					<li ><a href="/category/shu-ju-jie-gou.html">数据结构</a></li>
+					<li ><a href="/category/sui-shou-bi-ji.html">随手笔记</a></li>
+					<li ><a href="/category/supervisor.html">Supervisor</a></li>
+					<li ><a href="/category/vue.html">VUE</a></li>
+					<li ><a href="/category/wang-luo.html">网络</a></li>
+					<li ><a href="/category/web.html">web</a></li>
+					<li ><a href="/category/xiao-cheng-xu.html">小程序</a></li>
+					<li ><a href="/category/xu-ni-huan-jing.html">虚拟环境</a></li>
+			</ul>
+			<p class="pull-right"><a href="/archives.html">[archives]</a> <a href="/tags.html">[tags]</a></p>
+		</div>
+	  </div>
+	</div>
+
+	<div class="container-fluid">
+	  <div class="sidebar">
+		<div class="well">
+			<h3>Blogroll</h3>
+			<ul>
+				<li><a href="http://getpelican.com/">Pelican</a></li>
+				<li><a href="http://python.org/">Python.org</a></li>
+				<li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+			</ul>
+			<div class="social">
+			<h3>Social</h3>
+			<ul>
+				<li><a href="https://han520min.github.io">hanmin</a></li>
+			</ul>
+			</div>
+		</div>
+	  </div>
+	  <div class="content">
+	<div class='article'>
+		<div class="page-header"><h1>Python-并发和并行的区别</h1></div>
+		<div class="well small">Permalink: <a class="more" href="/Python-并发和并行的区别.html">1001-01-04 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/python.html">Python</a>
+tags: <a href="/tag/python.html">Python</a> </div>
+		<div><ul>
+<li>
+<p>如果某个系统支持两个或者多个动作（Action）同时存在，那么这个系统就是一个并发系统。</p>
+</li>
+<li>
+<p>如果某个系统支持两个或者多个动作同时执行，那么这个系统就是一个并行系统。</p>
+</li>
+</ul>
+<p><img alt="img" src="http://m.qpic.cn/psc?/V11vDzPO1w5782/zfrllz9Q9AzvUwq**DIV0w*nby4ys91u25G32R9EzGXEPU3wJutEBIz*DIx1jb7eO2wmoP20pHKMB39DW7SBZw!!/b&amp;bo=WALDAVgCwwEDCSw!&amp;rf=viewer_4"></p>
+<div class="highlight"><pre><span></span><span class="err">并发系统与并行系统这两个定义之间的关键差异在于“存在”这个词。</span>
+<span class="err">在并发程序中可以同时拥有两个或者多个线程。</span>
+<span class="err">这意味着，如果程序在单核处理器上运行，那么这两个线程将交替地换入或者换出内存。</span>
+<span class="err">这些线程是同时“存在”的——每个线程都处于执行过程中的某个状态。</span>
+<span class="err">如果程序能够并行执行，那么就一定是运行在多核处理器上。</span>
+<span class="err">此时，程序中的每个线程都将分配到一个独立的处理器核上，因此可以同时运行。</span>
+
+<span class="err">我相信你已经能够得出结论——“并行”概念是“并发”概念的一个子集。</span>
+<span class="err">也就是说，你可以编写一个拥有多个线程或者进程的并发程序，但如果没有多核处理器来执行这个程序，那么就不能以并行方式来运行代码。</span>
+<span class="err">因此，凡是在求解单个问题时涉及多个执行流程的编程模式或者执行行为，都属于并发编程的范畴。</span>
+
+<span class="err">摘自：《并发的艺术》</span> <span class="err">—</span> <span class="err">〔美〕布雷谢斯在豆瓣阅读书店查看：</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="k">read</span><span class="p">.</span><span class="n">douban</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">ebook</span><span class="o">/</span><span class="mi">1</span>
+</pre></div>
+
+
+<ul>
+<li>
+<p>并行是两个队列 同时 使用两台咖啡机</p>
+</li>
+<li>
+<p>并发是两个队列 交替 使用一台咖啡机</p>
+</li>
+</ul>
+<p>并发和并行都可以是很多个线程，就看这些线程难能不能同时被（多个）CPU执行，如果可以就说明是并行，而并发是多个线程被（一个）CPU轮流切换着执行。</p>
+<p>摘选自 知乎评论https://www.zhihu.com/question/33515481/answer/105348019</p>
+<ul>
+<li>
+<p>并发（Concurrent）：指两个或多个事件在同一时间间隔内发生，即交替做不同事的能力，多线程是并发的一种形式。例如垃圾回收时，用户线程与垃圾收集线程同时执行（但不一定是并行的，可能会交替执行），用户程序在继续运行，而垃圾收集程序运行于另一个CPU上。</p>
+</li>
+<li>
+<p>并行（Parallel）：指两个或者多个事件在同一时刻发生，即同时做不同事的能力。例如垃圾回收时，多条垃圾收集线程并行工作，但此时用户线程仍然处于等待状态。</p>
+</li>
+</ul>
+<h5>串行</h5>
+<p>多个任务，执行时一个执行完再执行另一个。
+比喻：吃完饭再看视频。</p>
+<h5>并发</h5>
+<p>多个线程在单个核心运行，同一时间一个线程运行，系统不停切换线程，看起来像同时运行，实际上是线程不停切换。
+比喻： 一会跑去厨房吃饭，一会跑去客厅看视频。</p>
+<h5>并行</h5>
+<p>每个线程分配给独立的核心，线程同时运行。
+比喻：一边吃饭一边看视频。</p></div>
+	</div>
+		<footer>
+		  <p>Powered by <a href="http://getpelican.com/">Pelican</a>. Theme based on <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a>.</p>
+		  <p>&copy; 商伟</p>
+		</footer>
+	  </div>
+
+	</div>
+</body>
+</html>

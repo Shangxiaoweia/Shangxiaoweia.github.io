@@ -43,6 +43,7 @@
 					<li ><a href="/category/supervisor.html">Supervisor</a></li>
 					<li ><a href="/category/vue.html">VUE</a></li>
 					<li ><a href="/category/wang-luo.html">网络</a></li>
+					<li ><a href="/category/web.html">web</a></li>
 					<li ><a href="/category/xiao-cheng-xu.html">小程序</a></li>
 					<li ><a href="/category/xu-ni-huan-jing.html">虚拟环境</a></li>
 			</ul>
@@ -59,7 +60,6 @@
 				<li><a href="http://getpelican.com/">Pelican</a></li>
 				<li><a href="http://python.org/">Python.org</a></li>
 				<li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
-				<li><a href="https://shangxiaoweia.github.io/puzzle.html">拼图</a></li>
 			</ul>
 			<div class="social">
 			<h3>Social</h3>
@@ -72,420 +72,374 @@
 	  <div class="content">
 <div class="page-header"><h1> 商伟的技术博客 </h1></div>
 <div class='article'>
-	<h2>Python-元祖</h2>
-	<div class="well small">Permalink: <a class="more" href="/Python-元祖.html">1000-01-09 18:44:00+00:09</a>
+	<h2>随手笔记</h2>
+	<div class="well small">Permalink: <a class="more" href="/随手笔记.html">2019-08-08 18:44:00+02:00</a>
 by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/python.html">Python</a>
-tags: <a href="/tag/python.html">Python</a> </div>
-	<div class="summary"><h4>元祖的介绍</h4>
+ in <a href="/category/sui-shou-bi-ji.html">随手笔记</a>
+tags: <a href="/tag/sui-shou-bi-ji.html">随手笔记</a> </div>
+	<div class="summary"><p>pelican content</p>
+<p>pelican --listen</p> <a class="btn primary xsmall" href="/随手笔记.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>微信小程基础</h2>
+	<div class="well small">Permalink: <a class="more" href="/微信小程基础.html">2019-08-07 18:44:00+02:00</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/xiao-cheng-xu.html">小程序</a>
+tags: <a href="/tag/xiao-cheng-xu.html">小程序</a> </div>
+	<div class="summary"><h4>微信小程序须知</h4>
+<div class="highlight"><pre><span></span><span class="err">每一个小程序的代码中，还有一个必须的元素，</span><span class="n">app</span><span class="p">.</span><span class="n">js</span> <span class="n">app</span><span class="p">.</span><span class="n">json</span> <span class="n">app</span><span class="p">.</span><span class="n">wxss</span>
+</pre></div>
+
+
 <ul>
+<li>app.json</li>
+<li>是设置小程序初始的界面</li>
+<li>app.wxml</li>
+<li>是写页面的，展示的内容都在这里书写</li>
+<li>app.wxss</li>
+<li>是书写样式的地方，相当于CSS</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="nt">&lt;view&gt;&lt;/view&gt;</span>为小程序的基本格式，里边写的是代码。
+<span class="nt">&lt;image</span> <span class="na">src=</span><span class="s">&quot;../images/shang.png&quot;</span><span class="nt">&gt;&lt;/image&gt;</span>展示图片
+<span class="nt">&lt;text&gt;&lt;/text&gt;</span>是文本框
+</pre></div>
+
+
+<h4>微信小程序里面的底部导航栏</h4>
+<p>在app.json里面编写</p>
+<div class="highlight"><pre><span></span>  <span class="ss">&quot;tabBar&quot;</span><span class="p">:</span> <span class="err">{</span>
+    <span class="ss">&quot;backgroundColor&quot;</span><span class="p">:</span> <span class="ss">&quot;#fff&quot;</span><span class="p">,</span>
+    <span class="ss">&quot;color&quot;</span><span class="p">:</span> <span class="ss">&quot;#A0A0A0&quot;</span><span class="p">,</span>
+    <span class="ss">&quot;selectedColor&quot;</span><span class="p">:</span> <span class="ss">&quot;#FF3300&quot;</span><span class="p">,</span>
+    <span class="ss">&quot;list&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="err">{</span>
+        <span class="ss">&quot;pagePath&quot;</span><span class="p">:</span> <span class="ss">&quot;pages/index/index&quot;</span><span class="p">,</span>
+        <span class="ss">&quot;iconPath …</span></pre></div> <a class="btn primary xsmall" href="/微信小程基础.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>各种居中</h2>
+	<div class="well small">Permalink: <a class="more" href="/各种居中.html">2019-01-15 22:20:00+01:00</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/web.html">web</a>
+tags: <a href="/tag/web.html">web</a> </div>
+	<div class="summary"><p>单行居中</p>
+<p>div{</p>
+<p>​    height: 26px;</p>
+<p>​    line-height: 26px;</p>
+<p>​    overflow: hidden;</p>
+<p>​    text-align:center;</p>
+<p>}</p>
+<ol>
 <li>
-<p>元祖(tuple)</p>
+<p>同时支持块级和内联极元素</p>
 </li>
 <li>
-<p>Python的元组与列表类似，不同之处在于<strong>元组的元素不能修改</strong>。元组使用小括号，列表使用方括号</p>
+<p>只能支持单行垂直居中，并且不支持标签</p>
+</li>
+</ol>
+<p>多行居中</p>
+<p>div{</p>
+<p>padding: 10px 0;</p>
+<p>text-align:center;</p>
+<p>}</p>
+<ol>
+<li>
+<p>同时支持块级和内联极元素</p>
 </li>
 <li>
-<p>元祖 在只有一个元素的时候，要在小括号里面加上逗号。</p>
+<p>支持非文本标签，但不能设定容器的高度</p>
+</li>
+</ol>
+<p>绝对定位居中</p>
+<p>div{</p>
+<p>​    margin: auto;</p>
+<p>​    position: absolute;</p>
+<p>​    left: 0;</p>
+<p>​    top: 0;</p>
+<p>​    right: 0;</p>
+<p>​    bottom: 0;</p>
+<p>​    <strong>可以设定高度、宽度</strong></p>
+<p>}</p>
+<p>1.毫无疑问，绝对定位居中是本人最喜欢、使用次数最多的居中方式。通过设定position为absolute，将使div脱离文档流，left、top、right、bottom设置为0，使目标盒填充其父元素的所有可用空间 …</p> <a class="btn primary xsmall" href="/各种居中.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>Python-并发和并行的区别</h2>
+	<div class="well small">Permalink: <a class="more" href="/Python-并发和并行的区别.html">1001-01-04 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/python.html">Python</a>
+tags: <a href="/tag/python.html">Python</a> </div>
+	<div class="summary"><ul>
+<li>
+<p>如果某个系统支持两个或者多个动作（Action）同时存在，那么这个系统就是一个并发系统。</p>
+</li>
+<li>
+<p>如果某个系统支持两个或者多个动作同时执行，那么这个系统就是一个并行系统。</p>
 </li>
 </ul>
-<h5>元祖不可以修改但是可以查看</h5>
+<p><img alt="img" src="http://m.qpic.cn/psc?/V11vDzPO1w5782/zfrllz9Q9AzvUwq**DIV0w*nby4ys91u25G32R9EzGXEPU3wJutEBIz*DIx1jb7eO2wmoP20pHKMB39DW7SBZw!!/b&amp;bo=WALDAVgCwwEDCSw!&amp;rf=viewer_4"></p>
+<div class="highlight"><pre><span></span><span class="err">并发系统与并行系统这两个定义之间的关键差异在于“存在”这个词。</span>
+<span class="err">在并发程序中可以同时拥有两个或者多个线程。</span>
+<span class="err">这意味着，如果程序在单核处理器上运行，那么这两个线程将交替地换入或者换出内存。</span>
+<span class="err">这些线程是同时“存在”的——每个线程都处于执行过程中的某个状态。</span>
+<span class="err">如果程序能够并行执行，那么就一定是运行在多核处理器上。</span>
+<span class="err">此时，程序中的每个线程都将分配到一个独立的处理器核上，因此可以同时运行。</span>
+
+<span class="err">我相信你已经能够得出结论——“并行”概念是“并发”概念的一个子集。</span>
+<span class="err">也就是说，你可以编写一个拥有多个线程或者进程的并发程序，但如果没有多核处理器来执行这个程序，那么就不能以并行方式来运行代码。</span>
+<span class="err">因此，凡是在求解单个问题时涉及多个执行流程的编程模式或者执行行为，都属于并发编程的范畴。</span>
+
+<span class="err">摘自：《并发的艺术》</span> <span class="err">—</span> <span class="err">〔美〕布雷谢斯在豆瓣阅读书店查看：</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="k">read</span><span class="p">.</span><span class="n">douban</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">ebook</span><span class="o">/</span><span class="mi">1</span>
+</pre></div>
+
+
 <ul>
-<li>也是下标进行查看</li>
-</ul> <a class="btn primary xsmall" href="/Python-元祖.html">more…</a>
+<li>
+<p>并行是两个队列 同时 使用两台咖啡机</p>
+</li>
+<li>
+<p>并发是两个队列 交替 使用一台咖啡机 …</p></li></ul> <a class="btn primary xsmall" href="/Python-并发和并行的区别.html">more…</a>
 	</div>
 </div>	
 <div class='article'>
-	<h2>Python-字典</h2>
-	<div class="well small">Permalink: <a class="more" href="/Python-字典.html">1000-01-09 18:44:00+00:09</a>
+	<h2>Python-递归和二分查找</h2>
+	<div class="well small">Permalink: <a class="more" href="/Python-递归和二分查找.html">1001-01-03 18:44:00+00:09</a>
 by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
  in <a href="/category/python.html">Python</a>
 tags: <a href="/tag/python.html">Python</a> </div>
-	<div class="summary"><h4>字典的介绍</h4>
-<div class="highlight"><pre><span></span><span class="n">info</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span><span class="s1">&#39;班长&#39;</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;sex&#39;</span><span class="p">:</span><span class="s1">&#39;f&#39;</span><span class="p">,</span> <span class="s1">&#39;address&#39;</span><span class="p">:</span><span class="s1">&#39;地球亚洲中国北京&#39;</span><span class="p">}</span>
-</pre></div>
-
-
+	<div class="summary"><h4>递归</h4>
 <ul>
-<li>字典和列表一样，也能够存储多个数据</li>
-<li>列表中找某个元素时，是根据下标进行的</li>
-<li>字典中找某个元素时，是根据'名字'（就是冒号:前面的那个值，例如上面代码中的'name'、'id'、'sex'）</li>
-<li>字典的每个元素由2部分组成，键:值。例如 'name':'班长' ,'name'为键，'班长'为值</li>
+<li>递归条件</li>
+<li>自己调用自己</li>
+<li>有结束条件<ul>
+<li>代码</li>
 </ul>
-<h5>字典的添加操作</h5>
-<ul>
-<li>info['id'] = ‘shangwei’</li>
-<li>如果在使用 <strong>变量名['键'] = 数据</strong> 时，这个“键”在字典中，不存在，那么就会新增这个元素</li>
+</li>
+<li>递归优缺点</li>
+<li>优点：<ul>
+<li>递归使代码看起来更加整洁、优雅</li>
+<li>可以用递归将复杂任务分解成更简单的子问题</li>
+<li>使用递归比使用一些嵌套迭代更容易</li>
 </ul>
-<h5>字典的删除操作</h5>
-<ul>
-<li>del</li>
-<li>del删除指定的元素</li>
-<li>clear()</li>
-<li>:clear清空整个字典</li>
+</li>
+<li>缺点:<ul>
+<li>递归的逻辑很难调试、跟进</li>
+<li>递归算法解题的运行效率较低。在递归调用的过程当中系统为每一层的返回点、局部量等开辟了栈来存储。递归次数过多容易造成栈溢出等</li>
 </ul>
-<h5>字典的修改操作</h5>
-<ul>
-<li>字典的修改操作就是 …</li></ul> <a class="btn primary xsmall" href="/Python-字典.html">more…</a>
-	</div>
-</div>	
-<div class='article'>
-	<h2>Python-列表</h2>
-	<div class="well small">Permalink: <a class="more" href="/Python-列表.html">1000-01-08 18:44:00+00:09</a>
-by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/python.html">Python</a>
-tags: <a href="/tag/python.html">Python</a> </div>
-	<div class="summary"><h4>列表的介绍</h4>
-<ul>
-<li>列表(list)</li>
+</li>
 </ul>
-<p>变量nameListt的类型为列表</p>
-<div class="highlight"><pre><span></span>    <span class="n">namesList</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;xiaoWang&#39;</span><span class="p">,</span><span class="s1">&#39;xiaoZhang&#39;</span><span class="p">,</span><span class="s1">&#39;xiaoHua&#39;</span><span class="p">]</span>
-</pre></div>
-
-
-<p>比C语言的数组强大的地方在于列表中的元素可以是不同类型的</p>
-<div class="highlight"><pre><span></span>    <span class="n">testList</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">]</span>
-</pre></div>
-
-
-<h4>列表的循环遍历</h4>
-<h5>1. 使用for循环</h5>
-<p>为了更有效率的输出列表的每个数据，可以使用循环来完成</p>
-<p>demo:</p>
-<div class="highlight"><pre><span></span>    <span class="n">namesList</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;xiaoWang&#39;</span><span class="p">,</span><span class="s1">&#39;xiaoZhang&#39;</span><span class="p">,</span><span class="s1">&#39;xiaoHua&#39;</span><span class="p">]</span>
-    <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">namesList</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
-</pre></div>
-
-
-<p>结果:</p>
-<div class="highlight"><pre><span></span>    <span class="n">xiaoWang</span>
-    <span class="n">xiaoZhang</span>
-    <span class="n">xiaoHua</span>
-</pre></div>
-
-
-<h5>2. 使用while循环</h5>
-<p>为了更有效率的输出列表的每个数据，可以使用循环来完成</p>
-<p>demo:</p>
-<div class="highlight"><pre><span></span>    <span class="n">namesList</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;xiaoWang&#39;</span><span class="p">,</span><span class="s1">&#39;xiaoZhang&#39;</span><span class="p">,</span><span class="s1">&#39;xiaoHua&#39;</span><span class="p">]</span>
-
-    <span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">namesList</span><span class="p">)</span>
-
-    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
-
-    <span class="k">while</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">length</span><span class="p">:</span>
-        <span class="k">print …</span></pre></div> <a class="btn primary xsmall" href="/Python-列表.html">more…</a>
-	</div>
-</div>	
-<div class='article'>
-	<h2>Python-字符串</h2>
-	<div class="well small">Permalink: <a class="more" href="/Python-字符串.html">1000-01-07 18:44:00+00:09</a>
-by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/python.html">Python</a>
-tags: <a href="/tag/python.html">Python</a> </div>
-	<div class="summary"><h4>Python中被单引号或者双引号中的就是字符串</h4>
-<h4>字符串可以直接被输出，print()</h4>
-<h4>在python中格式化输出 字符串是 %s</h4>
-<h4>Python中的输入，不管你输入的是数字还是字符串都会转为字符串格式</h4>
-<h4>字符串可以进行切片，利用下标</h4>
-<div class="highlight"><pre><span></span>     name = &#39;shangwei&#39;
-     print(name[0:3]) # 取 下标为0~4 的字符
-</pre></div>
-
-
-<p>结果</p>
-<div class="highlight"><pre><span></span><span class="n">sha</span>
-</pre></div>
-
-
-<h3>主要：</h3>
-<h4>字符串的常见操作</h4>
-<p>mystr = “shang wei wo ai ni a”</p>
-<h4>1）find</h4>
-<p>检测 str 是否包含在 mystr中，如果是返回开始的索引值，否则返回-1</p>
-<h4>2）index</h4>
-<p>跟find()方法一样，只不过如果str不在 mystr中会报一个异常.</p>
-<h4>3）count</h4>
-<p>返回 str在start和end之间 在 …</p> <a class="btn primary xsmall" href="/Python-字符串.html">more…</a>
-	</div>
-</div>	
-<div class='article'>
-	<h2>Python循环-for</h2>
-	<div class="well small">Permalink: <a class="more" href="/Python循环-for.html">1000-01-06 18:44:00+00:09</a>
-by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/python.html">Python</a>
-tags: <a href="/tag/python.html">Python</a> </div>
-	<div class="summary"><h2>for循环</h2>
-<p>像while循环一样，for可以完成循环的功能。</p>
-<p>在Python中 for循环可以遍历任何序列的项目，如一个列表或者一个字符串等。</p>
-<h2>for循环的格式</h2>
-<div class="highlight"><pre><span></span><span class="k">for</span> <span class="err">临时变量</span> <span class="ow">in</span> <span class="err">列表或者字符串等可迭代对象</span><span class="p">:</span>
-    <span class="err">循环满足条件时执行的代码</span>
-</pre></div>
-
-
-<h3>demo1</h3>
-<div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-</pre></div>
-
-
-<p>结果</p>
-<div class="highlight"><pre><span></span><span class="mi">0</span>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">Afactorial</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>            <span class="c1">#定以一个递归函数</span>
+   <span class="k">print</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>          <span class="c1">#输出当前数字</span>
+   <span class="k">if</span> <span class="n">num</span> <span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>          <span class="c1">#判断当前数字是否&gt;0</span>
+      <span class="n">Afactorial</span><span class="p">(</span><span class="n">num</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>          <span class="c1"># 调用函数本身</span>
+   <span class="k">else</span><span class="p">:</span>
+      <span class="k">print</span><span class="p">(</span><span class="s1">&#39;-------&#39;</span><span class="p">)</span>
+   <span class="k">print</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>             <span class="c1">#再次输出当前数字</span>
+<span class="n">Afactorial</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="c1">#运行结果</span>
+<span class="mi">3</span>
+<span class="mi">2</span>
+<span class="mi">1</span>
+<span class="mi">0</span>
+<span class="o">-------</span>
+<span class="mi">0</span>
 <span class="mi">1</span>
 <span class="mi">2</span>
-</pre></div>
-
-
-<h2>demo2</h2>
-<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="s1">&#39;hello&#39;</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="s1">&#39;l&#39;</span><span class="p">:</span>
-            <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Hello world!&quot;</span><span class="p">)</span>
-</pre></div>
-
-
-<p>运行结果如下:</p>
-<div class="highlight"><pre><span></span><span class="n">h</span>
-<span class="n">e</span>
-<span class="n">l</span>
-<span class="n">Hello</span> <span class="n">world</span><span class="err">!</span>
-<span class="n">l</span>
-<span class="n">Hello</span> <span class="n">world</span><span class="err">!</span>
-<span class="n">o</span>
-</pre></div>
-
-
-<h2>耍一个乘法口诀表</h2>
-<div class="highlight"><pre><span></span><span class="k">for</span> <span class="nv">i …</span></pre></div> <a class="btn primary xsmall" href="/Python循环-for.html">more…</a>
+<span class="mi">3 …</span></pre></div> <a class="btn primary xsmall" href="/Python-递归和二分查找.html">more…</a>
 	</div>
 </div>	
 <div class='article'>
-	<h2>Python循环-while</h2>
-	<div class="well small">Permalink: <a class="more" href="/Python循环-while.html">1000-01-05 18:44:00+00:09</a>
+	<h2>Python-快排&堆排&归排</h2>
+	<div class="well small">Permalink: <a class="more" href="/Python-快排&堆排&归排.html">1001-01-02 18:44:00+00:09</a>
 by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
  in <a href="/category/python.html">Python</a>
 tags: <a href="/tag/python.html">Python</a> </div>
-	<div class="summary"><h1>循环语句介绍</h1>
-<h2>&lt;1&gt;软件开发中循环的使用场景</h2>
-<p>跟媳妇承认错误，说一万遍"媳妇儿，我错了"</p>
-<div class="highlight"><pre><span></span>    print(&quot;媳妇儿，我错了&quot;)
-    print(&quot;媳妇儿，我错了&quot;)
-    print(&quot;媳妇儿，我错了&quot;)
-    ...(还有99997遍)...
-</pre></div>
+	<div class="summary"><h4>快排：快速排序中最简单的(递归调用)</h4>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 
+<span class="c1"># -*- coding:utf-8 -*-</span>
 
-<p>使用循环语句一句话搞定</p>
-<div class="highlight"><pre><span></span>    i = 0
-    while i &lt; 10000:
-        print(&quot;媳妇儿，我错了&quot;)
-        i += 1
-</pre></div>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">setrecursionlimit</span><span class="p">(</span><span class="mi">10000000</span><span class="p">)</span>             <span class="c1">#设置系统最大递归深度</span>
 
+<span class="k">def</span> <span class="nf">quick_sort</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">left</span> <span class="o">&lt;</span> <span class="n">right</span><span class="p">:</span>
+        <span class="n">mid</span> <span class="o">=</span> <span class="n">partition</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">)</span>    <span class="c1"># mid返回的是上一个用来排序那个数的下标</span>
+        <span class="n">quick_sort</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">mid</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">quick_sort</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span><span class="n">right</span><span class="p">)</span>
 
-<h2>&lt;2&gt;总结</h2>
-<ul>
-<li>while和if的用法基本类似，区别在于：if 条件成立，则执行一次； while 条件成立，则重复执行，直到条件不成立为止。</li>
-<li>一般情况下，需要多次重复执行的代码，都可以用循环的方式来完成</li>
-<li>循环不是必须要使用的，但是为了提高代码的重复使用率，所以有经验的开发者都会采用循环</li>
-</ul>
-<h1>while循环</h1>
-<h2>&lt;1&gt;while循环的格式</h2>
-<div class="highlight"><pre><span></span>    while 条件 …</pre></div> <a class="btn primary xsmall" href="/Python循环-while.html">more…</a>
+<span class="c1"># 每执行一次partition函数都可以实现将某个数左边都比这个数小右边都比这个数大</span>
+
+<span class="k">def</span> <span class="nf">partition</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">):</span>
+    <span class="n">tmp</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">left …</span></pre></div> <a class="btn primary xsmall" href="/Python-快排&堆排&归排.html">more…</a>
 	</div>
 </div>	
 <div class='article'>
-	<h2>if语句</h2>
-	<div class="well small">Permalink: <a class="more" href="/if语句.html">1000-01-04 18:44:00+00:09</a>
+	<h2>Python-三大排序</h2>
+	<div class="well small">Permalink: <a class="more" href="/Python-三大排序.html">1001-01-01 18:44:00+00:09</a>
 by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
  in <a href="/category/python.html">Python</a>
 tags: <a href="/tag/python.html">Python</a> </div>
-	<div class="summary"><h3>if介绍</h3>
-<ul>
-<li>如果某些条件满足，才能做某件事情；条件不满足时，则不能做，这就是所谓的判断。</li>
-<li>不仅生活中有，在软件开发中"判断"功能也经常会用到</li>
-</ul>
-<h3>一、if判断语句</h3>
-<h3>&lt;1&gt;if判断语句介绍</h3>
-<ul>
-<li>if语句是用来进行判断的，其使用格式如下：</li>
-</ul>
-<div class="highlight"><pre><span></span>    <span class="k">if</span> <span class="err">要判断的条件</span><span class="p">:</span>
-        <span class="err">条件成立时，要做的事情</span>
-</pre></div>
-
-
-<ul>
-<li>demo1:（demo的中文意思：演示、案例）</li>
-</ul>
-<div class="highlight"><pre><span></span>    <span class="n">age</span> <span class="o">=</span> <span class="mi">30</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;------if判断开始------&quot;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;我已经成年了&quot;</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;------if判断结束------&quot;</span><span class="p">)</span>
-</pre></div>
-
-
-<ul>
-<li>运行结果:</li>
-</ul>
-<div class="highlight"><pre><span></span>    <span class="o">------</span><span class="n">if判断开始</span><span class="o">------</span>
-    <span class="err">我已经成年了</span>
-    <span class="o">------</span><span class="n">if判断结束</span><span class="o">------</span>
-</pre></div>
-
-
-<ul>
-<li>demo2:</li>
-</ul>
-<div class="highlight"><pre><span></span>    <span class="n">age</span> <span class="o">=</span> <span class="mi">16</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;------if判断开始------&quot;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;我已经成年了&quot;</span><span class="p">)</span>
-    <span class="k">print …</span></pre></div> <a class="btn primary xsmall" href="/if语句.html">more…</a>
+	<div class="summary"><h4>冒泡排序（最好是O(n), 最坏O(n2)）</h4>
+<p><strong>原理：</strong>拿自己与上面一个比较，如果上面一个比自己小就将自己和上面一个调换位置，依次再与上面一个比较，第一轮结束后最上面那个一定是最大的数.</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+<span class="k">def</span> <span class="nf">bubble_sort</span><span class="p">(</span><span class="n">li</span><span class="p">):</span>
+   <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">li</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+      <span class="n">exchange</span> <span class="o">=</span> <span class="bp">False</span>
+      <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">li</span><span class="p">)</span> <span class="o">-</span> <span class="n">i</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>  <span class="c1">#内层for循环执行一次，选出一个最大值，将可以调换位置的数调整</span>
+         <span class="k">if</span> <span class="n">li</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">li</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]:</span>
+            <span class="n">li</span><span class="p">[</span><span class="n">j</span><span class="p">],</span><span class="n">li</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">li</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span><span class="n">li …</span></pre></div> <a class="btn primary xsmall" href="/Python-三大排序.html">more…</a>
 	</div>
 </div>	
 <div class='article'>
-	<h2>Python运算符</h2>
-	<div class="well small">Permalink: <a class="more" href="/Python运算符.html">1000-01-03 18:44:00+00:09</a>
+	<h2>Python-公共方法</h2>
+	<div class="well small">Permalink: <a class="more" href="/Python-公共方法.html">1000-01-10 18:44:00+00:09</a>
 by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
  in <a href="/category/python.html">Python</a>
 tags: <a href="/tag/python.html">Python</a> </div>
-	<div class="summary"><h2>运算符</h2>
-<p>python支持以下几种运算符</p>
-<h3>1. 算术运算符</h3>
-<p>下面以a=10 ,b=20为例进行计算</p>
+	<div class="summary"><h5>运算符</h5>
 <table>
 <thead>
 <tr>
 <th align="left">运算符</th>
-<th align="center">描述</th>
-<th>实例</th>
+<th>Python 表达式</th>
+<th>结果</th>
+<th>描述</th>
+<th>支持的数据类型</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td align="left">+</td>
-<td align="center">加</td>
-<td>两个对象相加 a + b 输出结果 30</td>
-</tr>
-<tr>
-<td align="left">-</td>
-<td align="center">减</td>
-<td>得到负数或是一个数减去另一个数 a - b 输出结果 -10</td>
+<td>[1, 2] + [3, 4]</td>
+<td>[1, 2, 3, 4]</td>
+<td>合并</td>
+<td>字符串、列表、元组</td>
 </tr>
 <tr>
 <td align="left">*</td>
-<td align="center">乘</td>
-<td>两个数相乘或是返回一个被重复若干次的字符串 a * b 输出结果 200</td>
+<td>['Hi!'] * 4</td>
+<td>['Hi!', 'Hi!', 'Hi!', 'Hi!']</td>
+<td>复制</td>
+<td>字符串、列表、元组</td>
 </tr>
 <tr>
-<td align="left">/</td>
-<td align="center">除</td>
-<td>b / a 输出结果 2</td>
+<td align="left">in</td>
+<td>3 in (1, 2, 3)</td>
+<td>True</td>
+<td>元素是否存在</td>
+<td>字符串、列表、元组、字典</td>
 </tr>
 <tr>
-<td align="left">//</td>
-<td align="center">取整除</td>
-<td>返回商的整数部分 9//2 输出结果 4 , 9.0//2.0 输出结果 4.0</td>
-</tr>
-<tr>
-<td align="left">%</td>
-<td align="center">取余</td>
-<td>返回除法的余数 b …</td></tr></tbody></table> <a class="btn primary xsmall" href="/Python运算符.html">more…</a>
+<td align="left">not in</td>
+<td>4 not in (1, 2, 3)</td>
+<td>True …</td></tr></tbody></table> <a class="btn primary xsmall" href="/Python-公共方法.html">more…</a>
 	</div>
 </div>	
 <div class='article'>
-	<h2>微信小程序弹窗</h2>
-	<div class="well small">Permalink: <a class="more" href="/微信小程序弹窗.html">1000-01-03 18:44:00+00:09</a>
-by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/xiao-cheng-xu.html">小程序</a>
-tags: <a href="/tag/xiao-cheng-xu.html">小程序</a> </div>
-	<div class="summary"><p>wxml</p>
-<div class="highlight"><pre><span></span>&lt;view class=&quot;content&quot;&gt;
-    &lt;button bindtap=&quot;popSuccessTest&quot;&gt;成功提示弹窗&lt;/button&gt;
-    &lt;button bindtap=&quot;popMaskTest&quot;&gt;带透明蒙层的弹窗&lt;/button&gt;
-    &lt;button bindtap=&quot;popTest&quot;&gt;纯文字弹窗&lt;/button&gt;
-    &lt;button bindtap=&quot;popCustomIcon&quot;&gt;自定义图标&lt;/button&gt;
-    &lt;button bindtap=&quot;popConfirm&quot;&gt;confirm的弹窗&lt;/button&gt;
-    &lt;button bindtap=&quot;popLoading&quot;&gt;加载弹窗&lt;/button&gt;
-    &lt;button bindtap=&quot;popSelect&quot;&gt;选择框弹窗&lt;/button&gt;
-&lt;/view&gt;
-</pre></div>
-
-
-<p>js</p>
-<div class="highlight"><pre><span></span>Page({
-  popSuccessTest: function () {
-    wx.showToast({
-      title: &#39;成功提示弹窗&#39;,
-      icon: &#39;&#39;,     //默认值是success …</pre></div> <a class="btn primary xsmall" href="/微信小程序弹窗.html">more…</a>
-	</div>
-</div>	
-<div class='article'>
-	<h2>Python数据类型转换</h2>
-	<div class="well small">Permalink: <a class="more" href="/Python数据类型转换.html">1000-01-02 18:44:00+00:09</a>
+	<h2>Python-正则</h2>
+	<div class="well small">Permalink: <a class="more" href="/Python-正则.html">1000-01-10 18:44:00+00:09</a>
 by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
  in <a href="/category/python.html">Python</a>
 tags: <a href="/tag/python.html">Python</a> </div>
-	<div class="summary"><h3>常用的数据类型转换</h3>
-<table>
-<thead>
-<tr>
-<th align="center">函数</th>
-<th align="center">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">int(x [,base ])</td>
-<td align="center">将x转换为一个整数</td>
-</tr>
-<tr>
-<td align="center">float(x )</td>
-<td align="center">将x转换为一个浮点数</td>
-</tr>
-<tr>
-<td align="center">complex(real [,imag ])</td>
-<td align="center">创建一个复数，real为实部，imag为虚部</td>
-</tr>
-<tr>
-<td align="center">str(x )</td>
-<td align="center">将对象 x 转换为字符串</td>
-</tr>
-<tr>
-<td align="center">repr(x )</td>
-<td align="center">将对象 x 转换为表达式字符串</td>
-</tr>
-<tr>
-<td align="center">eval(str )</td>
-<td align="center">用来计算在字符串中的有效Python表达式,并返回一个对象</td>
-</tr>
-<tr>
-<td align="center">tuple(s )</td>
-<td align="center">将序列 s 转换为一个元组</td>
-</tr>
-<tr>
-<td align="center">list(s )</td>
-<td align="center">将序列 s 转换为一个列表</td>
-</tr>
-<tr>
-<td align="center">chr(x )</td>
-<td align="center">将一个整数转换为一个Unicode字符</td>
-</tr>
-<tr>
-<td align="center">ord(x )</td>
-<td align="center">将一个字符转换为它的ASCII整数值</td>
-</tr>
-<tr>
-<td align="center">hex(x )</td>
-<td align="center">将一个整数转换为一个十六进制字符串</td>
-</tr>
-<tr>
-<td align="center">oct …</td></tr></tbody></table> <a class="btn primary xsmall" href="/Python数据类型转换.html">more…</a>
+	<div class="summary"><p>[TOC]</p>
+<h3>正则</h3>
+<blockquote>
+<p>一些特殊符号及文本组合在一起的用来描述字符或字符串的一些规则，叫做正则</p>
+</blockquote>
+<h4>正则中的特殊符号</h4>
+<blockquote>
+<p><strong>匹配一个范围</strong>： <strong>[]</strong>
+<strong>[A-Z]</strong>：A, B, C…
+<strong>[0-9]</strong>：1, 2, 3…</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><strong>匹配任何数字字符</strong>：<strong>\d</strong>
+<strong>\d</strong>：1, 2, 3…</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><strong>匹配任何空白符</strong>：<strong>\s</strong>
+<strong>\s</strong>：\t (水平制表), \v (垂直制表), \n (换行), \r (回车), \f (换页)</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><strong>匹配任何数字、字母、字符及下划线</strong>：<strong>\w</strong>
+<strong>\w</strong>： a, 1, _</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><strong>匹配除了换行符任意一个单个字符</strong>：<strong>.</strong>
+a<strong>.</strong>c：abc, a2c, a_c
+<strong>..</strong>：匹配任意字符组成的两个长度的字符串</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><strong>匹配前面出现的正则表达式0次或多次</strong>：<strong><em>*</em></strong>
+a …</p></blockquote> <a class="btn primary xsmall" href="/Python-正则.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>Python-集合</h2>
+	<div class="well small">Permalink: <a class="more" href="/Python-集合.html">1000-01-10 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/python.html">Python</a>
+tags: <a href="/tag/python.html">Python</a> </div>
+	<div class="summary"><p>[TOC]</p>
+<h4>集合的介绍</h4>
+<ul>
+<li>
+<p>集合(set)</p>
+</li>
+<li>
+<p>集合是无序的，集合中的元素是唯一的，集合一般用于元组或者列表中的元素去重</p>
+</li>
+</ul>
+<h5>集合的添加操作</h5>
+<ul>
+<li>add</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="n">set1</span><span class="p">.</span><span class="k">add</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+</pre></div>
+
+
+<ul>
+<li>update</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="c1">#是把要传入的元素拆分，做为个体传入到集合中</span>
+<span class="n">set1</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s2">&quot;abcd&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<h5>集合的删除操作</h5>
+<ul>
+<li>
+<p>remove</p>
+</li>
+<li>
+<p>使用remove删除集合中的元素 如果有 直接删除 如果没有 程序报错</p>
+<p>set1.remove(22)</p>
+</li>
+<li>
+<p>pop</p>
+</li>
+<li>使用pop删除是随机删除集合中的元素 如果set1没有元素讲程序报</li>
+<li>
+<p>set1.pop()</p>
+</li>
+<li>
+<p>discard</p>
+</li>
+<li>使用discard删除 如果元素存在 直接删除 如果元素不存在 不做任何操</li>
+<li>set1.discard(2)</li>
+</ul>
+<h4>交集和并集( &amp; 和 | )</h4>
+<h5>交集</h5>
+<div class="highlight"><pre><span></span><span class="n">set1</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4 …</span></pre></div> <a class="btn primary xsmall" href="/Python-集合.html">more…</a>
 	</div>
 </div>	
 
@@ -500,6 +454,7 @@ tags: <a href="/tag/python.html">Python</a> </div>
 		<li class=""><a href="/index6.html">6</a></li>
 		<li class=""><a href="/index7.html">7</a></li>
 		<li class=""><a href="/index8.html">8</a></li>
+		<li class=""><a href="/index9.html">9</a></li>
 		<li class="next"><a href="/index4.html">Next &rarr;</a></li>
 </ul>
 </div>

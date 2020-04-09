@@ -43,6 +43,7 @@
 					<li ><a href="/category/supervisor.html">Supervisor</a></li>
 					<li ><a href="/category/vue.html">VUE</a></li>
 					<li ><a href="/category/wang-luo.html">网络</a></li>
+					<li ><a href="/category/web.html">web</a></li>
 					<li ><a href="/category/xiao-cheng-xu.html">小程序</a></li>
 					<li ><a href="/category/xu-ni-huan-jing.html">虚拟环境</a></li>
 			</ul>
@@ -59,7 +60,6 @@
 				<li><a href="http://getpelican.com/">Pelican</a></li>
 				<li><a href="http://python.org/">Python.org</a></li>
 				<li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
-				<li><a href="https://shangxiaoweia.github.io/puzzle.html">拼图</a></li>
 			</ul>
 			<div class="social">
 			<h3>Social</h3>
@@ -72,313 +72,369 @@
 	  <div class="content">
 <div class="page-header"><h1> 商伟的技术博客 </h1></div>
 <div class='article'>
-	<h2>Linux安装redis</h2>
-	<div class="well small">Permalink: <a class="more" href="/Linux安装redis.html">1000-01-01 18:44:00+00:09</a>
+	<h2>微信小程序弹窗</h2>
+	<div class="well small">Permalink: <a class="more" href="/微信小程序弹窗.html">1000-01-03 18:44:00+00:09</a>
 by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/redis.html">redis</a>
-tags: <a href="/tag/redis.html">redis</a> </div>
-	<div class="summary"><ul>
-<li>下载redis安装包,在root目录下执行</li>
-</ul>
-<div class="highlight"><pre><span></span><span class="n">wget</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">download</span><span class="p">.</span><span class="n">redis</span><span class="p">.</span><span class="n">io</span><span class="o">/</span><span class="n">releases</span><span class="o">/</span><span class="n">redis</span><span class="o">-</span><span class="mi">5</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">4</span><span class="p">.</span><span class="n">tar</span><span class="p">.</span><span class="n">gz</span>
+ in <a href="/category/xiao-cheng-xu.html">小程序</a>
+tags: <a href="/tag/xiao-cheng-xu.html">小程序</a> </div>
+	<div class="summary"><p>wxml</p>
+<div class="highlight"><pre><span></span>&lt;view class=&quot;content&quot;&gt;
+    &lt;button bindtap=&quot;popSuccessTest&quot;&gt;成功提示弹窗&lt;/button&gt;
+    &lt;button bindtap=&quot;popMaskTest&quot;&gt;带透明蒙层的弹窗&lt;/button&gt;
+    &lt;button bindtap=&quot;popTest&quot;&gt;纯文字弹窗&lt;/button&gt;
+    &lt;button bindtap=&quot;popCustomIcon&quot;&gt;自定义图标&lt;/button&gt;
+    &lt;button bindtap=&quot;popConfirm&quot;&gt;confirm的弹窗&lt;/button&gt;
+    &lt;button bindtap=&quot;popLoading&quot;&gt;加载弹窗&lt;/button&gt;
+    &lt;button bindtap=&quot;popSelect&quot;&gt;选择框弹窗&lt;/button&gt;
+&lt;/view&gt;
 </pre></div>
 
 
-<ul>
-<li>解压redis安装包</li>
-</ul>
-<div class="highlight"><pre><span></span>   <span class="n">tar</span> <span class="n">xvf</span> <span class="n">redis</span><span class="o">-</span><span class="mi">5</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">4</span><span class="p">.</span><span class="n">tar</span><span class="p">.</span><span class="n">gz</span>
-</pre></div>
-
-
-<ul>
-<li>进入redis目录</li>
-</ul>
-<div class="highlight"><pre><span></span> <span class="n">cd</span> <span class="n">redis</span><span class="o">-</span><span class="mi">5</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">4</span>
-</pre></div>
-
-
-<ul>
-<li>make(编译)</li>
-</ul>
-<div class="highlight"><pre><span></span><span class="err">注释掉</span> <span class="n">bind</span> <span class="mi">127</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span>
-<span class="n">requirepass</span> <span class="s1">&#39;abc&#39;</span>
-</pre></div>
-
-
-<ul>
-<li>运行redis：</li>
-</ul>
-<div class="highlight"><pre><span></span> <span class="p">.</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">redis</span><span class="o">-</span><span class="n">server</span><span class="o">/</span><span class="n">redis</span><span class="p">.</span><span class="n">conf</span>
-</pre></div>
-
-
-<ul>
-<li>查看是否启动成功：</li>
-</ul>
-<div class="highlight"><pre><span></span> <span class="n">ps</span> <span class="n">aux</span> <span class="o">|</span> <span class="n">grep</span> <span class="n">redis …</span></pre></div> <a class="btn primary xsmall" href="/Linux安装redis.html">more…</a>
+<p>js</p>
+<div class="highlight"><pre><span></span>Page({
+  popSuccessTest: function () {
+    wx.showToast({
+      title: &#39;成功提示弹窗&#39;,
+      icon: &#39;&#39;,     //默认值是success …</pre></div> <a class="btn primary xsmall" href="/微信小程序弹窗.html">more…</a>
 	</div>
 </div>	
 <div class='article'>
-	<h2>Mongodb-操作</h2>
-	<div class="well small">Permalink: <a class="more" href="/Mongodb-操作.html">1000-01-01 18:44:00+00:09</a>
+	<h2>MySQL如何处理高并发</h2>
+	<div class="well small">Permalink: <a class="more" href="/MySQL如何处理高并发.html">1000-01-02 18:44:00+00:09</a>
 by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/mongodb.html">Mongodb</a>
-tags: <a href="/tag/mongodb.html">Mongodb</a> </div>
-	<div class="summary"><h5>命令</h5>
-<div class="highlight"><pre><span></span>$ mongo    # 进入到mongo命令行
-&gt; use test    # 连接到test数据库
-</pre></div>
-
-
-<p>启动服务后，进入 MongoDB 命令行操作界面：</p>
-<div class="highlight"><pre><span></span>mongo
-</pre></div>
-
-
-<p>使用 use 命令创建数据库：</p>
-<div class="highlight"><pre><span></span>use mydb
-</pre></div>
-
-
-<p>查看当前连接的数据库：</p>
-<div class="highlight"><pre><span></span>db
-</pre></div>
-
-
-<p>查看所有的数据库：</p>
-<div class="highlight"><pre><span></span>show dbs
-</pre></div>
-
-
-<h5>删除数据库</h5>
-<p>使用 db.dropDatabase() 销毁数据库：</p>
-<div class="highlight"><pre><span></span>&gt; use <span class="nb">local</span>
-switched to db <span class="nb">local</span>
-&gt; db.dropDatabase<span class="o">()</span>
-</pre></div>
-
-
-<p>查看所有的数据库：</p>
-<div class="highlight"><pre><span></span>&gt; show dbs
-</pre></div>
-
-
-<h5>创建集合</h5>
-<p>在数据库 mydb 中创建一个集合</p>
-<div class="highlight"><pre><span></span>&gt; use mydb
-switched to db mydb
-&gt; db.createCollection<span class="o">(</span><span class="s2">&quot;users …</span></pre></div> <a class="btn primary xsmall" href="/Mongodb-操作.html">more…</a>
+ in <a href="/category/mysql.html">MySQL</a>
+tags: <a href="/tag/mysql.html">MySQL</a> </div>
+	<div class="summary"><p>mysql高并发的解决方法有：优化SQL语句，优化数据库字段，加缓存，分区表，读写分离以及垂直拆分，解耦模块，水平切分等。</p>
+<p><img alt="img" src="http://m.qpic.cn/psc?/V11vDzPO1w5782/zfrllz9Q9AzvUwq**DIV0xo6ofOl1tm1xtoEPeWYw.j*ILHA3ns2KV60ONGh5MWbwevakiYnnuBwq*2m5SvQrQ!!/b&amp;bo=6gE6AQAAAAARB.A!&amp;rf=viewer_4"></p>
+<p>高并发大多的瓶颈在后台，在存储mysql的正常的优化方案如下：</p>
+<p>（1）代码中sql语句优化</p>
+<p>（2）数据库字段优化，索引优化</p>
+<p>（3）加缓存，redis/memcache等</p>
+<p>（4）主从，读写分离</p>
+<p>（5）分区表</p>
+<p>（6）垂直拆分，解耦模块</p>
+<p>（7）水平切分</p>
+<h5>方案分析：</h5>
+<p>1、方法1和方法2是最简单，也是提升效率最快的方式。因为每条语句都命中了索引，是最高效的。但是如果是为了使sql达到最优而去建索引，那么索引就泛滥了，对于千万级以上的表来说，维护索引的成本大大增加，反而增加了数据库的内存的开销。</p>
+<p>2、数据库字段的优化。曾经发现一高级程序员在表字段的设计上，一个日期类型，被设计为varchar类型，不规范的同时，无法对写入数据校验，做索引的效率也有差别</p>
+<p>3、缓存适合读多写少 …</p> <a class="btn primary xsmall" href="/MySQL如何处理高并发.html">more…</a>
 	</div>
 </div>	
 <div class='article'>
-	<h2>Nginx</h2>
-	<div class="well small">Permalink: <a class="more" href="/Nginx.html">1000-01-01 18:44:00+00:09</a>
+	<h2>Python数据类型转换</h2>
+	<div class="well small">Permalink: <a class="more" href="/Python数据类型转换.html">1000-01-02 18:44:00+00:09</a>
 by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/sui-shou-bi-ji.html">随手笔记</a>
-tags: <a href="/tag/sui-shou-bi-ji.html">随手笔记</a> </div>
-	<div class="summary"><h5>将public上传到阿里云服务器的root目录下</h5>
-<h5>修改nginx配置文件</h5>
-<div class="highlight"><pre><span></span>vim /etc/nginx/conf.d/default.conf
+ in <a href="/category/python.html">Python</a>
+tags: <a href="/tag/python.html">Python</a> </div>
+	<div class="summary"><h3>常用的数据类型转换</h3>
+<table>
+<thead>
+<tr>
+<th align="center">函数</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">int(x [,base ])</td>
+<td align="center">将x转换为一个整数</td>
+</tr>
+<tr>
+<td align="center">float(x )</td>
+<td align="center">将x转换为一个浮点数</td>
+</tr>
+<tr>
+<td align="center">complex(real [,imag ])</td>
+<td align="center">创建一个复数，real为实部，imag为虚部</td>
+</tr>
+<tr>
+<td align="center">str(x )</td>
+<td align="center">将对象 x 转换为字符串</td>
+</tr>
+<tr>
+<td align="center">repr(x )</td>
+<td align="center">将对象 x 转换为表达式字符串</td>
+</tr>
+<tr>
+<td align="center">eval(str )</td>
+<td align="center">用来计算在字符串中的有效Python表达式,并返回一个对象</td>
+</tr>
+<tr>
+<td align="center">tuple(s )</td>
+<td align="center">将序列 s 转换为一个元组</td>
+</tr>
+<tr>
+<td align="center">list(s )</td>
+<td align="center">将序列 s 转换为一个列表</td>
+</tr>
+<tr>
+<td align="center">chr(x )</td>
+<td align="center">将一个整数转换为一个Unicode字符</td>
+</tr>
+<tr>
+<td align="center">ord(x )</td>
+<td align="center">将一个字符转换为它的ASCII整数值</td>
+</tr>
+<tr>
+<td align="center">hex(x )</td>
+<td align="center">将一个整数转换为一个十六进制字符串</td>
+</tr>
+<tr>
+<td align="center">oct …</td></tr></tbody></table> <a class="btn primary xsmall" href="/Python数据类型转换.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>云服务部署Git</h2>
+	<div class="well small">Permalink: <a class="more" href="/云服务部署Git.html">1000-01-02 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/git.html">GIT</a>
+tags: <a href="/tag/git.html">GIT</a> </div>
+	<div class="summary"><h1>Git</h1>
+<h2>创建账号</h2>
+<ul>
+<li>useradd  名字</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="n">ls</span> <span class="o">/</span> <span class="err">根目录</span>
+<span class="n">ls</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span>
+<span class="n">cat</span> <span class="o">~/.</span><span class="n">ssh</span><span class="o">/</span><span class="n">config</span>   <span class="c1"># cat查看文件</span>
+<span class="n">ssh</span> <span class="err">名字</span><span class="nd">@主机</span><span class="p">(</span><span class="n">ip</span><span class="p">)</span>
+<span class="c1"># 切换用户</span>
+<span class="n">su</span> <span class="o">-</span> <span class="err">名称</span>
 </pre></div>
 
 
-<h5>监听80端口，并且项目目录指定/root/public</h5>
-<div class="highlight"><pre><span></span>server {
-    listen       80;
-    server_name  localhost;
+<ul>
+<li>passwd 密码</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="n">vi</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">ssh</span><span class="o">/</span>
+<span class="c1"># 修改</span>
+<span class="n">vi</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">ssh</span><span class="o">/</span><span class="n">sshd_config</span>
+<span class="n">RSAAuthentication</span>  <span class="n">yes</span>
+<span class="n">PubkeyAuthentication</span>  <span class="n">yes</span>
+<span class="n">PasswordAuthentication</span>  <span class="n">yes</span>
+<span class="c1"># 需要重启</span>
+<span class="n">systemctl</span> <span class="n">restart</span> <span class="n">sshd</span><span class="o">.</span><span class="n">service</span>
+</pre></div>
 
-    access_log      /root/md_vue_access.log;
-    error_log       /root/md_vue_error.log;
+
+<ul>
+<li>生成公钥私钥</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="n">ssh</span><span class="o">-</span><span class="n">keygen</span>
+<span class="p">(</span><span class="err">默认是</span><span class="n">id_rsa</span><span class="p">)</span><span class="o">./</span><span class="err">密码名称</span> 
+<span class="n">mkdir</span> <span class="o">.</span><span class="n">ssh</span>   <span class="c1">#创建</span>
+<span class="n">ls …</span></pre></div> <a class="btn primary xsmall" href="/云服务部署Git.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>微信小程序路由带参</h2>
+	<div class="well small">Permalink: <a class="more" href="/微信小程序路由带参.html">1000-01-02 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/xiao-cheng-xu.html">小程序</a>
+tags: <a href="/tag/xiao-cheng-xu.html">小程序</a> </div>
+	<div class="summary"><h5>通过url带参传递</h5>
+<p>wxml</p>
+<div class="highlight"><pre><span></span>&lt;navigator url=&quot;../user/user?id={{item.id}}&amp;name={{item.name}}&quot;&gt;点此进入 detail&lt;/navigator&gt;
+</pre></div>
 
 
-    client_max_body_size 75M;
-
-
-    location / {
-
-        root /root/public;
-        index index.html;
-
-    }
-
-    error_log    /root/md_vue/error.log    error;
-
+<p>一、user--js</p>
+<div class="highlight"><pre><span></span>onLoad: function (options) { 
+    this.setData({
+        user_id: options.id,
+        user_name: options.name
+    }),
+    success:function(){
+　　　　console.log(&#39;接口调用成功&#39;)
+　　},
+　　fail:function(){
+　　　　console.log(&#39;接口调用失败&#39;) 
+　　},
+　　complete:function(){
+　　　　console.log(&#39;调用结束，调用成功失败都会执行&#39;)
+　　}
 }
 </pre></div>
 
 
-<h5>重启nginx systemctl restart nginx.service 然后访问一下就ok了</h5> <a class="btn primary xsmall" href="/Nginx.html">more…</a>
+<h5>点击事件传参</h5>
+<p>wxml</p>
+<div class="highlight"><pre><span></span>    &lt;view wx:for=&#39;{{list …</pre></div> <a class="btn primary xsmall" href="/微信小程序路由带参.html">more…</a>
 	</div>
 </div>	
 <div class='article'>
-	<h2>Python输入与输出</h2>
-	<div class="well small">Permalink: <a class="more" href="/Python输入与输出.html">1000-01-01 18:44:00+00:09</a>
+	<h2>爬虫第一个请求</h2>
+	<div class="well small">Permalink: <a class="more" href="/爬虫第一个请求.html">1000-01-02 18:44:00+00:09</a>
 by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/python.html">Python</a>
-tags: <a href="/tag/python.html">Python</a> </div>
-	<div class="summary"><h2>Python输出</h2>
-<div class="highlight"><pre><span></span><span class="c1"># 打印提示</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">&#39;hello world&#39;</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">&#39;萨瓦迪卡---泰语，你好的意思&#39;</span><span class="p">)</span>
+ in <a href="/category/pa-chong.html">爬虫</a>
+tags: <a href="/tag/pa-chong.html">爬虫</a> </div>
+	<div class="summary"><hr>
+<h2>1.请求过程与网页基础</h2>
+<h4>1.1  URL介绍</h4>
+<div class="highlight"><pre><span></span>- 确定URL
 </pre></div>
 
 
-<h2>2. 格式化输出</h2>
-<h3>&lt;1&gt;格式化操作的目的</h3>
-<p>比如有以下代码:</p>
-<div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;我今年10岁&quot;</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">&quot;我今年11岁&quot;</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">&quot;我今年12岁&quot;</span><span class="p">)</span>
+<h4>1.2  HTTP请求过程</h4>
+<div class="highlight"><pre><span></span># 请求过程:
+
+​    客户端, 通常指web浏览器或APP向服务器发起请求, 服务器接收到请求进行处理, 并向客户端发起响应.
+</pre></div>
+
+
+<h4>1.3  请求</h4>
+<div class="highlight"><pre><span></span><span class="c1"># 请求: 有客户端向服务器发出的, 可以分为四部分内容: 请求方法(Request Method), 请求网址(Request URL), 请求头(Request Headers), 请求体(Request Body)</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="c1"># 请求方法:常见有8种</span>
+
+<span class="o">-</span> <span class="n">GET</span><span class="p">:</span> <span class="err">请求页面</span><span class="p">,</span> <span class="err">并返回页面内容</span>  <span class="c1"># 重点</span>
+
+<span class="o">-</span> <span class="n">POST</span><span class="p">:</span> <span class="err">用于提交表单数据或上传文件</span><span class="p">,</span> <span class="err">数据包含在请求体中</span>  <span class="c1"># 重点</span>
+
+<span class="o">-</span> <span class="n">PUT</span><span class="p">:</span> <span class="err">从客户端向服务器传送的数据取代指定文档中的内容</span>
+
+<span class="o">-</span> <span class="n">DELETE</span><span class="p">:</span> <span class="err">请求服务器删除指定的页面</span>
+
+<span class="o">-</span> <span class="n">HEAD</span><span class="p">:</span> <span class="err">类似于</span><span class="n">GET请求</span><span class="err">，只不过返回的响应中没有具体的内容 …</span></pre></div> <a class="btn primary xsmall" href="/爬虫第一个请求.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>Django部署</h2>
+	<div class="well small">Permalink: <a class="more" href="/Django部署.html">1000-01-01 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/django.html">Django</a>
+tags: <a href="/tag/django.html">Django</a> </div>
+	<div class="summary"><h2>uvicorn和circus的用处</h2>
+<h5>Django3部署</h5>
+<div class="highlight"><pre><span></span>推荐： uvicorn + circus/supervisord
+</pre></div>
+
+
+<h5>Django2部署</h5>
+<div class="highlight"><pre><span></span>推荐： gunicorn + circus/supervisord
+</pre></div>
+
+
+<h5>sanic部署</h5>
+<div class="highlight"><pre><span></span>推荐： uvicorn + circus
 </pre></div>
 
 
 <ul>
-<li>想一想:</li>
+<li>
+<p>步骤</p>
+</li>
+<li>
+<p>安装circus</p>
+<ul>
+<li>pip install circus</li>
 </ul>
-<blockquote>
-<p>在输出年龄的时候，用了多次"我今年xx岁"，能否简化一下程序呢？？？</p>
-</blockquote>
-<ul>
-<li>答:</li>
+</li>
+<li>安装uvicorn<ul>
+<li>pip install uvicorn</li>
 </ul>
-<blockquote>
-<p>字符串格式化</p>
-</blockquote>
-<h3>&lt;2&gt;什么是格式化</h3>
-<p>看如下代码:</p>
-<div class="highlight"><pre><span></span><span class="n">age</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">&quot;我今年</span><span class="si">%d</span><span class="s2">岁&quot;</span> <span class="o">%</span> <span class="n">age</span><span class="p">)</span>
-
-<span class="n">age</span> <span class="o">+=</span> <span class="mi">1</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">&quot;我今年</span><span class="si">%d</span><span class="s2">岁&quot;</span> <span class="o">%</span> <span class="n">age</span><span class="p">)</span>
-
-<span class="n">age</span> <span class="o">+=</span> <span class="mi">1</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">&quot;我今年</span><span class="si">%d</span><span class="s2">岁&quot;</span> <span class="o">%</span> <span class="n">age …</span></pre></div> <a class="btn primary xsmall" href="/Python输入与输出.html">more…</a>
-	</div>
-</div>	
-<div class='article'>
-	<h2>RabbitMQ</h2>
-	<div class="well small">Permalink: <a class="more" href="/RabbitMQ.html">1000-01-01 18:44:00+00:09</a>
-by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/rabbitmq.html">RabbitMQ</a>
-tags: <a href="/tag/rabbitmq.html">RabbitMQ</a> </div>
-	<div class="summary"><p>1.下载relang</p>
-<div class="highlight"><pre><span></span>yum install erlang
-</pre></div>
-
-
-<p>2.下载rpm包</p>
-<div class="highlight"><pre><span></span> wget http://www.rabbitmq.com/releases/rabbitmq-server/v3.6.15/rabbitmq-server-3.6.15-1.el7.noarch.rpm
-</pre></div>
-
-
-<p>3.下载完成后安装</p>
-<div class="highlight"><pre><span></span>yum install rabbitmq-server-3.6.15-1.el7.noarch.rpm
-</pre></div>
-
-
-<p>4.安装完后重启服务</p>
-<div class="highlight"><pre><span></span>service rabbitmq-server start
-</pre></div>
-
-
-<p>5.查看服务状态</p>
-<div class="highlight"><pre><span></span>service rabbitmq-server status
-</pre></div>
-
-
-<ol>
-<li>安装插件</li>
-</ol>
-<div class="highlight"><pre><span></span>/sbin/rabbitmq-plugins <span class="nb">enable</span> rabbitmq_management 
-</pre></div>
-
-
-<p>7.重启服务 …</p> <a class="btn primary xsmall" href="/RabbitMQ.html">more…</a>
-	</div>
-</div>	
-<div class='article'>
-	<h2>Redis事务</h2>
-	<div class="well small">Permalink: <a class="more" href="/Redis事务.html">1000-01-01 18:44:00+00:09</a>
-by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/redis.html">Redis</a>
-tags: <a href="/tag/redis.html">Redis</a> </div>
-	<div class="summary"><h5>Redis事务一次性可以执行多条命令，并且带有一下三个重要的保证：</h5>
-<ul>
-<li>批量操作在发送 EXEC 命令前放入队列缓存</li>
-<li>收到 EXEC 命令后进入事务执行，事务中任意的命令执行失败，其余的命令依然会被执行</li>
-<li>在事务的过程中，其他客户提交的命令不会被插入事务执行命令的序列中</li>
+</li>
+<li>项目中写一个circus.ini</li>
 </ul>
-<h5>一个事务重开始到执行会经历三个阶段：</h5>
-<ul>
-<li>开始事务</li>
-<li>命令入列</li>
-<li>执行事务</li>
-</ul>
-<p>单个 Redis 命令的执行是原子性的，但 Redis 没有在事务上增加任何维持原子性的机制，所以 Redis 事务的中并不是原子性的，事务可以理解为打包的批量执行的脚本，然是批量指令不是原子化的操作，中间某条命令失败的化不会导致前面的命令回滚，也不会造成后面的命令不执行</p> <a class="btn primary xsmall" href="/Redis事务.html">more…</a>
+<p>```text
+  [watcher:mysite]
+  cmd = venv/bin/uvicorn --fd $(circus.sockets.misite) server:app
+  use_sockets = True
+  numprocesses = 2</p>
+<p>[socket:mysite]
+  host = 0.0.0.0 …</p> <a class="btn primary xsmall" href="/Django部署.html">more…</a>
 	</div>
 </div>	
 <div class='article'>
-	<h2>Redis分布式锁</h2>
-	<div class="well small">Permalink: <a class="more" href="/Redis分布式锁.html">1000-01-01 18:44:00+00:09</a>
+	<h2>Docker</h2>
+	<div class="well small">Permalink: <a class="more" href="/Docker.html">1000-01-01 18:44:00+00:09</a>
 by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/redis.html">Redis</a>
-tags: <a href="/tag/redis.html">Redis</a> </div>
-	<div class="summary"><p>可靠性</p>
-<p>首先，为了确保分布式可用，我们至少要保证锁的实现同时满足以下四个条件：</p>
-<ul>
-<li>互斥性，在任意时刻，只有一个客户端能持有锁</li>
-<li>不会发生死锁，即使有一个客户端持有锁的期间崩溃而没有主动解锁，也能保证后续其他客户端能加锁</li>
-<li>具有容错性，只要大部分的 Redis 节点正常运行，客户端就可以加锁和解锁</li>
-<li>解铃还须系铃人，加锁和解锁必须是同一个客户端，客户端自己不能把别人加的锁给解了</li>
-</ul> <a class="btn primary xsmall" href="/Redis分布式锁.html">more…</a>
+ in <a href="/category/sui-shou-bi-ji.html">随手笔记</a>
+tags: <a href="/tag/sui-shou-bi-ji.html">随手笔记</a> </div>
+	<div class="summary"><p>Docker容器<a href="https://www.runoob.com/docker/docker-container-usage.html">https://www.runoob.com/docker/docker-container-usage.html</a></p>
+<h5>设置阿里云镜像源</h5>
+<div class="highlight"><pre><span></span>sudo yum-config-manager --add-repo https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo 
+</pre></div>
+
+
+<h5>把yum更新到最新</h5>
+<div class="highlight"><pre><span></span>yum update
+</pre></div>
+
+
+<h5>卸载旧版本</h5>
+<div class="highlight"><pre><span></span>$ sudo yum remove docker  docker-common docker-selinux docker-engine
+</pre></div>
+
+
+<h5>安装依赖包</h5>
+<div class="highlight"><pre><span></span>sudo yum install -y yum-utils device-mapper-persistent-data lvm2 
+</pre></div>
+
+
+<h5>设置阿里云镜像</h5>
+<div class="highlight"><pre><span></span>sudo yum-config-manager --add-repo https://mirrors.aliyun.com/docker-ce/linux …</pre></div> <a class="btn primary xsmall" href="/Docker.html">more…</a>
 	</div>
 </div>	
 <div class='article'>
-	<h2>Redis的五大数据类型实现原理</h2>
-	<div class="well small">Permalink: <a class="more" href="/Redis的五大数据类型实现原理.html">1000-01-01 18:44:00+00:09</a>
+	<h2>Git-上传静态网页</h2>
+	<div class="well small">Permalink: <a class="more" href="/Git-上传静态网页.html">1000-01-01 18:44:00+00:09</a>
 by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/redis.html">Redis</a>
-tags: <a href="/tag/redis.html">Redis</a> </div>
-	<div class="summary"><ul>
-<li>Redis得到五大数据类型</li>
-<li>字符串对象</li>
-<li>列表对象</li>
-<li>哈希对象</li>
-<li>集合对象</li>
-<li>有序集合对象</li>
-</ul> <a class="btn primary xsmall" href="/Redis的五大数据类型实现原理.html">more…</a>
+ in <a href="/category/git.html">GIT</a>
+tags: <a href="/tag/git.html">GIT</a> </div>
+	<div class="summary"><h5>首先申请 Github 免费静态内容空间，在github.com注册一个账号，然后创建一个新的仓库</h5>
+<p><img alt="shang" src="http://q2swuopnz.bkt.clouddn.com/blogs/Snipaste_2019-12-27_08-44-55.png"></p>
+<h5>仓库名称一定要定义成 账号名.github.io，这种形式，注意账号名一定要和你的github当前登录的账号吻合</h5>
+<p><img alt="shang" src="http://q2swuopnz.bkt.clouddn.com/blogs/Snipaste_2019-12-27_08-47-04.png"></p>
+<h5>这样你的静态内容空间就已经创建好了，在浏览器输入你的 <a href="https://zcxey2911.github.io/">https://你的账号.github.io/</a> 就可以访问了。</h5>
+<h5>将之前打包好的public中的文件push到刚刚创建好的github仓库中去</h5>
+<h5>访问静态空间网址<a href="[https://shangxiaoweia.github.io](https://shangxiaoweia.github.io/)">[https://shangxiaoweia.github.io](https://shangxiaoweia.github.io/)</a></h5>
+<h5>就这个样子结束了,搞定收工</h5> <a class="btn primary xsmall" href="/Git-上传静态网页.html">more…</a>
 	</div>
 </div>	
 <div class='article'>
-	<h2>Redis组从同步</h2>
-	<div class="well small">Permalink: <a class="more" href="/Redis组从同步.html">1000-01-01 18:44:00+00:09</a>
+	<h2>Gitee</h2>
+	<div class="well small">Permalink: <a class="more" href="/Gitee.html">1000-01-01 18:44:00+00:09</a>
 by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/redis.html">Redis</a>
-tags: <a href="/tag/redis.html">Redis</a> </div>
-	<div class="summary"><h5>主从同步的构架</h5>
-<ul>
-<li>只有一台主机服务，只负责写入数据，不负责读取数据</li>
-<li>多台从服务器，不负责写入数据，只负责同步主服务器的数据，供外部程序读取</li>
-<li>主服务器写入数据后，将命令发送到从服务器上，使主从同步</li>
-<li>应用程序可以读取某一台服务器的数据，负载均衡</li>
-<li>当某些服务器瘫痪时，系统影响不大，选举出一台从服务器当做主服务器</li>
-</ul>
-<h5>2 增量同步</h5>
-<p>Redis增量复制是指Slave初始化后开始正常工作时主服务器发生的写操作同步到从服务器的过程。 </p>
-<p>增量复制的过程主要是主服务器每执行一个写命令就会向从服务器发送相同的写命令，从服务器接收并执行收到的写命令。</p>
-<h5>3 Redis主从同步策略</h5>
-<p>主从刚刚连接的时候，进行全量同步；全同步结束后，进行增量同步。当然，如果有需要，slave 在任何时候都可以发起全量同步。redis 策略是，无论如何，首先会尝试进行增量同步，如不成功，要求从机进行全量同步</p> <a class="btn primary xsmall" href="/Redis组从同步.html">more…</a>
-	</div>
-</div>	
-<div class='article'>
-	<h2>Redis集群</h2>
-	<div class="well small">Permalink: <a class="more" href="/Redis集群.html">1000-01-01 18:44:00+00:09</a>
-by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/redis.html">Redis</a>
-tags: <a href="/tag/redis.html">Redis</a> </div>
-	<div class="summary"> <a class="btn primary xsmall" href="/Redis集群.html">more…</a>
+ in <a href="/category/git.html">GIT</a>
+tags: <a href="/tag/git.html">GIT</a> </div>
+	<div class="summary"><h3>创建仓库</h3>
+<p>网页的右上角</p>
+<p><img alt="1574645886014" src="https://static.oschina.net/uploads/img/201704/01152036_vITZ.jpg"></p>
+<h3>定义全局变量</h3>
+<div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">config</span> <span class="o">--</span><span class="n">global</span> <span class="n">user</span><span class="p">.</span><span class="n">name</span> <span class="s">&quot;Shangxiaoweia&quot;</span>
+<span class="n">git</span> <span class="n">config</span> <span class="o">--</span><span class="n">global</span> <span class="n">user</span><span class="p">.</span><span class="n">email</span> <span class="s">&quot;shangxiaoweia@126.com&quot;</span>
+</pre></div>
+
+
+<h3>从码云上拿代码</h3>
+<div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="err">网址</span>
+
+<span class="n">cd</span> <span class="n">myvue</span>
+
+<span class="n">git</span> <span class="n">pull</span>
+</pre></div>
+
+
+<h3>更新自己的</h3>
+<div class="highlight"><pre><span></span><span class="n">git</span> <span class="k">add</span> <span class="o">-</span><span class="n">A</span>
+
+<span class="n">git</span> <span class="k">commit</span> <span class="o">-</span><span class="n">m</span> <span class="s1">&#39;自定义介绍&#39;</span>
+
+<span class="n">git</span> <span class="n">push</span>
+</pre></div>
+
+
+<h3>建仓库</h3>
+<div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">init</span>
+
+<span class="n">git</span> <span class="k">add</span> <span class="o">-</span><span class="n">A</span>
+
+<span class="n">git</span> <span class="k">commit</span> <span class="o">-</span> <span class="n">m</span> <span class="s1">&#39;自定义介绍&#39;</span>
+
+<span class="n">git</span> <span class="n">config</span> <span class="c1">--global user.name …</span></pre></div> <a class="btn primary xsmall" href="/Gitee.html">more…</a>
 	</div>
 </div>	
 
@@ -393,6 +449,7 @@ tags: <a href="/tag/redis.html">Redis</a> </div>
 		<li class=""><a href="/index6.html">6</a></li>
 		<li class=""><a href="/index7.html">7</a></li>
 		<li class=""><a href="/index8.html">8</a></li>
+		<li class=""><a href="/index9.html">9</a></li>
 		<li class="next"><a href="/index6.html">Next &rarr;</a></li>
 </ul>
 </div>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>商伟的技术博客</title>
+	<meta name="description" content="">
+	<meta name="author" content="商伟">
+
+	<!-- HTML5 shim, for IE6-8 support of HTML elements -->
+	<!--[if lt IE 9]>
+		<script src="/theme/html5.js"></script>
+	<![endif]-->
+
+	<!-- Styles -->
+	<link href="/theme/bootstrap.min.css" rel="stylesheet">
+	<link href="/theme/local.css" rel="stylesheet">
+	<link href="/theme/pygments.css" rel="stylesheet">
+
+	<!-- Feeds -->
+
+
+
+
+</head>
+<body>
+	<div class="topbar">
+	  <div class="topbar-inner">
+		<div class="container-fluid">
+		  <a class="brand" href="/">商伟的技术博客</a>
+			<ul class="nav">
+					<li ><a href="/category/django.html">Django</a></li>
+					<li ><a href="/category/docker.html">Docker</a></li>
+					<li ><a href="/category/git.html">GIT</a></li>
+					<li ><a href="/category/javascript.html">JavaScript</a></li>
+					<li ><a href="/category/mongodb.html">Mongodb</a></li>
+					<li ><a href="/category/mysql.html">MySQL</a></li>
+					<li ><a href="/category/pa-chong.html">爬虫</a></li>
+					<li ><a href="/category/python.html">Python</a></li>
+					<li ><a href="/category/rabbitmq.html">RabbitMQ</a></li>
+					<li ><a href="/category/redis.html">redis</a></li>
+					<li ><a href="/category/shu-ju-jie-gou.html">数据结构</a></li>
+					<li ><a href="/category/sui-shou-bi-ji.html">随手笔记</a></li>
+					<li ><a href="/category/supervisor.html">Supervisor</a></li>
+					<li ><a href="/category/vue.html">VUE</a></li>
+					<li ><a href="/category/wang-luo.html">网络</a></li>
+					<li class="active"><a href="/category/web.html">web</a></li>
+					<li ><a href="/category/xiao-cheng-xu.html">小程序</a></li>
+					<li ><a href="/category/xu-ni-huan-jing.html">虚拟环境</a></li>
+			</ul>
+			<p class="pull-right"><a href="/archives.html">[archives]</a> <a href="/tags.html">[tags]</a></p>
+		</div>
+	  </div>
+	</div>
+
+	<div class="container-fluid">
+	  <div class="sidebar">
+		<div class="well">
+			<h3>Blogroll</h3>
+			<ul>
+				<li><a href="http://getpelican.com/">Pelican</a></li>
+				<li><a href="http://python.org/">Python.org</a></li>
+				<li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+			</ul>
+			<div class="social">
+			<h3>Social</h3>
+			<ul>
+				<li><a href="https://han520min.github.io">hanmin</a></li>
+			</ul>
+			</div>
+		</div>
+	  </div>
+	  <div class="content">
+	<div class='article'>
+		<div class="page-header"><h1>各种居中</h1></div>
+		<div class="well small">Permalink: <a class="more" href="/各种居中.html">2019-01-15 22:20:00+01:00</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/web.html">web</a>
+tags: <a href="/tag/web.html">web</a> </div>
+		<div><p>单行居中</p>
+<p>div{</p>
+<p>​    height: 26px;</p>
+<p>​    line-height: 26px;</p>
+<p>​    overflow: hidden;</p>
+<p>​    text-align:center;</p>
+<p>}</p>
+<ol>
+<li>
+<p>同时支持块级和内联极元素</p>
+</li>
+<li>
+<p>只能支持单行垂直居中，并且不支持标签</p>
+</li>
+</ol>
+<p>多行居中</p>
+<p>div{</p>
+<p>padding: 10px 0;</p>
+<p>text-align:center;</p>
+<p>}</p>
+<ol>
+<li>
+<p>同时支持块级和内联极元素</p>
+</li>
+<li>
+<p>支持非文本标签，但不能设定容器的高度</p>
+</li>
+</ol>
+<p>绝对定位居中</p>
+<p>div{</p>
+<p>​    margin: auto;</p>
+<p>​    position: absolute;</p>
+<p>​    left: 0;</p>
+<p>​    top: 0;</p>
+<p>​    right: 0;</p>
+<p>​    bottom: 0;</p>
+<p>​    <strong>可以设定高度、宽度</strong></p>
+<p>}</p>
+<p>1.毫无疑问，绝对定位居中是本人最喜欢、使用次数最多的居中方式。通过设定position为absolute，将使div脱离文档流，left、top、right、bottom设置为0，使目标盒填充其父元素的所有可用空间，父元素一般为body，或者position设置为relative的容器。设置高度或宽度后，margin： auto会促使该块在水平方向和垂直方向居中。</p>
+<p>2.宽度高度支持百分比%属性值和min-/max-属性，并且必须显式生命高度</p>
+<p>负外边距居中</p>
+<p>div{</p>
+<p>width:100px;</p>
+<p>height:100px;</p>
+<p>padding:20px;</p>
+<p>position:absolute;</p>
+<p>top:50%;</p>
+<p>left:50%;</p>
+<p><strong>重点：需要明确知道高度和宽度</strong></p>
+<p>margin-left: -60px;//(width+padding)/2</p>
+<p>margin-top:-60px;//(height+padding)/2</p>
+<p>}</p>
+<p>1.使用absolute定位，距离左边50%，上边50%，再通过设置margin为负值，扣去该块本身占有的宽高。另外，需要明确指定宽度和高度！</p>
+<p>变形居中</p>
+<p>div{</p>
+<p>width: 50%;</p>
+<p>position: absolute;</p>
+<p>left: 50%;</p>
+<p>top: 50%;</p>
+<p><strong>重点:向上偏移本身高度和宽度的一半</strong></p>
+<p>transform: translate(-50%,-50%);  </p>
+<p>}</p>
+<p>1.通过translate设置块水平和垂直方向各移动自身高度宽度的50%距离。</p>
+<p>2.浏览器需支持CSS3</p>
+<p>单元格居中</p>
+<p>div{</p>
+<p>display: table-cell;</p>
+<p>height: 300px;</p>
+<p>vertical-align: middle;</p>
+<p>text-align: center;</p>
+<p>}</p>
+<p>1.通过表格单元格来实现居中也是一种广泛使用的方式，这也是早期web使用table来布局的一个主要原因。另外，使用单元格来实现垂直居中可以支持多元素同时居中！！！</p>
+<p>Flexbox</p>
+<div class="container">
+
+<div class="child">
+
+<p>CSS3非常简单的居中方式！</p>
+</div>
+
+</div>
+
+<p>.container {</p>
+<p>display: flex;</p>
+<p>height: 300px;</p>
+<p>}</p>
+<p>.child {</p>
+<p>​    margin: auto;</p>
+<p>}</p>
+<p>1.Flexbox是CSS3新增布局属性，不但可以非常简单地实现居中布局，在实现其他布局方式时也带来了很大的帮助，比如多栏布局。</p></div>
+	</div>
+		<footer>
+		  <p>Powered by <a href="http://getpelican.com/">Pelican</a>. Theme based on <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a>.</p>
+		  <p>&copy; 商伟</p>
+		</footer>
+	  </div>
+
+	</div>
+</body>
+</html>

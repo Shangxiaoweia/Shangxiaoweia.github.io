@@ -43,6 +43,7 @@
 					<li ><a href="/category/supervisor.html">Supervisor</a></li>
 					<li ><a href="/category/vue.html">VUE</a></li>
 					<li ><a href="/category/wang-luo.html">网络</a></li>
+					<li ><a href="/category/web.html">web</a></li>
 					<li ><a href="/category/xiao-cheng-xu.html">小程序</a></li>
 					<li ><a href="/category/xu-ni-huan-jing.html">虚拟环境</a></li>
 			</ul>
@@ -59,7 +60,6 @@
 				<li><a href="http://getpelican.com/">Pelican</a></li>
 				<li><a href="http://python.org/">Python.org</a></li>
 				<li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
-				<li><a href="https://shangxiaoweia.github.io/puzzle.html">拼图</a></li>
 			</ul>
 			<div class="social">
 			<h3>Social</h3>
@@ -71,6 +71,134 @@
 	  </div>
 	  <div class="content">
 <div class="page-header"><h1>商伟的技术博客 <small>商伟</small></h1></div>
+<div class='article'>
+	<h2>Django多对多系列化与反序列化</h2>
+	<div class="well small">Permalink: <a class="more" href="/Django多对多系列化与反序列化.html">2019-08-08 18:44:00+02:00</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/django.html">Django</a>
+tags: <a href="/tag/django.html">Django</a> </div>
+	<div class="summary"><h2>Django 序列化和反序列化</h2>
+<p>一、 序列化</p>
+<ul>
+<li>
+<p>查询所有的学生的信息，包括任课老师</p>
+</li>
+<li>
+<p><code>models.py</code></p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
+
+<span class="c1"># 学生类</span>
+<span class="k">class</span> <span class="nc">Student</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">32</span><span class="p">)</span>
+
+    <span class="c1"># 老师类</span>
+<span class="k">class</span> <span class="nc">Teacher</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">32</span><span class="p">)</span>
+    <span class="n">students</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ManyToManyField</span><span class="p">(</span><span class="n">to</span><span class="o">=</span><span class="s1">&#39;Student&#39;</span><span class="p">,</span><span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;teacher&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<ul>
+<li><code>serializer.py</code></li>
+</ul>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rest_framework</span> <span class="kn">import</span> <span class="n">serializers</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">models</span>
+
+<span class="c1"># 老师序列化 …</span></pre></div> <a class="btn primary xsmall" href="/Django多对多系列化与反序列化.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>Django抽象类</h2>
+	<div class="well small">Permalink: <a class="more" href="/Django抽象类.html">2019-08-08 18:44:00+02:00</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/django.html">Django</a>
+tags: <a href="/tag/django.html">Django</a> </div>
+	<div class="summary"><h1>abstract</h1>
+<p>这个属性是定义当前的模型类是不是一个抽象类。所谓抽象类是不会对应数据库表的。一般我们用它来归纳一些公共属性字段，然后继承它的子类可以继承这些字段。比如下面的代码中Base是一个抽象类，Usermodel是一个继承了Base的子类，那么在运行生成命令时，不会生成Base表，但是会生成一个Usermodel表，它包含了Base中继承来的字段，以后如果再添加一个Kecheng模型类，它可以同样继承Base的公共属性：</p>
+<div class="highlight"><pre><span></span><span class="c1"># 抽象类</span>
+<span class="k">class</span> <span class="n">Base</span>(<span class="n">models</span>.<span class="n">Model</span>):
+    <span class="n">create_date</span> = <span class="n">models</span>.<span class="n">DateTimeField</span>(<span class="n">auto_now</span>=<span class="nb">True</span>)
+    <span class="n">update_date</span> = <span class="n">models</span>.<span class="n">DateTimeField</span>(<span class="n">auto_now_add</span>=<span class="nb">True</span>)
+
+    <span class="k">class</span> <span class="n">Meta:</span>
+        <span class="n">abstract</span> = <span class="nb">True</span>
+
+<span class="c1"># 用户表</span>
+<span class="k">class</span> <span class="n">Usermodel</span>(<span class="n">Base</span>):
+    <span class="nb">name</span> = <span class="n">models</span>.<span class="n">CharField</span>(<span class="n">max_length</span>=<span class="mi">32</span>)
+    <span class="n">pwd</span> = <span class="n">models</span>.<span class="n">CharField</span>(<span class="n">max_length</span>=<span class="mi">255</span>)
+
+<span class="c1"># 课程表</span>
+<span class="k">class</span> <span class="n">Kecheng</span>(<span class="n">Base …</span></pre></div> <a class="btn primary xsmall" href="/Django抽象类.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>Django支付宝沙箱模式</h2>
+	<div class="well small">Permalink: <a class="more" href="/Django支付宝沙箱模式.html">2019-08-08 18:44:00+02:00</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/django.html">Django</a>
+tags: <a href="/tag/django.html">Django</a> </div>
+	<div class="summary"><h3>支付宝支付</h3>
+<ul>
+<li>安装模块</li>
+</ul>
+<div class="highlight"><pre><span></span>  pip install Crypto 
+  pip install pycryptodome
+  pip install python-alipay-sdk
+</pre></div>
+
+
+<ul>
+<li>
+<p>下载RSA工具
+  <img alt="img" src="https://img2018.cnblogs.com/blog/1354307/201911/1354307-20191107134351045-2102495901.png"></p>
+</li>
+<li>
+<p>将生成的公钥上传到支付宝沙箱的RSA2(SHA256)密钥(推荐）处</p>
+</li>
+</ul>
+<p><img alt="img" src="https://img2018.cnblogs.com/blog/1354307/201911/1354307-20191107134403625-1800493074.jpg"></p>
+<ul>
+<li>设置公钥后会生成一个支付宝公钥，将其复制</li>
+</ul>
+<p><img alt="img" src="https://img2018.cnblogs.com/blog/1354307/201911/1354307-20191107134416436-1047655704.png"></p>
+<ul>
+<li>然后将其写入一个文件 <code>alipay_pulic_key.pem</code></li>
+</ul>
+<div class="highlight"><pre><span></span>  -----BEGIN PUBLIC KEY-----
+  MIGfMA0GCSqGSIb3DQEBAQUAA4GNIgHnOn7LLILlKETd6BFRJ0GqgS2Y3mn1wMQmyh9zEyWlz5p1zrahRahbXAfCfSqshSNfqOmAQzSHRVjCqjsAw1jyqrXaPdKBmr90DIpIxmIyKXv4GGAkPyJ/6FTFY99uhpiq0qadD/uSzQsefWo0aTvP/65zi3eof7TcZ32oWpwIDAQAB
+  -----END PUBLIC KEY-----
+</pre></div>
+
+
+<ul>
+<li>把之前生成的私钥也写入另外一个文件 <code>app_private_key.pem</code></li>
+</ul>
+<div class="highlight"><pre><span></span>  -----BEGIN RSA PRIVATE KEY-----
+  MIIEowIBAAKCAQEAgxk5N/XQkRatTn56TxGo8nVGk4YKb7VheSDtcLezj7sDdibVamrWz/77VG1GY17Q2jOnCoHpngWDsJybZ/5icblvk3I76H5GT+zjYMBbHXfAlnRB7BG6+Vo7YWe442S0E+A8z8N+R3MArSb3+Coht+8JgvGNdsVE9u2upmxq4GHMKDu/TY3Q7lPIXW3iL6Kxn …</pre></div> <a class="btn primary xsmall" href="/Django支付宝沙箱模式.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>Django查询语句</h2>
+	<div class="well small">Permalink: <a class="more" href="/Django查询语句.html">2019-08-08 18:44:00+02:00</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/django.html">Django</a>
+tags: <a href="/tag/django.html">Django</a> </div>
+	<div class="summary"><h1>查询语句</h1>
+<div class="highlight"><pre><span></span>    #查询全部数据 翻译为 <span class="nv">select</span> <span class="o">*</span> <span class="nv">from</span> <span class="nv">user</span><span class="c1">; all()返回值是list</span>
+    <span class="nv">res</span> <span class="o">=</span> <span class="nv">User</span>.<span class="nv">objects</span>.<span class="nv">all</span><span class="ss">()</span>
+    #<span class="nv">print</span><span class="ss">(</span><span class="nv">res</span><span class="ss">)</span>
+    #分页 <span class="mi">0</span>开始位置,<span class="mi">2</span>结束位置，注意<span class="mi">2</span>不是取几条
+    <span class="nv">res</span> <span class="o">=</span> <span class="nv">User</span>.<span class="nv">objects</span>.<span class="nv">all</span><span class="ss">()</span>[<span class="mi">0</span>,<span class="mi">2</span>]
+    #<span class="nv">print</span><span class="ss">(</span><span class="nv">res</span><span class="ss">)</span>
+
+    #查询限定条件的数据 翻译为 <span class="nv">select</span> <span class="o">*</span> <span class="nv">from</span> <span class="nv">user</span> <span class="nv">where</span> <span class="nv">username</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="s">新用户123</span><span class="s1">&#39;</span> <span class="nv">and</span>逻辑使用多个参数传递
+    <span class="nv">res</span> <span class="o">=</span> <span class="nv">User</span>.<span class="nv">objects</span>.<span class="nv">filter</span><span class="ss">(</span><span class="nv">username</span><span class="o">=</span><span class="s1">&#39;</span><span class="s">新用户</span><span class="s1">&#39;</span>,<span class="nv">password</span><span class="o">=</span><span class="s1">&#39;</span><span class="s">你好</span><span class="s1">&#39;</span><span class="ss">)</span>
+    #<span class="nv">print</span><span class="ss">(</span><span class="nv">res …</span></pre></div> <a class="btn primary xsmall" href="/Django查询语句.html">more…</a>
+	</div>
+</div>	
 <div class='article'>
 	<h2>Django跨域与VUE跨域</h2>
 	<div class="well small">Permalink: <a class="more" href="/Django跨域与VUE跨域.html">2019-08-08 18:44:00+02:00</a>
@@ -120,6 +248,35 @@ tags: <a href="/tag/django.html">Django</a> </div>
 </ul>
 <div class="highlight"><pre><span></span>proxyTable: <span class="o">{</span> 
   <span class="s1">&#39;/api&#39;</span>: <span class="o">{</span>  //使用<span class="s2">&quot;/api&quot;</span>来代替<span class="s2">&quot;http …</span></pre></div> <a class="btn primary xsmall" href="/Django跨域与VUE跨域.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>Docker-基础</h2>
+	<div class="well small">Permalink: <a class="more" href="/Docker-基础.html">2019-08-08 18:44:00+02:00</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/docker.html">Docker</a>
+tags: <a href="/tag/docker.html">Docker</a> </div>
+	<div class="summary"><h4>什么是Docker</h4>
+<ul>
+<li>
+<p>Docker 是使用最广泛的开源容器引擎</p>
+</li>
+<li>
+<p>一种操作系统基本的虚拟化技术</p>
+</li>
+<li>一种简单的应用程序打包工具</li>
+<li>依赖 Linux 内核特性：Namespace(资源隔离) 和 Cgroup（资源限制）</li>
+</ul>
+<p><strong>注：</strong>每个容器拥有一套和宿主机完全隔离的文件系统（共用linux内核），程序在这个虚拟容器里运行，就好像在真实的物理机上运行一样。</p>
+<p><strong>容器：</strong></p>
+<p><strong>1）</strong>容器是一个操作系统级别下的虚拟化技术，运行一个容器就行运行一个进程一样</p>
+<p><strong>2）</strong>容器依赖linux内核特性：Namespace（资源隔离）和 Cgroups（资源限制）</p>
+<p><strong>资源隔离：</strong></p>
+<p>1）Linux Namespaces机制提供一种资源隔离方案，每个namespace看上去就像一个单独的Linux系统。</p>
+<p>2）PID,IPC(进程通信),Network等系统资源不再是全局性的，而是属于某个特定的Namespace。</p>
+<p>3）每个namespace下的资源对于其他namespace下的资源都是透明，不可见的。</p>
+<p>4）系统中可以同时存在两个进程号为0,1,2的进程，由于属于不同的namespace，所以它们之间并不冲突。</p>
+<p>5 …</p> <a class="btn primary xsmall" href="/Docker-基础.html">more…</a>
 	</div>
 </div>	
 <div class='article'>
@@ -208,200 +365,6 @@ tags: <a href="/tag/xiao-cheng-xu.html">小程序</a> </div>
 <p><a href="https://developers.weixin.qq.com/community/business/doc/000264e20a0dd8e69669b609451c0d">https://developers.weixin.qq.com/community/business/doc/000264e20a0dd8e69669b609451c0d</a></p> <a class="btn primary xsmall" href="/微信小程序介绍.html">more…</a>
 	</div>
 </div>	
-<div class='article'>
-	<h2>随手笔记</h2>
-	<div class="well small">Permalink: <a class="more" href="/随手笔记.html">2019-08-08 18:44:00+02:00</a>
-by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/sui-shou-bi-ji.html">随手笔记</a>
-tags: <a href="/tag/sui-shou-bi-ji.html">随手笔记</a> </div>
-	<div class="summary"><p>pelican content</p>
-<p>pelican --listen</p> <a class="btn primary xsmall" href="/随手笔记.html">more…</a>
-	</div>
-</div>	
-<div class='article'>
-	<h2>微信小程基础</h2>
-	<div class="well small">Permalink: <a class="more" href="/微信小程基础.html">2019-08-07 18:44:00+02:00</a>
-by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/xiao-cheng-xu.html">小程序</a>
-tags: <a href="/tag/xiao-cheng-xu.html">小程序</a> </div>
-	<div class="summary"><h4>微信小程序须知</h4>
-<div class="highlight"><pre><span></span><span class="err">每一个小程序的代码中，还有一个必须的元素，</span><span class="n">app</span><span class="p">.</span><span class="n">js</span> <span class="n">app</span><span class="p">.</span><span class="n">json</span> <span class="n">app</span><span class="p">.</span><span class="n">wxss</span>
-</pre></div>
-
-
-<ul>
-<li>app.json</li>
-<li>是设置小程序初始的界面</li>
-<li>app.wxml</li>
-<li>是写页面的，展示的内容都在这里书写</li>
-<li>app.wxss</li>
-<li>是书写样式的地方，相当于CSS</li>
-</ul>
-<div class="highlight"><pre><span></span><span class="nt">&lt;view&gt;&lt;/view&gt;</span>为小程序的基本格式，里边写的是代码。
-<span class="nt">&lt;image</span> <span class="na">src=</span><span class="s">&quot;../images/shang.png&quot;</span><span class="nt">&gt;&lt;/image&gt;</span>展示图片
-<span class="nt">&lt;text&gt;&lt;/text&gt;</span>是文本框
-</pre></div>
-
-
-<h4>微信小程序里面的底部导航栏</h4>
-<p>在app.json里面编写</p>
-<div class="highlight"><pre><span></span>  <span class="ss">&quot;tabBar&quot;</span><span class="p">:</span> <span class="err">{</span>
-    <span class="ss">&quot;backgroundColor&quot;</span><span class="p">:</span> <span class="ss">&quot;#fff&quot;</span><span class="p">,</span>
-    <span class="ss">&quot;color&quot;</span><span class="p">:</span> <span class="ss">&quot;#A0A0A0&quot;</span><span class="p">,</span>
-    <span class="ss">&quot;selectedColor&quot;</span><span class="p">:</span> <span class="ss">&quot;#FF3300&quot;</span><span class="p">,</span>
-    <span class="ss">&quot;list&quot;</span><span class="p">:</span> <span class="p">[</span>
-      <span class="err">{</span>
-        <span class="ss">&quot;pagePath&quot;</span><span class="p">:</span> <span class="ss">&quot;pages/index/index&quot;</span><span class="p">,</span>
-        <span class="ss">&quot;iconPath …</span></pre></div> <a class="btn primary xsmall" href="/微信小程基础.html">more…</a>
-	</div>
-</div>	
-<div class='article'>
-	<h2>Python-公共方法</h2>
-	<div class="well small">Permalink: <a class="more" href="/Python-公共方法.html">1000-01-10 18:44:00+00:09</a>
-by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/python.html">Python</a>
-tags: <a href="/tag/python.html">Python</a> </div>
-	<div class="summary"><h5>运算符</h5>
-<table>
-<thead>
-<tr>
-<th align="left">运算符</th>
-<th>Python 表达式</th>
-<th>结果</th>
-<th>描述</th>
-<th>支持的数据类型</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">+</td>
-<td>[1, 2] + [3, 4]</td>
-<td>[1, 2, 3, 4]</td>
-<td>合并</td>
-<td>字符串、列表、元组</td>
-</tr>
-<tr>
-<td align="left">*</td>
-<td>['Hi!'] * 4</td>
-<td>['Hi!', 'Hi!', 'Hi!', 'Hi!']</td>
-<td>复制</td>
-<td>字符串、列表、元组</td>
-</tr>
-<tr>
-<td align="left">in</td>
-<td>3 in (1, 2, 3)</td>
-<td>True</td>
-<td>元素是否存在</td>
-<td>字符串、列表、元组、字典</td>
-</tr>
-<tr>
-<td align="left">not in</td>
-<td>4 not in (1, 2, 3)</td>
-<td>True …</td></tr></tbody></table> <a class="btn primary xsmall" href="/Python-公共方法.html">more…</a>
-	</div>
-</div>	
-<div class='article'>
-	<h2>Python-正则</h2>
-	<div class="well small">Permalink: <a class="more" href="/Python-正则.html">1000-01-10 18:44:00+00:09</a>
-by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/python.html">Python</a>
-tags: <a href="/tag/python.html">Python</a> </div>
-	<div class="summary"><h3>正则</h3>
-<blockquote>
-<p>一些特殊符号及文本组合在一起的用来描述字符或字符串的一些规则，叫做正则</p>
-</blockquote>
-<h4>正则中的特殊符号</h4>
-<blockquote>
-<p><strong>匹配一个范围</strong>： <strong>[]</strong>
-<strong>[A-Z]</strong>：A, B, C…
-<strong>[0-9]</strong>：1, 2, 3…</p>
-</blockquote>
-<hr>
-<blockquote>
-<p><strong>匹配任何数字字符</strong>：<strong>\d</strong>
-<strong>\d</strong>：1, 2, 3…</p>
-</blockquote>
-<hr>
-<blockquote>
-<p><strong>匹配任何空白符</strong>：<strong>\s</strong>
-<strong>\s</strong>：\t (水平制表), \v (垂直制表), \n (换行), \r (回车), \f (换页)</p>
-</blockquote>
-<hr>
-<blockquote>
-<p><strong>匹配任何数字、字母、字符及下划线</strong>：<strong>\w</strong>
-<strong>\w</strong>： a, 1, _</p>
-</blockquote>
-<hr>
-<blockquote>
-<p><strong>匹配除了换行符任意一个单个字符</strong>：<strong>.</strong>
-a<strong>.</strong>c：abc, a2c, a_c
-<strong>..</strong>：匹配任意字符组成的两个长度的字符串</p>
-</blockquote>
-<hr>
-<blockquote>
-<p><strong>匹配前面出现的正则表达式0次或多次</strong>：<strong><em>*</em></strong>
-a<strong><em>*</em>：aaa …</strong></p></blockquote> <a class="btn primary xsmall" href="/Python-正则.html">more…</a>
-	</div>
-</div>	
-<div class='article'>
-	<h2>Python-集合</h2>
-	<div class="well small">Permalink: <a class="more" href="/Python-集合.html">1000-01-10 18:44:00+00:09</a>
-by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/python.html">Python</a>
-tags: <a href="/tag/python.html">Python</a> </div>
-	<div class="summary"><h4>集合的介绍</h4>
-<ul>
-<li>
-<p>集合(set)</p>
-</li>
-<li>
-<p>集合是无序的，集合中的元素是唯一的，集合一般用于元组或者列表中的元素去重</p>
-</li>
-</ul>
-<h5>集合的添加操作</h5>
-<ul>
-<li>add</li>
-</ul>
-<div class="highlight"><pre><span></span><span class="n">set1</span><span class="p">.</span><span class="k">add</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
-</pre></div>
-
-
-<ul>
-<li>update</li>
-</ul>
-<div class="highlight"><pre><span></span><span class="c1">#是把要传入的元素拆分，做为个体传入到集合中</span>
-<span class="n">set1</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s2">&quot;abcd&quot;</span><span class="p">)</span>
-</pre></div>
-
-
-<h5>集合的删除操作</h5>
-<ul>
-<li>
-<p>remove</p>
-</li>
-<li>
-<p>使用remove删除集合中的元素 如果有 直接删除 如果没有 程序报错</p>
-<p>set1.remove(22)</p>
-</li>
-<li>
-<p>pop</p>
-</li>
-<li>使用pop删除是随机删除集合中的元素 如果set1没有元素讲程序报</li>
-<li>
-<p>set1.pop()</p>
-</li>
-<li>
-<p>discard</p>
-</li>
-<li>使用discard删除 如果元素存在 直接删除 如果元素不存在 不做任何操</li>
-<li>set1.discard(2)</li>
-</ul>
-<h4>交集和并集( &amp; 和 | )</h4>
-<h5>交集</h5>
-<div class="highlight"><pre><span></span><span class="n">set1</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span>
-<span class="n">set2 …</span></pre></div> <a class="btn primary xsmall" href="/Python-集合.html">more…</a>
-	</div>
-</div>	
 
 <div class="pagination">
 <ul>
@@ -414,6 +377,7 @@ tags: <a href="/tag/python.html">Python</a> </div>
 		<li class=""><a href="/author/shang-wei6.html">6</a></li>
 		<li class=""><a href="/author/shang-wei7.html">7</a></li>
 		<li class=""><a href="/author/shang-wei8.html">8</a></li>
+		<li class=""><a href="/author/shang-wei9.html">9</a></li>
 		<li class="next"><a href="/author/shang-wei3.html">Next &rarr;</a></li>
 </ul>
 </div>

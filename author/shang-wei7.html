@@ -43,6 +43,7 @@
 					<li ><a href="/category/supervisor.html">Supervisor</a></li>
 					<li ><a href="/category/vue.html">VUE</a></li>
 					<li ><a href="/category/wang-luo.html">网络</a></li>
+					<li ><a href="/category/web.html">web</a></li>
 					<li ><a href="/category/xiao-cheng-xu.html">小程序</a></li>
 					<li ><a href="/category/xu-ni-huan-jing.html">虚拟环境</a></li>
 			</ul>
@@ -59,7 +60,6 @@
 				<li><a href="http://getpelican.com/">Pelican</a></li>
 				<li><a href="http://python.org/">Python.org</a></li>
 				<li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
-				<li><a href="https://shangxiaoweia.github.io/puzzle.html">拼图</a></li>
 			</ul>
 			<div class="social">
 			<h3>Social</h3>
@@ -72,322 +72,286 @@
 	  <div class="content">
 <div class="page-header"><h1>商伟的技术博客 <small>商伟</small></h1></div>
 <div class='article'>
-	<h2>介绍爬虫</h2>
-	<div class="well small">Permalink: <a class="more" href="/介绍爬虫.html">1000-01-01 18:44:00+00:09</a>
+	<h2>Redis的五大数据类型实现原理</h2>
+	<div class="well small">Permalink: <a class="more" href="/Redis的五大数据类型实现原理.html">1000-01-01 18:44:00+00:09</a>
 by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/pa-chong.html">爬虫</a>
-tags: <a href="/tag/pa-chong.html">爬虫</a> </div>
-	<div class="summary"><hr>
-<h2>1. 爬虫概述</h2>
-<h4>1.1  爬虫概念</h4>
-<div class="highlight"><pre><span></span><span class="err">爬虫</span><span class="p">,</span> <span class="err">又称网页蜘蛛或网络机器人</span><span class="o">.</span>
-
-<span class="err">爬虫是</span> <span class="err">模拟人操作客户端</span><span class="p">(</span><span class="err">浏览器</span><span class="p">,</span> <span class="n">APP</span><span class="p">)</span>   <span class="err">向服务器发起网络请求</span>    <span class="err">抓取数据的自动化程序或脚本</span><span class="o">.</span>
-
-<span class="c1"># 说明:</span>
-
-<span class="err">​</span>    <span class="mf">1.</span><span class="err">模拟</span><span class="p">:</span> <span class="err">用爬虫程序伪装出人的行为</span><span class="p">,</span> <span class="err">避免被服务识别为爬虫程序</span>
-
-<span class="err">​</span>    <span class="mf">2.</span><span class="err">客户端</span><span class="p">:</span> <span class="err">浏览器</span><span class="p">,</span> <span class="n">APP都可以实现人与服务器之间的交互行为</span><span class="p">,</span> <span class="err">应用客户端从服务器获取数据</span>
-
-<span class="err">​</span>    <span class="mf">3.</span><span class="err">自动化</span><span class="p">:</span> <span class="err">数据量较小时可以人工获取数据</span><span class="p">,</span> <span class="err">但往往在公司中爬取的数据量在百万条</span><span class="p">,</span> <span class="err">千万条级别的</span><span class="p">,</span> <span class="err">所以要程序自动化获取数据</span><span class="o">.</span>
-</pre></div>
-
-
-<h4>1.2  爬虫语言</h4>
-<div class="highlight"><pre><span></span><span class="c1"># 爬虫语言:PHP, C/C++, Java, Python</span>
-
-<span class="c1"># 对比:</span>
-
-<span class="err">​</span>    <span class="n">PHP</span><span class="p">:</span> <span class="err">并发能力差</span><span class="p">,</span> <span class="err">对多进程和多线程支持不好</span><span class="p">,</span> <span class="err">数据量较大时爬虫效率较低</span>
-
-<span class="err">​</span>    <span class="n">C</span><span class="o">/</span><span class="n">C</span><span class="o">++</span><span class="p">:</span> <span class="err">语言效率高</span><span class="p">,</span> <span class="err">但学习成本高</span><span class="p">,</span> <span class="err">对程序员的技术能力要求较高</span><span class="p">,</span>  <span class="err">所以目前还停留在研究层面</span><span class="p">,</span> <span class="err">市场需求量很小 …</span></pre></div> <a class="btn primary xsmall" href="/介绍爬虫.html">more…</a>
+ in <a href="/category/redis.html">Redis</a>
+tags: <a href="/tag/redis.html">Redis</a> </div>
+	<div class="summary"><ul>
+<li>Redis得到五大数据类型</li>
+<li>字符串对象</li>
+<li>列表对象</li>
+<li>哈希对象</li>
+<li>集合对象</li>
+<li>有序集合对象</li>
+</ul> <a class="btn primary xsmall" href="/Redis的五大数据类型实现原理.html">more…</a>
 	</div>
 </div>	
 <div class='article'>
-	<h2>创建一个静态网页</h2>
-	<div class="well small">Permalink: <a class="more" href="/创建一个静态网页.html">1000-01-01 18:44:00+00:09</a>
+	<h2>Redis组从同步</h2>
+	<div class="well small">Permalink: <a class="more" href="/Redis组从同步.html">1000-01-01 18:44:00+00:09</a>
 by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/django.html">Django</a>
-tags: <a href="/tag/django.html">Django</a> </div>
-	<div class="summary"><h4>静态网站</h4>
-<h5>gitbook 把markdown转化为html</h5>
-<div class="highlight"><pre><span></span>gitbook server
-</pre></div>
-
-
-<h4>上传文件</h4>
-<p>推荐: 使用支持sftp协议的工具上传 ssh2协议</p>
-<p>列如: pycharm filezilla 等</p>
-<h4>Nginx</h4>
+ in <a href="/category/redis.html">Redis</a>
+tags: <a href="/tag/redis.html">Redis</a> </div>
+	<div class="summary"><h5>主从同步的构架</h5>
 <ul>
-<li>可以当做HTTP服务器，提供HTML的传输服务</li>
-<li>yum install -y nginx</li>
-<li>whereis nginx</li>
-<li>启动nginx   nginx</li>
-<li>nginx -s relaod 修改nginx.conf之后，可以重载</li>
+<li>只有一台主机服务，只负责写入数据，不负责读取数据</li>
+<li>多台从服务器，不负责写入数据，只负责同步主服务器的数据，供外部程序读取</li>
+<li>主服务器写入数据后，将命令发送到从服务器上，使主从同步</li>
+<li>应用程序可以读取某一台服务器的数据，负载均衡</li>
+<li>当某些服务器瘫痪时，系统影响不大，选举出一台从服务器当做主服务器</li>
 </ul>
-<h5>显示发布的页面</h5>
-<p>修改nginx.conf 内的root</p>
-<p>user 修改为 root</p>
-<p>root 你发布的页面路径</p>
-<p>chmod -R 755 _book   修改权限</p>
-<p>之后 重新加载</p>
-<h5>https以下是Nginx的默认路径：</h5>
-<div class="highlight"><pre><span></span>(1) Nginx配置路径：/etc …</pre></div> <a class="btn primary xsmall" href="/创建一个静态网页.html">more…</a>
+<h5>2 增量同步</h5>
+<p>Redis增量复制是指Slave初始化后开始正常工作时主服务器发生的写操作同步到从服务器的过程。 </p>
+<p>增量复制的过程主要是主服务器每执行一个写命令就会向从服务器发送相同的写命令，从服务器接收并执行收到的写命令。</p>
+<h5>3 Redis主从同步策略</h5>
+<p>主从刚刚连接的时候，进行全量同步；全同步结束后，进行增量同步。当然，如果有需要，slave 在任何时候都可以发起全量同步。redis 策略是，无论如何，首先会尝试进行增量同步，如不成功，要求从机进行全量同步</p> <a class="btn primary xsmall" href="/Redis组从同步.html">more…</a>
 	</div>
 </div>	
 <div class='article'>
-	<h2>创建与使用虚拟环境</h2>
-	<div class="well small">Permalink: <a class="more" href="/创建与使用虚拟环境.html">1000-01-01 18:44:00+00:09</a>
+	<h2>Redis集群</h2>
+	<div class="well small">Permalink: <a class="more" href="/Redis集群.html">1000-01-01 18:44:00+00:09</a>
 by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/xu-ni-huan-jing.html">虚拟环境</a>
-tags: <a href="/tag/xu-ni-huan-jing.html">虚拟环境</a> </div>
-	<div class="summary"><h2>创建与使用环境</h2>
-<div class="highlight"><pre><span></span><span class="o">#</span> <span class="err">安装</span><span class="p">:</span>
-
-<span class="n">pip</span> <span class="n">install</span> <span class="n">virtualenvwrapper</span><span class="o">-</span><span class="n">win</span>
-</pre></div>
-
-
-<div class="highlight"><pre><span></span><span class="o">#</span> <span class="err">常用命令</span><span class="p">:</span>
-
-<span class="n">mkvirtualenv</span> <span class="n">envname</span>  <span class="o">#</span> <span class="err">创建虚拟环境并自动切换到该环境下</span>
-
-<span class="n">workon</span> <span class="n">envname</span>  <span class="o">#</span> <span class="err">切换到某虚拟环境下</span>
-
-<span class="n">pip</span> <span class="n">list</span> <span class="o">#</span> <span class="err">查看蓄奴环境下的安装包</span>
-
-<span class="n">rmvirtualenv</span> <span class="n">envname</span>  <span class="o">#</span> <span class="err">删除虚拟环境</span>
-
-<span class="n">deactivate</span>  <span class="o">#</span> <span class="err">退出虚拟环境</span>
-
-<span class="n">lsvirtualenv</span> <span class="o">&amp;</span> <span class="n">workon</span> <span class="o">#</span> <span class="err">列出所有常见的虚拟环境</span>
-
-<span class="n">mkvirtualenv</span> <span class="c1">--python==C:\...\python.exe envname  # 指定Python解释器创建虚拟环境</span>
-</pre></div> <a class="btn primary xsmall" href="/创建与使用虚拟环境.html">more…</a>
+ in <a href="/category/redis.html">Redis</a>
+tags: <a href="/tag/redis.html">Redis</a> </div>
+	<div class="summary"> <a class="btn primary xsmall" href="/Redis集群.html">more…</a>
 	</div>
 </div>	
 <div class='article'>
-	<h2>初识MySQL</h2>
-	<div class="well small">Permalink: <a class="more" href="/初识MySQL.html">1000-01-01 18:44:00+00:09</a>
+	<h2>Supervisor</h2>
+	<div class="well small">Permalink: <a class="more" href="/Supervisor.html">1000-01-01 18:44:00+00:09</a>
 by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/mysql.html">MySQL</a>
-tags: <a href="/tag/mysql.html">MySQL</a> </div>
-	<div class="summary"><h4>1.为什么学习数据库</h4>
-<div class="highlight"><pre><span></span>数据的存储方式大致有内存存储, 文件存储, 数据库存储. 其中内存存储有断电消失的特性, 不适合永久保存数据. 文件存储不利于数据的查询有调用.所以采用数据库形式存储数据.
-数据库具有以下优点:
-　　　　1).持久化数据到本地
-　　　　2).可以实现结构化查询, 方便管理数据
+ in <a href="/category/supervisor.html">Supervisor</a>
+tags: <a href="/tag/supervisor.html">Supervisor</a> </div>
+	<div class="summary"><h2>介绍</h2>
+<p>Supervisor就是一个超级管理员，监管员。Supervisor是一个进程管理工具，当进程中断的时候Supervisor能自动重新启动它。</p>
+<h2>Supervisor安装与配置</h2>
+<h3>1、安装Python包管理工具(<a href="https://pypi.org/project/setuptools/">easy_install</a>)</h3>
+<div class="highlight"><pre><span></span>yum install python-setuptools
 </pre></div>
 
 
-<h4>2.数据库相关概念</h4>
-<div class="highlight"><pre><span></span>　　　　(1).DB : 数据库, 英文全称为DataBase. 是存储数据的仓库, 其中保存了一系列有组织的数据.
-　　　　(2).DBMS : 数据库管理系统, 英文全称为Database Management System. 数据库是通过DBMS常见和操作的容器.常见数据库管理系统 : MySQL, Oracle, DB2(适合处理海量数据), SQLServer
-　　　　(3).SQL : 结构化查询语言(Structure Query Language), 专门用来与数据库通信的语言.
+<h3>2、安装Supervisor</h3>
+<div class="highlight"><pre><span></span>easy_install supervisor
 </pre></div>
 
 
-<h4>3.SQL的优点:</h4>
-<div class="highlight"><pre><span></span>　　　　(1).不是某个特定数据库供应商专有的语言, 几乎所有DBMS都支持SQL
-　　　　(2).简单易学 …</pre></div> <a class="btn primary xsmall" href="/初识MySQL.html">more…</a>
+<h3>3、配置Supervisor应用守护</h3>
+<p>a) 通过运行echo_supervisord_conf程序生成supervisor的初始化配置文件，如下所示：</p>
+<div class="highlight"><pre><span></span>mkdir /etc/supervisor
+echo_supervisord_conf &gt; /etc/supervisor/supervisord.conf
+</pre></div>
+
+
+<p>然后查看路径下的supervisord.conf。在文件尾部添加如下配置。</p>
+<div class="highlight"><pre><span></span>...
+
+<span class="p">;</span><span class="o">[</span>include<span class="o">]</span>
+<span class="p">;</span><span class="nv">files</span> <span class="o">=</span> relative/directory/*.ini
+
+<span class="p">;</span>conf.d 为配置表目录的文件夹，需要手动创建
+<span class="o">[</span>include<span class="o">]</span>
+<span class="nv">files</span> <span class="o">=</span> conf.d/*.conf
+</pre></div>
+
+
+<p>b) 为你的程序创建一个.conf文件，放在目录 …</p> <a class="btn primary xsmall" href="/Supervisor.html">more…</a>
 	</div>
 </div>	
 <div class='article'>
-	<h2>如何安装mongodb</h2>
-	<div class="well small">Permalink: <a class="more" href="/如何安装mongodb.html">1000-01-01 18:44:00+00:09</a>
+	<h2>VUE拦截器</h2>
+	<div class="well small">Permalink: <a class="more" href="/VUE拦截器.html">1000-01-01 18:44:00+00:09</a>
 by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/mongodb.html">Mongodb</a>
-tags: <a href="/tag/mongodb.html">Mongodb</a> </div>
-	<div class="summary"><h5>创建一个<code>/etc/yum.repos.d/mongodb-org-4.2.repo</code>文件，以便您可以使用<code>yum</code>以下命令直接安装MongoDB ：</h5>
-<div class="highlight"><pre><span></span>touch /etc/yum.repos.d/mongodb-org-4.2.repo
-</pre></div>
-
-
-<h5>编写</h5>
-<div class="highlight"><pre><span></span>[mongodb-org-4.2]
-name=MongoDB Repository
-baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/4.2/x86_64/
-gpgcheck=1
-enabled=1
-gpgkey=https://www.mongodb.org/static/pgp/server-4 …</pre></div> <a class="btn primary xsmall" href="/如何安装mongodb.html">more…</a>
-	</div>
-</div>	
-<div class='article'>
-	<h2>如何安装python3</h2>
-	<div class="well small">Permalink: <a class="more" href="/如何安装python3.html">1000-01-01 18:44:00+00:09</a>
-by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/python.html">Python</a>
-tags: <a href="/tag/python.html">Python</a> </div>
-	<div class="summary"><h5>CentOS7下安装python3</h5>
-<p>yun安装</p>
-<div class="highlight"><pre><span></span>yum install python3
-# 下面的命令是用来解决找不到python.h
-yum list |grep python3 |grep devel
-yum install python3-devel.x86_64
-</pre></div>
-
-
-<p>1、安装pyhton3.7 的依赖包</p>
-<div class="highlight"><pre><span></span>yum -y groupinstall &quot;Development tools&quot;
-yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel libffi-devel
-</pre></div>
-
-
-<p>2、下载python3.7的“源码”：</p>
-<div class="highlight"><pre><span></span>wget https://www.python.org …</pre></div> <a class="btn primary xsmall" href="/如何安装python3.html">more…</a>
-	</div>
-</div>	
-<div class='article'>
-	<h2>微信小程序发起请求</h2>
-	<div class="well small">Permalink: <a class="more" href="/微信小程序发起请求.html">1000-01-01 18:44:00+00:09</a>
-by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/xiao-cheng-xu.html">小程序</a>
-tags: <a href="/tag/xiao-cheng-xu.html">小程序</a> </div>
-	<div class="summary"><h4>发起请求</h4>
-<h5>发起请求使用的是wx.request相当于axios或者ajax，发起的请求</h5>
-<p>官方文档    <a href="https://developers.weixin.qq.com/miniprogram/dev/api/network/request/wx.request.html">https://developers.weixin.qq.com/miniprogram/dev/api/network/request/wx.request.html</a></p>
-<h5>代码</h5>
-<div class="highlight"><pre><span></span>&lt;button <span class="nv">bindtap</span><span class="o">=</span><span class="s1">&#39;click&#39;</span>&gt;按钮1&lt;/button&gt;  <span class="c1">#点击按钮触发click事件</span>
-</pre></div>
-
-
-<div class="highlight"><pre><span></span> <span class="n">click</span><span class="p">:</span><span class="n">function</span><span class="p">(){</span>
-    <span class="n">var</span> <span class="n">thit</span> <span class="o">=</span> <span class="n">this</span>
-    <span class="n">wx</span><span class="o">.</span><span class="n">request</span><span class="p">({</span>
-      <span class="n">url</span><span class="p">:</span> <span class="s1">&#39;http://127.0.0.1:8000/app01/a/&#39;</span><span class="p">,</span>  <span class="c1">#访问的路由</span>
-      <span class="n">data</span><span class="p">:{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span><span class="s1">&#39;shang&#39;</span><span class="p">},</span>   <span class="c1">#传参</span>
-      <span class="n">method</span><span class="p">:</span><span class="s2">&quot;POST&quot;</span><span class="p">,</span>    <span class="c1">#提交方式</span>
-      <span class="n">header …</span></pre></div> <a class="btn primary xsmall" href="/微信小程序发起请求.html">more…</a>
-	</div>
-</div>	
-<div class='article'>
-	<h2>网络</h2>
-	<div class="well small">Permalink: <a class="more" href="/网络.html">1000-01-01 18:44:00+00:09</a>
-by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/wang-luo.html">网络</a>
-tags: <a href="/tag/wang-luo.html">网络</a> </div>
-	<div class="summary"><h2>OSI七层协议</h2>
-<table>
-<thead>
-<tr>
-<th>-</th>
-<th>-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>物理层</td>
-<td></td>
-</tr>
-<tr>
-<td>数据层</td>
-<td>rarp、arp</td>
-</tr>
-<tr>
-<td>网络层</td>
-<td>ip、IPv4、IPv6</td>
-</tr>
-<tr>
-<td>传输层</td>
-<td>tcp、udp</td>
-</tr>
-<tr>
-<td>会话层</td>
-<td></td>
-</tr>
-<tr>
-<td>表示层</td>
-<td></td>
-</tr>
-<tr>
-<td>应用层</td>
-<td>Ftp、ssh、http</td>
-</tr>
-</tbody>
-</table>
-<h2>HTTP协议</h2>
-<h3>无状态</h3>
+ in <a href="/category/vue.html">VUE</a>
+tags: <a href="/tag/vue.html">VUE</a> </div>
+	<div class="summary"><h2>vue 拦截器</h2>
 <ul>
-<li>没有记忆功能，服务器不知道客户端是什么状态</li>
-<li>解决办法：session，cookie</li>
+<li>
+<p>路由拦截器</p>
+</li>
+<li>
+<p>已路由为导向</p>
+</li>
 </ul>
-<h3>无连接</h3>
+<div class="highlight"><pre><span></span>  router.beforeEach<span class="o">((</span>to,from,next<span class="o">)=</span>&gt;<span class="o">{</span>
+      <span class="k">if</span><span class="o">(</span>to.path<span class="o">==</span><span class="s1">&#39;/login&#39;</span> <span class="o">||</span> to.path<span class="o">==</span><span class="s1">&#39;reg&#39;</span> <span class="o">||</span> localStorage.getItem<span class="o">(</span><span class="s1">&#39;token&#39;</span><span class="o">)){</span>
+        next<span class="o">()</span><span class="p">;</span>
+      <span class="o">}</span><span class="k">else</span><span class="o">{</span>
+        alert<span class="o">(</span><span class="s1">&#39;请重新登录&#39;</span><span class="o">)</span><span class="p">;</span>
+        next<span class="o">(</span><span class="s1">&#39;/login&#39;</span><span class="o">)</span><span class="p">;</span>
+      <span class="o">}</span>
+  <span class="o">})</span>
+</pre></div>
+
+
 <ul>
-<li>每次链接只处理一个请求，然后断开链接</li>
-<li>解决办法：</li>
-<li>轮询</li>
-<li>长轮询</li>
-<li>websocket</li>
+<li>
+<p>请求拦截器</p>
+</li>
+<li>
+<p>当发送请求时才会触发此功能</p>
+</li>
 </ul>
-<h2>轮询</h2>
-<ul>
-<li>客户端定时向服务器发起请求，服务器接到请求后马上返回响应信息并关闭连接。</li>
-<li>优点：后端编写程序容易</li>
-<li>缺点：请求中有大半是无用，浪费带宽和服务器资源。</li>
-<li>适用于小型应用</li>
-</ul>
-<h2>长轮询</h2>
-<ul>
-<li>客户端向服务器发起请求，服务器接到请求后hold住连接，直到有新消息才返回响应信息并关闭连接，客户端处理完响应信息后再向服务器发送新的请求。</li>
-<li>优点：在无消息的情况下不会频繁的请求。</li>
-<li>缺点：服务器hold连接会消耗资源 …</li></ul> <a class="btn primary xsmall" href="/网络.html">more…</a>
+<div class="highlight"><pre><span></span>  axios.interceptors.request.use<span class="o">(</span><span class="k">function</span> <span class="o">(</span>config<span class="o">)</span> <span class="o">{</span>
+    <span class="nb">let</span> <span class="nv">token</span> <span class="o">=</span> window.localStorage.getItem<span class="o">(</span><span class="s2">&quot;token&quot;</span><span class="o">)</span><span class="p">;</span>
+        <span class="k">if</span> <span class="o">(</span>token<span class="o">)</span> <span class="o">{</span>
+            config.headers.token <span class="o">=</span> token<span class="p">;</span>    //将token放到请求头发送给服务器
+        <span class="o">}</span>
+       <span class="k">return</span> config<span class="p">;</span> // 最终需要返回config
+      <span class="o">}</span>, <span class="k">function …</span></pre></div> <a class="btn primary xsmall" href="/VUE拦截器.html">more…</a>
 	</div>
 </div>	
 <div class='article'>
-	<h2>软连接</h2>
-	<div class="well small">Permalink: <a class="more" href="/软链接.html">1000-01-01 18:44:00+00:09</a>
+	<h2>VUE添加图片</h2>
+	<div class="well small">Permalink: <a class="more" href="/VUE添加图片.html">1000-01-01 18:44:00+00:09</a>
 by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/sui-shou-bi-ji.html">随手笔记</a>
-tags: <a href="/tag/sui-shou-bi-ji.html">随手笔记</a> </div>
-	<div class="summary"><div class="highlight"><pre><span></span>增加
+ in <a href="/category/vue.html">VUE</a>
+tags: <a href="/tag/vue.html">VUE</a> </div>
+	<div class="summary"><h1>VUE添加图片</h1>
+<h3>不多说直接上代码</h3>
+<div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">template</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">div</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;Daa_img&quot;</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nb">input</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;file&quot;</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;img&quot;</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nb">input</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;button&quot;</span> <span class="nd">@click</span><span class="o">=</span><span class="s2">&quot;add&quot;</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;添加&quot;</span><span class="o">&gt;</span>
+  <span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">template</span><span class="o">&gt;</span>
 
-ln-s  源文件  软连接名
-
-修改
-ln –snf  源文件    软连接
-删除
-
-只删除软连接
-
-rm -rf 软连接名
-
-只删除源文件
-
-rm -rf 源文件
-
-
-
--r循环
-
--f强制
-</pre></div> <a class="btn primary xsmall" href="/软链接.html">more…</a>
+<span class="o">&lt;</span><span class="n">script</span><span class="o">&gt;</span>
+  <span class="kn">import</span> <span class="nn">axios</span> <span class="nn">from</span> <span class="s1">&#39;axios&#39;</span>
+  <span class="n">export</span> <span class="n">default</span> <span class="p">{</span>
+    <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;Daa_img&quot;</span><span class="p">,</span>
+    <span class="n">data</span><span class="p">(){</span>
+      <span class="k">return</span><span class="p">{</span>
+        <span class="n">data</span><span class="p">:</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
+      <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="n">methods</span><span class="p">:{</span>
+      <span class="n">add</span><span class="p">(){</span>
+        <span class="n">let</span> <span class="n">datafrom</span> <span class="o">=</span> <span class="n">new</span> <span class="n">FormData</span><span class="p">();</span>
+        <span class="n">datafrom</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;img&#39;</span><span class="p">,</span><span class="n">document</span><span class="o">.</span><span class="n">getElementById</span><span class="p">(</span><span class="s1">&#39;img&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">files</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+        <span class="n">axios</span><span class="p">({</span>
+          <span class="n">url</span><span class="p">:</span><span class="s1">&#39;http://127 …</span></pre></div> <a class="btn primary xsmall" href="/VUE添加图片.html">more…</a>
 	</div>
 </div>	
 <div class='article'>
-	<h2>Docker-基础</h2>
-	<div class="well small">Permalink: <a class="more" href="/Docker-基础.html">0999-01-01 18:44:00+00:09</a>
+	<h2>VUE父子件传参+分页</h2>
+	<div class="well small">Permalink: <a class="more" href="/VUE父子件传参+分页.html">1000-01-01 18:44:00+00:09</a>
 by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/docker.html">Docker</a>
-tags: <a href="/tag/docker.html">Docker</a> </div>
-	<div class="summary"><h4>什么是Docker</h4>
-<ul>
-<li>Docker 是使用最广泛的开源容器引擎</li>
-<li>一种操作系统基本的虚拟化技术</li>
-<li>一种简单的应用程序打包工具</li>
-<li>依赖 Linux 内核特性：Namespace(资源隔离) 和 Cgroup（资源限制）</li>
-</ul>
-<p><strong>注：</strong>每个容器拥有一套和宿主机完全隔离的文件系统（共用linux内核），程序在这个虚拟容器里运行，就好像在真实的物理机上运行一样。</p>
-<p>​   <strong>容器：</strong></p>
-<p><strong>1）</strong>容器是一个操作系统级别下的虚拟化技术，运行一个容器就行运行一个进程一样</p>
-<p><strong>2）</strong>容器依赖linux内核特性：Namespace（资源隔离）和Cgroups（资源限制）</p>
-<p><strong>资源隔离：</strong></p>
-<p>1）Linux Namespaces机制提供一种资源隔离方案，每个namespace看上去就像一个单独的Linux系统。</p>
-<p>2）PID,IPC(进程通信),Network等系统资源不再是全局性的，而是属于某个特定的Namespace。</p>
-<p>3）每个namespace下的资源对于其他namespace下的资源都是透明，不可见的。</p>
-<p>4）系统中可以同时存在两个进程号为0,1,2的进程，由于属于不同的namespace，所以它们之间并不冲突。</p>
-<p>5）而在用户层面上只能看到属于用户自己namespace下的资源 …</p> <a class="btn primary xsmall" href="/Docker-基础.html">more…</a>
+ in <a href="/category/vue.html">VUE</a>
+tags: <a href="/tag/vue.html">VUE</a> </div>
+	<div class="summary"><h2>直接上代码、然后解释：</h2>
+<h3>父组件代码</h3>
+<div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">template</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">div</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;fu&quot;</span><span class="o">&gt;</span>
+    <span class="err">这是父组件</span>
+    <span class="o">&lt;</span><span class="n">zi</span> <span class="p">:</span><span class="n">name1</span><span class="o">=</span><span class="n">data</span> <span class="nd">@da</span><span class="o">=</span><span class="s2">&quot;add&quot;</span><span class="o">&gt;&lt;/</span><span class="n">zi</span><span class="o">&gt;</span>
+  <span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">template</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">script</span><span class="o">&gt;</span>
+  <span class="kn">import</span> <span class="nn">zi</span> <span class="nn">from</span> <span class="s1">&#39;../components/zi&#39;</span>
+
+  <span class="n">export</span> <span class="n">default</span> <span class="p">{</span>
+    <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;fu&quot;</span><span class="p">,</span>
+    <span class="n">data</span><span class="p">()</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="p">{</span>
+        <span class="n">data</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+      <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="n">components</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s1">&#39;zi&#39;</span><span class="p">:</span> <span class="n">zi</span>
+    <span class="p">},</span>
+    <span class="n">methods</span><span class="p">:</span> <span class="p">{</span>
+      <span class="n">add</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">alert</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="o">&lt;/</span><span class="n">script</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">style</span> <span class="n">scoped</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">style</span><span class="o">&gt;</span>
+</pre></div>
+
+
+<h3>子组件代码</h3>
+<div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="nv">template</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="nv">div</span> <span class="nv">id</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">zi …</span></pre></div> <a class="btn primary xsmall" href="/VUE父子件传参+分页.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>VUE路由跳转带参</h2>
+	<div class="well small">Permalink: <a class="more" href="/VUE路由跳转带参.html">1000-01-01 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/vue.html">VUE</a>
+tags: <a href="/tag/vue.html">VUE</a> </div>
+	<div class="summary"><h4>使用this.$router.push()跳转带参</h4>
+<h5>params传参</h5>
+<div class="highlight"><pre><span></span>注意：patams传参 ，路径不能使用path 只能使用name,不然获取不到传的数据
+
+this.$router.push({name: &#39;dispatch&#39;, params: {paicheNo: obj.paicheNo}})
+
+取数据：this.$route.params.paicheNo
+
+this.$route.params.paicheNo
+</pre></div>
+
+
+<h5>query传参</h5>
+<div class="highlight"><pre><span></span>this.$router.push({name: &#39;dispatch&#39;, query: {paicheNo: obj.paicheNo}})
+
+取数据：this.$route.query.paicheNo
+
+this.$route.query.paicheNo
+</pre></div> <a class="btn primary xsmall" href="/VUE路由跳转带参.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>Windows安装redis</h2>
+	<div class="well small">Permalink: <a class="more" href="/Windows安装redis.html">1000-01-01 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/redis.html">redis</a>
+tags: <a href="/tag/redis.html">redis</a> </div>
+	<div class="summary"><div class="highlight"><pre><span></span><span class="mi">1</span><span class="p">.</span><span class="err">将安装包解压到一个文件夹下</span><span class="p">:</span> <span class="err">如</span> <span class="n">D</span><span class="p">:</span><span class="err">\</span><span class="n">redis</span><span class="p">,</span> <span class="err">会在该文件夹下看到所有</span><span class="n">redis的文件</span>
+<span class="mi">2</span><span class="p">.</span><span class="err">将该文件夹添加至系统环境变量中</span>
+<span class="mi">3</span><span class="p">.</span><span class="err">在解压的文件目录的地址栏上输入</span><span class="n">cmd</span><span class="p">,</span> <span class="err">在</span><span class="n">cmd窗口中输入redis</span><span class="o">-</span><span class="n">server</span> <span class="p">.</span><span class="o">/</span><span class="n">redis</span><span class="p">.</span><span class="n">windows</span><span class="p">.</span><span class="n">conf</span> <span class="p">,</span> <span class="err">然后回车</span><span class="p">,</span> <span class="n">redis安装成功了</span>
+</pre></div> <a class="btn primary xsmall" href="/Windows安装redis.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>js-if语句</h2>
+	<div class="well small">Permalink: <a class="more" href="/js-if语句.html">1000-01-01 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/javascript.html">JavaScript</a>
+tags: <a href="/tag/javascript.html">JavaScript</a> </div>
+	<div class="summary"><h5>定义</h5>
+<div class="highlight"><pre><span></span>let a = 1,b = 2;
+console.log(a)
+console.log(b)
+</pre></div>
+
+
+<h5>方法一</h5>
+<div class="highlight"><pre><span></span>if(a &gt; b){
+  console.log(&#39;a大&#39;)
+}else{
+  console.log(&#39;b大&#39;)
+}
+</pre></div>
+
+
+<h5>方法二</h5>
+<div class="highlight"><pre><span></span>if(a &gt; b) console.log(&#39;a大&#39;)
+if(a &lt; b) console.log(&#39;b大&#39;
+</pre></div>
+
+
+<h5>方法三</h5>
+<div class="highlight"><pre><span></span>if(a &gt; b) console.log(&#39;a大&#39;)
+else console.log(&#39;b大&#39;)
+</pre></div>
+
+
+<h5>方法四</h5>
+<div class="highlight"><pre><span></span>console.log …</pre></div> <a class="btn primary xsmall" href="/js-if语句.html">more…</a>
 	</div>
 </div>	
 
@@ -402,6 +366,7 @@ tags: <a href="/tag/docker.html">Docker</a> </div>
 		<li class=""><a href="/author/shang-wei6.html">6</a></li>
 		<li class="active"><a href="/author/shang-wei7.html">7</a></li>
 		<li class=""><a href="/author/shang-wei8.html">8</a></li>
+		<li class=""><a href="/author/shang-wei9.html">9</a></li>
 		<li class="next"><a href="/author/shang-wei8.html">Next &rarr;</a></li>
 </ul>
 </div>

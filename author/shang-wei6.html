@@ -43,6 +43,7 @@
 					<li ><a href="/category/supervisor.html">Supervisor</a></li>
 					<li ><a href="/category/vue.html">VUE</a></li>
 					<li ><a href="/category/wang-luo.html">网络</a></li>
+					<li ><a href="/category/web.html">web</a></li>
 					<li ><a href="/category/xiao-cheng-xu.html">小程序</a></li>
 					<li ><a href="/category/xu-ni-huan-jing.html">虚拟环境</a></li>
 			</ul>
@@ -59,7 +60,6 @@
 				<li><a href="http://getpelican.com/">Pelican</a></li>
 				<li><a href="http://python.org/">Python.org</a></li>
 				<li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
-				<li><a href="https://shangxiaoweia.github.io/puzzle.html">拼图</a></li>
 			</ul>
 			<div class="social">
 			<h3>Social</h3>
@@ -72,345 +72,362 @@
 	  <div class="content">
 <div class="page-header"><h1>商伟的技术博客 <small>商伟</small></h1></div>
 <div class='article'>
-	<h2>Supervisor</h2>
-	<div class="well small">Permalink: <a class="more" href="/Supervisor.html">1000-01-01 18:44:00+00:09</a>
+	<h2>Hexo-博客</h2>
+	<div class="well small">Permalink: <a class="more" href="/Hexo.html">1000-01-01 18:44:00+00:09</a>
 by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/supervisor.html">Supervisor</a>
-tags: <a href="/tag/supervisor.html">Supervisor</a> </div>
-	<div class="summary"><h2>介绍</h2>
-<p>Supervisor就是一个超级管理员，监管员。Supervisor是一个进程管理工具，当进程中断的时候Supervisor能自动重新启动它。</p>
-<h2>Supervisor安装与配置</h2>
-<h3>1、安装Python包管理工具(<a href="https://pypi.org/project/setuptools/">easy_install</a>)</h3>
-<div class="highlight"><pre><span></span>yum install python-setuptools
+ in <a href="/category/sui-shou-bi-ji.html">随手笔记</a>
+tags: <a href="/tag/sui-shou-bi-ji.html">随手笔记</a> </div>
+	<div class="summary"><h5>首先安装Hexo，在此之前，请确保电脑里已经安装好新版的node.js</h5>
+<div class="highlight"><pre><span></span>npm install -g hexo-cli
 </pre></div>
 
 
-<h3>2、安装Supervisor</h3>
-<div class="highlight"><pre><span></span>easy_install supervisor
+<h5>如果感觉安装速度比较慢，可以为npm指定国内的源</h5>
+<div class="highlight"><pre><span></span>npm config set registry https://registry.npm.taobao.org
 </pre></div>
 
 
-<h3>3、配置Supervisor应用守护</h3>
-<p>a) 通过运行echo_supervisord_conf程序生成supervisor的初始化配置文件，如下所示：</p>
-<div class="highlight"><pre><span></span>mkdir /etc/supervisor
-echo_supervisord_conf &gt; /etc/supervisor/supervisord.conf
+<h5>安装完成后，创建博客项目</h5>
+<div class="highlight"><pre><span></span>hexo init blog
 </pre></div>
 
 
-<p>然后查看路径下的supervisord.conf。在文件尾部添加如下配置。</p>
-<div class="highlight"><pre><span></span>...
-
-<span class="p">;</span><span class="o">[</span>include<span class="o">]</span>
-<span class="p">;</span><span class="nv">files</span> <span class="o">=</span> relative/directory/*.ini
-
-<span class="p">;</span>conf.d 为配置表目录的文件夹，需要手动创建
-<span class="o">[</span>include<span class="o">]</span>
-<span class="nv">files</span> <span class="o">=</span> conf.d/*.conf
+<h5>这样，就建立起了一个blog文件夹，进入到blog目录下 cd blog，建立第一篇文章</h5>
+<div class="highlight"><pre><span></span>hexo new myfirst
 </pre></div>
 
 
-<p>b) 为你的程序创建一个.conf文件，放在目录 …</p> <a class="btn primary xsmall" href="/Supervisor.html">more…</a>
+<h5>然后运行hexo服务</h5>
+<div class="highlight"><pre><span></span>hexo server
+</pre></div>
+
+
+<h5>就可以在本地访问你的博客网站了，默认端口号是4000</h5>
+<h5>那么如何将博客网站打包呢？直接运行打包命令，这样就能使用 Hexo 引擎将 Markdown 格式的文件解析成可以使用浏览器查看的 HTML 文件，HTML 文件存储在 blog …</h5> <a class="btn primary xsmall" href="/Hexo.html">more…</a>
 	</div>
 </div>	
 <div class='article'>
-	<h2>VUE拦截器</h2>
-	<div class="well small">Permalink: <a class="more" href="/VUE拦截器.html">1000-01-01 18:44:00+00:09</a>
+	<h2>Hugo-博客</h2>
+	<div class="well small">Permalink: <a class="more" href="/Hugo.html">1000-01-01 18:44:00+00:09</a>
 by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/vue.html">VUE</a>
-tags: <a href="/tag/vue.html">VUE</a> </div>
-	<div class="summary"><h2>vue 拦截器</h2>
+ in <a href="/category/sui-shou-bi-ji.html">随手笔记</a>
+tags: <a href="/tag/sui-shou-bi-ji.html">随手笔记</a> </div>
+	<div class="summary"><h5>首先，可以去go的官网网站下载安装包  https://golang.org/dl/ 然后直接双击安装即可，不需要配置环境变量，因为安装过程自动配置，安装完毕后，打开命令行，输入</h5>
+<div class="highlight"><pre><span></span>go version
+</pre></div>
+
+
+<h5>显示主版本号即表示安装成功</h5>
+<h5>然后，可以进行hugo的在线源码编译安装，打开命令行，输入下面的命令</h5>
+<div class="highlight"><pre><span></span>go get -u -v github.com/spf13/hugo
+go build -o hugo main.go
+mv hugo $GOPATH/bin
+</pre></div>
+
+
+<h5>如果你不想在线编译安装，也可以去hugo的官网 <a href="https://github.com/gohugoio/hugo/releases">https://github.com/gohugoio/hugo/releases</a> 下载稳定版的压缩包，解压之后配置一下环境变量也可以</h5>
+<h5>装完以后，在命令行内输入</h5>
+<div class="highlight"><pre><span></span>hugo …</pre></div> <a class="btn primary xsmall" href="/Hugo.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>Linux下python3源码安装</h2>
+	<div class="well small">Permalink: <a class="more" href="/Linux下python3源码安装.html">1000-01-01 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/python.html">Python</a>
+tags: <a href="/tag/python.html">Python</a> </div>
+	<div class="summary"><h5>Linux下Python3源码安装</h5>
 <ul>
-<li>
-<p>路由拦截器</p>
-</li>
-<li>
-<p>已路由为导向</p>
-</li>
+<li>1.下载</li>
 </ul>
-<div class="highlight"><pre><span></span>  router.beforeEach<span class="o">((</span>to,from,next<span class="o">)=</span>&gt;<span class="o">{</span>
-      <span class="k">if</span><span class="o">(</span>to.path<span class="o">==</span><span class="s1">&#39;/login&#39;</span> <span class="o">||</span> to.path<span class="o">==</span><span class="s1">&#39;reg&#39;</span> <span class="o">||</span> localStorage.getItem<span class="o">(</span><span class="s1">&#39;token&#39;</span><span class="o">)){</span>
-        next<span class="o">()</span><span class="p">;</span>
-      <span class="o">}</span><span class="k">else</span><span class="o">{</span>
-        alert<span class="o">(</span><span class="s1">&#39;请重新登录&#39;</span><span class="o">)</span><span class="p">;</span>
-        next<span class="o">(</span><span class="s1">&#39;/login&#39;</span><span class="o">)</span><span class="p">;</span>
-      <span class="o">}</span>
-  <span class="o">})</span>
+<div class="highlight"><pre><span></span>wget https://www.python.org/ftp/python/3.7.4/Python-3.7.4.tgz
 </pre></div>
 
 
 <ul>
-<li>
-<p>请求拦截器</p>
-</li>
-<li>
-<p>当发送请求时才会触发此功能</p>
-</li>
+<li>2.解压</li>
 </ul>
-<div class="highlight"><pre><span></span>  axios.interceptors.request.use<span class="o">(</span><span class="k">function</span> <span class="o">(</span>config<span class="o">)</span> <span class="o">{</span>
-    <span class="nb">let</span> <span class="nv">token</span> <span class="o">=</span> window.localStorage.getItem<span class="o">(</span><span class="s2">&quot;token&quot;</span><span class="o">)</span><span class="p">;</span>
-        <span class="k">if</span> <span class="o">(</span>token<span class="o">)</span> <span class="o">{</span>
-            config.headers.token <span class="o">=</span> token<span class="p">;</span>    //将token放到请求头发送给服务器
-        <span class="o">}</span>
-       <span class="k">return</span> config<span class="p">;</span> // 最终需要返回config
-      <span class="o">}</span>, <span class="k">function …</span></pre></div> <a class="btn primary xsmall" href="/VUE拦截器.html">more…</a>
-	</div>
-</div>	
-<div class='article'>
-	<h2>VUE添加图片</h2>
-	<div class="well small">Permalink: <a class="more" href="/VUE添加图片.html">1000-01-01 18:44:00+00:09</a>
-by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/vue.html">VUE</a>
-tags: <a href="/tag/vue.html">VUE</a> </div>
-	<div class="summary"><h1>VUE添加图片</h1>
-<h3>不多说直接上代码</h3>
-<div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">template</span><span class="o">&gt;</span>
-  <span class="o">&lt;</span><span class="n">div</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;Daa_img&quot;</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="nb">input</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;file&quot;</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;img&quot;</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="nb">input</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;button&quot;</span> <span class="nd">@click</span><span class="o">=</span><span class="s2">&quot;add&quot;</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;添加&quot;</span><span class="o">&gt;</span>
-  <span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
-<span class="o">&lt;/</span><span class="n">template</span><span class="o">&gt;</span>
-
-<span class="o">&lt;</span><span class="n">script</span><span class="o">&gt;</span>
-  <span class="kn">import</span> <span class="nn">axios</span> <span class="nn">from</span> <span class="s1">&#39;axios&#39;</span>
-  <span class="n">export</span> <span class="n">default</span> <span class="p">{</span>
-    <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;Daa_img&quot;</span><span class="p">,</span>
-    <span class="n">data</span><span class="p">(){</span>
-      <span class="k">return</span><span class="p">{</span>
-        <span class="n">data</span><span class="p">:</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
-      <span class="p">}</span>
-    <span class="p">},</span>
-    <span class="n">methods</span><span class="p">:{</span>
-      <span class="n">add</span><span class="p">(){</span>
-        <span class="n">let</span> <span class="n">datafrom</span> <span class="o">=</span> <span class="n">new</span> <span class="n">FormData</span><span class="p">();</span>
-        <span class="n">datafrom</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;img&#39;</span><span class="p">,</span><span class="n">document</span><span class="o">.</span><span class="n">getElementById</span><span class="p">(</span><span class="s1">&#39;img&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">files</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
-        <span class="n">axios</span><span class="p">({</span>
-          <span class="n">url</span><span class="p">:</span><span class="s1">&#39;http://127 …</span></pre></div> <a class="btn primary xsmall" href="/VUE添加图片.html">more…</a>
-	</div>
-</div>	
-<div class='article'>
-	<h2>VUE父子件传参+分页</h2>
-	<div class="well small">Permalink: <a class="more" href="/VUE父子件传参+分页.html">1000-01-01 18:44:00+00:09</a>
-by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/vue.html">VUE</a>
-tags: <a href="/tag/vue.html">VUE</a> </div>
-	<div class="summary"><h2>直接上代码、然后解释：</h2>
-<h3>父组件代码</h3>
-<div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">template</span><span class="o">&gt;</span>
-  <span class="o">&lt;</span><span class="n">div</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;fu&quot;</span><span class="o">&gt;</span>
-    <span class="err">这是父组件</span>
-    <span class="o">&lt;</span><span class="n">zi</span> <span class="p">:</span><span class="n">name1</span><span class="o">=</span><span class="n">data</span> <span class="nd">@da</span><span class="o">=</span><span class="s2">&quot;add&quot;</span><span class="o">&gt;&lt;/</span><span class="n">zi</span><span class="o">&gt;</span>
-  <span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
-<span class="o">&lt;/</span><span class="n">template</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">script</span><span class="o">&gt;</span>
-  <span class="kn">import</span> <span class="nn">zi</span> <span class="nn">from</span> <span class="s1">&#39;../components/zi&#39;</span>
-
-  <span class="n">export</span> <span class="n">default</span> <span class="p">{</span>
-    <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;fu&quot;</span><span class="p">,</span>
-    <span class="n">data</span><span class="p">()</span> <span class="p">{</span>
-      <span class="k">return</span> <span class="p">{</span>
-        <span class="n">data</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
-      <span class="p">}</span>
-    <span class="p">},</span>
-    <span class="n">components</span><span class="p">:</span> <span class="p">{</span>
-      <span class="s1">&#39;zi&#39;</span><span class="p">:</span> <span class="n">zi</span>
-    <span class="p">},</span>
-    <span class="n">methods</span><span class="p">:</span> <span class="p">{</span>
-      <span class="n">add</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">alert</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
-      <span class="p">}</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-<span class="o">&lt;/</span><span class="n">script</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">style</span> <span class="n">scoped</span><span class="o">&gt;</span>
-<span class="o">&lt;/</span><span class="n">style</span><span class="o">&gt;</span>
+<div class="highlight"><pre><span></span>tar -xzvf Python-3.7.4.tgz
+cd Python-3.7.4
 </pre></div>
 
 
-<h3>子组件代码</h3>
-<div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="nv">template</span><span class="o">&gt;</span>
-  <span class="o">&lt;</span><span class="nv">div</span> <span class="nv">id</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">zi …</span></pre></div> <a class="btn primary xsmall" href="/VUE父子件传参+分页.html">more…</a>
-	</div>
-</div>	
-<div class='article'>
-	<h2>VUE路由跳转带参</h2>
-	<div class="well small">Permalink: <a class="more" href="/VUE路由跳转带参.html">1000-01-01 18:44:00+00:09</a>
-by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/vue.html">VUE</a>
-tags: <a href="/tag/vue.html">VUE</a> </div>
-	<div class="summary"><h4>使用this.$router.push()跳转带参</h4>
-<h5>params传参</h5>
-<div class="highlight"><pre><span></span>注意：patams传参 ，路径不能使用path 只能使用name,不然获取不到传的数据
-
-this.$router.push({name: &#39;dispatch&#39;, params: {paicheNo: obj.paicheNo}})
-
-取数据：this.$route.params.paicheNo
-
-this.$route.params.paicheNo
+<ul>
+<li>3.config # 指定安装目录</li>
+</ul>
+<div class="highlight"><pre><span></span>mkdir -p /usr/local/python3
+./configure --prefix=/usr/local/python3/
 </pre></div>
 
 
-<h5>query传参</h5>
-<div class="highlight"><pre><span></span>this.$router.push({name: &#39;dispatch&#39;, query: {paicheNo: obj.paicheNo}})
-
-取数据：this.$route.query.paicheNo
-
-this.$route.query.paicheNo
-</pre></div> <a class="btn primary xsmall" href="/VUE路由跳转带参.html">more…</a>
+<ul>
+<li>4.make 编译</li>
+<li>5.make install 安装</li>
+<li>6 …</li></ul> <a class="btn primary xsmall" href="/Linux下python3源码安装.html">more…</a>
 	</div>
 </div>	
 <div class='article'>
-	<h2>Windows安装redis</h2>
-	<div class="well small">Permalink: <a class="more" href="/Windows安装redis.html">1000-01-01 18:44:00+00:09</a>
+	<h2>Linux安装redis</h2>
+	<div class="well small">Permalink: <a class="more" href="/Linux安装redis.html">1000-01-01 18:44:00+00:09</a>
 by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
  in <a href="/category/redis.html">redis</a>
 tags: <a href="/tag/redis.html">redis</a> </div>
-	<div class="summary"><div class="highlight"><pre><span></span><span class="mi">1</span><span class="p">.</span><span class="err">将安装包解压到一个文件夹下</span><span class="p">:</span> <span class="err">如</span> <span class="n">D</span><span class="p">:</span><span class="err">\</span><span class="n">redis</span><span class="p">,</span> <span class="err">会在该文件夹下看到所有</span><span class="n">redis的文件</span>
-<span class="mi">2</span><span class="p">.</span><span class="err">将该文件夹添加至系统环境变量中</span>
-<span class="mi">3</span><span class="p">.</span><span class="err">在解压的文件目录的地址栏上输入</span><span class="n">cmd</span><span class="p">,</span> <span class="err">在</span><span class="n">cmd窗口中输入redis</span><span class="o">-</span><span class="n">server</span> <span class="p">.</span><span class="o">/</span><span class="n">redis</span><span class="p">.</span><span class="n">windows</span><span class="p">.</span><span class="n">conf</span> <span class="p">,</span> <span class="err">然后回车</span><span class="p">,</span> <span class="n">redis安装成功了</span>
-</pre></div> <a class="btn primary xsmall" href="/Windows安装redis.html">more…</a>
-	</div>
-</div>	
-<div class='article'>
-	<h2>js-if语句</h2>
-	<div class="well small">Permalink: <a class="more" href="/js-if语句.html">1000-01-01 18:44:00+00:09</a>
-by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/javascript.html">JavaScript</a>
-tags: <a href="/tag/javascript.html">JavaScript</a> </div>
-	<div class="summary"><h5>定义</h5>
-<div class="highlight"><pre><span></span>let a = 1,b = 2;
-console.log(a)
-console.log(b)
+	<div class="summary"><ul>
+<li>下载redis安装包,在root目录下执行</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="n">wget</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">download</span><span class="p">.</span><span class="n">redis</span><span class="p">.</span><span class="n">io</span><span class="o">/</span><span class="n">releases</span><span class="o">/</span><span class="n">redis</span><span class="o">-</span><span class="mi">5</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">4</span><span class="p">.</span><span class="n">tar</span><span class="p">.</span><span class="n">gz</span>
 </pre></div>
 
 
-<h5>方法一</h5>
-<div class="highlight"><pre><span></span>if(a &gt; b){
-  console.log(&#39;a大&#39;)
-}else{
-  console.log(&#39;b大&#39;)
+<ul>
+<li>解压redis安装包</li>
+</ul>
+<div class="highlight"><pre><span></span>   <span class="n">tar</span> <span class="n">xvf</span> <span class="n">redis</span><span class="o">-</span><span class="mi">5</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">4</span><span class="p">.</span><span class="n">tar</span><span class="p">.</span><span class="n">gz</span>
+</pre></div>
+
+
+<ul>
+<li>进入redis目录</li>
+</ul>
+<div class="highlight"><pre><span></span> <span class="n">cd</span> <span class="n">redis</span><span class="o">-</span><span class="mi">5</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">4</span>
+</pre></div>
+
+
+<ul>
+<li>make(编译)</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="err">注释掉</span> <span class="n">bind</span> <span class="mi">127</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span>
+<span class="n">requirepass</span> <span class="s1">&#39;abc&#39;</span>
+</pre></div>
+
+
+<ul>
+<li>运行redis：</li>
+</ul>
+<div class="highlight"><pre><span></span> <span class="p">.</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">redis</span><span class="o">-</span><span class="n">server</span><span class="o">/</span><span class="n">redis</span><span class="p">.</span><span class="n">conf</span>
+</pre></div>
+
+
+<ul>
+<li>查看是否启动成功：</li>
+</ul>
+<div class="highlight"><pre><span></span> <span class="n">ps</span> <span class="n">aux</span> <span class="o">|</span> <span class="n">grep</span> <span class="n">redis …</span></pre></div> <a class="btn primary xsmall" href="/Linux安装redis.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>Mongodb-操作</h2>
+	<div class="well small">Permalink: <a class="more" href="/Mongodb-操作.html">1000-01-01 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/mongodb.html">Mongodb</a>
+tags: <a href="/tag/mongodb.html">Mongodb</a> </div>
+	<div class="summary"><h5>命令</h5>
+<div class="highlight"><pre><span></span>$ mongo    # 进入到mongo命令行
+&gt; use test    # 连接到test数据库
+</pre></div>
+
+
+<p>启动服务后，进入 MongoDB 命令行操作界面：</p>
+<div class="highlight"><pre><span></span>mongo
+</pre></div>
+
+
+<p>使用 use 命令创建数据库：</p>
+<div class="highlight"><pre><span></span>use mydb
+</pre></div>
+
+
+<p>查看当前连接的数据库：</p>
+<div class="highlight"><pre><span></span>db
+</pre></div>
+
+
+<p>查看所有的数据库：</p>
+<div class="highlight"><pre><span></span>show dbs
+</pre></div>
+
+
+<h5>删除数据库</h5>
+<p>使用 db.dropDatabase() 销毁数据库：</p>
+<div class="highlight"><pre><span></span>&gt; use <span class="nb">local</span>
+switched to db <span class="nb">local</span>
+&gt; db.dropDatabase<span class="o">()</span>
+</pre></div>
+
+
+<p>查看所有的数据库：</p>
+<div class="highlight"><pre><span></span>&gt; show dbs
+</pre></div>
+
+
+<h5>创建集合</h5>
+<p>在数据库 mydb 中创建一个集合</p>
+<div class="highlight"><pre><span></span>&gt; use mydb
+switched to db mydb
+&gt; db.createCollection<span class="o">(</span><span class="s2">&quot;users …</span></pre></div> <a class="btn primary xsmall" href="/Mongodb-操作.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>Nginx</h2>
+	<div class="well small">Permalink: <a class="more" href="/Nginx.html">1000-01-01 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/sui-shou-bi-ji.html">随手笔记</a>
+tags: <a href="/tag/sui-shou-bi-ji.html">随手笔记</a> </div>
+	<div class="summary"><h5>将public上传到阿里云服务器的root目录下</h5>
+<h5>修改nginx配置文件</h5>
+<div class="highlight"><pre><span></span>vim /etc/nginx/conf.d/default.conf
+</pre></div>
+
+
+<h5>监听80端口，并且项目目录指定/root/public</h5>
+<div class="highlight"><pre><span></span>server {
+    listen       80;
+    server_name  localhost;
+
+    access_log      /root/md_vue_access.log;
+    error_log       /root/md_vue_error.log;
+
+
+    client_max_body_size 75M;
+
+
+    location / {
+
+        root /root/public;
+        index index.html;
+
+    }
+
+    error_log    /root/md_vue/error.log    error;
+
 }
 </pre></div>
 
 
-<h5>方法二</h5>
-<div class="highlight"><pre><span></span>if(a &gt; b) console.log(&#39;a大&#39;)
-if(a &lt; b) console.log(&#39;b大&#39;
-</pre></div>
-
-
-<h5>方法三</h5>
-<div class="highlight"><pre><span></span>if(a &gt; b) console.log(&#39;a大&#39;)
-else console.log(&#39;b大&#39;)
-</pre></div>
-
-
-<h5>方法四</h5>
-<div class="highlight"><pre><span></span>console.log …</pre></div> <a class="btn primary xsmall" href="/js-if语句.html">more…</a>
+<h5>重启nginx systemctl restart nginx.service 然后访问一下就ok了</h5> <a class="btn primary xsmall" href="/Nginx.html">more…</a>
 	</div>
 </div>	
 <div class='article'>
-	<h2>js-循环</h2>
-	<div class="well small">Permalink: <a class="more" href="/js-循环.html">1000-01-01 18:44:00+00:09</a>
+	<h2>Python输入与输出</h2>
+	<div class="well small">Permalink: <a class="more" href="/Python输入与输出.html">1000-01-01 18:44:00+00:09</a>
 by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/javascript.html">JavaScript</a>
-tags: <a href="/tag/javascript.html">JavaScript</a> </div>
-	<div class="summary"><h5>for循环 （用于循环数组）</h5>
-<div class="highlight"><pre><span></span>for(let i=0;i&lt;data.length;i++){
-　　console.log(data[i])
-}
+ in <a href="/category/python.html">Python</a>
+tags: <a href="/tag/python.html">Python</a> </div>
+	<div class="summary"><h2>Python输出</h2>
+<div class="highlight"><pre><span></span><span class="c1"># 打印提示</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;hello world&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;萨瓦迪卡---泰语，你好的意思&#39;</span><span class="p">)</span>
 </pre></div>
 
 
-<h5>for 循环简写</h5>
-<div class="highlight"><pre><span></span>for(var i=0; i&lt;10; ++i) console.log(i)
+<h2>2. 格式化输出</h2>
+<h3>&lt;1&gt;格式化操作的目的</h3>
+<p>比如有以下代码:</p>
+<div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;我今年10岁&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;我今年11岁&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;我今年12岁&quot;</span><span class="p">)</span>
 </pre></div>
 
 
-<h5>forEach循环（用于循环数组）</h5>
-<div class="highlight"><pre><span></span>data.forEach(function(element,index) {
-　　console.log(element);//数组的值
-       console.log(index)//当前索引
-})
-</pre></div> <a class="btn primary xsmall" href="/js-循环.html">more…</a>
-	</div>
-</div>	
-<div class='article'>
-	<h2>redis哨兵模式</h2>
-	<div class="well small">Permalink: <a class="more" href="/redis哨兵模式.html">1000-01-01 18:44:00+00:09</a>
-by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/redis.html">redis</a>
-tags: <a href="/tag/redis.html">redis</a> </div>
-	<div class="summary"><h1>Redis哨兵(Sentinel)模式</h1>
-<h2>一、概述</h2>
-<p>哨兵通过发送命令。等待Redis服务器响应，从而监控运行的多个Redis实例</p>
-<p><img alt="1574609729003" src="http://c.biancheng.net/uploads/allimg/190725/5-1ZH51400314I.png"></p>
-<h3>哨兵作用</h3>
 <ul>
-<li>通过发送命令，让Redis服务器返回 监控其运行状态，包括主服务器和从服务器</li>
-<li>当哨兵监测到master宕机，会自动将slave(从)切换成master(主)，然后通过‘发布订阅模式’ 通知其他从服务器，修改配置文件，让他们切换主机</li>
+<li>想一想:</li>
 </ul>
-<h2>二、配置redis主从服务器</h2>
+<blockquote>
+<p>在输出年龄的时候，用了多次"我今年xx岁"，能否简化一下程序呢？？？</p>
+</blockquote>
+<ul>
+<li>答:</li>
+</ul>
+<blockquote>
+<p>字符串格式化</p>
+</blockquote>
+<h3>&lt;2&gt;什么是格式化</h3>
+<p>看如下代码:</p>
+<div class="highlight"><pre><span></span><span class="n">age</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;我今年</span><span class="si">%d</span><span class="s2">岁&quot;</span> <span class="o">%</span> <span class="n">age</span><span class="p">)</span>
+
+<span class="n">age</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;我今年</span><span class="si">%d</span><span class="s2">岁&quot;</span> <span class="o">%</span> <span class="n">age</span><span class="p">)</span>
+
+<span class="n">age</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;我今年</span><span class="si">%d</span><span class="s2">岁&quot;</span> <span class="o">%</span> <span class="n">age …</span></pre></div> <a class="btn primary xsmall" href="/Python输入与输出.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>RabbitMQ</h2>
+	<div class="well small">Permalink: <a class="more" href="/RabbitMQ.html">1000-01-01 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/rabbitmq.html">RabbitMQ</a>
+tags: <a href="/tag/rabbitmq.html">RabbitMQ</a> </div>
+	<div class="summary"><p>1.下载relang</p>
+<div class="highlight"><pre><span></span>yum install erlang
+</pre></div>
+
+
+<p>2.下载rpm包</p>
+<div class="highlight"><pre><span></span> wget http://www.rabbitmq.com/releases/rabbitmq-server/v3.6.15/rabbitmq-server-3.6.15-1.el7.noarch.rpm
+</pre></div>
+
+
+<p>3.下载完成后安装</p>
+<div class="highlight"><pre><span></span>yum install rabbitmq-server-3.6.15-1.el7.noarch.rpm
+</pre></div>
+
+
+<p>4.安装完后重启服务</p>
+<div class="highlight"><pre><span></span>service rabbitmq-server start
+</pre></div>
+
+
+<p>5.查看服务状态</p>
+<div class="highlight"><pre><span></span>service rabbitmq-server status
+</pre></div>
+
+
 <ol>
-<li>修改redis.conf</li>
+<li>安装插件</li>
 </ol>
-<div class="highlight"><pre><span></span>   <span class="c1"># redis服务器可以跨网络访问</span>
-   <span class="n">bind</span> <span class="mf">0.0</span><span class="o">.</span><span class="mf">0.0</span>
-   <span class="c1"># 设置密码</span>
-   <span class="n">requirepass</span> <span class="s1">&#39;123&#39;</span>
-   <span class="c1"># 指定主服务器(只配置从服务器，主服务器不需要配置)</span>
-   <span class="n">slaveof</span> <span class="mf">192.168</span><span class="o">.</span><span class="mf">11.128</span> <span class="mi">6379</span>
-   <span class="c1"># 主服务器密码</span>
-   <span class="n">masterauth</span> <span class="mi">123</span>
+<div class="highlight"><pre><span></span>/sbin/rabbitmq-plugins <span class="nb">enable</span> rabbitmq_management 
 </pre></div>
 
 
-<ol>
-<li>配置3个哨兵，每个哨兵的配置都是一样的 …</li></ol> <a class="btn primary xsmall" href="/redis哨兵模式.html">more…</a>
+<p>7.重启服务 …</p> <a class="btn primary xsmall" href="/RabbitMQ.html">more…</a>
 	</div>
 </div>	
 <div class='article'>
-	<h2>redis安装及配置</h2>
-	<div class="well small">Permalink: <a class="more" href="/redis安装及配置.html">1000-01-01 18:44:00+00:09</a>
+	<h2>Redis事务</h2>
+	<div class="well small">Permalink: <a class="more" href="/Redis事务.html">1000-01-01 18:44:00+00:09</a>
 by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/redis.html">redis</a>
-tags: <a href="/tag/redis.html">redis</a> </div>
-	<div class="summary"><h5>centos7 安装redis</h5>
-<h5>下载源码</h5>
-<div class="highlight"><pre><span></span>wget http://download.redis.io/releases/redis-5.0.7.tar.gz
-</pre></div>
-
-
-<h5>解压</h5>
-<div class="highlight"><pre><span></span>tar xzf redis-5.0.7.tar.gz
-</pre></div>
-
-
-<h5>进入文件进行编译</h5>
-<div class="highlight"><pre><span></span>cd redis-5.0.7/ 
-</pre></div>
-
-
-<h5>执行提示信息</h5>
-<div class="highlight"><pre><span></span> make &amp;&amp; make install PREFIX=/usr/local/redis
-</pre></div>
-
-
-<h4>如果出现</h4>
-<h4>1)</h4>
-<p><img alt="shang" src="http://q2swuopnz.bkt.clouddn.com/blogs/1577448685327.png"></p>
-<h5>原因是系统没有安装gcc环境，解决：</h5>
-<h5>安装gcc</h5>
-<div class="highlight"><pre><span></span>yum install gcc-c++
-</pre></div>
-
-
-<h5>清空上次编译残留，不然会有问题的</h5>
-<div class="highlight"><pre><span></span>make distclean
-</pre></div>
-
-
-<h5>执行编译及安装</h5>
-<div class="highlight"><pre><span></span> make &amp;&amp; make …</pre></div> <a class="btn primary xsmall" href="/redis安装及配置.html">more…</a>
+ in <a href="/category/redis.html">Redis</a>
+tags: <a href="/tag/redis.html">Redis</a> </div>
+	<div class="summary"><h5>Redis事务一次性可以执行多条命令，并且带有一下三个重要的保证：</h5>
+<ul>
+<li>批量操作在发送 EXEC 命令前放入队列缓存</li>
+<li>收到 EXEC 命令后进入事务执行，事务中任意的命令执行失败，其余的命令依然会被执行</li>
+<li>在事务的过程中，其他客户提交的命令不会被插入事务执行命令的序列中</li>
+</ul>
+<h5>一个事务重开始到执行会经历三个阶段：</h5>
+<ul>
+<li>开始事务</li>
+<li>命令入列</li>
+<li>执行事务</li>
+</ul>
+<p>单个 Redis 命令的执行是原子性的，但 Redis 没有在事务上增加任何维持原子性的机制，所以 Redis 事务的中并不是原子性的，事务可以理解为打包的批量执行的脚本，然是批量指令不是原子化的操作，中间某条命令失败的化不会导致前面的命令回滚，也不会造成后面的命令不执行</p> <a class="btn primary xsmall" href="/Redis事务.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>Redis分布式锁</h2>
+	<div class="well small">Permalink: <a class="more" href="/Redis分布式锁.html">1000-01-01 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/redis.html">Redis</a>
+tags: <a href="/tag/redis.html">Redis</a> </div>
+	<div class="summary"><p>可靠性</p>
+<p>首先，为了确保分布式可用，我们至少要保证锁的实现同时满足以下四个条件：</p>
+<ul>
+<li>互斥性，在任意时刻，只有一个客户端能持有锁</li>
+<li>不会发生死锁，即使有一个客户端持有锁的期间崩溃而没有主动解锁，也能保证后续其他客户端能加锁</li>
+<li>具有容错性，只要大部分的 Redis 节点正常运行，客户端就可以加锁和解锁</li>
+<li>解铃还须系铃人，加锁和解锁必须是同一个客户端，客户端自己不能把别人加的锁给解了</li>
+</ul> <a class="btn primary xsmall" href="/Redis分布式锁.html">more…</a>
 	</div>
 </div>	
 
@@ -425,6 +442,7 @@ tags: <a href="/tag/redis.html">redis</a> </div>
 		<li class="active"><a href="/author/shang-wei6.html">6</a></li>
 		<li class=""><a href="/author/shang-wei7.html">7</a></li>
 		<li class=""><a href="/author/shang-wei8.html">8</a></li>
+		<li class=""><a href="/author/shang-wei9.html">9</a></li>
 		<li class="next"><a href="/author/shang-wei7.html">Next &rarr;</a></li>
 </ul>
 </div>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>商伟的技术博客</title>
+	<meta name="description" content="">
+	<meta name="author" content="商伟">
+
+	<!-- HTML5 shim, for IE6-8 support of HTML elements -->
+	<!--[if lt IE 9]>
+		<script src="/theme/html5.js"></script>
+	<![endif]-->
+
+	<!-- Styles -->
+	<link href="/theme/bootstrap.min.css" rel="stylesheet">
+	<link href="/theme/local.css" rel="stylesheet">
+	<link href="/theme/pygments.css" rel="stylesheet">
+
+	<!-- Feeds -->
+
+
+
+
+</head>
+<body>
+	<div class="topbar">
+	  <div class="topbar-inner">
+		<div class="container-fluid">
+		  <a class="brand" href="/">商伟的技术博客</a>
+			<ul class="nav">
+					<li ><a href="/category/django.html">Django</a></li>
+					<li ><a href="/category/docker.html">Docker</a></li>
+					<li ><a href="/category/git.html">GIT</a></li>
+					<li ><a href="/category/javascript.html">JavaScript</a></li>
+					<li ><a href="/category/mongodb.html">Mongodb</a></li>
+					<li ><a href="/category/mysql.html">MySQL</a></li>
+					<li ><a href="/category/pa-chong.html">爬虫</a></li>
+					<li ><a href="/category/python.html">Python</a></li>
+					<li ><a href="/category/rabbitmq.html">RabbitMQ</a></li>
+					<li ><a href="/category/redis.html">redis</a></li>
+					<li ><a href="/category/shu-ju-jie-gou.html">数据结构</a></li>
+					<li ><a href="/category/sui-shou-bi-ji.html">随手笔记</a></li>
+					<li ><a href="/category/supervisor.html">Supervisor</a></li>
+					<li ><a href="/category/vue.html">VUE</a></li>
+					<li ><a href="/category/wang-luo.html">网络</a></li>
+					<li class="active"><a href="/category/web.html">web</a></li>
+					<li ><a href="/category/xiao-cheng-xu.html">小程序</a></li>
+					<li ><a href="/category/xu-ni-huan-jing.html">虚拟环境</a></li>
+			</ul>
+			<p class="pull-right"><a href="/archives.html">[archives]</a> <a href="/tags.html">[tags]</a></p>
+		</div>
+	  </div>
+	</div>
+
+	<div class="container-fluid">
+	  <div class="sidebar">
+		<div class="well">
+			<h3>Blogroll</h3>
+			<ul>
+				<li><a href="http://getpelican.com/">Pelican</a></li>
+				<li><a href="http://python.org/">Python.org</a></li>
+				<li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+			</ul>
+			<div class="social">
+			<h3>Social</h3>
+			<ul>
+				<li><a href="https://han520min.github.io">hanmin</a></li>
+			</ul>
+			</div>
+		</div>
+	  </div>
+	  <div class="content">
+<div class="page-header"><h1>商伟的技术博客 <small>web</small></h1></div>
+<div class='article'>
+	<h2>自定义鼠标指针</h2>
+	<div class="well small">Permalink: <a class="more" href="/自定义鼠标指针.html">2020-04-09 21:52:00+02:00</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/web.html">web</a>
+tags: <a href="/tag/web.html">web</a> </div>
+	<div class="summary"><p>现而今，我们纵向的回顾整个大前端的历史，不难发现，人们对前端的审美要求越来越高，越来越严苛，与此同时，人们对追求美的体验是也极致的，从理性到感性，从平面到几何，从现实到虚拟，所以从某种角度来说，作为前端工程师，他们所追求的东西往往和人类软件核心理念南辕北辙，因为人类的终极追求是个性，绝不是共性，换句话说，大家都一样就不好玩儿了。</p>
+<p>那么作为web前端，追求个性的手段手段之一就是鼠标指针的更换，早在css2时代，Cursor属性就可以对象鼠标指针光标进行控制，可以根据自身需要选择设置鼠标指针样式，代码如下：</p>
+<div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">head</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">title</span><span class="o">&gt;</span><span class="n">cursor属性</span><span class="o">&lt;/</span><span class="n">title</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">head</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">body</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="err">请把鼠标移动到单词上，可以看到鼠标指针发生变化：</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">span</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;cursor:auto&quot;</span><span class="o">&gt;</span><span class="n">Auto</span><span class="o">......&lt;/</span><span class="n">span</span><span class="o">&gt;&lt;</span><span class="n">br</span> <span class="o">/&gt;</span>
+    <span class="o">&lt;</span><span class="n">span</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;cursor:crosshair&quot;</span><span class="o">&gt;</span><span class="n">Crosshair</span><span class="o">......&lt;/</span><span class="n">span</span><span class="o">&gt;&lt;</span><span class="n">br</span> <span class="o">/&gt;</span>
+    <span class="o">&lt;</span><span class="n">span</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;cursor …</span></pre></div> <a class="btn primary xsmall" href="/自定义鼠标指针.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>live2d的动态小挂件</h2>
+	<div class="well small">Permalink: <a class="more" href="/live2d的动态小挂件.html">2020-03-07 15:03:00+01:00</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/web.html">web</a>
+tags: <a href="/tag/web.html">web</a> </div>
+	<div class="summary"><p>喜欢二次元的朋友一定对大名鼎鼎的live2d技术并不陌生，live2D是一种应用于电子游戏的绘图渲染技术，技术由日本Cybernoids公司开发，通过一系列的连续图像和人物建模来生成一种类似三维模型的二维图像。</p>
+<p>可以看到本站右下角出现了一只可爱的小喵</p>
+<p><img alt="img" src="http://m.qpic.cn/psc?/V11vDzPO1w5782/zfrllz9Q9AzvUwq**DIV02dzZYRUvMYLJwvmipTxIeGo0Ttkhyrtl.fFv0K0F7EcNm9RZ36e.S8mRXkxx8Rd1Q!!/b&amp;bo=BgKCAQYCggEDCSw!&amp;rf=viewer_4"></p>
+<p>可以看到这只猫会跟着你的鼠标运动，有着伪3D的感觉，这种技术的核心就是明明是2D平面设计风格，却有3D行为交互的效果就是live2d</p>
+<p>值得一提的是Live2D游戏也风靡一时，比较著名的有《梦幻俱乐部》（DREAM C CLUB），其在android端首次使用live2d技术，可以说有着里程碑的意义，得到了业界的一致好评。</p>
+<p>live2d官方提供了很多平台的SDK），包括iOS，Android，Flash，Unity，openGL等，然后如果要在网页中呈现，则可以提供了WebGL SDK，可以参照官方网站：https://www.live2d.com/</p>
+<p>live2d不仅在移动端，同时也可以在网页中呈现，首先网页要引入官方提供的webgl的js压缩包 L2Dwidget.min.js，建议在页面底部延迟加载，因为其体积过于庞大，如果不延迟加载，会严重影响你的网站的加载速度和性能，然后在页面中写入以下代码：</p>
+<div class="highlight"><pre><span></span>var arr = [&#39;wanko&#39;,&#39;hibiki&#39;,&#39;hijiki&#39;,&#39;tororo&#39;];
+var …</pre></div> <a class="btn primary xsmall" href="/live2d的动态小挂件.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>为网站添加暗黑模式</h2>
+	<div class="well small">Permalink: <a class="more" href="/为网站添加暗黑模式.html">2020-01-15 22:20:00+01:00</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/web.html">web</a>
+tags: <a href="/tag/web.html">web</a> </div>
+	<div class="summary"><p>究竟什么是暗黑模式？这个概念起初来源于macOS系统，该系统的mojave版本为用户提供两个主题皮肤，即浅色和深色的皮肤。自从有了这个概念之后，很多网站和系统都会用户提供了相应的两套肤色，便于用户根据自己的习惯或爱好进行切换</p>
+<p><img alt="img" src="http://m.qpic.cn/psc?/V11vDzPO1w5782/evyMJ*ZwKmN7EwaKYDZ0cJsaS6tPtY3Ylot*koQ8t7rtX9PMrDQXsJ.ez1e094bIVVwA6mrijapv.TVC3WYaplPif*ONKGLodw1vASMNNLA!/b&amp;bo=lgKUApYClAICSW0!&amp;rf=viewer_4"></p>
+<p>从科学的角度讲，低对比度的暗色可以降低屏幕对视网膜的刺激，同时还可以让电子设备更加省电。</p>
+<p>在过往的印象之中，最早实现类似的效果，一般都是通过JavaScript来更换Web页面或Web应用程序主题皮肤的.css文件，但是对于维护多套样式是较为痛苦的，特别当你要为你的产品提供更多的皮肤的时候更为堪忧。这个时候你可以借助类似Sass这样的处理器来维护你的主题样式，声明好变量，然后维护对应的变量值。</p>
+<p>这就是css3的自定义属性，自定义属性的出现，可以让css样式也使用变量，通过js可以动态的修改变量的值</p>
+<div class="highlight"><pre><span></span><span class="o">//</span><span class="err">现在全局定义</span>
+<span class="p">:</span><span class="n">root</span><span class="p">{</span>
+   <span class="o">--</span><span class="n">theme</span><span class="o">-</span><span class="n">color</span><span class="p">:</span><span class="n">red</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="o">//</span><span class="err">使用的时候</span>
+<span class="c1">#app{</span>
+    <span class="n">background</span><span class="o">-</span><span class="n">color</span><span class="p">:</span><span class="n">var</span><span class="p">(</span><span class="o">--</span><span class="n">theme</span><span class="o">-</span><span class="n">color</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="o">//</span><span class="err">假如我们没有指定</span><span class="o">--</span><span class="n">theme</span><span class="o">-</span><span class="n">color这个属性</span><span class="err">，则可以在使用的时候加上替代值</span>
+<span class="c1">#app{</span>
+    <span class="n">background</span><span class="o">-</span><span class="n">color</span><span class="p">:</span><span class="n">var</span><span class="p">(</span><span class="o">--</span><span class="n">theme</span><span class="o">-</span><span class="n">color</span><span class="p">,</span><span class="n">black</span><span class="p">);</span><span class="o">//</span><span class="err">没有指定</span><span class="o">--</span><span class="n">theme</span><span class="o">-</span><span class="n">color则会由black代替</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>通过JS获取和设置自定义的属性 …</p> <a class="btn primary xsmall" href="/为网站添加暗黑模式.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>各种居中</h2>
+	<div class="well small">Permalink: <a class="more" href="/各种居中.html">2019-01-15 22:20:00+01:00</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/web.html">web</a>
+tags: <a href="/tag/web.html">web</a> </div>
+	<div class="summary"><p>单行居中</p>
+<p>div{</p>
+<p>​    height: 26px;</p>
+<p>​    line-height: 26px;</p>
+<p>​    overflow: hidden;</p>
+<p>​    text-align:center;</p>
+<p>}</p>
+<ol>
+<li>
+<p>同时支持块级和内联极元素</p>
+</li>
+<li>
+<p>只能支持单行垂直居中，并且不支持标签</p>
+</li>
+</ol>
+<p>多行居中</p>
+<p>div{</p>
+<p>padding: 10px 0;</p>
+<p>text-align:center;</p>
+<p>}</p>
+<ol>
+<li>
+<p>同时支持块级和内联极元素</p>
+</li>
+<li>
+<p>支持非文本标签，但不能设定容器的高度</p>
+</li>
+</ol>
+<p>绝对定位居中</p>
+<p>div{</p>
+<p>​    margin: auto;</p>
+<p>​    position: absolute;</p>
+<p>​    left: 0;</p>
+<p>​    top: 0;</p>
+<p>​    right: 0;</p>
+<p>​    bottom: 0;</p>
+<p>​    <strong>可以设定高度、宽度</strong></p>
+<p>}</p>
+<p>1.毫无疑问，绝对定位居中是本人最喜欢、使用次数最多的居中方式。通过设定position为absolute，将使div脱离文档流，left、top、right、bottom设置为0，使目标盒填充其父元素的所有可用空间 …</p> <a class="btn primary xsmall" href="/各种居中.html">more…</a>
+	</div>
+</div>	
+
+
+		<footer>
+		  <p>Powered by <a href="http://getpelican.com/">Pelican</a>. Theme based on <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a>.</p>
+		  <p>&copy; 商伟</p>
+		</footer>
+	  </div>
+
+	</div>
+</body>
+</html>

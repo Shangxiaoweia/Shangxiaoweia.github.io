@@ -43,6 +43,7 @@
 					<li ><a href="/category/supervisor.html">Supervisor</a></li>
 					<li ><a href="/category/vue.html">VUE</a></li>
 					<li ><a href="/category/wang-luo.html">网络</a></li>
+					<li ><a href="/category/web.html">web</a></li>
 					<li ><a href="/category/xiao-cheng-xu.html">小程序</a></li>
 					<li ><a href="/category/xu-ni-huan-jing.html">虚拟环境</a></li>
 			</ul>
@@ -59,7 +60,6 @@
 				<li><a href="http://getpelican.com/">Pelican</a></li>
 				<li><a href="http://python.org/">Python.org</a></li>
 				<li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
-				<li><a href="https://shangxiaoweia.github.io/puzzle.html">拼图</a></li>
 			</ul>
 			<div class="social">
 			<h3>Social</h3>
@@ -71,6 +71,77 @@
 	  </div>
 	  <div class="content">
 <div class="page-header"><h1>商伟的技术博客 <small>MySQL</small></h1></div>
+<div class='article'>
+	<h2>MySQL事务和锁</h2>
+	<div class="well small">Permalink: <a class="more" href="/MySQL事务和锁.html">1000-01-04 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/mysql.html">MySQL</a>
+tags: <a href="/tag/mysql.html">MySQL</a> </div>
+	<div class="summary"><h4>InnoDB与MyISAM区别</h4>
+<ul>
+<li>MyISAM不支持事物回滚，InnoDB是支持事物</li>
+<li>MyISAM和MEMORY存储引擎采用的是表级锁（table-level locking）。</li>
+<li>InnoDB存储引擎既支持行级锁（row-level locking），也支持表级锁，但默认情况下是采用行级锁。</li>
+<li>MyISAM更适合查询多的情况</li>
+<li>InnoDB更适合写入多的</li>
+</ul>
+<h4>行级锁 &amp; 表级锁</h4>
+<ul>
+<li>行级锁（写多读少）开销大，加锁慢，锁定粒度最小，发生锁冲突概率最低，并发度最高</li>
+<li>表级锁（适合大量读）开销小，加锁快，锁定粒度大、发生锁冲突最高，并发度最低</li>
+</ul>
+<h4>乐观锁&amp;悲观锁</h4>
+<ul>
+<li>乐观锁（写少读多）：读取商品数量时不加锁，到修改商品数量是回校验，当前商品数量和刚读取的数量是否一致，如果相同加排他锁，然后写入，否则重试</li>
+<li>悲观锁（写多读少）：读取商品数量时就加一把排它锁，直到修改商品数量完成释放排它锁，其他线程才能读取商品数量</li>
+</ul>
+<h4>共享锁 &amp; 排它锁</h4>
+<ul>
+<li>共享锁（读锁）：所有线程都可以读这个数据，但不能写 …</li></ul> <a class="btn primary xsmall" href="/MySQL事务和锁.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>MySQL存储引擎MyISAM与InnoDB区别总结整理</h2>
+	<div class="well small">Permalink: <a class="more" href="/MySQL存储引擎MyISAM与InnoDB区别总结整理.html">1000-01-03 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/mysql.html">MySQL</a>
+tags: <a href="/tag/mysql.html">MySQL</a> </div>
+	<div class="summary"><h4>MySQL默认存储引擎的变迁</h4>
+<ul>
+<li>在MySQL 5.5之前的版本中，默认的搜索引擎是MyISAM，从MySQL 5.5之后的版本中，默认的搜索引擎变更为InnoDB。</li>
+</ul>
+<h4>MyISAM与InnoDB存储引擎的主要特点</h4>
+<p>1).MyISAM存储引擎的特点是：<strong>表级锁、不支持事务、支持全文索引</strong>，适合一些CMS内容管理系统作为后台数据库使用，但是使用大并发、重负荷生产系统上，表锁结构的特性就显得力不从心；</p>
+<p>2).InnoDB存储引擎的特点是：<strong>行级锁、事务安全（ACID兼容）、支持外键</strong>、不支持FULLTEXT类型的索引(<strong>5.6.4</strong>以后版本开始支持FULLTEXT类型的索引)。<strong>InnoDB存储引擎提供了具有提交、 回滚和崩溃恢复能力的事务安全存储引擎</strong>。InnoDB是为处理巨大量时拥有最大性能而设计的。它的CPU效率可能是任何其他基于磁盘的关系数据库引擎所不能匹敌的。</p>
+<ul>
+<li>行级锁</li>
+<li>行级锁是Mysql中锁定粒度最细的一种锁，表示只针对当前操作的行进行加锁。行级锁能大大减少数据库操作的冲突。其加锁粒度最小，但加锁的开销也最大。行级锁分为共享锁 和 排他锁。</li>
+<li>
+<p>特点：开销大，加锁慢；会出现死锁；锁定粒度最小，发生锁冲突的概率最低，并发度也最高 …</p></li></ul> <a class="btn primary xsmall" href="/MySQL存储引擎MyISAM与InnoDB区别总结整理.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>MySQL如何处理高并发</h2>
+	<div class="well small">Permalink: <a class="more" href="/MySQL如何处理高并发.html">1000-01-02 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/mysql.html">MySQL</a>
+tags: <a href="/tag/mysql.html">MySQL</a> </div>
+	<div class="summary"><p>mysql高并发的解决方法有：优化SQL语句，优化数据库字段，加缓存，分区表，读写分离以及垂直拆分，解耦模块，水平切分等。</p>
+<p><img alt="img" src="http://m.qpic.cn/psc?/V11vDzPO1w5782/zfrllz9Q9AzvUwq**DIV0xo6ofOl1tm1xtoEPeWYw.j*ILHA3ns2KV60ONGh5MWbwevakiYnnuBwq*2m5SvQrQ!!/b&amp;bo=6gE6AQAAAAARB.A!&amp;rf=viewer_4"></p>
+<p>高并发大多的瓶颈在后台，在存储mysql的正常的优化方案如下：</p>
+<p>（1）代码中sql语句优化</p>
+<p>（2）数据库字段优化，索引优化</p>
+<p>（3）加缓存，redis/memcache等</p>
+<p>（4）主从，读写分离</p>
+<p>（5）分区表</p>
+<p>（6）垂直拆分，解耦模块</p>
+<p>（7）水平切分</p>
+<h5>方案分析：</h5>
+<p>1、方法1和方法2是最简单，也是提升效率最快的方式。因为每条语句都命中了索引，是最高效的。但是如果是为了使sql达到最优而去建索引，那么索引就泛滥了，对于千万级以上的表来说，维护索引的成本大大增加，反而增加了数据库的内存的开销。</p>
+<p>2、数据库字段的优化。曾经发现一高级程序员在表字段的设计上，一个日期类型，被设计为varchar类型，不规范的同时，无法对写入数据校验，做索引的效率也有差别</p>
+<p>3、缓存适合读多写少 …</p> <a class="btn primary xsmall" href="/MySQL如何处理高并发.html">more…</a>
+	</div>
+</div>	
 <div class='article'>
 	<h2>初识MySQL</h2>
 	<div class="well small">Permalink: <a class="more" href="/初识MySQL.html">1000-01-01 18:44:00+00:09</a>

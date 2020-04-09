@@ -43,6 +43,7 @@
 					<li ><a href="/category/supervisor.html">Supervisor</a></li>
 					<li ><a href="/category/vue.html">VUE</a></li>
 					<li ><a href="/category/wang-luo.html">网络</a></li>
+					<li ><a href="/category/web.html">web</a></li>
 					<li ><a href="/category/xiao-cheng-xu.html">小程序</a></li>
 					<li ><a href="/category/xu-ni-huan-jing.html">虚拟环境</a></li>
 			</ul>
@@ -59,7 +60,6 @@
 				<li><a href="http://getpelican.com/">Pelican</a></li>
 				<li><a href="http://python.org/">Python.org</a></li>
 				<li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
-				<li><a href="https://shangxiaoweia.github.io/puzzle.html">拼图</a></li>
 			</ul>
 			<div class="social">
 			<h3>Social</h3>
@@ -72,352 +72,378 @@
 	  <div class="content">
 <div class="page-header"><h1> 商伟的技术博客 </h1></div>
 <div class='article'>
-	<h2>云服务部署Git</h2>
-	<div class="well small">Permalink: <a class="more" href="/云服务部署Git.html">1000-01-02 18:44:00+00:09</a>
-by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/git.html">GIT</a>
-tags: <a href="/tag/git.html">GIT</a> </div>
-	<div class="summary"><h1>Git</h1>
-<h2>创建账号</h2>
-<ul>
-<li>useradd  名字</li>
-</ul>
-<div class="highlight"><pre><span></span><span class="n">ls</span> <span class="o">/</span> <span class="err">根目录</span>
-<span class="n">ls</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span>
-<span class="n">cat</span> <span class="o">~/.</span><span class="n">ssh</span><span class="o">/</span><span class="n">config</span>   <span class="c1"># cat查看文件</span>
-<span class="n">ssh</span> <span class="err">名字</span><span class="nd">@主机</span><span class="p">(</span><span class="n">ip</span><span class="p">)</span>
-<span class="c1"># 切换用户</span>
-<span class="n">su</span> <span class="o">-</span> <span class="err">名称</span>
-</pre></div>
-
-
-<ul>
-<li>passwd 密码</li>
-</ul>
-<div class="highlight"><pre><span></span><span class="n">vi</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">ssh</span><span class="o">/</span>
-<span class="c1"># 修改</span>
-<span class="n">vi</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">ssh</span><span class="o">/</span><span class="n">sshd_config</span>
-<span class="n">RSAAuthentication</span>  <span class="n">yes</span>
-<span class="n">PubkeyAuthentication</span>  <span class="n">yes</span>
-<span class="n">PasswordAuthentication</span>  <span class="n">yes</span>
-<span class="c1"># 需要重启</span>
-<span class="n">systemctl</span> <span class="n">restart</span> <span class="n">sshd</span><span class="o">.</span><span class="n">service</span>
-</pre></div>
-
-
-<ul>
-<li>生成公钥私钥</li>
-</ul>
-<div class="highlight"><pre><span></span><span class="n">ssh</span><span class="o">-</span><span class="n">keygen</span>
-<span class="p">(</span><span class="err">默认是</span><span class="n">id_rsa</span><span class="p">)</span><span class="o">./</span><span class="err">密码名称</span> 
-<span class="n">mkdir</span> <span class="o">.</span><span class="n">ssh</span>   <span class="c1">#创建</span>
-<span class="n">ls …</span></pre></div> <a class="btn primary xsmall" href="/云服务部署Git.html">more…</a>
-	</div>
-</div>	
-<div class='article'>
-	<h2>微信小程序路由带参</h2>
-	<div class="well small">Permalink: <a class="more" href="/微信小程序路由带参.html">1000-01-02 18:44:00+00:09</a>
-by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/xiao-cheng-xu.html">小程序</a>
-tags: <a href="/tag/xiao-cheng-xu.html">小程序</a> </div>
-	<div class="summary"><h5>通过url带参传递</h5>
-<p>wxml</p>
-<div class="highlight"><pre><span></span>&lt;navigator url=&quot;../user/user?id={{item.id}}&amp;name={{item.name}}&quot;&gt;点此进入 detail&lt;/navigator&gt;
-</pre></div>
-
-
-<p>一、user--js</p>
-<div class="highlight"><pre><span></span>onLoad: function (options) { 
-    this.setData({
-        user_id: options.id,
-        user_name: options.name
-    }),
-    success:function(){
-　　　　console.log(&#39;接口调用成功&#39;)
-　　},
-　　fail:function(){
-　　　　console.log(&#39;接口调用失败&#39;) 
-　　},
-　　complete:function(){
-　　　　console.log(&#39;调用结束，调用成功失败都会执行&#39;)
-　　}
-}
-</pre></div>
-
-
-<h5>点击事件传参</h5>
-<p>wxml</p>
-<div class="highlight"><pre><span></span>    &lt;view wx:for=&#39;{{list …</pre></div> <a class="btn primary xsmall" href="/微信小程序路由带参.html">more…</a>
-	</div>
-</div>	
-<div class='article'>
-	<h2>爬虫第一个请求</h2>
-	<div class="well small">Permalink: <a class="more" href="/爬虫第一个请求.html">1000-01-02 18:44:00+00:09</a>
-by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/pa-chong.html">爬虫</a>
-tags: <a href="/tag/pa-chong.html">爬虫</a> </div>
-	<div class="summary"><hr>
-<h2>1.请求过程与网页基础</h2>
-<h4>1.1  URL介绍</h4>
-<div class="highlight"><pre><span></span>- 确定URL
-</pre></div>
-
-
-<h4>1.2  HTTP请求过程</h4>
-<div class="highlight"><pre><span></span># 请求过程:
-
-​    客户端, 通常指web浏览器或APP向服务器发起请求, 服务器接收到请求进行处理, 并向客户端发起响应.
-</pre></div>
-
-
-<h4>1.3  请求</h4>
-<div class="highlight"><pre><span></span><span class="c1"># 请求: 有客户端向服务器发出的, 可以分为四部分内容: 请求方法(Request Method), 请求网址(Request URL), 请求头(Request Headers), 请求体(Request Body)</span>
-</pre></div>
-
-
-<div class="highlight"><pre><span></span><span class="c1"># 请求方法:常见有8种</span>
-
-<span class="o">-</span> <span class="n">GET</span><span class="p">:</span> <span class="err">请求页面</span><span class="p">,</span> <span class="err">并返回页面内容</span>  <span class="c1"># 重点</span>
-
-<span class="o">-</span> <span class="n">POST</span><span class="p">:</span> <span class="err">用于提交表单数据或上传文件</span><span class="p">,</span> <span class="err">数据包含在请求体中</span>  <span class="c1"># 重点</span>
-
-<span class="o">-</span> <span class="n">PUT</span><span class="p">:</span> <span class="err">从客户端向服务器传送的数据取代指定文档中的内容</span>
-
-<span class="o">-</span> <span class="n">DELETE</span><span class="p">:</span> <span class="err">请求服务器删除指定的页面</span>
-
-<span class="o">-</span> <span class="n">HEAD</span><span class="p">:</span> <span class="err">类似于</span><span class="n">GET请求</span><span class="err">，只不过返回的响应中没有具体的内容 …</span></pre></div> <a class="btn primary xsmall" href="/爬虫第一个请求.html">more…</a>
-	</div>
-</div>	
-<div class='article'>
-	<h2>Django部署</h2>
-	<div class="well small">Permalink: <a class="more" href="/Django部署.html">1000-01-01 18:44:00+00:09</a>
-by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/django.html">Django</a>
-tags: <a href="/tag/django.html">Django</a> </div>
-	<div class="summary"><h2>uvicorn和circus的用处</h2>
-<h5>Django3部署</h5>
-<div class="highlight"><pre><span></span>推荐： uvicorn + circus/supervisord
-</pre></div>
-
-
-<h5>Django2部署</h5>
-<div class="highlight"><pre><span></span>推荐： gunicorn + circus/supervisord
-</pre></div>
-
-
-<h5>sanic部署</h5>
-<div class="highlight"><pre><span></span>推荐： uvicorn + circus
-</pre></div>
-
-
-<ul>
-<li>
-<p>步骤</p>
-</li>
-<li>
-<p>安装circus</p>
-<ul>
-<li>pip install circus</li>
-</ul>
-</li>
-<li>安装uvicorn<ul>
-<li>pip install uvicorn</li>
-</ul>
-</li>
-<li>项目中写一个circus.ini</li>
-</ul>
-<p>```text
-  [watcher:mysite]
-  cmd = venv/bin/uvicorn --fd $(circus.sockets.misite) server:app
-  use_sockets = True
-  numprocesses = 2</p>
-<p>[socket:mysite]
-  host = 0.0.0.0 …</p> <a class="btn primary xsmall" href="/Django部署.html">more…</a>
-	</div>
-</div>	
-<div class='article'>
-	<h2>Docker</h2>
-	<div class="well small">Permalink: <a class="more" href="/Docker.html">1000-01-01 18:44:00+00:09</a>
-by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/sui-shou-bi-ji.html">随手笔记</a>
-tags: <a href="/tag/sui-shou-bi-ji.html">随手笔记</a> </div>
-	<div class="summary"><p>Docker容器<a href="https://www.runoob.com/docker/docker-container-usage.html">https://www.runoob.com/docker/docker-container-usage.html</a></p>
-<h5>设置阿里云镜像源</h5>
-<div class="highlight"><pre><span></span>sudo yum-config-manager --add-repo https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo 
-</pre></div>
-
-
-<h5>把yum更新到最新</h5>
-<div class="highlight"><pre><span></span>yum update
-</pre></div>
-
-
-<h5>卸载旧版本</h5>
-<div class="highlight"><pre><span></span>$ sudo yum remove docker  docker-common docker-selinux docker-engine
-</pre></div>
-
-
-<h5>安装依赖包</h5>
-<div class="highlight"><pre><span></span>sudo yum install -y yum-utils device-mapper-persistent-data lvm2 
-</pre></div>
-
-
-<h5>设置阿里云镜像</h5>
-<div class="highlight"><pre><span></span>sudo yum-config-manager --add-repo https://mirrors.aliyun.com/docker-ce/linux …</pre></div> <a class="btn primary xsmall" href="/Docker.html">more…</a>
-	</div>
-</div>	
-<div class='article'>
-	<h2>Git-上传静态网页</h2>
-	<div class="well small">Permalink: <a class="more" href="/Git-上传静态网页.html">1000-01-01 18:44:00+00:09</a>
-by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/git.html">GIT</a>
-tags: <a href="/tag/git.html">GIT</a> </div>
-	<div class="summary"><h5>首先申请 Github 免费静态内容空间，在github.com注册一个账号，然后创建一个新的仓库</h5>
-<p><img alt="shang" src="http://q2swuopnz.bkt.clouddn.com/blogs/Snipaste_2019-12-27_08-44-55.png"></p>
-<h5>仓库名称一定要定义成 账号名.github.io，这种形式，注意账号名一定要和你的github当前登录的账号吻合</h5>
-<p><img alt="shang" src="http://q2swuopnz.bkt.clouddn.com/blogs/Snipaste_2019-12-27_08-47-04.png"></p>
-<h5>这样你的静态内容空间就已经创建好了，在浏览器输入你的 <a href="https://zcxey2911.github.io/">https://你的账号.github.io/</a> 就可以访问了。</h5>
-<h5>将之前打包好的public中的文件push到刚刚创建好的github仓库中去</h5>
-<h5>访问静态空间网址<a href="[https://shangxiaoweia.github.io](https://shangxiaoweia.github.io/)">[https://shangxiaoweia.github.io](https://shangxiaoweia.github.io/)</a></h5>
-<h5>就这个样子结束了,搞定收工</h5> <a class="btn primary xsmall" href="/Git-上传静态网页.html">more…</a>
-	</div>
-</div>	
-<div class='article'>
-	<h2>Gitee</h2>
-	<div class="well small">Permalink: <a class="more" href="/Gitee.html">1000-01-01 18:44:00+00:09</a>
-by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/git.html">GIT</a>
-tags: <a href="/tag/git.html">GIT</a> </div>
-	<div class="summary"><h3>创建仓库</h3>
-<p>网页的右上角</p>
-<p><img alt="1574645886014" src="https://static.oschina.net/uploads/img/201704/01152036_vITZ.jpg"></p>
-<h3>定义全局变量</h3>
-<div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">config</span> <span class="o">--</span><span class="n">global</span> <span class="n">user</span><span class="p">.</span><span class="n">name</span> <span class="s">&quot;Shangxiaoweia&quot;</span>
-<span class="n">git</span> <span class="n">config</span> <span class="o">--</span><span class="n">global</span> <span class="n">user</span><span class="p">.</span><span class="n">email</span> <span class="s">&quot;shangxiaoweia@126.com&quot;</span>
-</pre></div>
-
-
-<h3>从码云上拿代码</h3>
-<div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="err">网址</span>
-
-<span class="n">cd</span> <span class="n">myvue</span>
-
-<span class="n">git</span> <span class="n">pull</span>
-</pre></div>
-
-
-<h3>更新自己的</h3>
-<div class="highlight"><pre><span></span><span class="n">git</span> <span class="k">add</span> <span class="o">-</span><span class="n">A</span>
-
-<span class="n">git</span> <span class="k">commit</span> <span class="o">-</span><span class="n">m</span> <span class="s1">&#39;自定义介绍&#39;</span>
-
-<span class="n">git</span> <span class="n">push</span>
-</pre></div>
-
-
-<h3>建仓库</h3>
-<div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">init</span>
-
-<span class="n">git</span> <span class="k">add</span> <span class="o">-</span><span class="n">A</span>
-
-<span class="n">git</span> <span class="k">commit</span> <span class="o">-</span> <span class="n">m</span> <span class="s1">&#39;自定义介绍&#39;</span>
-
-<span class="n">git</span> <span class="n">config</span> <span class="c1">--global user.name …</span></pre></div> <a class="btn primary xsmall" href="/Gitee.html">more…</a>
-	</div>
-</div>	
-<div class='article'>
-	<h2>Hexo-博客</h2>
-	<div class="well small">Permalink: <a class="more" href="/Hexo.html">1000-01-01 18:44:00+00:09</a>
-by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/sui-shou-bi-ji.html">随手笔记</a>
-tags: <a href="/tag/sui-shou-bi-ji.html">随手笔记</a> </div>
-	<div class="summary"><h5>首先安装Hexo，在此之前，请确保电脑里已经安装好新版的node.js</h5>
-<div class="highlight"><pre><span></span>npm install -g hexo-cli
-</pre></div>
-
-
-<h5>如果感觉安装速度比较慢，可以为npm指定国内的源</h5>
-<div class="highlight"><pre><span></span>npm config set registry https://registry.npm.taobao.org
-</pre></div>
-
-
-<h5>安装完成后，创建博客项目</h5>
-<div class="highlight"><pre><span></span>hexo init blog
-</pre></div>
-
-
-<h5>这样，就建立起了一个blog文件夹，进入到blog目录下 cd blog，建立第一篇文章</h5>
-<div class="highlight"><pre><span></span>hexo new myfirst
-</pre></div>
-
-
-<h5>然后运行hexo服务</h5>
-<div class="highlight"><pre><span></span>hexo server
-</pre></div>
-
-
-<h5>就可以在本地访问你的博客网站了，默认端口号是4000</h5>
-<h5>那么如何将博客网站打包呢？直接运行打包命令，这样就能使用 Hexo 引擎将 Markdown 格式的文件解析成可以使用浏览器查看的 HTML 文件，HTML 文件存储在 blog …</h5> <a class="btn primary xsmall" href="/Hexo.html">more…</a>
-	</div>
-</div>	
-<div class='article'>
-	<h2>Hugo-博客</h2>
-	<div class="well small">Permalink: <a class="more" href="/Hugo.html">1000-01-01 18:44:00+00:09</a>
-by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/sui-shou-bi-ji.html">随手笔记</a>
-tags: <a href="/tag/sui-shou-bi-ji.html">随手笔记</a> </div>
-	<div class="summary"><h5>首先，可以去go的官网网站下载安装包  https://golang.org/dl/ 然后直接双击安装即可，不需要配置环境变量，因为安装过程自动配置，安装完毕后，打开命令行，输入</h5>
-<div class="highlight"><pre><span></span>go version
-</pre></div>
-
-
-<h5>显示主版本号即表示安装成功</h5>
-<h5>然后，可以进行hugo的在线源码编译安装，打开命令行，输入下面的命令</h5>
-<div class="highlight"><pre><span></span>go get -u -v github.com/spf13/hugo
-go build -o hugo main.go
-mv hugo $GOPATH/bin
-</pre></div>
-
-
-<h5>如果你不想在线编译安装，也可以去hugo的官网 <a href="https://github.com/gohugoio/hugo/releases">https://github.com/gohugoio/hugo/releases</a> 下载稳定版的压缩包，解压之后配置一下环境变量也可以</h5>
-<h5>装完以后，在命令行内输入</h5>
-<div class="highlight"><pre><span></span>hugo …</pre></div> <a class="btn primary xsmall" href="/Hugo.html">more…</a>
-	</div>
-</div>	
-<div class='article'>
-	<h2>Linux下python3源码安装</h2>
-	<div class="well small">Permalink: <a class="more" href="/Linux下python3源码安装.html">1000-01-01 18:44:00+00:09</a>
+	<h2>Python-元祖</h2>
+	<div class="well small">Permalink: <a class="more" href="/Python-元祖.html">1000-01-09 18:44:00+00:09</a>
 by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
  in <a href="/category/python.html">Python</a>
 tags: <a href="/tag/python.html">Python</a> </div>
-	<div class="summary"><h5>Linux下Python3源码安装</h5>
+	<div class="summary"><h4>元祖的介绍</h4>
 <ul>
-<li>1.下载</li>
+<li>
+<p>元祖(tuple)</p>
+</li>
+<li>
+<p>Python的元组与列表类似，不同之处在于<strong>元组的元素不能修改</strong>。元组使用小括号，列表使用方括号</p>
+</li>
+<li>
+<p>元祖 在只有一个元素的时候，要在小括号里面加上逗号。</p>
+</li>
 </ul>
-<div class="highlight"><pre><span></span>wget https://www.python.org/ftp/python/3.7.4/Python-3.7.4.tgz
+<h5>元祖不可以修改但是可以查看</h5>
+<ul>
+<li>也是下标进行查看</li>
+</ul> <a class="btn primary xsmall" href="/Python-元祖.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>Python-字典</h2>
+	<div class="well small">Permalink: <a class="more" href="/Python-字典.html">1000-01-09 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/python.html">Python</a>
+tags: <a href="/tag/python.html">Python</a> </div>
+	<div class="summary"><p>[TOC]</p>
+<h4>字典的介绍</h4>
+<div class="highlight"><pre><span></span><span class="n">info</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span><span class="s1">&#39;班长&#39;</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;sex&#39;</span><span class="p">:</span><span class="s1">&#39;f&#39;</span><span class="p">,</span> <span class="s1">&#39;address&#39;</span><span class="p">:</span><span class="s1">&#39;地球亚洲中国北京&#39;</span><span class="p">}</span>
 </pre></div>
 
 
 <ul>
-<li>2.解压</li>
+<li>字典和列表一样，也能够存储多个数据</li>
+<li>列表中找某个元素时，是根据下标进行的</li>
+<li>字典中找某个元素时，是根据'名字'（就是冒号:前面的那个值，例如上面代码中的'name'、'id'、'sex'）</li>
+<li>字典的每个元素由2部分组成，键:值。例如 'name':'班长' ,'name'为键，'班长'为值</li>
 </ul>
-<div class="highlight"><pre><span></span>tar -xzvf Python-3.7.4.tgz
-cd Python-3.7.4
+<h5>字典的添加操作</h5>
+<ul>
+<li>info['id'] = ‘shangwei’</li>
+<li>如果在使用 <strong>变量名['键'] = 数据</strong> 时，这个“键”在字典中，不存在，那么就会新增这个元素</li>
+</ul>
+<h5>字典的删除操作</h5>
+<ul>
+<li>del</li>
+<li>del删除指定的元素</li>
+<li>clear()</li>
+<li>:clear清空整个字典</li>
+</ul>
+<h5>字典的修改操作 …</h5> <a class="btn primary xsmall" href="/Python-字典.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>Python-列表</h2>
+	<div class="well small">Permalink: <a class="more" href="/Python-列表.html">1000-01-08 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/python.html">Python</a>
+tags: <a href="/tag/python.html">Python</a> </div>
+	<div class="summary"><p>[TOC]</p>
+<h4>列表的介绍</h4>
+<ul>
+<li>列表(list)</li>
+</ul>
+<p>变量nameListt的类型为列表</p>
+<div class="highlight"><pre><span></span>    <span class="n">namesList</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;xiaoWang&#39;</span><span class="p">,</span><span class="s1">&#39;xiaoZhang&#39;</span><span class="p">,</span><span class="s1">&#39;xiaoHua&#39;</span><span class="p">]</span>
+</pre></div>
+
+
+<p>比C语言的数组强大的地方在于列表中的元素可以是不同类型的</p>
+<div class="highlight"><pre><span></span>    <span class="n">testList</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">]</span>
+</pre></div>
+
+
+<h4>列表的循环遍历</h4>
+<h5>1. 使用for循环</h5>
+<p>为了更有效率的输出列表的每个数据，可以使用循环来完成</p>
+<p>demo:</p>
+<div class="highlight"><pre><span></span>    <span class="n">namesList</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;xiaoWang&#39;</span><span class="p">,</span><span class="s1">&#39;xiaoZhang&#39;</span><span class="p">,</span><span class="s1">&#39;xiaoHua&#39;</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">namesList</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+</pre></div>
+
+
+<p>结果:</p>
+<div class="highlight"><pre><span></span>    <span class="n">xiaoWang</span>
+    <span class="n">xiaoZhang</span>
+    <span class="n">xiaoHua</span>
+</pre></div>
+
+
+<h5>2. 使用while循环</h5>
+<p>为了更有效率的输出列表的每个数据，可以使用循环来完成</p>
+<p>demo:</p>
+<div class="highlight"><pre><span></span>    <span class="n">namesList</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;xiaoWang&#39;</span><span class="p">,</span><span class="s1">&#39;xiaoZhang&#39;</span><span class="p">,</span><span class="s1">&#39;xiaoHua&#39;</span><span class="p">]</span>
+
+    <span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">namesList</span><span class="p">)</span>
+
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">while</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">length …</span></pre></div> <a class="btn primary xsmall" href="/Python-列表.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>Python-字符串</h2>
+	<div class="well small">Permalink: <a class="more" href="/Python-字符串.html">1000-01-07 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/python.html">Python</a>
+tags: <a href="/tag/python.html">Python</a> </div>
+	<div class="summary"><h4>Python中被单引号或者双引号中的就是字符串</h4>
+<h4>字符串可以直接被输出，print()</h4>
+<h4>在python中格式化输出 字符串是 %s</h4>
+<h4>Python中的输入，不管你输入的是数字还是字符串都会转为字符串格式</h4>
+<h4>字符串可以进行切片，利用下标</h4>
+<div class="highlight"><pre><span></span>     name = &#39;shangwei&#39;
+     print(name[0:3]) # 取 下标为0~4 的字符
+</pre></div>
+
+
+<p>结果</p>
+<div class="highlight"><pre><span></span><span class="n">sha</span>
+</pre></div>
+
+
+<h3>主要：</h3>
+<h4>字符串的常见操作</h4>
+<p>mystr = “shang wei wo ai ni a”</p>
+<h4>1）find</h4>
+<p>检测 str 是否包含在 mystr中，如果是返回开始的索引值，否则返回-1</p>
+<h4>2）index</h4>
+<p>跟find()方法一样，只不过如果str不在 mystr中会报一个异常.</p>
+<h4>3）count</h4>
+<p>返回 str在start和end之间 在 …</p> <a class="btn primary xsmall" href="/Python-字符串.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>Python循环-for</h2>
+	<div class="well small">Permalink: <a class="more" href="/Python循环-for.html">1000-01-06 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/python.html">Python</a>
+tags: <a href="/tag/python.html">Python</a> </div>
+	<div class="summary"><h2>for循环</h2>
+<p>像while循环一样，for可以完成循环的功能。</p>
+<p>在Python中 for循环可以遍历任何序列的项目，如一个列表或者一个字符串等。</p>
+<h2>for循环的格式</h2>
+<div class="highlight"><pre><span></span><span class="k">for</span> <span class="err">临时变量</span> <span class="ow">in</span> <span class="err">列表或者字符串等可迭代对象</span><span class="p">:</span>
+    <span class="err">循环满足条件时执行的代码</span>
+</pre></div>
+
+
+<h3>demo1</h3>
+<div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+
+
+<p>结果</p>
+<div class="highlight"><pre><span></span><span class="mi">0</span>
+<span class="mi">1</span>
+<span class="mi">2</span>
+</pre></div>
+
+
+<h2>demo2</h2>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="s1">&#39;hello&#39;</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="s1">&#39;l&#39;</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Hello world!&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>运行结果如下:</p>
+<div class="highlight"><pre><span></span><span class="n">h</span>
+<span class="n">e</span>
+<span class="n">l</span>
+<span class="n">Hello</span> <span class="n">world</span><span class="err">!</span>
+<span class="n">l</span>
+<span class="n">Hello</span> <span class="n">world</span><span class="err">!</span>
+<span class="n">o</span>
+</pre></div>
+
+
+<h2>耍一个乘法口诀表</h2>
+<div class="highlight"><pre><span></span><span class="k">for</span> <span class="nv">i …</span></pre></div> <a class="btn primary xsmall" href="/Python循环-for.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>Python循环-while</h2>
+	<div class="well small">Permalink: <a class="more" href="/Python循环-while.html">1000-01-05 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/python.html">Python</a>
+tags: <a href="/tag/python.html">Python</a> </div>
+	<div class="summary"><h1>循环语句介绍</h1>
+<h2>&lt;1&gt;软件开发中循环的使用场景</h2>
+<p>跟媳妇承认错误，说一万遍"媳妇儿，我错了"</p>
+<div class="highlight"><pre><span></span>    print(&quot;媳妇儿，我错了&quot;)
+    print(&quot;媳妇儿，我错了&quot;)
+    print(&quot;媳妇儿，我错了&quot;)
+    ...(还有99997遍)...
+</pre></div>
+
+
+<p>使用循环语句一句话搞定</p>
+<div class="highlight"><pre><span></span>    i = 0
+    while i &lt; 10000:
+        print(&quot;媳妇儿，我错了&quot;)
+        i += 1
+</pre></div>
+
+
+<h2>&lt;2&gt;总结</h2>
+<ul>
+<li>while和if的用法基本类似，区别在于：if 条件成立，则执行一次； while 条件成立，则重复执行，直到条件不成立为止。</li>
+<li>一般情况下，需要多次重复执行的代码，都可以用循环的方式来完成</li>
+<li>循环不是必须要使用的，但是为了提高代码的重复使用率，所以有经验的开发者都会采用循环</li>
+</ul>
+<h1>while循环</h1>
+<h2>&lt;1&gt;while循环的格式</h2>
+<div class="highlight"><pre><span></span>    while 条件 …</pre></div> <a class="btn primary xsmall" href="/Python循环-while.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>MySQL事务和锁</h2>
+	<div class="well small">Permalink: <a class="more" href="/MySQL事务和锁.html">1000-01-04 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/mysql.html">MySQL</a>
+tags: <a href="/tag/mysql.html">MySQL</a> </div>
+	<div class="summary"><h4>InnoDB与MyISAM区别</h4>
+<ul>
+<li>MyISAM不支持事物回滚，InnoDB是支持事物</li>
+<li>MyISAM和MEMORY存储引擎采用的是表级锁（table-level locking）。</li>
+<li>InnoDB存储引擎既支持行级锁（row-level locking），也支持表级锁，但默认情况下是采用行级锁。</li>
+<li>MyISAM更适合查询多的情况</li>
+<li>InnoDB更适合写入多的</li>
+</ul>
+<h4>行级锁 &amp; 表级锁</h4>
+<ul>
+<li>行级锁（写多读少）开销大，加锁慢，锁定粒度最小，发生锁冲突概率最低，并发度最高</li>
+<li>表级锁（适合大量读）开销小，加锁快，锁定粒度大、发生锁冲突最高，并发度最低</li>
+</ul>
+<h4>乐观锁&amp;悲观锁</h4>
+<ul>
+<li>乐观锁（写少读多）：读取商品数量时不加锁，到修改商品数量是回校验，当前商品数量和刚读取的数量是否一致，如果相同加排他锁，然后写入，否则重试</li>
+<li>悲观锁（写多读少）：读取商品数量时就加一把排它锁，直到修改商品数量完成释放排它锁，其他线程才能读取商品数量</li>
+</ul>
+<h4>共享锁 &amp; 排它锁</h4>
+<ul>
+<li>共享锁（读锁）：所有线程都可以读这个数据，但不能写 …</li></ul> <a class="btn primary xsmall" href="/MySQL事务和锁.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>if语句</h2>
+	<div class="well small">Permalink: <a class="more" href="/if语句.html">1000-01-04 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/python.html">Python</a>
+tags: <a href="/tag/python.html">Python</a> </div>
+	<div class="summary"><h3>if介绍</h3>
+<ul>
+<li>如果某些条件满足，才能做某件事情；条件不满足时，则不能做，这就是所谓的判断。</li>
+<li>不仅生活中有，在软件开发中"判断"功能也经常会用到</li>
+</ul>
+<h3>一、if判断语句</h3>
+<h3>&lt;1&gt;if判断语句介绍</h3>
+<ul>
+<li>if语句是用来进行判断的，其使用格式如下：</li>
+</ul>
+<div class="highlight"><pre><span></span>    <span class="k">if</span> <span class="err">要判断的条件</span><span class="p">:</span>
+        <span class="err">条件成立时，要做的事情</span>
 </pre></div>
 
 
 <ul>
-<li>3.config # 指定安装目录</li>
+<li>demo1:（demo的中文意思：演示、案例）</li>
 </ul>
-<div class="highlight"><pre><span></span>mkdir -p /usr/local/python3
-./configure --prefix=/usr/local/python3/
+<div class="highlight"><pre><span></span>    <span class="n">age</span> <span class="o">=</span> <span class="mi">30</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;------if判断开始------&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;我已经成年了&quot;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;------if判断结束------&quot;</span><span class="p">)</span>
 </pre></div>
 
 
 <ul>
-<li>4.make 编译</li>
-<li>5.make install 安装</li>
-<li>6 …</li></ul> <a class="btn primary xsmall" href="/Linux下python3源码安装.html">more…</a>
+<li>运行结果:</li>
+</ul>
+<div class="highlight"><pre><span></span>    <span class="o">------</span><span class="n">if判断开始</span><span class="o">------</span>
+    <span class="err">我已经成年了</span>
+    <span class="o">------</span><span class="n">if判断结束</span><span class="o">------</span>
+</pre></div>
+
+
+<ul>
+<li>demo2:</li>
+</ul>
+<div class="highlight"><pre><span></span>    <span class="n">age</span> <span class="o">=</span> <span class="mi">16</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;------if判断开始------&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;我已经成年了&quot;</span><span class="p">)</span>
+    <span class="k">print …</span></pre></div> <a class="btn primary xsmall" href="/if语句.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>MySQL存储引擎MyISAM与InnoDB区别总结整理</h2>
+	<div class="well small">Permalink: <a class="more" href="/MySQL存储引擎MyISAM与InnoDB区别总结整理.html">1000-01-03 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/mysql.html">MySQL</a>
+tags: <a href="/tag/mysql.html">MySQL</a> </div>
+	<div class="summary"><h4>MySQL默认存储引擎的变迁</h4>
+<ul>
+<li>在MySQL 5.5之前的版本中，默认的搜索引擎是MyISAM，从MySQL 5.5之后的版本中，默认的搜索引擎变更为InnoDB。</li>
+</ul>
+<h4>MyISAM与InnoDB存储引擎的主要特点</h4>
+<p>1).MyISAM存储引擎的特点是：<strong>表级锁、不支持事务、支持全文索引</strong>，适合一些CMS内容管理系统作为后台数据库使用，但是使用大并发、重负荷生产系统上，表锁结构的特性就显得力不从心；</p>
+<p>2).InnoDB存储引擎的特点是：<strong>行级锁、事务安全（ACID兼容）、支持外键</strong>、不支持FULLTEXT类型的索引(<strong>5.6.4</strong>以后版本开始支持FULLTEXT类型的索引)。<strong>InnoDB存储引擎提供了具有提交、 回滚和崩溃恢复能力的事务安全存储引擎</strong>。InnoDB是为处理巨大量时拥有最大性能而设计的。它的CPU效率可能是任何其他基于磁盘的关系数据库引擎所不能匹敌的。</p>
+<ul>
+<li>行级锁</li>
+<li>行级锁是Mysql中锁定粒度最细的一种锁，表示只针对当前操作的行进行加锁。行级锁能大大减少数据库操作的冲突。其加锁粒度最小，但加锁的开销也最大。行级锁分为共享锁 和 排他锁。</li>
+<li>
+<p>特点：开销大，加锁慢；会出现死锁；锁定粒度最小，发生锁冲突的概率最低，并发度也最高 …</p></li></ul> <a class="btn primary xsmall" href="/MySQL存储引擎MyISAM与InnoDB区别总结整理.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>Python运算符</h2>
+	<div class="well small">Permalink: <a class="more" href="/Python运算符.html">1000-01-03 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/python.html">Python</a>
+tags: <a href="/tag/python.html">Python</a> </div>
+	<div class="summary"><h2>运算符</h2>
+<p>python支持以下几种运算符</p>
+<h3>1. 算术运算符</h3>
+<p>下面以a=10 ,b=20为例进行计算</p>
+<table>
+<thead>
+<tr>
+<th align="left">运算符</th>
+<th align="center">描述</th>
+<th>实例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">+</td>
+<td align="center">加</td>
+<td>两个对象相加 a + b 输出结果 30</td>
+</tr>
+<tr>
+<td align="left">-</td>
+<td align="center">减</td>
+<td>得到负数或是一个数减去另一个数 a - b 输出结果 -10</td>
+</tr>
+<tr>
+<td align="left">*</td>
+<td align="center">乘</td>
+<td>两个数相乘或是返回一个被重复若干次的字符串 a * b 输出结果 200</td>
+</tr>
+<tr>
+<td align="left">/</td>
+<td align="center">除</td>
+<td>b / a 输出结果 2</td>
+</tr>
+<tr>
+<td align="left">//</td>
+<td align="center">取整除</td>
+<td>返回商的整数部分 9//2 输出结果 4 , 9.0//2.0 输出结果 4.0</td>
+</tr>
+<tr>
+<td align="left">%</td>
+<td align="center">取余</td>
+<td>返回除法的余数 b …</td></tr></tbody></table> <a class="btn primary xsmall" href="/Python运算符.html">more…</a>
 	</div>
 </div>	
 
@@ -432,6 +458,7 @@ cd Python-3.7.4
 		<li class=""><a href="/index6.html">6</a></li>
 		<li class=""><a href="/index7.html">7</a></li>
 		<li class=""><a href="/index8.html">8</a></li>
+		<li class=""><a href="/index9.html">9</a></li>
 		<li class="next"><a href="/index5.html">Next &rarr;</a></li>
 </ul>
 </div>

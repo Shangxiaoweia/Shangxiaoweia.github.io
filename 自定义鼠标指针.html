@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>商伟的技术博客</title>
+	<meta name="description" content="">
+	<meta name="author" content="商伟">
+
+	<!-- HTML5 shim, for IE6-8 support of HTML elements -->
+	<!--[if lt IE 9]>
+		<script src="/theme/html5.js"></script>
+	<![endif]-->
+
+	<!-- Styles -->
+	<link href="/theme/bootstrap.min.css" rel="stylesheet">
+	<link href="/theme/local.css" rel="stylesheet">
+	<link href="/theme/pygments.css" rel="stylesheet">
+
+	<!-- Feeds -->
+
+
+
+
+</head>
+<body>
+	<div class="topbar">
+	  <div class="topbar-inner">
+		<div class="container-fluid">
+		  <a class="brand" href="/">商伟的技术博客</a>
+			<ul class="nav">
+					<li ><a href="/category/django.html">Django</a></li>
+					<li ><a href="/category/docker.html">Docker</a></li>
+					<li ><a href="/category/git.html">GIT</a></li>
+					<li ><a href="/category/javascript.html">JavaScript</a></li>
+					<li ><a href="/category/mongodb.html">Mongodb</a></li>
+					<li ><a href="/category/mysql.html">MySQL</a></li>
+					<li ><a href="/category/pa-chong.html">爬虫</a></li>
+					<li ><a href="/category/python.html">Python</a></li>
+					<li ><a href="/category/rabbitmq.html">RabbitMQ</a></li>
+					<li ><a href="/category/redis.html">redis</a></li>
+					<li ><a href="/category/shu-ju-jie-gou.html">数据结构</a></li>
+					<li ><a href="/category/sui-shou-bi-ji.html">随手笔记</a></li>
+					<li ><a href="/category/supervisor.html">Supervisor</a></li>
+					<li ><a href="/category/vue.html">VUE</a></li>
+					<li ><a href="/category/wang-luo.html">网络</a></li>
+					<li class="active"><a href="/category/web.html">web</a></li>
+					<li ><a href="/category/xiao-cheng-xu.html">小程序</a></li>
+					<li ><a href="/category/xu-ni-huan-jing.html">虚拟环境</a></li>
+			</ul>
+			<p class="pull-right"><a href="/archives.html">[archives]</a> <a href="/tags.html">[tags]</a></p>
+		</div>
+	  </div>
+	</div>
+
+	<div class="container-fluid">
+	  <div class="sidebar">
+		<div class="well">
+			<h3>Blogroll</h3>
+			<ul>
+				<li><a href="http://getpelican.com/">Pelican</a></li>
+				<li><a href="http://python.org/">Python.org</a></li>
+				<li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+			</ul>
+			<div class="social">
+			<h3>Social</h3>
+			<ul>
+				<li><a href="https://han520min.github.io">hanmin</a></li>
+			</ul>
+			</div>
+		</div>
+	  </div>
+	  <div class="content">
+	<div class='article'>
+		<div class="page-header"><h1>自定义鼠标指针</h1></div>
+		<div class="well small">Permalink: <a class="more" href="/自定义鼠标指针.html">2020-04-09 21:52:00+02:00</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/web.html">web</a>
+tags: <a href="/tag/web.html">web</a> </div>
+		<div><p>现而今，我们纵向的回顾整个大前端的历史，不难发现，人们对前端的审美要求越来越高，越来越严苛，与此同时，人们对追求美的体验是也极致的，从理性到感性，从平面到几何，从现实到虚拟，所以从某种角度来说，作为前端工程师，他们所追求的东西往往和人类软件核心理念南辕北辙，因为人类的终极追求是个性，绝不是共性，换句话说，大家都一样就不好玩儿了。</p>
+<p>那么作为web前端，追求个性的手段手段之一就是鼠标指针的更换，早在css2时代，Cursor属性就可以对象鼠标指针光标进行控制，可以根据自身需要选择设置鼠标指针样式，代码如下：</p>
+<div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">head</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">title</span><span class="o">&gt;</span><span class="n">cursor属性</span><span class="o">&lt;/</span><span class="n">title</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">head</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">body</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="err">请把鼠标移动到单词上，可以看到鼠标指针发生变化：</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">span</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;cursor:auto&quot;</span><span class="o">&gt;</span><span class="n">Auto</span><span class="o">......&lt;/</span><span class="n">span</span><span class="o">&gt;&lt;</span><span class="n">br</span> <span class="o">/&gt;</span>
+    <span class="o">&lt;</span><span class="n">span</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;cursor:crosshair&quot;</span><span class="o">&gt;</span><span class="n">Crosshair</span><span class="o">......&lt;/</span><span class="n">span</span><span class="o">&gt;&lt;</span><span class="n">br</span> <span class="o">/&gt;</span>
+    <span class="o">&lt;</span><span class="n">span</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;cursor:default&quot;</span><span class="o">&gt;</span><span class="n">Default</span><span class="o">......&lt;/</span><span class="n">span</span><span class="o">&gt;&lt;</span><span class="n">br</span> <span class="o">/&gt;</span>
+    <span class="o">&lt;</span><span class="n">span</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;cursor:pointer&quot;</span><span class="o">&gt;</span><span class="n">Pointer</span><span class="o">......&lt;/</span><span class="n">span</span><span class="o">&gt;&lt;</span><span class="n">br</span> <span class="o">/&gt;</span>
+    <span class="o">&lt;</span><span class="n">span</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;cursor:move&quot;</span><span class="o">&gt;</span><span class="n">Move</span><span class="o">......&lt;/</span><span class="n">span</span><span class="o">&gt;&lt;</span><span class="n">br</span> <span class="o">/&gt;</span>
+    <span class="o">&lt;</span><span class="n">span</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;cursor:e-resize&quot;</span><span class="o">&gt;</span><span class="n">e</span><span class="o">-</span><span class="n">resize</span><span class="o">......&lt;/</span><span class="n">span</span><span class="o">&gt;&lt;</span><span class="n">br</span> <span class="o">/&gt;</span>
+    <span class="o">&lt;</span><span class="n">span</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;cursor:ne-resize&quot;</span><span class="o">&gt;</span><span class="n">ne</span><span class="o">-</span><span class="n">resize</span><span class="o">......&lt;/</span><span class="n">span</span><span class="o">&gt;&lt;</span><span class="n">br</span> <span class="o">/&gt;</span>
+    <span class="o">&lt;</span><span class="n">span</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;cursor:nw-resize&quot;</span><span class="o">&gt;</span><span class="n">nw</span><span class="o">-</span><span class="n">resize</span><span class="o">......&lt;/</span><span class="n">span</span><span class="o">&gt;&lt;</span><span class="n">br</span> <span class="o">/&gt;</span>
+    <span class="o">&lt;</span><span class="n">span</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;cursor:n-resize&quot;</span><span class="o">&gt;</span><span class="n">n</span><span class="o">-</span><span class="n">resize</span><span class="o">......&lt;/</span><span class="n">span</span><span class="o">&gt;&lt;</span><span class="n">br</span> <span class="o">/&gt;</span>
+    <span class="o">&lt;</span><span class="n">span</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;cursor:se-resize&quot;</span><span class="o">&gt;</span><span class="n">se</span><span class="o">-</span><span class="n">resize</span><span class="o">......&lt;/</span><span class="n">span</span><span class="o">&gt;&lt;</span><span class="n">br</span> <span class="o">/&gt;</span>
+    <span class="o">&lt;</span><span class="n">span</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;cursor:sw-resize&quot;</span><span class="o">&gt;</span><span class="n">sw</span><span class="o">-</span><span class="n">resize</span><span class="o">......&lt;/</span><span class="n">span</span><span class="o">&gt;&lt;</span><span class="n">br</span> <span class="o">/&gt;</span>
+    <span class="o">&lt;</span><span class="n">span</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;cursor:s-resize&quot;</span><span class="o">&gt;</span><span class="n">s</span><span class="o">-</span><span class="n">resize</span><span class="o">......&lt;/</span><span class="n">span</span><span class="o">&gt;&lt;</span><span class="n">br</span> <span class="o">/&gt;</span>
+    <span class="o">&lt;</span><span class="n">span</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;cursor:w-resize&quot;</span><span class="o">&gt;</span><span class="n">w</span><span class="o">-</span><span class="n">resize</span><span class="o">......&lt;/</span><span class="n">span</span><span class="o">&gt;&lt;</span><span class="n">br</span> <span class="o">/&gt;</span>
+    <span class="o">&lt;</span><span class="n">span</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;cursor:text&quot;</span><span class="o">&gt;</span><span class="n">text</span><span class="o">......&lt;/</span><span class="n">span</span><span class="o">&gt;&lt;</span><span class="n">br</span> <span class="o">/&gt;</span>
+    <span class="o">&lt;</span><span class="n">span</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;cursor:wait&quot;</span><span class="o">&gt;</span><span class="n">wait</span><span class="o">......&lt;/</span><span class="n">span</span><span class="o">&gt;&lt;</span><span class="n">br</span> <span class="o">/&gt;</span>
+    <span class="o">&lt;</span><span class="n">span</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;cursor:help&quot;</span><span class="o">&gt;</span><span class="n">help</span><span class="o">......&lt;/</span><span class="n">span</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">body</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">html</span><span class="o">&gt;</span>
+</pre></div>
+
+
+<p>不过这些属性仅仅是更换系统自定义的一些默认样式，毫无新意，当然也不能满足所有用户的需求，特别对于一些追求时尚和个性化的Web应用。因此，CSS允许用户创建自己的鼠标光标图片，并保存为 .cur 的光标文件，然后通过 cursor属性来使用它们。如：</p>
+<div class="highlight"><pre><span></span><span class="n">cursor</span><span class="p">:</span> <span class="n">url</span><span class="p">(</span><span class="n">cursors</span><span class="o">/</span><span class="n">cursor</span><span class="o">.</span><span class="n">cur</span><span class="p">)</span> <span class="p">;</span>
+</pre></div>
+
+
+<p>上述规则表示，要求浏览器加载名称为 cursor.cur 光标文件，并将它用作鼠标光标。当然，浏览器也有可能不支持 .cur 格式的光标文件，或光标文件无法正常加载。因此，大多数浏览器要求必须指定一个备用的光标，否则，cursor属性无效。如：</p>
+<div class="highlight"><pre><span></span><span class="n">cursor</span><span class="p">:</span> <span class="n">url</span><span class="p">(</span><span class="n">cursors</span><span class="o">/</span><span class="n">cursor</span><span class="o">.</span><span class="n">cur</span><span class="p">),</span> <span class="n">pointer</span><span class="p">;</span>
+</pre></div>
+
+
+<p>除了更换鼠标指针，我们也可以稍加一些变化，比如鼠标悬停在超链接的时候，语义化操作往往需要给用户一点提示：</p>
+<div class="highlight"><pre><span></span><span class="n">a</span><span class="p">:</span><span class="n">hover</span><span class="p">,</span> <span class="n">a</span><span class="p">:</span><span class="n">focus</span><span class="p">,</span> <span class="n">a</span><span class="p">:</span><span class="n">active</span><span class="p">,</span> <span class="n">a</span><span class="o">.</span><span class="n">active</span> <span class="p">{</span>
+    <span class="n">color</span><span class="p">:</span> <span class="c1">#fec503;</span>
+    <span class="n">cursor</span><span class="p">:</span><span class="n">url</span><span class="p">(</span><span class="o">././</span><span class="n">mouse</span><span class="o">/</span><span class="n">breeze</span><span class="o">/</span><span class="n">Hand</span><span class="o">.</span><span class="n">cur</span><span class="p">),</span> <span class="n">pointer</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>效果是下面这样:</p>
+<p><img alt="img" src="http://m.qpic.cn/psc?/V11vDzPO1w5782/evyMJ*ZwKmN7EwaKYDZ0cKDD3SPOM9lrlKnxBpJ6DxoZZ8BXRIOALOU8sjWIUbbO9nxP69Fydex4mqgLY0BZwDo5nxHqD9M0fvXtCSAxQ2g!/b&amp;bo=aAHwAGgB8AACOR0!&amp;rf=viewer_4"></p>
+<p>这里我使用的鼠标风格是在业界鼎鼎有名的 Breeze</p>
+<p><img alt="img" src="http://m.qpic.cn/psc?/V11vDzPO1w5782/zfrllz9Q9AzvUwq**DIV089ZPsnIBf*S2l4YKfhbwiaVjUt4hb6sta244iN81*LfL5Na.rbLWQ7F3KV3Z24i8w!!/b&amp;bo=vAKGAbwChgERCT4!&amp;rf=viewer_4"></p>
+<p>当然了由于不同浏览器所支持的光标文件格式不尽相同，Opera和IE仅支持 .cur 格式，Firefox、Chrome和Safari既支持 .cur 格式，也支持常见的 .jpg、.gif、.jpg 等格式。</p>
+<p>所以从通用性的角度来看，.cur格式是最保险的，不过也不用担心，如果出现不兼容的情况，系统会选择默认的样式。</p>
+<p>值得一提的是，对于.cur文件来说，尺寸最好选择不大于于32*32像素的，因为通过样式进行样式的加载会损耗一些网页性能，同时过大的光标也会影响用户的点选。</p>
+<p>最后，如果手里有.cur的鼠标光标图片样式，这些图片不仅仅可以应用在web网站上，像电脑系统也可以使用比如win10,ubuntu或者mac,这里推荐一个鼠标指针风格网站的下载地址：https://zhutix.com/tag/cursors/  这上面的鼠标指针风格不能说清新脱俗吧，但是也比那些烂大街的杀马特造型要好看多了。</p></div>
+	</div>
+		<footer>
+		  <p>Powered by <a href="http://getpelican.com/">Pelican</a>. Theme based on <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a>.</p>
+		  <p>&copy; 商伟</p>
+		</footer>
+	  </div>
+
+	</div>
+</body>
+</html>

@@ -43,6 +43,7 @@
 					<li ><a href="/category/supervisor.html">Supervisor</a></li>
 					<li ><a href="/category/vue.html">VUE</a></li>
 					<li ><a href="/category/wang-luo.html">网络</a></li>
+					<li ><a href="/category/web.html">web</a></li>
 					<li ><a href="/category/xiao-cheng-xu.html">小程序</a></li>
 					<li ><a href="/category/xu-ni-huan-jing.html">虚拟环境</a></li>
 			</ul>
@@ -59,7 +60,6 @@
 				<li><a href="http://getpelican.com/">Pelican</a></li>
 				<li><a href="http://python.org/">Python.org</a></li>
 				<li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
-				<li><a href="https://shangxiaoweia.github.io/puzzle.html">拼图</a></li>
 			</ul>
 			<div class="social">
 			<h3>Social</h3>
@@ -72,21 +72,25 @@
 	  <div class="content">
 	<div class='article'>
 		<div class="page-header"><h1>Docker-基础</h1></div>
-		<div class="well small">Permalink: <a class="more" href="/Docker-基础.html">0999-01-01 18:44:00+00:09</a>
+		<div class="well small">Permalink: <a class="more" href="/Docker-基础.html">2019-08-08 18:44:00+02:00</a>
 by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
  in <a href="/category/docker.html">Docker</a>
 tags: <a href="/tag/docker.html">Docker</a> </div>
 		<div><h4>什么是Docker</h4>
 <ul>
-<li>Docker 是使用最广泛的开源容器引擎</li>
-<li>一种操作系统基本的虚拟化技术</li>
+<li>
+<p>Docker 是使用最广泛的开源容器引擎</p>
+</li>
+<li>
+<p>一种操作系统基本的虚拟化技术</p>
+</li>
 <li>一种简单的应用程序打包工具</li>
 <li>依赖 Linux 内核特性：Namespace(资源隔离) 和 Cgroup（资源限制）</li>
 </ul>
 <p><strong>注：</strong>每个容器拥有一套和宿主机完全隔离的文件系统（共用linux内核），程序在这个虚拟容器里运行，就好像在真实的物理机上运行一样。</p>
-<p>​   <strong>容器：</strong></p>
+<p><strong>容器：</strong></p>
 <p><strong>1）</strong>容器是一个操作系统级别下的虚拟化技术，运行一个容器就行运行一个进程一样</p>
-<p><strong>2）</strong>容器依赖linux内核特性：Namespace（资源隔离）和Cgroups（资源限制）</p>
+<p><strong>2）</strong>容器依赖linux内核特性：Namespace（资源隔离）和 Cgroups（资源限制）</p>
 <p><strong>资源隔离：</strong></p>
 <p>1）Linux Namespaces机制提供一种资源隔离方案，每个namespace看上去就像一个单独的Linux系统。</p>
 <p>2）PID,IPC(进程通信),Network等系统资源不再是全局性的，而是属于某个特定的Namespace。</p>
@@ -98,33 +102,63 @@ tags: <a href="/tag/docker.html">Docker</a> </div>
 <p>1）为了让容器中的进程更加可控，Docker 使用 Linux cgroups 来限制容器中的进程允许使用的系统资源。</p>
 <p>2）可以在启动容器是指定每个容器可以使用的 网络、磁盘、CPU以及内存 等</p>
 <h4>docker思想</h4>
-<p>1. Docker的思想源于集装箱，集装箱解决了什么问题呢？
-   　　　　　　2. 在早期运输货物需要不同分类的船，例如运输水果的船，运输生活用品的船
-   　　　　　　3. 有了集装箱后，在大船上，可以把货物分类到不同的集装箱中，水果一个集装箱，生活用品一个集装箱
-   　　　　　　4. 它们之间互不影响，只要把货物封装好集装箱里，就可以把不同类的货物一起运走。
-   　　　　　　5. 通过Docker logo也可以看出所以然来，Docker就像大船，集装箱就是容器。
-   　　　　　　6. 一条鲸鱼拖着若干个集装箱的经典形象已经深入人心。</p>
-<p><img alt="Docker" src="http://m.qpic.cn/psc?/V11vDzPO1w5782/zfrllz9Q9AzvUwq**DIV09wk8c16sU7Aeavr9iuaZGGrDHjQASX4d7wPMqeGPYpecliWT3ECb2l5sCF6cDe.2A!!/b&amp;bo=1gFjAQAAAAADB5c!&amp;rf=viewer_4"></p>
+<ol>
+<li>Docker的思想源于集装箱，集装箱解决了什么问题呢？ 　　　　　　</li>
+<li>在早期运输货物需要不同分类的船，例如运输水果的船，运输生活用品的船 　　　　　　</li>
+<li>有了集装箱后，在大船上，可以把货物分类到不同的集装箱中，水果一个集装箱，生活用品一个集装箱</li>
+<li>它们之间互不影响，只要把货物封装好集装箱里，就可以把不同类的货物一起运走。 　　　　　　</li>
+<li>通过Docker logo也可以看出所以然来，Docker就像大船，集装箱就是容器。 　　　　　</li>
+<li>一条鲸鱼拖着若干个集装箱的经典形象已经深入人心。</li>
+</ol>
+<p><img alt="Docker" src="http://m.qpic.cn/psc?/V11vDzPO1w5782/evyMJ*ZwKmN7EwaKYDZ0cMV*Fw60sVBYj8OJ8EmB4bhqYeqVTAUy5ghmwR6sKg*1AUDZ7vNFOMHUSfPZ8WZ2q9jaeLprYJe5ep4zSuiTgAg!/b&amp;bo=1gFjAQAAAAADF4c!&amp;rf=viewer_4"></p>
 <h4>docker 与 虚拟机比较</h4>
-<p>1. docker设计小巧，部署迁移快速，运行高效，按照应用隔离，管理人员可以看到所有容器的内容。</p>
-<p>2. 虚拟化技术比较臃肿，需要先创建新的系统，按照系统隔离，管理员无法看到系统内部信息。</p>
+<ol>
+<li>
+<p>docker设计小巧，部署迁移快速，运行高效，按照应用隔离，管理人员可以看到所有容器的内容。</p>
+</li>
+<li>
+<p>虚拟化技术比较臃肿，需要先创建新的系统，按照系统隔离，管理员无法看到系统内部信息。</p>
+</li>
+</ol>
 <p><strong>举例：</strong></p>
 <p>1）Docker就是手机中的各种APP，只需要一个系统就可以下载自己所需的应用</p>
 <p>2）虚拟化技术相当于苹果手机安装一个庞大软件，这个软件上安装安卓系统、魅族系统等，每个系统上还要安装各类应用。</p>
-<p><img alt="img" src="http://m.qpic.cn/psc?/V11vDzPO1w5782/zfrllz9Q9AzvUwq**DIV05SkhIOAvUpGBnItwJEs120pxh.vqc0zRjjvsnDJ797CpZT7Teaj6k*XwO2kYiVTRA!!/b&amp;bo=GANyAQAAAAADB0o!&amp;rf=viewer_4"></p>
-<p><img alt="img" src="http://m.qpic.cn/psc?/V11vDzPO1w5782/evyMJ*ZwKmN7EwaKYDZ0cFdyw5MhalV7rbzmOPk7wOyG8GO9wxfd9q.Z6TI7h*LyE57YppnlQHEueXwgV7a3x1MksgtaXrLk*uoEOVaLx2Q!/b&amp;bo=HwM9AQAAAAADFxI!&amp;rf=viewer_4"></p>
+<p><img alt="img" src="http://m.qpic.cn/psc?/V11vDzPO1w5782/evyMJ*ZwKmN7EwaKYDZ0cKSHur3blL9lWN5GmNfQT6YQ*pMzXqLdRz32XriCdOF4MK6QiI5EWSh*O7CaDlQd8Djr*47.zOD84rFxGb4jcH0!/b&amp;bo=GANyAQAAAAADJ2o!&amp;rf=viewer_4"></p>
+<p><img alt="img" src="http://m.qpic.cn/psc?/V11vDzPO1w5782/zfrllz9Q9AzvUwq**DIV05dng4nA46DJHcKi*Em*pAoBr0yu9n89kibfQydYZ2vI9wZozUM0l9Xh6vrZZhNtwg!!/b&amp;bo=HwM9AQAAAAADBwI!&amp;rf=viewer_4"></p>
 <h4>docker解决的问题</h4>
-<p>1. 高效的利用资源</p>
-<p>2. 单台机器得部署多个应用；</p>
-<p>3. 应用之间互相隔离（微服务）；</p>
-<p>4. 应用之间不能发生资源抢占，每个应用只能使用事先注册申请的资源。</p>
+<ol>
+<li>
+<p>高效的利用资源</p>
+</li>
+<li>
+<p>单台机器得部署多个应用；</p>
+</li>
+<li>
+<p>应用之间互相隔离（微服务）；</p>
+</li>
+<li>
+<p>应用之间不能发生资源抢占，每个应用只能使用事先注册申请的资源。</p>
+</li>
+</ol>
 <h4>Docker架构</h4>
-<p>1. <strong>Docker客户端(Client):</strong> docker 命令行工具，用户也可以通过 REST API 与服务器通信</p>
-<p>2. <strong>Docker服务器(Docker daemon):</strong> 服务器组件，以 Linux 后台服务的方式运行， Docker daemon 运行在 Docker host 上，负责创建、运行、监控容器，构建、存储镜像</p>
-<p>3. <strong>Docker镜像(Image):</strong> 可将 Docker 镜像看着只读模板，通过它可以创建 Docker 容器</p>
-<p>4. <strong>镜像仓库(Registry):</strong> Registry 是存放 Docker 镜像的仓库，Registry 分私有和公有两种</p>
-<p>5. <strong>Docker容器(Container):</strong> Docker 容器就是 Docker 镜像的运行实例</p>
-<p><img alt="img" src="http://m.qpic.cn/psc?/V11vDzPO1w5782/evyMJ*ZwKmN7EwaKYDZ0cJ.jrv2g1QXnbG80XZZwo.xwZOgNcCT0N5mhH.NsAT0MJ68KUWWpj4s92ur9LcO0c5oBo8pYPer55uBY47MCdOU!/b&amp;bo=iwJeAQAAAAADF.Q!&amp;rf=viewer_4"></p></div>
+<ol>
+<li>
+<p><strong>Docker客户端(Client):</strong> docker 命令行工具，用户也可以通过 REST API 与服务器通信</p>
+</li>
+<li>
+<p><strong>Docker服务器(Docker daemon):</strong> 服务器组件，以 Linux 后台服务的方式运行， Docker daemon 运行在 Docker host 上，负责创建、运行、监控容器，构建、存储镜像</p>
+</li>
+<li>
+<p><strong>Docker镜像(Image):</strong> 可将 Docker 镜像看着只读模板，通过它可以创建 Docker 容器</p>
+</li>
+<li>
+<p><strong>镜像仓库(Registry):</strong> Registry 是存放 Docker 镜像的仓库，Registry 分私有和公有两种</p>
+</li>
+<li>
+<p><strong>Docker容器(Container):</strong> Docker 容器就是 Docker 镜像的运行实例</p>
+</li>
+</ol>
+<p><img alt="img" src="http://m.qpic.cn/psc?/V11vDzPO1w5782/evyMJ*ZwKmN7EwaKYDZ0cJ.jrv2g1QXnbG80XZZwo.xwZOgNcCT0N5mhH.NsAT0MTZlhIcOtXVmcO*tWMCNPuxWNyXMSUAxcFISIKp6M8Xk!/b&amp;bo=iwJeAQAAAAADF.Q!&amp;rf=viewer_4"></p></div>
 	</div>
 		<footer>
 		  <p>Powered by <a href="http://getpelican.com/">Pelican</a>. Theme based on <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a>.</p>

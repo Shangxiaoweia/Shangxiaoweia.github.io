@@ -43,6 +43,7 @@
 					<li ><a href="/category/supervisor.html">Supervisor</a></li>
 					<li ><a href="/category/vue.html">VUE</a></li>
 					<li ><a href="/category/wang-luo.html">网络</a></li>
+					<li ><a href="/category/web.html">web</a></li>
 					<li ><a href="/category/xiao-cheng-xu.html">小程序</a></li>
 					<li ><a href="/category/xu-ni-huan-jing.html">虚拟环境</a></li>
 			</ul>
@@ -59,7 +60,6 @@
 				<li><a href="http://getpelican.com/">Pelican</a></li>
 				<li><a href="http://python.org/">Python.org</a></li>
 				<li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
-				<li><a href="https://shangxiaoweia.github.io/puzzle.html">拼图</a></li>
 			</ul>
 			<div class="social">
 			<h3>Social</h3>
@@ -72,28 +72,54 @@
 	  <div class="content">
 <div class="page-header"><h1>商伟的技术博客 <small>Docker</small></h1></div>
 <div class='article'>
+	<h2>Docker-应用场景</h2>
+	<div class="well small">Permalink: <a class="more" href="/Docker-应用场景.html">2019-08-09 18:44:00+02:00</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/docker.html">Docker</a>
+tags: <a href="/tag/docker.html">Docker</a> </div>
+	<div class="summary"><h4>docker技术应用场景</h4>
+<p><strong>1、场景一：节省项目环境部署时间</strong></p>
+<p><strong>1）单项目打包</strong></p>
+<p>1. 每次部署项目到测试、生产等环境，都要部署一大堆依赖的软件、工具，时间久，出错概率大。</p>
+<p>2. Docker主要理念就是环境打包部署，可在任意Docker Engine运行。</p>
+<p>3. 我们只需要将每个项目环境打包到镜像，push到镜像仓库，当有需要部署这个项目时，
+　　　　　　　　  直接pull镜像启动容器，这个项目就可以访问了！一次构建多次部署，一劳永逸。</p>
+<p><strong>2）整套项目打包</strong></p>
+<p>1. 比如有一个产品可以整套部署到客户那里，以往都是派一名实施工程师到客户那部署。</p>
+<p>2. 如果用了Docker，我们可以前期将这套项目封装打包起来，实现一键部署，分分钟钟搞定，就不需要再派人过去了。比如官方的Docker Compose编排工具。</p>
+<p><strong>3）新开源技术试用</strong></p>
+<p>1. 有时，我们想调研一些开源项目，我们可以直接从公共镜像仓库pull项目官方做好镜像启动容器即可。</p>
+<p><strong>2、场景二：环境一致性</strong></p>
+<p>1. 项目在开发电脑本地运行没问题，到了测试或生产环境就运行不起来 …</p> <a class="btn primary xsmall" href="/Docker-应用场景.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
 	<h2>Docker-基础</h2>
-	<div class="well small">Permalink: <a class="more" href="/Docker-基础.html">0999-01-01 18:44:00+00:09</a>
+	<div class="well small">Permalink: <a class="more" href="/Docker-基础.html">2019-08-08 18:44:00+02:00</a>
 by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
  in <a href="/category/docker.html">Docker</a>
 tags: <a href="/tag/docker.html">Docker</a> </div>
 	<div class="summary"><h4>什么是Docker</h4>
 <ul>
-<li>Docker 是使用最广泛的开源容器引擎</li>
-<li>一种操作系统基本的虚拟化技术</li>
+<li>
+<p>Docker 是使用最广泛的开源容器引擎</p>
+</li>
+<li>
+<p>一种操作系统基本的虚拟化技术</p>
+</li>
 <li>一种简单的应用程序打包工具</li>
 <li>依赖 Linux 内核特性：Namespace(资源隔离) 和 Cgroup（资源限制）</li>
 </ul>
 <p><strong>注：</strong>每个容器拥有一套和宿主机完全隔离的文件系统（共用linux内核），程序在这个虚拟容器里运行，就好像在真实的物理机上运行一样。</p>
-<p>​   <strong>容器：</strong></p>
+<p><strong>容器：</strong></p>
 <p><strong>1）</strong>容器是一个操作系统级别下的虚拟化技术，运行一个容器就行运行一个进程一样</p>
-<p><strong>2）</strong>容器依赖linux内核特性：Namespace（资源隔离）和Cgroups（资源限制）</p>
+<p><strong>2）</strong>容器依赖linux内核特性：Namespace（资源隔离）和 Cgroups（资源限制）</p>
 <p><strong>资源隔离：</strong></p>
 <p>1）Linux Namespaces机制提供一种资源隔离方案，每个namespace看上去就像一个单独的Linux系统。</p>
 <p>2）PID,IPC(进程通信),Network等系统资源不再是全局性的，而是属于某个特定的Namespace。</p>
 <p>3）每个namespace下的资源对于其他namespace下的资源都是透明，不可见的。</p>
 <p>4）系统中可以同时存在两个进程号为0,1,2的进程，由于属于不同的namespace，所以它们之间并不冲突。</p>
-<p>5）而在用户层面上只能看到属于用户自己namespace下的资源 …</p> <a class="btn primary xsmall" href="/Docker-基础.html">more…</a>
+<p>5 …</p> <a class="btn primary xsmall" href="/Docker-基础.html">more…</a>
 	</div>
 </div>	
 

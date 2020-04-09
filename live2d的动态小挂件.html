@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>商伟的技术博客</title>
+	<meta name="description" content="">
+	<meta name="author" content="商伟">
+
+	<!-- HTML5 shim, for IE6-8 support of HTML elements -->
+	<!--[if lt IE 9]>
+		<script src="/theme/html5.js"></script>
+	<![endif]-->
+
+	<!-- Styles -->
+	<link href="/theme/bootstrap.min.css" rel="stylesheet">
+	<link href="/theme/local.css" rel="stylesheet">
+	<link href="/theme/pygments.css" rel="stylesheet">
+
+	<!-- Feeds -->
+
+
+
+
+</head>
+<body>
+	<div class="topbar">
+	  <div class="topbar-inner">
+		<div class="container-fluid">
+		  <a class="brand" href="/">商伟的技术博客</a>
+			<ul class="nav">
+					<li ><a href="/category/django.html">Django</a></li>
+					<li ><a href="/category/docker.html">Docker</a></li>
+					<li ><a href="/category/git.html">GIT</a></li>
+					<li ><a href="/category/javascript.html">JavaScript</a></li>
+					<li ><a href="/category/mongodb.html">Mongodb</a></li>
+					<li ><a href="/category/mysql.html">MySQL</a></li>
+					<li ><a href="/category/pa-chong.html">爬虫</a></li>
+					<li ><a href="/category/python.html">Python</a></li>
+					<li ><a href="/category/rabbitmq.html">RabbitMQ</a></li>
+					<li ><a href="/category/redis.html">redis</a></li>
+					<li ><a href="/category/shu-ju-jie-gou.html">数据结构</a></li>
+					<li ><a href="/category/sui-shou-bi-ji.html">随手笔记</a></li>
+					<li ><a href="/category/supervisor.html">Supervisor</a></li>
+					<li ><a href="/category/vue.html">VUE</a></li>
+					<li ><a href="/category/wang-luo.html">网络</a></li>
+					<li class="active"><a href="/category/web.html">web</a></li>
+					<li ><a href="/category/xiao-cheng-xu.html">小程序</a></li>
+					<li ><a href="/category/xu-ni-huan-jing.html">虚拟环境</a></li>
+			</ul>
+			<p class="pull-right"><a href="/archives.html">[archives]</a> <a href="/tags.html">[tags]</a></p>
+		</div>
+	  </div>
+	</div>
+
+	<div class="container-fluid">
+	  <div class="sidebar">
+		<div class="well">
+			<h3>Blogroll</h3>
+			<ul>
+				<li><a href="http://getpelican.com/">Pelican</a></li>
+				<li><a href="http://python.org/">Python.org</a></li>
+				<li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+			</ul>
+			<div class="social">
+			<h3>Social</h3>
+			<ul>
+				<li><a href="https://han520min.github.io">hanmin</a></li>
+			</ul>
+			</div>
+		</div>
+	  </div>
+	  <div class="content">
+	<div class='article'>
+		<div class="page-header"><h1>live2d的动态小挂件</h1></div>
+		<div class="well small">Permalink: <a class="more" href="/live2d的动态小挂件.html">2020-03-07 15:03:00+01:00</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/web.html">web</a>
+tags: <a href="/tag/web.html">web</a> </div>
+		<div><p>喜欢二次元的朋友一定对大名鼎鼎的live2d技术并不陌生，live2D是一种应用于电子游戏的绘图渲染技术，技术由日本Cybernoids公司开发，通过一系列的连续图像和人物建模来生成一种类似三维模型的二维图像。</p>
+<p>可以看到本站右下角出现了一只可爱的小喵</p>
+<p><img alt="img" src="http://m.qpic.cn/psc?/V11vDzPO1w5782/zfrllz9Q9AzvUwq**DIV02dzZYRUvMYLJwvmipTxIeGo0Ttkhyrtl.fFv0K0F7EcNm9RZ36e.S8mRXkxx8Rd1Q!!/b&amp;bo=BgKCAQYCggEDCSw!&amp;rf=viewer_4"></p>
+<p>可以看到这只猫会跟着你的鼠标运动，有着伪3D的感觉，这种技术的核心就是明明是2D平面设计风格，却有3D行为交互的效果就是live2d</p>
+<p>值得一提的是Live2D游戏也风靡一时，比较著名的有《梦幻俱乐部》（DREAM C CLUB），其在android端首次使用live2d技术，可以说有着里程碑的意义，得到了业界的一致好评。</p>
+<p>live2d官方提供了很多平台的SDK），包括iOS，Android，Flash，Unity，openGL等，然后如果要在网页中呈现，则可以提供了WebGL SDK，可以参照官方网站：https://www.live2d.com/</p>
+<p>live2d不仅在移动端，同时也可以在网页中呈现，首先网页要引入官方提供的webgl的js压缩包 L2Dwidget.min.js，建议在页面底部延迟加载，因为其体积过于庞大，如果不延迟加载，会严重影响你的网站的加载速度和性能，然后在页面中写入以下代码：</p>
+<div class="highlight"><pre><span></span>var arr = [&#39;wanko&#39;,&#39;hibiki&#39;,&#39;hijiki&#39;,&#39;tororo&#39;];
+var index = Math.floor((Math.random()*arr.length));
+
+
+
+var name = arr[index];
+
+ L2Dwidget.init({
+   pluginRootPath: &quot;live2dw/&quot;,
+   pluginJsPath: &quot;lib/&quot;,
+   pluginModelPath: &quot;live2d-widget-model-&quot;+name+&quot;/assets/&quot;,
+   tagMode: false,
+   debug: false,
+   model: { jsonPath: &quot;/live2dw/live2d-widget-model-&quot;+name+&quot;/assets/&quot;+name+&quot;.model.json&quot; },
+   display: { position: &quot;right&quot;, width: 150, height: 300 },
+   mobile: { show: true },
+   log: false
+ })
+</pre></div>
+
+
+<p>这里我们设置一组小挂件模型，有猫狗和小女孩，随机获取一个模型进行加载，出现的位置设定为右下角，同时在移动端设置兼容。</p>
+<p>总体上，二次元的webgl页面技术还是很有意思的，同时对于游戏跨平台的制作有着跨时代的意义，前端技术博大精深，由小见大，学习的道路还是山高水深，最后还是贴出live2d的项目代码，博君一晒，与君共勉。</p>
+<p>https://gitee.com/QiHanXiBei/mylive</p></div>
+	</div>
+		<footer>
+		  <p>Powered by <a href="http://getpelican.com/">Pelican</a>. Theme based on <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a>.</p>
+		  <p>&copy; 商伟</p>
+		</footer>
+	  </div>
+
+	</div>
+</body>
+</html>
