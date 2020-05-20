@@ -64,13 +64,178 @@
 			<div class="social">
 			<h3>Social</h3>
 			<ul>
-				<li><a href="https://han520min.github.io">hanmin</a></li>
+				<li><a href="https://lienze.tech/">老渔夫吃虾米</a></li>
 			</ul>
 			</div>
 		</div>
 	  </div>
 	  <div class="content">
 <div class="page-header"><h1> 商伟的技术博客 </h1></div>
+<div class='article'>
+	<h2>Python-三大排序</h2>
+	<div class="well small">Permalink: <a class="more" href="/Python-三大排序.html">1001-01-01 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/python.html">Python</a>
+tags: <a href="/tag/python.html">Python</a> </div>
+	<div class="summary"><h4>冒泡排序（最好是O(n), 最坏O(n2)）</h4>
+<p><strong>原理：</strong>拿自己与上面一个比较，如果上面一个比自己小就将自己和上面一个调换位置，依次再与上面一个比较，第一轮结束后最上面那个一定是最大的数.</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+<span class="k">def</span> <span class="nf">bubble_sort</span><span class="p">(</span><span class="n">li</span><span class="p">):</span>
+   <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">li</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+      <span class="n">exchange</span> <span class="o">=</span> <span class="bp">False</span>
+      <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">li</span><span class="p">)</span> <span class="o">-</span> <span class="n">i</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>  <span class="c1">#内层for循环执行一次，选出一个最大值，将可以调换位置的数调整</span>
+         <span class="k">if</span> <span class="n">li</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">li</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]:</span>
+            <span class="n">li</span><span class="p">[</span><span class="n">j</span><span class="p">],</span><span class="n">li</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">li</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span><span class="n">li …</span></pre></div> <a class="btn primary xsmall" href="/Python-三大排序.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>Python-公共方法</h2>
+	<div class="well small">Permalink: <a class="more" href="/Python-公共方法.html">1000-01-10 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/python.html">Python</a>
+tags: <a href="/tag/python.html">Python</a> </div>
+	<div class="summary"><h5>运算符</h5>
+<table>
+<thead>
+<tr>
+<th align="left">运算符</th>
+<th>Python 表达式</th>
+<th>结果</th>
+<th>描述</th>
+<th>支持的数据类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">+</td>
+<td>[1, 2] + [3, 4]</td>
+<td>[1, 2, 3, 4]</td>
+<td>合并</td>
+<td>字符串、列表、元组</td>
+</tr>
+<tr>
+<td align="left">*</td>
+<td>['Hi!'] * 4</td>
+<td>['Hi!', 'Hi!', 'Hi!', 'Hi!']</td>
+<td>复制</td>
+<td>字符串、列表、元组</td>
+</tr>
+<tr>
+<td align="left">in</td>
+<td>3 in (1, 2, 3)</td>
+<td>True</td>
+<td>元素是否存在</td>
+<td>字符串、列表、元组、字典</td>
+</tr>
+<tr>
+<td align="left">not in</td>
+<td>4 not in (1, 2, 3)</td>
+<td>True …</td></tr></tbody></table> <a class="btn primary xsmall" href="/Python-公共方法.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>Python-正则</h2>
+	<div class="well small">Permalink: <a class="more" href="/Python-正则.html">1000-01-10 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/python.html">Python</a>
+tags: <a href="/tag/python.html">Python</a> </div>
+	<div class="summary"><p>[TOC]</p>
+<h3>正则</h3>
+<blockquote>
+<p>一些特殊符号及文本组合在一起的用来描述字符或字符串的一些规则，叫做正则</p>
+</blockquote>
+<h4>正则中的特殊符号</h4>
+<blockquote>
+<p><strong>匹配一个范围</strong>： <strong>[]</strong>
+<strong>[A-Z]</strong>：A, B, C…
+<strong>[0-9]</strong>：1, 2, 3…</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><strong>匹配任何数字字符</strong>：<strong>\d</strong>
+<strong>\d</strong>：1, 2, 3…</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><strong>匹配任何空白符</strong>：<strong>\s</strong>
+<strong>\s</strong>：\t (水平制表), \v (垂直制表), \n (换行), \r (回车), \f (换页)</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><strong>匹配任何数字、字母、字符及下划线</strong>：<strong>\w</strong>
+<strong>\w</strong>： a, 1, _</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><strong>匹配除了换行符任意一个单个字符</strong>：<strong>.</strong>
+a<strong>.</strong>c：abc, a2c, a_c
+<strong>..</strong>：匹配任意字符组成的两个长度的字符串</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><strong>匹配前面出现的正则表达式0次或多次</strong>：<strong><em>*</em></strong>
+a …</p></blockquote> <a class="btn primary xsmall" href="/Python-正则.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>Python-集合</h2>
+	<div class="well small">Permalink: <a class="more" href="/Python-集合.html">1000-01-10 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/python.html">Python</a>
+tags: <a href="/tag/python.html">Python</a> </div>
+	<div class="summary"><p>[TOC]</p>
+<h4>集合的介绍</h4>
+<ul>
+<li>
+<p>集合(set)</p>
+</li>
+<li>
+<p>集合是无序的，集合中的元素是唯一的，集合一般用于元组或者列表中的元素去重</p>
+</li>
+</ul>
+<h5>集合的添加操作</h5>
+<ul>
+<li>add</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="n">set1</span><span class="p">.</span><span class="k">add</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+</pre></div>
+
+
+<ul>
+<li>update</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="c1">#是把要传入的元素拆分，做为个体传入到集合中</span>
+<span class="n">set1</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s2">&quot;abcd&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<h5>集合的删除操作</h5>
+<ul>
+<li>
+<p>remove</p>
+</li>
+<li>
+<p>使用remove删除集合中的元素 如果有 直接删除 如果没有 程序报错</p>
+<p>set1.remove(22)</p>
+</li>
+<li>
+<p>pop</p>
+</li>
+<li>使用pop删除是随机删除集合中的元素 如果set1没有元素讲程序报</li>
+<li>
+<p>set1.pop()</p>
+</li>
+<li>
+<p>discard</p>
+</li>
+<li>使用discard删除 如果元素存在 直接删除 如果元素不存在 不做任何操</li>
+<li>set1.discard(2)</li>
+</ul>
+<h4>交集和并集( &amp; 和 | )</h4>
+<h5>交集</h5>
+<div class="highlight"><pre><span></span><span class="n">set1</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4 …</span></pre></div> <a class="btn primary xsmall" href="/Python-集合.html">more…</a>
+	</div>
+</div>	
 <div class='article'>
 	<h2>Python-元祖</h2>
 	<div class="well small">Permalink: <a class="more" href="/Python-元祖.html">1000-01-09 18:44:00+00:09</a>
@@ -294,156 +459,6 @@ tags: <a href="/tag/python.html">Python</a> </div>
 <h1>while循环</h1>
 <h2>&lt;1&gt;while循环的格式</h2>
 <div class="highlight"><pre><span></span>    while 条件 …</pre></div> <a class="btn primary xsmall" href="/Python循环-while.html">more…</a>
-	</div>
-</div>	
-<div class='article'>
-	<h2>MySQL事务和锁</h2>
-	<div class="well small">Permalink: <a class="more" href="/MySQL事务和锁.html">1000-01-04 18:44:00+00:09</a>
-by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/mysql.html">MySQL</a>
-tags: <a href="/tag/mysql.html">MySQL</a> </div>
-	<div class="summary"><h4>InnoDB与MyISAM区别</h4>
-<ul>
-<li>MyISAM不支持事物回滚，InnoDB是支持事物</li>
-<li>MyISAM和MEMORY存储引擎采用的是表级锁（table-level locking）。</li>
-<li>InnoDB存储引擎既支持行级锁（row-level locking），也支持表级锁，但默认情况下是采用行级锁。</li>
-<li>MyISAM更适合查询多的情况</li>
-<li>InnoDB更适合写入多的</li>
-</ul>
-<h4>行级锁 &amp; 表级锁</h4>
-<ul>
-<li>行级锁（写多读少）开销大，加锁慢，锁定粒度最小，发生锁冲突概率最低，并发度最高</li>
-<li>表级锁（适合大量读）开销小，加锁快，锁定粒度大、发生锁冲突最高，并发度最低</li>
-</ul>
-<h4>乐观锁&amp;悲观锁</h4>
-<ul>
-<li>乐观锁（写少读多）：读取商品数量时不加锁，到修改商品数量是回校验，当前商品数量和刚读取的数量是否一致，如果相同加排他锁，然后写入，否则重试</li>
-<li>悲观锁（写多读少）：读取商品数量时就加一把排它锁，直到修改商品数量完成释放排它锁，其他线程才能读取商品数量</li>
-</ul>
-<h4>共享锁 &amp; 排它锁</h4>
-<ul>
-<li>共享锁（读锁）：所有线程都可以读这个数据，但不能写 …</li></ul> <a class="btn primary xsmall" href="/MySQL事务和锁.html">more…</a>
-	</div>
-</div>	
-<div class='article'>
-	<h2>if语句</h2>
-	<div class="well small">Permalink: <a class="more" href="/if语句.html">1000-01-04 18:44:00+00:09</a>
-by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/python.html">Python</a>
-tags: <a href="/tag/python.html">Python</a> </div>
-	<div class="summary"><h3>if介绍</h3>
-<ul>
-<li>如果某些条件满足，才能做某件事情；条件不满足时，则不能做，这就是所谓的判断。</li>
-<li>不仅生活中有，在软件开发中"判断"功能也经常会用到</li>
-</ul>
-<h3>一、if判断语句</h3>
-<h3>&lt;1&gt;if判断语句介绍</h3>
-<ul>
-<li>if语句是用来进行判断的，其使用格式如下：</li>
-</ul>
-<div class="highlight"><pre><span></span>    <span class="k">if</span> <span class="err">要判断的条件</span><span class="p">:</span>
-        <span class="err">条件成立时，要做的事情</span>
-</pre></div>
-
-
-<ul>
-<li>demo1:（demo的中文意思：演示、案例）</li>
-</ul>
-<div class="highlight"><pre><span></span>    <span class="n">age</span> <span class="o">=</span> <span class="mi">30</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;------if判断开始------&quot;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;我已经成年了&quot;</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;------if判断结束------&quot;</span><span class="p">)</span>
-</pre></div>
-
-
-<ul>
-<li>运行结果:</li>
-</ul>
-<div class="highlight"><pre><span></span>    <span class="o">------</span><span class="n">if判断开始</span><span class="o">------</span>
-    <span class="err">我已经成年了</span>
-    <span class="o">------</span><span class="n">if判断结束</span><span class="o">------</span>
-</pre></div>
-
-
-<ul>
-<li>demo2:</li>
-</ul>
-<div class="highlight"><pre><span></span>    <span class="n">age</span> <span class="o">=</span> <span class="mi">16</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;------if判断开始------&quot;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;我已经成年了&quot;</span><span class="p">)</span>
-    <span class="k">print …</span></pre></div> <a class="btn primary xsmall" href="/if语句.html">more…</a>
-	</div>
-</div>	
-<div class='article'>
-	<h2>MySQL存储引擎MyISAM与InnoDB区别总结整理</h2>
-	<div class="well small">Permalink: <a class="more" href="/MySQL存储引擎MyISAM与InnoDB区别总结整理.html">1000-01-03 18:44:00+00:09</a>
-by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/mysql.html">MySQL</a>
-tags: <a href="/tag/mysql.html">MySQL</a> </div>
-	<div class="summary"><h4>MySQL默认存储引擎的变迁</h4>
-<ul>
-<li>在MySQL 5.5之前的版本中，默认的搜索引擎是MyISAM，从MySQL 5.5之后的版本中，默认的搜索引擎变更为InnoDB。</li>
-</ul>
-<h4>MyISAM与InnoDB存储引擎的主要特点</h4>
-<p>1).MyISAM存储引擎的特点是：<strong>表级锁、不支持事务、支持全文索引</strong>，适合一些CMS内容管理系统作为后台数据库使用，但是使用大并发、重负荷生产系统上，表锁结构的特性就显得力不从心；</p>
-<p>2).InnoDB存储引擎的特点是：<strong>行级锁、事务安全（ACID兼容）、支持外键</strong>、不支持FULLTEXT类型的索引(<strong>5.6.4</strong>以后版本开始支持FULLTEXT类型的索引)。<strong>InnoDB存储引擎提供了具有提交、 回滚和崩溃恢复能力的事务安全存储引擎</strong>。InnoDB是为处理巨大量时拥有最大性能而设计的。它的CPU效率可能是任何其他基于磁盘的关系数据库引擎所不能匹敌的。</p>
-<ul>
-<li>行级锁</li>
-<li>行级锁是Mysql中锁定粒度最细的一种锁，表示只针对当前操作的行进行加锁。行级锁能大大减少数据库操作的冲突。其加锁粒度最小，但加锁的开销也最大。行级锁分为共享锁 和 排他锁。</li>
-<li>
-<p>特点：开销大，加锁慢；会出现死锁；锁定粒度最小，发生锁冲突的概率最低，并发度也最高 …</p></li></ul> <a class="btn primary xsmall" href="/MySQL存储引擎MyISAM与InnoDB区别总结整理.html">more…</a>
-	</div>
-</div>	
-<div class='article'>
-	<h2>Python运算符</h2>
-	<div class="well small">Permalink: <a class="more" href="/Python运算符.html">1000-01-03 18:44:00+00:09</a>
-by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/python.html">Python</a>
-tags: <a href="/tag/python.html">Python</a> </div>
-	<div class="summary"><h2>运算符</h2>
-<p>python支持以下几种运算符</p>
-<h3>1. 算术运算符</h3>
-<p>下面以a=10 ,b=20为例进行计算</p>
-<table>
-<thead>
-<tr>
-<th align="left">运算符</th>
-<th align="center">描述</th>
-<th>实例</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">+</td>
-<td align="center">加</td>
-<td>两个对象相加 a + b 输出结果 30</td>
-</tr>
-<tr>
-<td align="left">-</td>
-<td align="center">减</td>
-<td>得到负数或是一个数减去另一个数 a - b 输出结果 -10</td>
-</tr>
-<tr>
-<td align="left">*</td>
-<td align="center">乘</td>
-<td>两个数相乘或是返回一个被重复若干次的字符串 a * b 输出结果 200</td>
-</tr>
-<tr>
-<td align="left">/</td>
-<td align="center">除</td>
-<td>b / a 输出结果 2</td>
-</tr>
-<tr>
-<td align="left">//</td>
-<td align="center">取整除</td>
-<td>返回商的整数部分 9//2 输出结果 4 , 9.0//2.0 输出结果 4.0</td>
-</tr>
-<tr>
-<td align="left">%</td>
-<td align="center">取余</td>
-<td>返回除法的余数 b …</td></tr></tbody></table> <a class="btn primary xsmall" href="/Python运算符.html">more…</a>
 	</div>
 </div>	
 

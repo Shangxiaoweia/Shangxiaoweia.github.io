@@ -64,13 +64,164 @@
 			<div class="social">
 			<h3>Social</h3>
 			<ul>
-				<li><a href="https://han520min.github.io">hanmin</a></li>
+				<li><a href="https://lienze.tech/">老渔夫吃虾米</a></li>
 			</ul>
 			</div>
 		</div>
 	  </div>
 	  <div class="content">
 <div class="page-header"><h1>商伟的技术博客 <small>商伟</small></h1></div>
+<div class='article'>
+	<h2>MySQL主从</h2>
+	<div class="well small">Permalink: <a class="more" href="/MySQL主从.html">2020-05-18 17:59:00+02:00</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/mysql.html">MySQL</a>
+tags: <a href="/tag/mysql.html">MySQL</a> </div>
+	<div class="summary"><h3>1.1 mysql主从同步</h3>
+<h4><em>1、mysql主从同步（复制）概念</em></h4>
+<div class="highlight"><pre><span></span>    <span class="mi">1</span><span class="p">.</span> <span class="err">将</span><span class="n">Mysql某一台主机数据复制到其它主机</span><span class="err">（</span><span class="n">slaves</span><span class="err">）上，并重新执行一遍来实现的。</span>
+
+    <span class="mi">2</span><span class="p">.</span> <span class="err">复制过程中一个服务器充当主服务器，而一个或多个其它服务器充当从服务器。</span>
+
+    <span class="mi">3</span><span class="p">.</span> <span class="err">主服务器将更新写入二进制日志文件，并维护文件的一个索引以跟踪日志循环。</span>
+
+    <span class="mi">4</span><span class="p">.</span> <span class="err">当一个从服务器连接主服务器时，它通知主服务器从服务器在日志中读取的最后一次成功更新的位置。</span>
+
+    <span class="mi">5</span><span class="p">.</span> <span class="err">从服务器接收从那时起发生的任何更新，然后封锁并等待主服务器通知新的更新。</span>
+
+    <span class="n">binlog</span><span class="err">：是二进制日志文件，用于记录</span><span class="n">mysql的数据更新或者潜在更新</span><span class="p">(</span><span class="err">比如</span><span class="n">DELETE语句执行删除而实际并没有符合条件的数据</span><span class="p">)</span>
+</pre></div>
+
+
+<h4><em>2、Mysql支持哪些复制</em></h4>
+<div class="highlight"><pre><span></span>    <span class="mi">1</span><span class="p">.</span> <span class="err">基于语句的复制</span><span class="p">:</span> <span class="err">在主服务器执行</span><span class="n">SQL语句</span><span class="err">，在从服务器执行同样语句。</span>
+
+        <span class="err">注：</span><span class="n">MySQL默认采用基于语句的复制</span><span class="err">，效率较高。一旦发现没法精确复制时</span><span class="p">,</span> <span class="err">会自动选基于行的复制。</span>
+
+    <span class="mi">2</span><span class="p">.</span> <span class="err">基于行的复制</span><span class="p">:</span> <span class="err">把改变的内容复制过去，而不是把命令在从服务器上执行一遍</span><span class="p">.</span> <span class="err">从</span><span class="n">mysql5</span><span class="p">.</span><span class="mi">0 …</span></pre></div> <a class="btn primary xsmall" href="/MySQL主从.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>Python-进程、线程、协成</h2>
+	<div class="well small">Permalink: <a class="more" href="/Python-进程、线程、协成.html">2020-05-17 22:01:00+02:00</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/python.html">Python</a>
+tags: <a href="/tag/python.html">Python</a> </div>
+	<div class="summary"><h2>1.进程</h2>
+<ul>
+<li>
+<p>进程</p>
+</li>
+<li>
+<p><strong>进程是资源分配的最小单位（ 内存、cpu、网络、io）</strong></p>
+</li>
+<li><strong>一个运行起来的程序就是一个进程</strong><ul>
+<li>什么是程序（程序是我们存储在硬盘里的代码）</li>
+<li>硬盘（256G）、内存条（8G）</li>
+<li>当我们双击图标，打开程序的时候，实际上就是通过I/O操作（读写）内存条里面</li>
+<li>内存条就是我们所指的资源</li>
+<li>CPU分时</li>
+<li>CPU比你的手速快多了，分时处理每个线程，但是由于太快然你觉得每个线程都是独占cpu</li>
+<li>cpu是计算，只有时间片到了，获取cpu，线程真正执行</li>
+<li>当你想使用 网络、磁盘等资源的时候，需要cpu的调度</li>
+</ul>
+</li>
+<li><strong>进程具有独立的内存空间，所以没有办法相互通信</strong><ul>
+<li>进程如何通信</li>
+<li>进程queue(父子进程通信)</li>
+<li>pipe（同一程序下两个进程通信）</li>
+<li>managers（同一程序下多个进程通信）</li>
+<li>RabbitMQ、redis等（不同程序间通信）</li>
+</ul>
+</li>
+<li>为什么需要进程池<ul>
+<li>一次性开启指定数量的进程</li>
+<li>如果有十个进程，有一百个任务 …</li></ul></li></ul> <a class="btn primary xsmall" href="/Python-进程、线程、协成.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>Python-select、epool、pool</h2>
+	<div class="well small">Permalink: <a class="more" href="/Python-select、epool、pool.html">2020-05-16 23:21:00+02:00</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/python.html">Python</a>
+tags: <a href="/tag/python.html">Python</a> </div>
+	<div class="summary"><p>https://www.cnblogs.com/xiaonq/p/7907871.html</p>
+<ul>
+<li>
+<p>I/O的实质是什么？</p>
+</li>
+<li>
+<p>I/O的实质是将硬盘中的数据，或收到的数据实现从内核态 copy到 用户态的过程</p>
+</li>
+<li>本文讨论的背景是Linux环境下的network IO。</li>
+<li>
+<p>比如微信读取本地硬盘的过程</p>
+<ul>
+<li>微信进程会发送一个读取硬盘的请求----》操作系统</li>
+<li>只有内核才能够读取硬盘中的数据---》数据返回给微信程序（看上去就好像是微信直接读取）</li>
+</ul>
+</li>
+<li>
+<p>用户态 &amp; 内核态</p>
+</li>
+<li>
+<p>系统空间分为两个部分，一部分是内核态，一部分是用户态的部分</p>
+</li>
+<li>内核态：内核态的空间资源只有操作系统能够访问</li>
+<li>用户态：我们写的普通程序使用的空间</li>
+<li>
+<p><img alt="1582510462530" src="http://m.qpic.cn/psc?/V11vDzPO1w5782/evyMJ*ZwKmN7EwaKYDZ0cDadIcxPvUtyq26XjyS3icpqLFiFeUQCWbsf1I439OGpHZwFEC6w5qVvJpErSm1jCQxClOw7rgXRtX3OJnmGqC8!/b&amp;bo=uQIiAbkCIgEDGTw!&amp;rf=viewer_4"></p>
+</li>
+<li>
+<p>select</p>
+</li>
+<li>
+<p>只能处理1024个连接（每一个请求都可以理解为一个连接）</p>
+</li>
+<li>
+<p>不能告诉用户程序，哪一个连接是活跃的</p>
+</li>
+<li>
+<p>pool</p>
+</li>
+<li>
+<p>只是取消了最大1024个活跃的限制</p>
+</li>
+<li>
+<p>不能告诉用户程序，哪一个连接是活跃的</p>
+</li>
+<li>
+<p>epool</p>
+</li>
+<li>
+<p>不仅取消了1024这个最大连接限制</p>
+</li>
+<li>而且能告诉用户程序哪一个是活跃的</li>
+</ul>
+<p><img alt="1582511897842" src="http://m.qpic.cn/psc?/V11vDzPO1w5782/zfrllz9Q9AzvUwq**DIV06L1IvNDVGxwhmYi*FhGiz34ygye1PKnkaAMagHo48kOlODvU7yuGLSuRIVHTPd9Sw!!/b&amp;bo=CARXAwgEVwMDCSw!&amp;rf=viewer_4"></p> <a class="btn primary xsmall" href="/Python-select、epool、pool.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>PEP8</h2>
+	<div class="well small">Permalink: <a class="more" href="/PEP8.html">2020-05-14 13:05:00+02:00</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/python.html">Python</a>
+tags: <a href="/tag/python.html">Python</a> </div>
+	<div class="summary"><p>缩进。4个空格的缩进（编辑器都可以完成此功能），不使用Tap，更不能混合使用Tap和空格。</p>
+<p>每行最大长度79，换行可以使用反斜杠，最好使用圆括号。换行点要在操作符的后边敲回车。</p>
+<p>类和top-level函数定义之间空两行；类中的方法定义之间空一行；函数内逻辑无关段落之间空一行；其他地方尽量不要再空行。</p>
+<p>块注释，在一段代码前增加的注释。在‘#’后加一空格。段落之间以只有‘#’的行间隔</p>
+<p>各种右括号前不要加空格。</p>
+<p>逗号、冒号、分号前不要加空格。</p>
+<p>函数的左括号前不要加空格。如Func(1)。</p>
+<p>序列的左括号前不要加空格。如list[2]。</p>
+<p>操作符左右各加一个空格，不要为了对齐增加空格。</p>
+<p>函数默认参数使用的赋值符左右省略空格。</p>
+<p>不要将多句语句写在同一行，尽管使用‘；’允许。</p>
+<p>if/for/while语句中，即使执行语句只有一句，也必须另起一行。</p>
+<p>类的方法第一个参数必须是self，而静态方法第一个参数必须是cls。</p> <a class="btn primary xsmall" href="/PEP8.html">more…</a>
+	</div>
+</div>	
 <div class='article'>
 	<h2>自定义鼠标指针</h2>
 	<div class="well small">Permalink: <a class="more" href="/自定义鼠标指针.html">2020-04-09 21:52:00+02:00</a>
@@ -225,137 +376,6 @@ tags: <a href="/tag/django.html">Django</a> </div>
   from django.conf import settings
   def sendMsg<span class="o">()</span>:
     <span class="nv">res …</span></pre></div> <a class="btn primary xsmall" href="/Django126发送邮件.html">more…</a>
-	</div>
-</div>	
-<div class='article'>
-	<h2>Django一对多查询</h2>
-	<div class="well small">Permalink: <a class="more" href="/Django一对多查询.html">2019-08-08 18:44:00+02:00</a>
-by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/django.html">Django</a>
-tags: <a href="/tag/django.html">Django</a> </div>
-	<div class="summary"><h2>Django一对多查询</h2>
-<ul>
-<li><code>models.py</code></li>
-</ul>
-<div class="highlight"><pre><span></span>  <span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
-
-  <span class="c1"># 创建用户</span>
-  <span class="k">class</span> <span class="nc">User</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
-      <span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">32</span><span class="p">)</span>
-  <span class="c1"># 创建书籍  </span>
-  <span class="k">class</span> <span class="nc">Book</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
-      <span class="n">title</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">32</span><span class="p">)</span>
-      <span class="n">us</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Foreign</span><span class="p">(</span><span class="s1">&#39;User&#39;</span><span class="p">,</span><span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">CASCADE</span><span class="p">)</span>
-</pre></div>
-
-
-<ul>
-<li><code>views.py</code></li>
-</ul>
-<div class="highlight"><pre><span></span>  <span class="kn">from</span> <span class="nn">django.shortcus</span> <span class="kn">import</span> <span class="n">render</span><span class="p">,</span><span class="n">HttpResponse</span>
-  <span class="kn">import</span> <span class="nn">models</span>
-  <span class="c1"># 通过人查询书</span>
-  <span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
-      <span class="n">user …</span></pre></div> <a class="btn primary xsmall" href="/Django一对多查询.html">more…</a>
-	</div>
-</div>	
-<div class='article'>
-	<h2>Django一对多系列化与反序列化</h2>
-	<div class="well small">Permalink: <a class="more" href="/Django一对多系列化与反序列化.html">2019-08-08 18:44:00+02:00</a>
-by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/django.html">Django</a>
-tags: <a href="/tag/django.html">Django</a> </div>
-	<div class="summary"><h2>DRF一对多序列化和反序列化</h2>
-<ul>
-<li><code>models.py</code></li>
-</ul>
-<div class="highlight"><pre><span></span>  <span class="c1"># 商品分类</span>
-  class Category<span class="o">(</span>models.Model<span class="o">)</span>:
-      <span class="nv">name</span> <span class="o">=</span> models.CharField<span class="o">(</span><span class="nv">max_length</span><span class="o">=</span><span class="m">32</span><span class="o">)</span>
-
-  <span class="c1"># 商品</span>
-  class Goods<span class="o">(</span>models.Model<span class="o">)</span>:
-      <span class="nv">name</span> <span class="o">=</span> models.CharField<span class="o">(</span><span class="nv">max_length</span><span class="o">=</span><span class="m">32</span><span class="o">)</span>
-      <span class="nv">price</span> <span class="o">=</span> models.DecimalField<span class="o">(</span><span class="nv">max_digits</span><span class="o">=</span><span class="m">9</span>,decimal_places<span class="o">=</span><span class="m">2</span><span class="o">)</span>
-      <span class="nv">cate</span> <span class="o">=</span> models.ForeignKey<span class="o">(</span><span class="nv">to</span><span class="o">=</span><span class="s1">&#39;Category&#39;</span>,on_delete<span class="o">=</span>models.CASCADE<span class="o">)</span>
-</pre></div>
-
-
-<ul>
-<li><code>urls.py</code></li>
-</ul>
-<div class="highlight"><pre><span></span>  from django.urls import path,include
-  from . import views
-  <span class="nv">urlpatterns …</span></pre></div> <a class="btn primary xsmall" href="/Django一对多系列化与反序列化.html">more…</a>
-	</div>
-</div>	
-<div class='article'>
-	<h2>Django上传图片</h2>
-	<div class="well small">Permalink: <a class="more" href="/Django上传图片.html">2019-08-08 18:44:00+02:00</a>
-by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/django.html">Django</a>
-tags: <a href="/tag/django.html">Django</a> </div>
-	<div class="summary"><h3>最简单的保存图片与展示</h3>
-<ul>
-<li>
-<p>在Django里面</p>
-</li>
-<li>
-<p>根目录创建 static 文件夹</p>
-</li>
-<li>
-<p>settings</p>
-</li>
-</ul>
-<div class="highlight"><pre><span></span>STATIC_URL = &#39;/static/&#39;
-
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, &#39;static&#39;),
-)
-</pre></div>
-
-
-<ul>
-<li>views</li>
-</ul>
-<div class="highlight"><pre><span></span>from datetime import datetime
-class Addimg(APIView):
-    def post(self, request):
-       data = request.data
-        img = data.get(&#39;img&#39;)
-        now = datetime.strftime(datetime.now(), &#39;%Y%m%d%H%M%S%f&#39;)
-        with open(&#39;static/imgs/&#39; + now …</pre></div> <a class="btn primary xsmall" href="/Django上传图片.html">more…</a>
-	</div>
-</div>	
-<div class='article'>
-	<h2>Django多对多操作</h2>
-	<div class="well small">Permalink: <a class="more" href="/Django多对多操作.html">2019-08-08 18:44:00+02:00</a>
-by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/django.html">Django</a>
-tags: <a href="/tag/django.html">Django</a> </div>
-	<div class="summary"><h2>django 多对多操作</h2>
-<ul>
-<li>模型</li>
-</ul>
-<div class="highlight"><pre><span></span>  from django.db import models
-
-  <span class="c1"># 老师</span>
-  class Teacher<span class="o">(</span>models.Model<span class="o">)</span>:
-      <span class="nv">name</span> <span class="o">=</span> models.CharField<span class="o">(</span><span class="nv">max_length</span><span class="o">=</span><span class="m">32</span><span class="o">)</span>
-
-  <span class="c1"># 学生</span>
-  class Student<span class="o">(</span>models.Model<span class="o">)</span>:
-      <span class="nv">name</span> <span class="o">=</span> models.CharField<span class="o">(</span><span class="nv">max_length</span><span class="o">=</span><span class="m">32</span><span class="o">)</span>
-      <span class="nv">teachers</span> <span class="o">=</span> models.ManyToManyField<span class="o">(</span><span class="nv">to</span><span class="o">=</span><span class="s1">&#39;Teacher&#39;</span>,on_delete<span class="o">=</span>models.CASCADE<span class="o">)</span>
-</pre></div>
-
-
-<ul>
-<li>查询</li>
-</ul>
-<div class="highlight"><pre><span></span>  <span class="c1"># 通过老师查学生</span>
-  <span class="nv">teacher</span> <span class="o">=</span> Teacher.objects.filter<span class="o">(</span><span class="nv">id</span><span class="o">=</span><span class="m">1</span><span class="o">)</span>.first<span class="o">()</span>
-  <span class="nv">students</span> <span class="o">=</span> teacher.student_set.all<span class="o">()</span> <span class="c1"># 获取所有学生信息 …</span></pre></div> <a class="btn primary xsmall" href="/Django多对多操作.html">more…</a>
 	</div>
 </div>	
 

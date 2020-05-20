@@ -64,13 +64,138 @@
 			<div class="social">
 			<h3>Social</h3>
 			<ul>
-				<li><a href="https://han520min.github.io">hanmin</a></li>
+				<li><a href="https://lienze.tech/">老渔夫吃虾米</a></li>
 			</ul>
 			</div>
 		</div>
 	  </div>
 	  <div class="content">
 <div class="page-header"><h1> 商伟的技术博客 </h1></div>
+<div class='article'>
+	<h2>创建与使用虚拟环境</h2>
+	<div class="well small">Permalink: <a class="more" href="/创建与使用虚拟环境.html">1000-01-01 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/xu-ni-huan-jing.html">虚拟环境</a>
+tags: <a href="/tag/xu-ni-huan-jing.html">虚拟环境</a> </div>
+	<div class="summary"><h2>创建与使用环境</h2>
+<div class="highlight"><pre><span></span><span class="o">#</span> <span class="err">安装</span><span class="p">:</span>
+
+<span class="n">pip</span> <span class="n">install</span> <span class="n">virtualenvwrapper</span><span class="o">-</span><span class="n">win</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="o">#</span> <span class="err">常用命令</span><span class="p">:</span>
+
+<span class="n">mkvirtualenv</span> <span class="n">envname</span>  <span class="o">#</span> <span class="err">创建虚拟环境并自动切换到该环境下</span>
+
+<span class="n">workon</span> <span class="n">envname</span>  <span class="o">#</span> <span class="err">切换到某虚拟环境下</span>
+
+<span class="n">pip</span> <span class="n">list</span> <span class="o">#</span> <span class="err">查看蓄奴环境下的安装包</span>
+
+<span class="n">rmvirtualenv</span> <span class="n">envname</span>  <span class="o">#</span> <span class="err">删除虚拟环境</span>
+
+<span class="n">deactivate</span>  <span class="o">#</span> <span class="err">退出虚拟环境</span>
+
+<span class="n">lsvirtualenv</span> <span class="o">&amp;</span> <span class="n">workon</span> <span class="o">#</span> <span class="err">列出所有常见的虚拟环境</span>
+
+<span class="n">mkvirtualenv</span> <span class="c1">--python==C:\...\python.exe envname  # 指定Python解释器创建虚拟环境</span>
+</pre></div> <a class="btn primary xsmall" href="/创建与使用虚拟环境.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>初识MySQL</h2>
+	<div class="well small">Permalink: <a class="more" href="/初识MySQL.html">1000-01-01 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/mysql.html">MySQL</a>
+tags: <a href="/tag/mysql.html">MySQL</a> </div>
+	<div class="summary"><h4>1.为什么学习数据库</h4>
+<div class="highlight"><pre><span></span>数据的存储方式大致有内存存储, 文件存储, 数据库存储. 其中内存存储有断电消失的特性, 不适合永久保存数据. 文件存储不利于数据的查询有调用.所以采用数据库形式存储数据.
+数据库具有以下优点:
+　　　　1).持久化数据到本地
+　　　　2).可以实现结构化查询, 方便管理数据
+</pre></div>
+
+
+<h4>2.数据库相关概念</h4>
+<div class="highlight"><pre><span></span>　　　　(1).DB : 数据库, 英文全称为DataBase. 是存储数据的仓库, 其中保存了一系列有组织的数据.
+　　　　(2).DBMS : 数据库管理系统, 英文全称为Database Management System. 数据库是通过DBMS常见和操作的容器.常见数据库管理系统 : MySQL, Oracle, DB2(适合处理海量数据), SQLServer
+　　　　(3).SQL : 结构化查询语言(Structure Query Language), 专门用来与数据库通信的语言.
+</pre></div>
+
+
+<h4>3.SQL的优点:</h4>
+<div class="highlight"><pre><span></span>　　　　(1).不是某个特定数据库供应商专有的语言, 几乎所有DBMS都支持SQL
+　　　　(2).简单易学 …</pre></div> <a class="btn primary xsmall" href="/初识MySQL.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>如何安装mongodb</h2>
+	<div class="well small">Permalink: <a class="more" href="/如何安装mongodb.html">1000-01-01 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/mongodb.html">Mongodb</a>
+tags: <a href="/tag/mongodb.html">Mongodb</a> </div>
+	<div class="summary"><h5>创建一个<code>/etc/yum.repos.d/mongodb-org-4.2.repo</code>文件，以便您可以使用<code>yum</code>以下命令直接安装MongoDB ：</h5>
+<div class="highlight"><pre><span></span>touch /etc/yum.repos.d/mongodb-org-4.2.repo
+</pre></div>
+
+
+<h5>编写</h5>
+<div class="highlight"><pre><span></span>[mongodb-org-4.2]
+name=MongoDB Repository
+baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/4.2/x86_64/
+gpgcheck=1
+enabled=1
+gpgkey=https://www.mongodb.org/static/pgp/server-4 …</pre></div> <a class="btn primary xsmall" href="/如何安装mongodb.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>如何安装python3</h2>
+	<div class="well small">Permalink: <a class="more" href="/如何安装python3.html">1000-01-01 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/python.html">Python</a>
+tags: <a href="/tag/python.html">Python</a> </div>
+	<div class="summary"><h5>CentOS7下安装python3</h5>
+<p>yun安装</p>
+<div class="highlight"><pre><span></span>yum install python3
+# 下面的命令是用来解决找不到python.h
+yum list |grep python3 |grep devel
+yum install python3-devel.x86_64
+</pre></div>
+
+
+<p>1、安装pyhton3.7 的依赖包</p>
+<div class="highlight"><pre><span></span>yum -y groupinstall &quot;Development tools&quot;
+yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel libffi-devel
+</pre></div>
+
+
+<p>2、下载python3.7的“源码”：</p>
+<div class="highlight"><pre><span></span>wget https://www.python.org …</pre></div> <a class="btn primary xsmall" href="/如何安装python3.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>微信小程序发起请求</h2>
+	<div class="well small">Permalink: <a class="more" href="/微信小程序发起请求.html">1000-01-01 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/xiao-cheng-xu.html">小程序</a>
+tags: <a href="/tag/xiao-cheng-xu.html">小程序</a> </div>
+	<div class="summary"><h4>发起请求</h4>
+<h5>发起请求使用的是wx.request相当于axios或者ajax，发起的请求</h5>
+<p>官方文档    <a href="https://developers.weixin.qq.com/miniprogram/dev/api/network/request/wx.request.html">https://developers.weixin.qq.com/miniprogram/dev/api/network/request/wx.request.html</a></p>
+<h5>代码</h5>
+<div class="highlight"><pre><span></span>&lt;button <span class="nv">bindtap</span><span class="o">=</span><span class="s1">&#39;click&#39;</span>&gt;按钮1&lt;/button&gt;  <span class="c1">#点击按钮触发click事件</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span> <span class="n">click</span><span class="p">:</span><span class="n">function</span><span class="p">(){</span>
+    <span class="n">var</span> <span class="n">thit</span> <span class="o">=</span> <span class="n">this</span>
+    <span class="n">wx</span><span class="o">.</span><span class="n">request</span><span class="p">({</span>
+      <span class="n">url</span><span class="p">:</span> <span class="s1">&#39;http://127.0.0.1:8000/app01/a/&#39;</span><span class="p">,</span>  <span class="c1">#访问的路由</span>
+      <span class="n">data</span><span class="p">:{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span><span class="s1">&#39;shang&#39;</span><span class="p">},</span>   <span class="c1">#传参</span>
+      <span class="n">method</span><span class="p">:</span><span class="s2">&quot;POST&quot;</span><span class="p">,</span>    <span class="c1">#提交方式</span>
+      <span class="n">header …</span></pre></div> <a class="btn primary xsmall" href="/微信小程序发起请求.html">more…</a>
+	</div>
+</div>	
 <div class='article'>
 	<h2>网络</h2>
 	<div class="well small">Permalink: <a class="more" href="/网络.html">1000-01-01 18:44:00+00:09</a>

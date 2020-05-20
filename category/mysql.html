@@ -64,13 +64,43 @@
 			<div class="social">
 			<h3>Social</h3>
 			<ul>
-				<li><a href="https://han520min.github.io">hanmin</a></li>
+				<li><a href="https://lienze.tech/">老渔夫吃虾米</a></li>
 			</ul>
 			</div>
 		</div>
 	  </div>
 	  <div class="content">
 <div class="page-header"><h1>商伟的技术博客 <small>MySQL</small></h1></div>
+<div class='article'>
+	<h2>MySQL主从</h2>
+	<div class="well small">Permalink: <a class="more" href="/MySQL主从.html">2020-05-18 17:59:00+02:00</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/mysql.html">MySQL</a>
+tags: <a href="/tag/mysql.html">MySQL</a> </div>
+	<div class="summary"><h3>1.1 mysql主从同步</h3>
+<h4><em>1、mysql主从同步（复制）概念</em></h4>
+<div class="highlight"><pre><span></span>    <span class="mi">1</span><span class="p">.</span> <span class="err">将</span><span class="n">Mysql某一台主机数据复制到其它主机</span><span class="err">（</span><span class="n">slaves</span><span class="err">）上，并重新执行一遍来实现的。</span>
+
+    <span class="mi">2</span><span class="p">.</span> <span class="err">复制过程中一个服务器充当主服务器，而一个或多个其它服务器充当从服务器。</span>
+
+    <span class="mi">3</span><span class="p">.</span> <span class="err">主服务器将更新写入二进制日志文件，并维护文件的一个索引以跟踪日志循环。</span>
+
+    <span class="mi">4</span><span class="p">.</span> <span class="err">当一个从服务器连接主服务器时，它通知主服务器从服务器在日志中读取的最后一次成功更新的位置。</span>
+
+    <span class="mi">5</span><span class="p">.</span> <span class="err">从服务器接收从那时起发生的任何更新，然后封锁并等待主服务器通知新的更新。</span>
+
+    <span class="n">binlog</span><span class="err">：是二进制日志文件，用于记录</span><span class="n">mysql的数据更新或者潜在更新</span><span class="p">(</span><span class="err">比如</span><span class="n">DELETE语句执行删除而实际并没有符合条件的数据</span><span class="p">)</span>
+</pre></div>
+
+
+<h4><em>2、Mysql支持哪些复制</em></h4>
+<div class="highlight"><pre><span></span>    <span class="mi">1</span><span class="p">.</span> <span class="err">基于语句的复制</span><span class="p">:</span> <span class="err">在主服务器执行</span><span class="n">SQL语句</span><span class="err">，在从服务器执行同样语句。</span>
+
+        <span class="err">注：</span><span class="n">MySQL默认采用基于语句的复制</span><span class="err">，效率较高。一旦发现没法精确复制时</span><span class="p">,</span> <span class="err">会自动选基于行的复制。</span>
+
+    <span class="mi">2</span><span class="p">.</span> <span class="err">基于行的复制</span><span class="p">:</span> <span class="err">把改变的内容复制过去，而不是把命令在从服务器上执行一遍</span><span class="p">.</span> <span class="err">从</span><span class="n">mysql5</span><span class="p">.</span><span class="mi">0 …</span></pre></div> <a class="btn primary xsmall" href="/MySQL主从.html">more…</a>
+	</div>
+</div>	
 <div class='article'>
 	<h2>MySQL事务和锁</h2>
 	<div class="well small">Permalink: <a class="more" href="/MySQL事务和锁.html">1000-01-04 18:44:00+00:09</a>
@@ -118,6 +148,45 @@ tags: <a href="/tag/mysql.html">MySQL</a> </div>
 <li>行级锁是Mysql中锁定粒度最细的一种锁，表示只针对当前操作的行进行加锁。行级锁能大大减少数据库操作的冲突。其加锁粒度最小，但加锁的开销也最大。行级锁分为共享锁 和 排他锁。</li>
 <li>
 <p>特点：开销大，加锁慢；会出现死锁；锁定粒度最小，发生锁冲突的概率最低，并发度也最高 …</p></li></ul> <a class="btn primary xsmall" href="/MySQL存储引擎MyISAM与InnoDB区别总结整理.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>安装MySQL</h2>
+	<div class="well small">Permalink: <a class="more" href="/安装MySQL.html">1000-01-02 22:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/mysql.html">MySQL</a>
+tags: <a href="/tag/mysql.html">MySQL</a> </div>
+	<div class="summary"><h3>一，MySQL安装与基本配置（centos 7.3）</h3>
+<div class="highlight"><pre><span></span><span class="err">安装参考网址：</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">cnblogs</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">jorzy</span><span class="o">/</span><span class="n">p</span><span class="o">/</span><span class="mi">8455519</span><span class="p">.</span><span class="n">html</span>
+</pre></div>
+
+
+<ul>
+<li>
+<h4>1. 查看系统中是否已安装 MySQL 服务：以下提供两种方式</h4>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="n">rpm</span> <span class="o">-</span><span class="n">qa</span> <span class="o">|</span> <span class="n">grep</span> <span class="n">mysql</span>
+
+<span class="n">yum</span> <span class="n">list</span> <span class="n">installed</span> <span class="o">|</span> <span class="n">grep</span> <span class="n">mysql</span>
+</pre></div>
+
+
+<ul>
+<li>
+<h4>2、如果已安装则删除 MySQL 及其依赖的包</h4>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="n">yum</span> <span class="o">-</span><span class="n">y</span> <span class="n">remove</span> <span class="n">mysql</span><span class="o">-</span><span class="n">libs</span><span class="p">.</span><span class="n">x86_64</span>
+</pre></div>
+
+
+<ul>
+<li>
+<h4>3、下载 mysql57-community-release-el7-8.noarch.rpm 的 YUM 源</h4>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="n">wget</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">repo</span><span class="p">.</span><span class="n">mysql …</span></pre></div> <a class="btn primary xsmall" href="/安装MySQL.html">more…</a>
 	</div>
 </div>	
 <div class='article'>

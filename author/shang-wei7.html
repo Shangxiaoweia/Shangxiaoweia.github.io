@@ -64,13 +64,177 @@
 			<div class="social">
 			<h3>Social</h3>
 			<ul>
-				<li><a href="https://han520min.github.io">hanmin</a></li>
+				<li><a href="https://lienze.tech/">老渔夫吃虾米</a></li>
 			</ul>
 			</div>
 		</div>
 	  </div>
 	  <div class="content">
 <div class="page-header"><h1>商伟的技术博客 <small>商伟</small></h1></div>
+<div class='article'>
+	<h2>Nginx</h2>
+	<div class="well small">Permalink: <a class="more" href="/Nginx.html">1000-01-01 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/sui-shou-bi-ji.html">随手笔记</a>
+tags: <a href="/tag/sui-shou-bi-ji.html">随手笔记</a> </div>
+	<div class="summary"><h5>将public上传到阿里云服务器的root目录下</h5>
+<h5>修改nginx配置文件</h5>
+<div class="highlight"><pre><span></span>vim /etc/nginx/conf.d/default.conf
+</pre></div>
+
+
+<h5>监听80端口，并且项目目录指定/root/public</h5>
+<div class="highlight"><pre><span></span>server {
+    listen       80;
+    server_name  localhost;
+
+    access_log      /root/md_vue_access.log;
+    error_log       /root/md_vue_error.log;
+
+
+    client_max_body_size 75M;
+
+
+    location / {
+
+        root /root/public;
+        index index.html;
+
+    }
+
+    error_log    /root/md_vue/error.log    error;
+
+}
+</pre></div>
+
+
+<h5>重启nginx systemctl restart nginx.service 然后访问一下就ok了</h5> <a class="btn primary xsmall" href="/Nginx.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>Python输入与输出</h2>
+	<div class="well small">Permalink: <a class="more" href="/Python输入与输出.html">1000-01-01 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/python.html">Python</a>
+tags: <a href="/tag/python.html">Python</a> </div>
+	<div class="summary"><h2>Python输出</h2>
+<div class="highlight"><pre><span></span><span class="c1"># 打印提示</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;hello world&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;萨瓦迪卡---泰语，你好的意思&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<h2>2. 格式化输出</h2>
+<h3>&lt;1&gt;格式化操作的目的</h3>
+<p>比如有以下代码:</p>
+<div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;我今年10岁&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;我今年11岁&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;我今年12岁&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<ul>
+<li>想一想:</li>
+</ul>
+<blockquote>
+<p>在输出年龄的时候，用了多次"我今年xx岁"，能否简化一下程序呢？？？</p>
+</blockquote>
+<ul>
+<li>答:</li>
+</ul>
+<blockquote>
+<p>字符串格式化</p>
+</blockquote>
+<h3>&lt;2&gt;什么是格式化</h3>
+<p>看如下代码:</p>
+<div class="highlight"><pre><span></span><span class="n">age</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;我今年</span><span class="si">%d</span><span class="s2">岁&quot;</span> <span class="o">%</span> <span class="n">age</span><span class="p">)</span>
+
+<span class="n">age</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;我今年</span><span class="si">%d</span><span class="s2">岁&quot;</span> <span class="o">%</span> <span class="n">age</span><span class="p">)</span>
+
+<span class="n">age</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;我今年</span><span class="si">%d</span><span class="s2">岁&quot;</span> <span class="o">%</span> <span class="n">age …</span></pre></div> <a class="btn primary xsmall" href="/Python输入与输出.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>RabbitMQ</h2>
+	<div class="well small">Permalink: <a class="more" href="/RabbitMQ.html">1000-01-01 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/rabbitmq.html">RabbitMQ</a>
+tags: <a href="/tag/rabbitmq.html">RabbitMQ</a> </div>
+	<div class="summary"><p>1.下载relang</p>
+<div class="highlight"><pre><span></span>yum install erlang
+</pre></div>
+
+
+<p>2.下载rpm包</p>
+<div class="highlight"><pre><span></span> wget http://www.rabbitmq.com/releases/rabbitmq-server/v3.6.15/rabbitmq-server-3.6.15-1.el7.noarch.rpm
+</pre></div>
+
+
+<p>3.下载完成后安装</p>
+<div class="highlight"><pre><span></span>yum install rabbitmq-server-3.6.15-1.el7.noarch.rpm
+</pre></div>
+
+
+<p>4.安装完后重启服务</p>
+<div class="highlight"><pre><span></span>service rabbitmq-server start
+</pre></div>
+
+
+<p>5.查看服务状态</p>
+<div class="highlight"><pre><span></span>service rabbitmq-server status
+</pre></div>
+
+
+<ol>
+<li>安装插件</li>
+</ol>
+<div class="highlight"><pre><span></span>/sbin/rabbitmq-plugins <span class="nb">enable</span> rabbitmq_management 
+</pre></div>
+
+
+<p>7.重启服务 …</p> <a class="btn primary xsmall" href="/RabbitMQ.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>Redis事务</h2>
+	<div class="well small">Permalink: <a class="more" href="/Redis事务.html">1000-01-01 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/redis.html">Redis</a>
+tags: <a href="/tag/redis.html">Redis</a> </div>
+	<div class="summary"><h5>Redis事务一次性可以执行多条命令，并且带有一下三个重要的保证：</h5>
+<ul>
+<li>批量操作在发送 EXEC 命令前放入队列缓存</li>
+<li>收到 EXEC 命令后进入事务执行，事务中任意的命令执行失败，其余的命令依然会被执行</li>
+<li>在事务的过程中，其他客户提交的命令不会被插入事务执行命令的序列中</li>
+</ul>
+<h5>一个事务重开始到执行会经历三个阶段：</h5>
+<ul>
+<li>开始事务</li>
+<li>命令入列</li>
+<li>执行事务</li>
+</ul>
+<p>单个 Redis 命令的执行是原子性的，但 Redis 没有在事务上增加任何维持原子性的机制，所以 Redis 事务的中并不是原子性的，事务可以理解为打包的批量执行的脚本，然是批量指令不是原子化的操作，中间某条命令失败的化不会导致前面的命令回滚，也不会造成后面的命令不执行</p> <a class="btn primary xsmall" href="/Redis事务.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>Redis分布式锁</h2>
+	<div class="well small">Permalink: <a class="more" href="/Redis分布式锁.html">1000-01-01 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/redis.html">Redis</a>
+tags: <a href="/tag/redis.html">Redis</a> </div>
+	<div class="summary"><p>可靠性</p>
+<p>首先，为了确保分布式可用，我们至少要保证锁的实现同时满足以下四个条件：</p>
+<ul>
+<li>互斥性，在任意时刻，只有一个客户端能持有锁</li>
+<li>不会发生死锁，即使有一个客户端持有锁的期间崩溃而没有主动解锁，也能保证后续其他客户端能加锁</li>
+<li>具有容错性，只要大部分的 Redis 节点正常运行，客户端就可以加锁和解锁</li>
+<li>解铃还须系铃人，加锁和解锁必须是同一个客户端，客户端自己不能把别人加的锁给解了</li>
+</ul> <a class="btn primary xsmall" href="/Redis分布式锁.html">more…</a>
+	</div>
+</div>	
 <div class='article'>
 	<h2>Redis的五大数据类型实现原理</h2>
 	<div class="well small">Permalink: <a class="more" href="/Redis的五大数据类型实现原理.html">1000-01-01 18:44:00+00:09</a>
@@ -199,159 +363,6 @@ tags: <a href="/tag/vue.html">VUE</a> </div>
         <span class="o">}</span>
        <span class="k">return</span> config<span class="p">;</span> // 最终需要返回config
       <span class="o">}</span>, <span class="k">function …</span></pre></div> <a class="btn primary xsmall" href="/VUE拦截器.html">more…</a>
-	</div>
-</div>	
-<div class='article'>
-	<h2>VUE添加图片</h2>
-	<div class="well small">Permalink: <a class="more" href="/VUE添加图片.html">1000-01-01 18:44:00+00:09</a>
-by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/vue.html">VUE</a>
-tags: <a href="/tag/vue.html">VUE</a> </div>
-	<div class="summary"><h1>VUE添加图片</h1>
-<h3>不多说直接上代码</h3>
-<div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">template</span><span class="o">&gt;</span>
-  <span class="o">&lt;</span><span class="n">div</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;Daa_img&quot;</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="nb">input</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;file&quot;</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;img&quot;</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="nb">input</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;button&quot;</span> <span class="nd">@click</span><span class="o">=</span><span class="s2">&quot;add&quot;</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;添加&quot;</span><span class="o">&gt;</span>
-  <span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
-<span class="o">&lt;/</span><span class="n">template</span><span class="o">&gt;</span>
-
-<span class="o">&lt;</span><span class="n">script</span><span class="o">&gt;</span>
-  <span class="kn">import</span> <span class="nn">axios</span> <span class="nn">from</span> <span class="s1">&#39;axios&#39;</span>
-  <span class="n">export</span> <span class="n">default</span> <span class="p">{</span>
-    <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;Daa_img&quot;</span><span class="p">,</span>
-    <span class="n">data</span><span class="p">(){</span>
-      <span class="k">return</span><span class="p">{</span>
-        <span class="n">data</span><span class="p">:</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
-      <span class="p">}</span>
-    <span class="p">},</span>
-    <span class="n">methods</span><span class="p">:{</span>
-      <span class="n">add</span><span class="p">(){</span>
-        <span class="n">let</span> <span class="n">datafrom</span> <span class="o">=</span> <span class="n">new</span> <span class="n">FormData</span><span class="p">();</span>
-        <span class="n">datafrom</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;img&#39;</span><span class="p">,</span><span class="n">document</span><span class="o">.</span><span class="n">getElementById</span><span class="p">(</span><span class="s1">&#39;img&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">files</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
-        <span class="n">axios</span><span class="p">({</span>
-          <span class="n">url</span><span class="p">:</span><span class="s1">&#39;http://127 …</span></pre></div> <a class="btn primary xsmall" href="/VUE添加图片.html">more…</a>
-	</div>
-</div>	
-<div class='article'>
-	<h2>VUE父子件传参+分页</h2>
-	<div class="well small">Permalink: <a class="more" href="/VUE父子件传参+分页.html">1000-01-01 18:44:00+00:09</a>
-by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/vue.html">VUE</a>
-tags: <a href="/tag/vue.html">VUE</a> </div>
-	<div class="summary"><h2>直接上代码、然后解释：</h2>
-<h3>父组件代码</h3>
-<div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">template</span><span class="o">&gt;</span>
-  <span class="o">&lt;</span><span class="n">div</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;fu&quot;</span><span class="o">&gt;</span>
-    <span class="err">这是父组件</span>
-    <span class="o">&lt;</span><span class="n">zi</span> <span class="p">:</span><span class="n">name1</span><span class="o">=</span><span class="n">data</span> <span class="nd">@da</span><span class="o">=</span><span class="s2">&quot;add&quot;</span><span class="o">&gt;&lt;/</span><span class="n">zi</span><span class="o">&gt;</span>
-  <span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
-<span class="o">&lt;/</span><span class="n">template</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">script</span><span class="o">&gt;</span>
-  <span class="kn">import</span> <span class="nn">zi</span> <span class="nn">from</span> <span class="s1">&#39;../components/zi&#39;</span>
-
-  <span class="n">export</span> <span class="n">default</span> <span class="p">{</span>
-    <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;fu&quot;</span><span class="p">,</span>
-    <span class="n">data</span><span class="p">()</span> <span class="p">{</span>
-      <span class="k">return</span> <span class="p">{</span>
-        <span class="n">data</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
-      <span class="p">}</span>
-    <span class="p">},</span>
-    <span class="n">components</span><span class="p">:</span> <span class="p">{</span>
-      <span class="s1">&#39;zi&#39;</span><span class="p">:</span> <span class="n">zi</span>
-    <span class="p">},</span>
-    <span class="n">methods</span><span class="p">:</span> <span class="p">{</span>
-      <span class="n">add</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">alert</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
-      <span class="p">}</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-<span class="o">&lt;/</span><span class="n">script</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">style</span> <span class="n">scoped</span><span class="o">&gt;</span>
-<span class="o">&lt;/</span><span class="n">style</span><span class="o">&gt;</span>
-</pre></div>
-
-
-<h3>子组件代码</h3>
-<div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="nv">template</span><span class="o">&gt;</span>
-  <span class="o">&lt;</span><span class="nv">div</span> <span class="nv">id</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">zi …</span></pre></div> <a class="btn primary xsmall" href="/VUE父子件传参+分页.html">more…</a>
-	</div>
-</div>	
-<div class='article'>
-	<h2>VUE路由跳转带参</h2>
-	<div class="well small">Permalink: <a class="more" href="/VUE路由跳转带参.html">1000-01-01 18:44:00+00:09</a>
-by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/vue.html">VUE</a>
-tags: <a href="/tag/vue.html">VUE</a> </div>
-	<div class="summary"><h4>使用this.$router.push()跳转带参</h4>
-<h5>params传参</h5>
-<div class="highlight"><pre><span></span>注意：patams传参 ，路径不能使用path 只能使用name,不然获取不到传的数据
-
-this.$router.push({name: &#39;dispatch&#39;, params: {paicheNo: obj.paicheNo}})
-
-取数据：this.$route.params.paicheNo
-
-this.$route.params.paicheNo
-</pre></div>
-
-
-<h5>query传参</h5>
-<div class="highlight"><pre><span></span>this.$router.push({name: &#39;dispatch&#39;, query: {paicheNo: obj.paicheNo}})
-
-取数据：this.$route.query.paicheNo
-
-this.$route.query.paicheNo
-</pre></div> <a class="btn primary xsmall" href="/VUE路由跳转带参.html">more…</a>
-	</div>
-</div>	
-<div class='article'>
-	<h2>Windows安装redis</h2>
-	<div class="well small">Permalink: <a class="more" href="/Windows安装redis.html">1000-01-01 18:44:00+00:09</a>
-by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/redis.html">redis</a>
-tags: <a href="/tag/redis.html">redis</a> </div>
-	<div class="summary"><div class="highlight"><pre><span></span><span class="mi">1</span><span class="p">.</span><span class="err">将安装包解压到一个文件夹下</span><span class="p">:</span> <span class="err">如</span> <span class="n">D</span><span class="p">:</span><span class="err">\</span><span class="n">redis</span><span class="p">,</span> <span class="err">会在该文件夹下看到所有</span><span class="n">redis的文件</span>
-<span class="mi">2</span><span class="p">.</span><span class="err">将该文件夹添加至系统环境变量中</span>
-<span class="mi">3</span><span class="p">.</span><span class="err">在解压的文件目录的地址栏上输入</span><span class="n">cmd</span><span class="p">,</span> <span class="err">在</span><span class="n">cmd窗口中输入redis</span><span class="o">-</span><span class="n">server</span> <span class="p">.</span><span class="o">/</span><span class="n">redis</span><span class="p">.</span><span class="n">windows</span><span class="p">.</span><span class="n">conf</span> <span class="p">,</span> <span class="err">然后回车</span><span class="p">,</span> <span class="n">redis安装成功了</span>
-</pre></div> <a class="btn primary xsmall" href="/Windows安装redis.html">more…</a>
-	</div>
-</div>	
-<div class='article'>
-	<h2>js-if语句</h2>
-	<div class="well small">Permalink: <a class="more" href="/js-if语句.html">1000-01-01 18:44:00+00:09</a>
-by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/javascript.html">JavaScript</a>
-tags: <a href="/tag/javascript.html">JavaScript</a> </div>
-	<div class="summary"><h5>定义</h5>
-<div class="highlight"><pre><span></span>let a = 1,b = 2;
-console.log(a)
-console.log(b)
-</pre></div>
-
-
-<h5>方法一</h5>
-<div class="highlight"><pre><span></span>if(a &gt; b){
-  console.log(&#39;a大&#39;)
-}else{
-  console.log(&#39;b大&#39;)
-}
-</pre></div>
-
-
-<h5>方法二</h5>
-<div class="highlight"><pre><span></span>if(a &gt; b) console.log(&#39;a大&#39;)
-if(a &lt; b) console.log(&#39;b大&#39;
-</pre></div>
-
-
-<h5>方法三</h5>
-<div class="highlight"><pre><span></span>if(a &gt; b) console.log(&#39;a大&#39;)
-else console.log(&#39;b大&#39;)
-</pre></div>
-
-
-<h5>方法四</h5>
-<div class="highlight"><pre><span></span>console.log …</pre></div> <a class="btn primary xsmall" href="/js-if语句.html">more…</a>
 	</div>
 </div>	
 

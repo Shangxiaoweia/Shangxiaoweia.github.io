@@ -64,13 +64,144 @@
 			<div class="social">
 			<h3>Social</h3>
 			<ul>
-				<li><a href="https://han520min.github.io">hanmin</a></li>
+				<li><a href="https://lienze.tech/">老渔夫吃虾米</a></li>
 			</ul>
 			</div>
 		</div>
 	  </div>
 	  <div class="content">
 <div class="page-header"><h1>商伟的技术博客 <small>商伟</small></h1></div>
+<div class='article'>
+	<h2>Django一对多查询</h2>
+	<div class="well small">Permalink: <a class="more" href="/Django一对多查询.html">2019-08-08 18:44:00+02:00</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/django.html">Django</a>
+tags: <a href="/tag/django.html">Django</a> </div>
+	<div class="summary"><h2>Django一对多查询</h2>
+<ul>
+<li><code>models.py</code></li>
+</ul>
+<div class="highlight"><pre><span></span>  <span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
+
+  <span class="c1"># 创建用户</span>
+  <span class="k">class</span> <span class="nc">User</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+      <span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">32</span><span class="p">)</span>
+  <span class="c1"># 创建书籍  </span>
+  <span class="k">class</span> <span class="nc">Book</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+      <span class="n">title</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">32</span><span class="p">)</span>
+      <span class="n">us</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Foreign</span><span class="p">(</span><span class="s1">&#39;User&#39;</span><span class="p">,</span><span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">CASCADE</span><span class="p">)</span>
+</pre></div>
+
+
+<ul>
+<li><code>views.py</code></li>
+</ul>
+<div class="highlight"><pre><span></span>  <span class="kn">from</span> <span class="nn">django.shortcus</span> <span class="kn">import</span> <span class="n">render</span><span class="p">,</span><span class="n">HttpResponse</span>
+  <span class="kn">import</span> <span class="nn">models</span>
+  <span class="c1"># 通过人查询书</span>
+  <span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+      <span class="n">user …</span></pre></div> <a class="btn primary xsmall" href="/Django一对多查询.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>Django一对多系列化与反序列化</h2>
+	<div class="well small">Permalink: <a class="more" href="/Django一对多系列化与反序列化.html">2019-08-08 18:44:00+02:00</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/django.html">Django</a>
+tags: <a href="/tag/django.html">Django</a> </div>
+	<div class="summary"><h2>DRF一对多序列化和反序列化</h2>
+<ul>
+<li><code>models.py</code></li>
+</ul>
+<div class="highlight"><pre><span></span>  <span class="c1"># 商品分类</span>
+  class Category<span class="o">(</span>models.Model<span class="o">)</span>:
+      <span class="nv">name</span> <span class="o">=</span> models.CharField<span class="o">(</span><span class="nv">max_length</span><span class="o">=</span><span class="m">32</span><span class="o">)</span>
+
+  <span class="c1"># 商品</span>
+  class Goods<span class="o">(</span>models.Model<span class="o">)</span>:
+      <span class="nv">name</span> <span class="o">=</span> models.CharField<span class="o">(</span><span class="nv">max_length</span><span class="o">=</span><span class="m">32</span><span class="o">)</span>
+      <span class="nv">price</span> <span class="o">=</span> models.DecimalField<span class="o">(</span><span class="nv">max_digits</span><span class="o">=</span><span class="m">9</span>,decimal_places<span class="o">=</span><span class="m">2</span><span class="o">)</span>
+      <span class="nv">cate</span> <span class="o">=</span> models.ForeignKey<span class="o">(</span><span class="nv">to</span><span class="o">=</span><span class="s1">&#39;Category&#39;</span>,on_delete<span class="o">=</span>models.CASCADE<span class="o">)</span>
+</pre></div>
+
+
+<ul>
+<li><code>urls.py</code></li>
+</ul>
+<div class="highlight"><pre><span></span>  from django.urls import path,include
+  from . import views
+  <span class="nv">urlpatterns …</span></pre></div> <a class="btn primary xsmall" href="/Django一对多系列化与反序列化.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>Django上传图片</h2>
+	<div class="well small">Permalink: <a class="more" href="/Django上传图片.html">2019-08-08 18:44:00+02:00</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/django.html">Django</a>
+tags: <a href="/tag/django.html">Django</a> </div>
+	<div class="summary"><h3>最简单的保存图片与展示</h3>
+<ul>
+<li>
+<p>在Django里面</p>
+</li>
+<li>
+<p>根目录创建 static 文件夹</p>
+</li>
+<li>
+<p>settings</p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span>STATIC_URL = &#39;/static/&#39;
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, &#39;static&#39;),
+)
+</pre></div>
+
+
+<ul>
+<li>views</li>
+</ul>
+<div class="highlight"><pre><span></span>from datetime import datetime
+class Addimg(APIView):
+    def post(self, request):
+       data = request.data
+        img = data.get(&#39;img&#39;)
+        now = datetime.strftime(datetime.now(), &#39;%Y%m%d%H%M%S%f&#39;)
+        with open(&#39;static/imgs/&#39; + now …</pre></div> <a class="btn primary xsmall" href="/Django上传图片.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>Django多对多操作</h2>
+	<div class="well small">Permalink: <a class="more" href="/Django多对多操作.html">2019-08-08 18:44:00+02:00</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/django.html">Django</a>
+tags: <a href="/tag/django.html">Django</a> </div>
+	<div class="summary"><h2>django 多对多操作</h2>
+<ul>
+<li>模型</li>
+</ul>
+<div class="highlight"><pre><span></span>  from django.db import models
+
+  <span class="c1"># 老师</span>
+  class Teacher<span class="o">(</span>models.Model<span class="o">)</span>:
+      <span class="nv">name</span> <span class="o">=</span> models.CharField<span class="o">(</span><span class="nv">max_length</span><span class="o">=</span><span class="m">32</span><span class="o">)</span>
+
+  <span class="c1"># 学生</span>
+  class Student<span class="o">(</span>models.Model<span class="o">)</span>:
+      <span class="nv">name</span> <span class="o">=</span> models.CharField<span class="o">(</span><span class="nv">max_length</span><span class="o">=</span><span class="m">32</span><span class="o">)</span>
+      <span class="nv">teachers</span> <span class="o">=</span> models.ManyToManyField<span class="o">(</span><span class="nv">to</span><span class="o">=</span><span class="s1">&#39;Teacher&#39;</span>,on_delete<span class="o">=</span>models.CASCADE<span class="o">)</span>
+</pre></div>
+
+
+<ul>
+<li>查询</li>
+</ul>
+<div class="highlight"><pre><span></span>  <span class="c1"># 通过老师查学生</span>
+  <span class="nv">teacher</span> <span class="o">=</span> Teacher.objects.filter<span class="o">(</span><span class="nv">id</span><span class="o">=</span><span class="m">1</span><span class="o">)</span>.first<span class="o">()</span>
+  <span class="nv">students</span> <span class="o">=</span> teacher.student_set.all<span class="o">()</span> <span class="c1"># 获取所有学生信息 …</span></pre></div> <a class="btn primary xsmall" href="/Django多对多操作.html">more…</a>
+	</div>
+</div>	
 <div class='article'>
 	<h2>Django多对多系列化与反序列化</h2>
 	<div class="well small">Permalink: <a class="more" href="/Django多对多系列化与反序列化.html">2019-08-08 18:44:00+02:00</a>
@@ -277,92 +408,6 @@ tags: <a href="/tag/docker.html">Docker</a> </div>
 <p>3）每个namespace下的资源对于其他namespace下的资源都是透明，不可见的。</p>
 <p>4）系统中可以同时存在两个进程号为0,1,2的进程，由于属于不同的namespace，所以它们之间并不冲突。</p>
 <p>5 …</p> <a class="btn primary xsmall" href="/Docker-基础.html">more…</a>
-	</div>
-</div>	
-<div class='article'>
-	<h2>django分页组件（paginator）</h2>
-	<div class="well small">Permalink: <a class="more" href="/django分页组件（paginator）.html">2019-08-08 18:44:00+02:00</a>
-by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/django.html">Django</a>
-tags: <a href="/tag/django.html">Django</a> </div>
-	<div class="summary"><h1>Django分页组件(paginator)</h1>
-<div class="highlight"><pre><span></span>from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-</pre></div>
-
-
-<div class="highlight"><pre><span></span>  Paginator
-</pre></div>
-
-
-<p>：创建分页对象</p>
-<p>### 分页对象内置属性</p>
-<div class="highlight"><pre><span></span><span class="nv">all_</span> <span class="o">=</span> models.objects.all<span class="o">()</span>
-<span class="nv">p</span> <span class="o">=</span> Paginator<span class="o">(</span>all_, <span class="m">10</span><span class="o">)</span>
-<span class="c1"># 分页all_数据，每页显示10条数据</span>
-p.count <span class="c1"># 总数据量</span>
-p.num_pages<span class="o">()</span> <span class="c1"># 分页数</span>
-p.page_range<span class="o">()</span> <span class="c1"># 列表形式返回当前可有的页数 [1,2,3]</span>
-<span class="nv">page_1</span> <span class="o">=</span> p.page<span class="o">(</span><span class="m">1</span><span class="o">)</span> <span class="c1"># 选择第一页，返回第一页数据对象</span>
-</pre></div>
-
-
-<h3>某一页内置属性</h3>
-<div class="highlight"><pre><span></span>page_1.number <span class="c1"># 当前页的页码</span>
-page_1.has_next<span class="o">()</span> <span class="c1"># 是否有下一页</span>
-page_1.has_previous …</pre></div> <a class="btn primary xsmall" href="/django分页组件（paginator）.html">more…</a>
-	</div>
-</div>	
-<div class='article'>
-	<h2>三分钟创建一个静态网页</h2>
-	<div class="well small">Permalink: <a class="more" href="/三分钟创建一个静态网页.html">2019-08-08 18:44:00+02:00</a>
-by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/django.html">Django</a>
-tags: <a href="/tag/django.html">Django</a> </div>
-	<div class="summary"><h3>这个静态网页可以用来做你自己的博客，pelican是以为法国开发者研发的，非常好用，它的每一篇文章会事先渲染成HTML静态文件，访问速度非常快。</h3>
-<h5>1)安装pelcan和markdown</h5>
-<div class="highlight"><pre><span></span>pip install pelican  markdown --upgrade
-</pre></div>
-
-
-<h5>2)创建一个文件夹用来作为博客的目录</h5>
-<div class="highlight"><pre><span></span>mkdir 博客目录
-</pre></div>
-
-
-<h5>3)cd到该目录下运行命令生成博客的框架</h5>
-<div class="highlight"><pre><span></span>cd 博客目录
-pelican-quickstart
-</pre></div>
-
-
-<h5>4)安装过程中会有很多的配置，不知道的可以直接n，后期都是可以进行修改的</h5>
-<div class="highlight"><pre><span></span>&gt; Where do you want to create your new web site? [.]
-&gt; What will be the title of this web site? 商伟的技术博客
-&gt; Who will be the author …</pre></div> <a class="btn primary xsmall" href="/三分钟创建一个静态网页.html">more…</a>
-	</div>
-</div>	
-<div class='article'>
-	<h2>常见的数据结构</h2>
-	<div class="well small">Permalink: <a class="more" href="/常见的数据结构.html">2019-08-08 18:44:00+02:00</a>
-by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/shu-ju-jie-gou.html">数据结构</a>
-tags: <a href="/tag/shu-ju-jie-gou.html">数据结构</a> </div>
-	<div class="summary"> <a class="btn primary xsmall" href="/常见的数据结构.html">more…</a>
-	</div>
-</div>	
-<div class='article'>
-	<h2>微信小程序介绍</h2>
-	<div class="well small">Permalink: <a class="more" href="/微信小程序介绍.html">2019-08-08 18:44:00+02:00</a>
-by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/xiao-cheng-xu.html">小程序</a>
-tags: <a href="/tag/xiao-cheng-xu.html">小程序</a> </div>
-	<div class="summary"><h3>开发者工具</h3>
-<p>为方便微信小程序，微信推出了微信开发者工具。</p>
-<p><a href="https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html">https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html</a></p>
-<h2>微信小程序官方文档</h2>
-<p><a href="https://developers.weixin.qq.com/miniprogram/dev/framework/">https://developers.weixin.qq.com/miniprogram/dev/framework/</a></p>
-<h2>小程序快速入门</h2>
-<p><a href="https://developers.weixin.qq.com/community/business/doc/000264e20a0dd8e69669b609451c0d">https://developers.weixin.qq.com/community/business/doc/000264e20a0dd8e69669b609451c0d</a></p> <a class="btn primary xsmall" href="/微信小程序介绍.html">more…</a>
 	</div>
 </div>	
 

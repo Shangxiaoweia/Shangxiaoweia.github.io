@@ -64,13 +64,166 @@
 			<div class="social">
 			<h3>Social</h3>
 			<ul>
-				<li><a href="https://han520min.github.io">hanmin</a></li>
+				<li><a href="https://lienze.tech/">老渔夫吃虾米</a></li>
 			</ul>
 			</div>
 		</div>
 	  </div>
 	  <div class="content">
 <div class="page-header"><h1>商伟的技术博客 <small>商伟</small></h1></div>
+<div class='article'>
+	<h2>VUE添加图片</h2>
+	<div class="well small">Permalink: <a class="more" href="/VUE添加图片.html">1000-01-01 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/vue.html">VUE</a>
+tags: <a href="/tag/vue.html">VUE</a> </div>
+	<div class="summary"><h1>VUE添加图片</h1>
+<h3>不多说直接上代码</h3>
+<div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">template</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">div</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;Daa_img&quot;</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nb">input</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;file&quot;</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;img&quot;</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nb">input</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;button&quot;</span> <span class="nd">@click</span><span class="o">=</span><span class="s2">&quot;add&quot;</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;添加&quot;</span><span class="o">&gt;</span>
+  <span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">template</span><span class="o">&gt;</span>
+
+<span class="o">&lt;</span><span class="n">script</span><span class="o">&gt;</span>
+  <span class="kn">import</span> <span class="nn">axios</span> <span class="nn">from</span> <span class="s1">&#39;axios&#39;</span>
+  <span class="n">export</span> <span class="n">default</span> <span class="p">{</span>
+    <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;Daa_img&quot;</span><span class="p">,</span>
+    <span class="n">data</span><span class="p">(){</span>
+      <span class="k">return</span><span class="p">{</span>
+        <span class="n">data</span><span class="p">:</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
+      <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="n">methods</span><span class="p">:{</span>
+      <span class="n">add</span><span class="p">(){</span>
+        <span class="n">let</span> <span class="n">datafrom</span> <span class="o">=</span> <span class="n">new</span> <span class="n">FormData</span><span class="p">();</span>
+        <span class="n">datafrom</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;img&#39;</span><span class="p">,</span><span class="n">document</span><span class="o">.</span><span class="n">getElementById</span><span class="p">(</span><span class="s1">&#39;img&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">files</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+        <span class="n">axios</span><span class="p">({</span>
+          <span class="n">url</span><span class="p">:</span><span class="s1">&#39;http://127 …</span></pre></div> <a class="btn primary xsmall" href="/VUE添加图片.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>VUE父子件传参+分页</h2>
+	<div class="well small">Permalink: <a class="more" href="/VUE父子件传参+分页.html">1000-01-01 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/vue.html">VUE</a>
+tags: <a href="/tag/vue.html">VUE</a> </div>
+	<div class="summary"><h2>直接上代码、然后解释：</h2>
+<h3>父组件代码</h3>
+<div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">template</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">div</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;fu&quot;</span><span class="o">&gt;</span>
+    <span class="err">这是父组件</span>
+    <span class="o">&lt;</span><span class="n">zi</span> <span class="p">:</span><span class="n">name1</span><span class="o">=</span><span class="n">data</span> <span class="nd">@da</span><span class="o">=</span><span class="s2">&quot;add&quot;</span><span class="o">&gt;&lt;/</span><span class="n">zi</span><span class="o">&gt;</span>
+  <span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">template</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">script</span><span class="o">&gt;</span>
+  <span class="kn">import</span> <span class="nn">zi</span> <span class="nn">from</span> <span class="s1">&#39;../components/zi&#39;</span>
+
+  <span class="n">export</span> <span class="n">default</span> <span class="p">{</span>
+    <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;fu&quot;</span><span class="p">,</span>
+    <span class="n">data</span><span class="p">()</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="p">{</span>
+        <span class="n">data</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+      <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="n">components</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s1">&#39;zi&#39;</span><span class="p">:</span> <span class="n">zi</span>
+    <span class="p">},</span>
+    <span class="n">methods</span><span class="p">:</span> <span class="p">{</span>
+      <span class="n">add</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">alert</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="o">&lt;/</span><span class="n">script</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">style</span> <span class="n">scoped</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">style</span><span class="o">&gt;</span>
+</pre></div>
+
+
+<h3>子组件代码</h3>
+<div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="nv">template</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="nv">div</span> <span class="nv">id</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">zi …</span></pre></div> <a class="btn primary xsmall" href="/VUE父子件传参+分页.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>VUE路由跳转带参</h2>
+	<div class="well small">Permalink: <a class="more" href="/VUE路由跳转带参.html">1000-01-01 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/vue.html">VUE</a>
+tags: <a href="/tag/vue.html">VUE</a> </div>
+	<div class="summary"><h4>使用this.$router.push()跳转带参</h4>
+<h5>params传参</h5>
+<div class="highlight"><pre><span></span>注意：patams传参 ，路径不能使用path 只能使用name,不然获取不到传的数据
+
+this.$router.push({name: &#39;dispatch&#39;, params: {paicheNo: obj.paicheNo}})
+
+取数据：this.$route.params.paicheNo
+
+this.$route.params.paicheNo
+</pre></div>
+
+
+<h5>query传参</h5>
+<div class="highlight"><pre><span></span>this.$router.push({name: &#39;dispatch&#39;, query: {paicheNo: obj.paicheNo}})
+
+取数据：this.$route.query.paicheNo
+
+this.$route.query.paicheNo
+</pre></div> <a class="btn primary xsmall" href="/VUE路由跳转带参.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>Windows安装redis</h2>
+	<div class="well small">Permalink: <a class="more" href="/Windows安装redis.html">1000-01-01 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/redis.html">redis</a>
+tags: <a href="/tag/redis.html">redis</a> </div>
+	<div class="summary"><div class="highlight"><pre><span></span><span class="mi">1</span><span class="p">.</span><span class="err">将安装包解压到一个文件夹下</span><span class="p">:</span> <span class="err">如</span> <span class="n">D</span><span class="p">:</span><span class="err">\</span><span class="n">redis</span><span class="p">,</span> <span class="err">会在该文件夹下看到所有</span><span class="n">redis的文件</span>
+<span class="mi">2</span><span class="p">.</span><span class="err">将该文件夹添加至系统环境变量中</span>
+<span class="mi">3</span><span class="p">.</span><span class="err">在解压的文件目录的地址栏上输入</span><span class="n">cmd</span><span class="p">,</span> <span class="err">在</span><span class="n">cmd窗口中输入redis</span><span class="o">-</span><span class="n">server</span> <span class="p">.</span><span class="o">/</span><span class="n">redis</span><span class="p">.</span><span class="n">windows</span><span class="p">.</span><span class="n">conf</span> <span class="p">,</span> <span class="err">然后回车</span><span class="p">,</span> <span class="n">redis安装成功了</span>
+</pre></div> <a class="btn primary xsmall" href="/Windows安装redis.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>js-if语句</h2>
+	<div class="well small">Permalink: <a class="more" href="/js-if语句.html">1000-01-01 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/javascript.html">JavaScript</a>
+tags: <a href="/tag/javascript.html">JavaScript</a> </div>
+	<div class="summary"><h5>定义</h5>
+<div class="highlight"><pre><span></span>let a = 1,b = 2;
+console.log(a)
+console.log(b)
+</pre></div>
+
+
+<h5>方法一</h5>
+<div class="highlight"><pre><span></span>if(a &gt; b){
+  console.log(&#39;a大&#39;)
+}else{
+  console.log(&#39;b大&#39;)
+}
+</pre></div>
+
+
+<h5>方法二</h5>
+<div class="highlight"><pre><span></span>if(a &gt; b) console.log(&#39;a大&#39;)
+if(a &lt; b) console.log(&#39;b大&#39;
+</pre></div>
+
+
+<h5>方法三</h5>
+<div class="highlight"><pre><span></span>if(a &gt; b) console.log(&#39;a大&#39;)
+else console.log(&#39;b大&#39;)
+</pre></div>
+
+
+<h5>方法四</h5>
+<div class="highlight"><pre><span></span>console.log …</pre></div> <a class="btn primary xsmall" href="/js-if语句.html">more…</a>
+	</div>
+</div>	
 <div class='article'>
 	<h2>js-循环</h2>
 	<div class="well small">Permalink: <a class="more" href="/js-循环.html">1000-01-01 18:44:00+00:09</a>
@@ -240,131 +393,6 @@ tags: <a href="/tag/django.html">Django</a> </div>
 <p>之后 重新加载</p>
 <h5>https以下是Nginx的默认路径：</h5>
 <div class="highlight"><pre><span></span>(1) Nginx配置路径：/etc …</pre></div> <a class="btn primary xsmall" href="/创建一个静态网页.html">more…</a>
-	</div>
-</div>	
-<div class='article'>
-	<h2>创建与使用虚拟环境</h2>
-	<div class="well small">Permalink: <a class="more" href="/创建与使用虚拟环境.html">1000-01-01 18:44:00+00:09</a>
-by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/xu-ni-huan-jing.html">虚拟环境</a>
-tags: <a href="/tag/xu-ni-huan-jing.html">虚拟环境</a> </div>
-	<div class="summary"><h2>创建与使用环境</h2>
-<div class="highlight"><pre><span></span><span class="o">#</span> <span class="err">安装</span><span class="p">:</span>
-
-<span class="n">pip</span> <span class="n">install</span> <span class="n">virtualenvwrapper</span><span class="o">-</span><span class="n">win</span>
-</pre></div>
-
-
-<div class="highlight"><pre><span></span><span class="o">#</span> <span class="err">常用命令</span><span class="p">:</span>
-
-<span class="n">mkvirtualenv</span> <span class="n">envname</span>  <span class="o">#</span> <span class="err">创建虚拟环境并自动切换到该环境下</span>
-
-<span class="n">workon</span> <span class="n">envname</span>  <span class="o">#</span> <span class="err">切换到某虚拟环境下</span>
-
-<span class="n">pip</span> <span class="n">list</span> <span class="o">#</span> <span class="err">查看蓄奴环境下的安装包</span>
-
-<span class="n">rmvirtualenv</span> <span class="n">envname</span>  <span class="o">#</span> <span class="err">删除虚拟环境</span>
-
-<span class="n">deactivate</span>  <span class="o">#</span> <span class="err">退出虚拟环境</span>
-
-<span class="n">lsvirtualenv</span> <span class="o">&amp;</span> <span class="n">workon</span> <span class="o">#</span> <span class="err">列出所有常见的虚拟环境</span>
-
-<span class="n">mkvirtualenv</span> <span class="c1">--python==C:\...\python.exe envname  # 指定Python解释器创建虚拟环境</span>
-</pre></div> <a class="btn primary xsmall" href="/创建与使用虚拟环境.html">more…</a>
-	</div>
-</div>	
-<div class='article'>
-	<h2>初识MySQL</h2>
-	<div class="well small">Permalink: <a class="more" href="/初识MySQL.html">1000-01-01 18:44:00+00:09</a>
-by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/mysql.html">MySQL</a>
-tags: <a href="/tag/mysql.html">MySQL</a> </div>
-	<div class="summary"><h4>1.为什么学习数据库</h4>
-<div class="highlight"><pre><span></span>数据的存储方式大致有内存存储, 文件存储, 数据库存储. 其中内存存储有断电消失的特性, 不适合永久保存数据. 文件存储不利于数据的查询有调用.所以采用数据库形式存储数据.
-数据库具有以下优点:
-　　　　1).持久化数据到本地
-　　　　2).可以实现结构化查询, 方便管理数据
-</pre></div>
-
-
-<h4>2.数据库相关概念</h4>
-<div class="highlight"><pre><span></span>　　　　(1).DB : 数据库, 英文全称为DataBase. 是存储数据的仓库, 其中保存了一系列有组织的数据.
-　　　　(2).DBMS : 数据库管理系统, 英文全称为Database Management System. 数据库是通过DBMS常见和操作的容器.常见数据库管理系统 : MySQL, Oracle, DB2(适合处理海量数据), SQLServer
-　　　　(3).SQL : 结构化查询语言(Structure Query Language), 专门用来与数据库通信的语言.
-</pre></div>
-
-
-<h4>3.SQL的优点:</h4>
-<div class="highlight"><pre><span></span>　　　　(1).不是某个特定数据库供应商专有的语言, 几乎所有DBMS都支持SQL
-　　　　(2).简单易学 …</pre></div> <a class="btn primary xsmall" href="/初识MySQL.html">more…</a>
-	</div>
-</div>	
-<div class='article'>
-	<h2>如何安装mongodb</h2>
-	<div class="well small">Permalink: <a class="more" href="/如何安装mongodb.html">1000-01-01 18:44:00+00:09</a>
-by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/mongodb.html">Mongodb</a>
-tags: <a href="/tag/mongodb.html">Mongodb</a> </div>
-	<div class="summary"><h5>创建一个<code>/etc/yum.repos.d/mongodb-org-4.2.repo</code>文件，以便您可以使用<code>yum</code>以下命令直接安装MongoDB ：</h5>
-<div class="highlight"><pre><span></span>touch /etc/yum.repos.d/mongodb-org-4.2.repo
-</pre></div>
-
-
-<h5>编写</h5>
-<div class="highlight"><pre><span></span>[mongodb-org-4.2]
-name=MongoDB Repository
-baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/4.2/x86_64/
-gpgcheck=1
-enabled=1
-gpgkey=https://www.mongodb.org/static/pgp/server-4 …</pre></div> <a class="btn primary xsmall" href="/如何安装mongodb.html">more…</a>
-	</div>
-</div>	
-<div class='article'>
-	<h2>如何安装python3</h2>
-	<div class="well small">Permalink: <a class="more" href="/如何安装python3.html">1000-01-01 18:44:00+00:09</a>
-by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/python.html">Python</a>
-tags: <a href="/tag/python.html">Python</a> </div>
-	<div class="summary"><h5>CentOS7下安装python3</h5>
-<p>yun安装</p>
-<div class="highlight"><pre><span></span>yum install python3
-# 下面的命令是用来解决找不到python.h
-yum list |grep python3 |grep devel
-yum install python3-devel.x86_64
-</pre></div>
-
-
-<p>1、安装pyhton3.7 的依赖包</p>
-<div class="highlight"><pre><span></span>yum -y groupinstall &quot;Development tools&quot;
-yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel libffi-devel
-</pre></div>
-
-
-<p>2、下载python3.7的“源码”：</p>
-<div class="highlight"><pre><span></span>wget https://www.python.org …</pre></div> <a class="btn primary xsmall" href="/如何安装python3.html">more…</a>
-	</div>
-</div>	
-<div class='article'>
-	<h2>微信小程序发起请求</h2>
-	<div class="well small">Permalink: <a class="more" href="/微信小程序发起请求.html">1000-01-01 18:44:00+00:09</a>
-by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/xiao-cheng-xu.html">小程序</a>
-tags: <a href="/tag/xiao-cheng-xu.html">小程序</a> </div>
-	<div class="summary"><h4>发起请求</h4>
-<h5>发起请求使用的是wx.request相当于axios或者ajax，发起的请求</h5>
-<p>官方文档    <a href="https://developers.weixin.qq.com/miniprogram/dev/api/network/request/wx.request.html">https://developers.weixin.qq.com/miniprogram/dev/api/network/request/wx.request.html</a></p>
-<h5>代码</h5>
-<div class="highlight"><pre><span></span>&lt;button <span class="nv">bindtap</span><span class="o">=</span><span class="s1">&#39;click&#39;</span>&gt;按钮1&lt;/button&gt;  <span class="c1">#点击按钮触发click事件</span>
-</pre></div>
-
-
-<div class="highlight"><pre><span></span> <span class="n">click</span><span class="p">:</span><span class="n">function</span><span class="p">(){</span>
-    <span class="n">var</span> <span class="n">thit</span> <span class="o">=</span> <span class="n">this</span>
-    <span class="n">wx</span><span class="o">.</span><span class="n">request</span><span class="p">({</span>
-      <span class="n">url</span><span class="p">:</span> <span class="s1">&#39;http://127.0.0.1:8000/app01/a/&#39;</span><span class="p">,</span>  <span class="c1">#访问的路由</span>
-      <span class="n">data</span><span class="p">:{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span><span class="s1">&#39;shang&#39;</span><span class="p">},</span>   <span class="c1">#传参</span>
-      <span class="n">method</span><span class="p">:</span><span class="s2">&quot;POST&quot;</span><span class="p">,</span>    <span class="c1">#提交方式</span>
-      <span class="n">header …</span></pre></div> <a class="btn primary xsmall" href="/微信小程序发起请求.html">more…</a>
 	</div>
 </div>	
 

@@ -64,13 +64,99 @@
 			<div class="social">
 			<h3>Social</h3>
 			<ul>
-				<li><a href="https://han520min.github.io">hanmin</a></li>
+				<li><a href="https://lienze.tech/">老渔夫吃虾米</a></li>
 			</ul>
 			</div>
 		</div>
 	  </div>
 	  <div class="content">
 <div class="page-header"><h1> 商伟的技术博客 </h1></div>
+<div class='article'>
+	<h2>django分页组件（paginator）</h2>
+	<div class="well small">Permalink: <a class="more" href="/django分页组件（paginator）.html">2019-08-08 18:44:00+02:00</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/django.html">Django</a>
+tags: <a href="/tag/django.html">Django</a> </div>
+	<div class="summary"><h1>Django分页组件(paginator)</h1>
+<div class="highlight"><pre><span></span>from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>  Paginator
+</pre></div>
+
+
+<p>：创建分页对象</p>
+<p>### 分页对象内置属性</p>
+<div class="highlight"><pre><span></span><span class="nv">all_</span> <span class="o">=</span> models.objects.all<span class="o">()</span>
+<span class="nv">p</span> <span class="o">=</span> Paginator<span class="o">(</span>all_, <span class="m">10</span><span class="o">)</span>
+<span class="c1"># 分页all_数据，每页显示10条数据</span>
+p.count <span class="c1"># 总数据量</span>
+p.num_pages<span class="o">()</span> <span class="c1"># 分页数</span>
+p.page_range<span class="o">()</span> <span class="c1"># 列表形式返回当前可有的页数 [1,2,3]</span>
+<span class="nv">page_1</span> <span class="o">=</span> p.page<span class="o">(</span><span class="m">1</span><span class="o">)</span> <span class="c1"># 选择第一页，返回第一页数据对象</span>
+</pre></div>
+
+
+<h3>某一页内置属性</h3>
+<div class="highlight"><pre><span></span>page_1.number <span class="c1"># 当前页的页码</span>
+page_1.has_next<span class="o">()</span> <span class="c1"># 是否有下一页</span>
+page_1.has_previous …</pre></div> <a class="btn primary xsmall" href="/django分页组件（paginator）.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>三分钟创建一个静态网页</h2>
+	<div class="well small">Permalink: <a class="more" href="/三分钟创建一个静态网页.html">2019-08-08 18:44:00+02:00</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/django.html">Django</a>
+tags: <a href="/tag/django.html">Django</a> </div>
+	<div class="summary"><h3>这个静态网页可以用来做你自己的博客，pelican是以为法国开发者研发的，非常好用，它的每一篇文章会事先渲染成HTML静态文件，访问速度非常快。</h3>
+<h5>1)安装pelcan和markdown</h5>
+<div class="highlight"><pre><span></span>pip install pelican  markdown --upgrade
+</pre></div>
+
+
+<h5>2)创建一个文件夹用来作为博客的目录</h5>
+<div class="highlight"><pre><span></span>mkdir 博客目录
+</pre></div>
+
+
+<h5>3)cd到该目录下运行命令生成博客的框架</h5>
+<div class="highlight"><pre><span></span>cd 博客目录
+pelican-quickstart
+</pre></div>
+
+
+<h5>4)安装过程中会有很多的配置，不知道的可以直接n，后期都是可以进行修改的</h5>
+<div class="highlight"><pre><span></span>&gt; Where do you want to create your new web site? [.]
+&gt; What will be the title of this web site? 商伟的技术博客
+&gt; Who will be the author …</pre></div> <a class="btn primary xsmall" href="/三分钟创建一个静态网页.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>常见的数据结构</h2>
+	<div class="well small">Permalink: <a class="more" href="/常见的数据结构.html">2019-08-08 18:44:00+02:00</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/shu-ju-jie-gou.html">数据结构</a>
+tags: <a href="/tag/shu-ju-jie-gou.html">数据结构</a> </div>
+	<div class="summary"> <a class="btn primary xsmall" href="/常见的数据结构.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>微信小程序介绍</h2>
+	<div class="well small">Permalink: <a class="more" href="/微信小程序介绍.html">2019-08-08 18:44:00+02:00</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/xiao-cheng-xu.html">小程序</a>
+tags: <a href="/tag/xiao-cheng-xu.html">小程序</a> </div>
+	<div class="summary"><h3>开发者工具</h3>
+<p>为方便微信小程序，微信推出了微信开发者工具。</p>
+<p><a href="https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html">https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html</a></p>
+<h2>微信小程序官方文档</h2>
+<p><a href="https://developers.weixin.qq.com/miniprogram/dev/framework/">https://developers.weixin.qq.com/miniprogram/dev/framework/</a></p>
+<h2>小程序快速入门</h2>
+<p><a href="https://developers.weixin.qq.com/community/business/doc/000264e20a0dd8e69669b609451c0d">https://developers.weixin.qq.com/community/business/doc/000264e20a0dd8e69669b609451c0d</a></p> <a class="btn primary xsmall" href="/微信小程序介绍.html">more…</a>
+	</div>
+</div>	
 <div class='article'>
 	<h2>随手笔记</h2>
 	<div class="well small">Permalink: <a class="more" href="/随手笔记.html">2019-08-08 18:44:00+02:00</a>
@@ -275,171 +361,6 @@ tags: <a href="/tag/python.html">Python</a> </div>
 
 <span class="k">def</span> <span class="nf">partition</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">):</span>
     <span class="n">tmp</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">left …</span></pre></div> <a class="btn primary xsmall" href="/Python-快排&堆排&归排.html">more…</a>
-	</div>
-</div>	
-<div class='article'>
-	<h2>Python-三大排序</h2>
-	<div class="well small">Permalink: <a class="more" href="/Python-三大排序.html">1001-01-01 18:44:00+00:09</a>
-by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/python.html">Python</a>
-tags: <a href="/tag/python.html">Python</a> </div>
-	<div class="summary"><h4>冒泡排序（最好是O(n), 最坏O(n2)）</h4>
-<p><strong>原理：</strong>拿自己与上面一个比较，如果上面一个比自己小就将自己和上面一个调换位置，依次再与上面一个比较，第一轮结束后最上面那个一定是最大的数.</p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
-<span class="k">def</span> <span class="nf">bubble_sort</span><span class="p">(</span><span class="n">li</span><span class="p">):</span>
-   <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">li</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
-      <span class="n">exchange</span> <span class="o">=</span> <span class="bp">False</span>
-      <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">li</span><span class="p">)</span> <span class="o">-</span> <span class="n">i</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>  <span class="c1">#内层for循环执行一次，选出一个最大值，将可以调换位置的数调整</span>
-         <span class="k">if</span> <span class="n">li</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">li</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]:</span>
-            <span class="n">li</span><span class="p">[</span><span class="n">j</span><span class="p">],</span><span class="n">li</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">li</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span><span class="n">li …</span></pre></div> <a class="btn primary xsmall" href="/Python-三大排序.html">more…</a>
-	</div>
-</div>	
-<div class='article'>
-	<h2>Python-公共方法</h2>
-	<div class="well small">Permalink: <a class="more" href="/Python-公共方法.html">1000-01-10 18:44:00+00:09</a>
-by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/python.html">Python</a>
-tags: <a href="/tag/python.html">Python</a> </div>
-	<div class="summary"><h5>运算符</h5>
-<table>
-<thead>
-<tr>
-<th align="left">运算符</th>
-<th>Python 表达式</th>
-<th>结果</th>
-<th>描述</th>
-<th>支持的数据类型</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">+</td>
-<td>[1, 2] + [3, 4]</td>
-<td>[1, 2, 3, 4]</td>
-<td>合并</td>
-<td>字符串、列表、元组</td>
-</tr>
-<tr>
-<td align="left">*</td>
-<td>['Hi!'] * 4</td>
-<td>['Hi!', 'Hi!', 'Hi!', 'Hi!']</td>
-<td>复制</td>
-<td>字符串、列表、元组</td>
-</tr>
-<tr>
-<td align="left">in</td>
-<td>3 in (1, 2, 3)</td>
-<td>True</td>
-<td>元素是否存在</td>
-<td>字符串、列表、元组、字典</td>
-</tr>
-<tr>
-<td align="left">not in</td>
-<td>4 not in (1, 2, 3)</td>
-<td>True …</td></tr></tbody></table> <a class="btn primary xsmall" href="/Python-公共方法.html">more…</a>
-	</div>
-</div>	
-<div class='article'>
-	<h2>Python-正则</h2>
-	<div class="well small">Permalink: <a class="more" href="/Python-正则.html">1000-01-10 18:44:00+00:09</a>
-by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/python.html">Python</a>
-tags: <a href="/tag/python.html">Python</a> </div>
-	<div class="summary"><p>[TOC]</p>
-<h3>正则</h3>
-<blockquote>
-<p>一些特殊符号及文本组合在一起的用来描述字符或字符串的一些规则，叫做正则</p>
-</blockquote>
-<h4>正则中的特殊符号</h4>
-<blockquote>
-<p><strong>匹配一个范围</strong>： <strong>[]</strong>
-<strong>[A-Z]</strong>：A, B, C…
-<strong>[0-9]</strong>：1, 2, 3…</p>
-</blockquote>
-<hr>
-<blockquote>
-<p><strong>匹配任何数字字符</strong>：<strong>\d</strong>
-<strong>\d</strong>：1, 2, 3…</p>
-</blockquote>
-<hr>
-<blockquote>
-<p><strong>匹配任何空白符</strong>：<strong>\s</strong>
-<strong>\s</strong>：\t (水平制表), \v (垂直制表), \n (换行), \r (回车), \f (换页)</p>
-</blockquote>
-<hr>
-<blockquote>
-<p><strong>匹配任何数字、字母、字符及下划线</strong>：<strong>\w</strong>
-<strong>\w</strong>： a, 1, _</p>
-</blockquote>
-<hr>
-<blockquote>
-<p><strong>匹配除了换行符任意一个单个字符</strong>：<strong>.</strong>
-a<strong>.</strong>c：abc, a2c, a_c
-<strong>..</strong>：匹配任意字符组成的两个长度的字符串</p>
-</blockquote>
-<hr>
-<blockquote>
-<p><strong>匹配前面出现的正则表达式0次或多次</strong>：<strong><em>*</em></strong>
-a …</p></blockquote> <a class="btn primary xsmall" href="/Python-正则.html">more…</a>
-	</div>
-</div>	
-<div class='article'>
-	<h2>Python-集合</h2>
-	<div class="well small">Permalink: <a class="more" href="/Python-集合.html">1000-01-10 18:44:00+00:09</a>
-by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/python.html">Python</a>
-tags: <a href="/tag/python.html">Python</a> </div>
-	<div class="summary"><p>[TOC]</p>
-<h4>集合的介绍</h4>
-<ul>
-<li>
-<p>集合(set)</p>
-</li>
-<li>
-<p>集合是无序的，集合中的元素是唯一的，集合一般用于元组或者列表中的元素去重</p>
-</li>
-</ul>
-<h5>集合的添加操作</h5>
-<ul>
-<li>add</li>
-</ul>
-<div class="highlight"><pre><span></span><span class="n">set1</span><span class="p">.</span><span class="k">add</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
-</pre></div>
-
-
-<ul>
-<li>update</li>
-</ul>
-<div class="highlight"><pre><span></span><span class="c1">#是把要传入的元素拆分，做为个体传入到集合中</span>
-<span class="n">set1</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s2">&quot;abcd&quot;</span><span class="p">)</span>
-</pre></div>
-
-
-<h5>集合的删除操作</h5>
-<ul>
-<li>
-<p>remove</p>
-</li>
-<li>
-<p>使用remove删除集合中的元素 如果有 直接删除 如果没有 程序报错</p>
-<p>set1.remove(22)</p>
-</li>
-<li>
-<p>pop</p>
-</li>
-<li>使用pop删除是随机删除集合中的元素 如果set1没有元素讲程序报</li>
-<li>
-<p>set1.pop()</p>
-</li>
-<li>
-<p>discard</p>
-</li>
-<li>使用discard删除 如果元素存在 直接删除 如果元素不存在 不做任何操</li>
-<li>set1.discard(2)</li>
-</ul>
-<h4>交集和并集( &amp; 和 | )</h4>
-<h5>交集</h5>
-<div class="highlight"><pre><span></span><span class="n">set1</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4 …</span></pre></div> <a class="btn primary xsmall" href="/Python-集合.html">more…</a>
 	</div>
 </div>	
 

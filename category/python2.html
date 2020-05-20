@@ -64,13 +64,120 @@
 			<div class="social">
 			<h3>Social</h3>
 			<ul>
-				<li><a href="https://han520min.github.io">hanmin</a></li>
+				<li><a href="https://lienze.tech/">老渔夫吃虾米</a></li>
 			</ul>
 			</div>
 		</div>
 	  </div>
 	  <div class="content">
 <div class="page-header"><h1>商伟的技术博客 <small>Python</small></h1></div>
+<div class='article'>
+	<h2>Python-元祖</h2>
+	<div class="well small">Permalink: <a class="more" href="/Python-元祖.html">1000-01-09 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/python.html">Python</a>
+tags: <a href="/tag/python.html">Python</a> </div>
+	<div class="summary"><h4>元祖的介绍</h4>
+<ul>
+<li>
+<p>元祖(tuple)</p>
+</li>
+<li>
+<p>Python的元组与列表类似，不同之处在于<strong>元组的元素不能修改</strong>。元组使用小括号，列表使用方括号</p>
+</li>
+<li>
+<p>元祖 在只有一个元素的时候，要在小括号里面加上逗号。</p>
+</li>
+</ul>
+<h5>元祖不可以修改但是可以查看</h5>
+<ul>
+<li>也是下标进行查看</li>
+</ul> <a class="btn primary xsmall" href="/Python-元祖.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>Python-字典</h2>
+	<div class="well small">Permalink: <a class="more" href="/Python-字典.html">1000-01-09 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/python.html">Python</a>
+tags: <a href="/tag/python.html">Python</a> </div>
+	<div class="summary"><p>[TOC]</p>
+<h4>字典的介绍</h4>
+<div class="highlight"><pre><span></span><span class="n">info</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span><span class="s1">&#39;班长&#39;</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;sex&#39;</span><span class="p">:</span><span class="s1">&#39;f&#39;</span><span class="p">,</span> <span class="s1">&#39;address&#39;</span><span class="p">:</span><span class="s1">&#39;地球亚洲中国北京&#39;</span><span class="p">}</span>
+</pre></div>
+
+
+<ul>
+<li>字典和列表一样，也能够存储多个数据</li>
+<li>列表中找某个元素时，是根据下标进行的</li>
+<li>字典中找某个元素时，是根据'名字'（就是冒号:前面的那个值，例如上面代码中的'name'、'id'、'sex'）</li>
+<li>字典的每个元素由2部分组成，键:值。例如 'name':'班长' ,'name'为键，'班长'为值</li>
+</ul>
+<h5>字典的添加操作</h5>
+<ul>
+<li>info['id'] = ‘shangwei’</li>
+<li>如果在使用 <strong>变量名['键'] = 数据</strong> 时，这个“键”在字典中，不存在，那么就会新增这个元素</li>
+</ul>
+<h5>字典的删除操作</h5>
+<ul>
+<li>del</li>
+<li>del删除指定的元素</li>
+<li>clear()</li>
+<li>:clear清空整个字典</li>
+</ul>
+<h5>字典的修改操作 …</h5> <a class="btn primary xsmall" href="/Python-字典.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>Python-列表</h2>
+	<div class="well small">Permalink: <a class="more" href="/Python-列表.html">1000-01-08 18:44:00+00:09</a>
+by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
+ in <a href="/category/python.html">Python</a>
+tags: <a href="/tag/python.html">Python</a> </div>
+	<div class="summary"><p>[TOC]</p>
+<h4>列表的介绍</h4>
+<ul>
+<li>列表(list)</li>
+</ul>
+<p>变量nameListt的类型为列表</p>
+<div class="highlight"><pre><span></span>    <span class="n">namesList</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;xiaoWang&#39;</span><span class="p">,</span><span class="s1">&#39;xiaoZhang&#39;</span><span class="p">,</span><span class="s1">&#39;xiaoHua&#39;</span><span class="p">]</span>
+</pre></div>
+
+
+<p>比C语言的数组强大的地方在于列表中的元素可以是不同类型的</p>
+<div class="highlight"><pre><span></span>    <span class="n">testList</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">]</span>
+</pre></div>
+
+
+<h4>列表的循环遍历</h4>
+<h5>1. 使用for循环</h5>
+<p>为了更有效率的输出列表的每个数据，可以使用循环来完成</p>
+<p>demo:</p>
+<div class="highlight"><pre><span></span>    <span class="n">namesList</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;xiaoWang&#39;</span><span class="p">,</span><span class="s1">&#39;xiaoZhang&#39;</span><span class="p">,</span><span class="s1">&#39;xiaoHua&#39;</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">namesList</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+</pre></div>
+
+
+<p>结果:</p>
+<div class="highlight"><pre><span></span>    <span class="n">xiaoWang</span>
+    <span class="n">xiaoZhang</span>
+    <span class="n">xiaoHua</span>
+</pre></div>
+
+
+<h5>2. 使用while循环</h5>
+<p>为了更有效率的输出列表的每个数据，可以使用循环来完成</p>
+<p>demo:</p>
+<div class="highlight"><pre><span></span>    <span class="n">namesList</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;xiaoWang&#39;</span><span class="p">,</span><span class="s1">&#39;xiaoZhang&#39;</span><span class="p">,</span><span class="s1">&#39;xiaoHua&#39;</span><span class="p">]</span>
+
+    <span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">namesList</span><span class="p">)</span>
+
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">while</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">length …</span></pre></div> <a class="btn primary xsmall" href="/Python-列表.html">more…</a>
+	</div>
+</div>	
 <div class='article'>
 	<h2>Python-字符串</h2>
 	<div class="well small">Permalink: <a class="more" href="/Python-字符串.html">1000-01-07 18:44:00+00:09</a>
@@ -389,116 +496,14 @@ cd Python-3.7.4
 <li>6 …</li></ul> <a class="btn primary xsmall" href="/Linux下python3源码安装.html">more…</a>
 	</div>
 </div>	
-<div class='article'>
-	<h2>Python输入与输出</h2>
-	<div class="well small">Permalink: <a class="more" href="/Python输入与输出.html">1000-01-01 18:44:00+00:09</a>
-by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/python.html">Python</a>
-tags: <a href="/tag/python.html">Python</a> </div>
-	<div class="summary"><h2>Python输出</h2>
-<div class="highlight"><pre><span></span><span class="c1"># 打印提示</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">&#39;hello world&#39;</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">&#39;萨瓦迪卡---泰语，你好的意思&#39;</span><span class="p">)</span>
-</pre></div>
-
-
-<h2>2. 格式化输出</h2>
-<h3>&lt;1&gt;格式化操作的目的</h3>
-<p>比如有以下代码:</p>
-<div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;我今年10岁&quot;</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">&quot;我今年11岁&quot;</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">&quot;我今年12岁&quot;</span><span class="p">)</span>
-</pre></div>
-
-
-<ul>
-<li>想一想:</li>
-</ul>
-<blockquote>
-<p>在输出年龄的时候，用了多次"我今年xx岁"，能否简化一下程序呢？？？</p>
-</blockquote>
-<ul>
-<li>答:</li>
-</ul>
-<blockquote>
-<p>字符串格式化</p>
-</blockquote>
-<h3>&lt;2&gt;什么是格式化</h3>
-<p>看如下代码:</p>
-<div class="highlight"><pre><span></span><span class="n">age</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">&quot;我今年</span><span class="si">%d</span><span class="s2">岁&quot;</span> <span class="o">%</span> <span class="n">age</span><span class="p">)</span>
-
-<span class="n">age</span> <span class="o">+=</span> <span class="mi">1</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">&quot;我今年</span><span class="si">%d</span><span class="s2">岁&quot;</span> <span class="o">%</span> <span class="n">age</span><span class="p">)</span>
-
-<span class="n">age</span> <span class="o">+=</span> <span class="mi">1</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">&quot;我今年</span><span class="si">%d</span><span class="s2">岁&quot;</span> <span class="o">%</span> <span class="n">age …</span></pre></div> <a class="btn primary xsmall" href="/Python输入与输出.html">more…</a>
-	</div>
-</div>	
-<div class='article'>
-	<h2>如何安装python3</h2>
-	<div class="well small">Permalink: <a class="more" href="/如何安装python3.html">1000-01-01 18:44:00+00:09</a>
-by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/python.html">Python</a>
-tags: <a href="/tag/python.html">Python</a> </div>
-	<div class="summary"><h5>CentOS7下安装python3</h5>
-<p>yun安装</p>
-<div class="highlight"><pre><span></span>yum install python3
-# 下面的命令是用来解决找不到python.h
-yum list |grep python3 |grep devel
-yum install python3-devel.x86_64
-</pre></div>
-
-
-<p>1、安装pyhton3.7 的依赖包</p>
-<div class="highlight"><pre><span></span>yum -y groupinstall &quot;Development tools&quot;
-yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel libffi-devel
-</pre></div>
-
-
-<p>2、下载python3.7的“源码”：</p>
-<div class="highlight"><pre><span></span>wget https://www.python.org …</pre></div> <a class="btn primary xsmall" href="/如何安装python3.html">more…</a>
-	</div>
-</div>	
-<div class='article'>
-	<h2>Python-链接WIFI</h2>
-	<div class="well small">Permalink: <a class="more" href="/Python-链接WIFI.html">0999-01-01 18:44:00+00:09</a>
-by <a class="url fn" href="/author/shang-wei.html">商伟 </a>
- in <a href="/category/python.html">Python</a>
-tags: <a href="/tag/python.html">Python</a> </div>
-	<div class="summary"><h4>生成密码字段</h4>
-<div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
-<span class="kn">import</span> <span class="nn">itertools</span> <span class="kn">as</span> <span class="nn">its</span>
-
-<span class="c1"># 单个字符的集合</span>
-<span class="n">words</span><span class="o">=</span><span class="s2">&quot;0123456789&quot;</span>
-
-<span class="c1"># 每次任选一个字符，重复8次</span>
-<span class="n">arrays</span> <span class="o">=</span> <span class="n">its</span><span class="o">.</span><span class="n">product</span><span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="n">repeat</span> <span class="o">=</span> <span class="mi">8</span><span class="p">)</span>
-
-<span class="c1"># 写入txt文本文件</span>
-<span class="n">dictionary</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;C:/Users/Administrator/Desktop/dictionary.txt&quot;</span><span class="p">,</span><span class="s2">&quot;a&quot;</span><span class="p">)</span>
-
-<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">arrays</span><span class="p">:</span>
-    <span class="c1"># 一行密码</span>
-    <span class="n">dictionary</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">item</span><span class="p">))</span>
-    <span class="c1"># 换行</span>
-    <span class="n">dictionary</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">))</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
-
-<span class="c1"># 关闭文件</span>
-<span class="n">dictionary</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-
-<span class="k">print</span><span class="p">(</span><span class="s2">&quot;[mission completion …</span></pre></div> <a class="btn primary xsmall" href="/Python-链接WIFI.html">more…</a>
-	</div>
-</div>	
 
 <div class="pagination">
 <ul>
 		<li class="prev"><a href="/category/python.html">&larr; Previous</a></li>
 		<li class=""><a href="/category/python.html">1</a></li>
 		<li class="active"><a href="/category/python2.html">2</a></li>
-		<li class="next disabled"><a href="#">&rarr; Next</a></li>
+		<li class=""><a href="/category/python3.html">3</a></li>
+		<li class="next"><a href="/category/python3.html">Next &rarr;</a></li>
 </ul>
 </div>
 
